@@ -42,8 +42,15 @@
 | Blog: 3 live posts | `/post/<slug>/` | blog-drafts/*.md (the 3 published) | ✅ | ✅ 200, URLs preserved |
 | Blog: 3 more drafts | `/post/<slug>/` | blog-drafts/*.md (7/13, unpublished) | ⬜ | held for Gus's go |
 
-**✅ CUTOVER-READY (2026-07-15):** every live GHL URL now resolves on Netlify (verified full inventory);
-GHL `/blog/category/*` + `/blog/author/*` → `/blog/` redirects added.
+**Marketing-site URLs cutover-ready (2026-07-15):** every live GHL *marketing* URL resolves on Netlify
+(verified full inventory); GHL `/blog/category/*` + `/blog/author/*` → `/blog/` redirects added.
+
+**⛔ HARD CUTOVER BLOCKER — client SMS opt-in pages:** the 4 per-client A2P opt-in pages live ON
+`406frontdesk.com` (`/tls-opt-in`, `/mob-opt-in`, `/mikeys-tint-shop-opt-in`, Kalispell TRT's) and the
+**A2P campaign registrations point at those exact URLs**. DNS cutover kills them (GHL stops serving the apex).
+MUST migrate them to Netlify at IDENTICAL paths (embed the GHL opt-in forms, like demo/scorecard) BEFORE
+cutover — keeps the A2P-registered URLs byte-identical so no approved campaign is touched. Source:
+`raw/assets/406-front-desk/opt-in-forms/` + master template. NOT yet done.
 
 **Live preview (git-connected, auto-deploys on push):** https://rainbow-dragon-3f699c.netlify.app
 Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMS Opt-In — {{ clientName }} · 406 Front Desk</title>
+  <meta name="description" content="Opt in to receive text updates from {{ clientName }} (powered by 406 Front Desk LLC). Optional, opt out anytime by replying STOP." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink:#1A1A1A; --muted:#7a7e87; --navy:#0F2540; --amber:#E8A435; --amber-light:#fdf3e0; --amber-dark:#c98a1a; --cream:#F7F2E8; }
+    body { background: var(--cream); font-family: 'DM Sans', system-ui, sans-serif; color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    .fd406-optin-header { background: var(--cream); border-bottom: 1px solid #e2e3e6; padding: 72px 24px 40px; text-align: center; }
+    .fd406-optin-header .inner { max-width: 640px; margin: 0 auto; }
+    .fd406-optin-header .eyebrow { display: inline-block; background: var(--amber-light); color: var(--amber-dark); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 18px; }
+    .fd406-optin-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.9rem, 5vw, 2.7rem); line-height: 1.12; color: var(--navy); margin: 0 0 14px; }
+    .fd406-optin-header p { font-size: 1.02rem; color: var(--muted); line-height: 1.7; max-width: 520px; margin: 0 auto; }
+
+    .fd406-optin-form { max-width: 640px; margin: 0 auto; padding: 36px 24px 8px; }
+    .fd406-optin-form iframe { width: 100%; border: none; border-radius: 12px; background: transparent; min-height: 640px; }
+
+    .fd406-optin-footer { background: var(--cream); padding: 20px 24px 56px; text-align: center; }
+    .fd406-optin-footer .inner { max-width: 640px; margin: 0 auto; }
+    .fd406-optin-footer .fine { font-size: 12.5px; color: var(--muted); line-height: 1.65; }
+    .fd406-optin-footer .fine + .fine { margin-top: 14px; }
+    .fd406-optin-footer .fine a { color: var(--amber-dark); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+    .fd406-optin-footer .fine strong { color: var(--ink); }
+    .fd406-optin-footer .disclosure { font-size: 12.5px; color: var(--muted); margin-top: 18px; }
+    .fd406-optin-footer .agency { font-size: 11.5px; color: var(--muted); letter-spacing: .04em; margin-top: 22px; opacity: .85; }
+
+    :focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+  <header class="fd406-optin-header">
+    <div class="inner">
+      <span class="eyebrow">{{ clientName }}</span>
+      <h1>Get text updates from<br>{{ clientName }}</h1>
+      <p>Helpful updates and quick replies — straight to your phone. You're in control — opt out anytime by replying STOP.</p>
+    </div>
+  </header>
+
+  <main class="fd406-optin-form">
+    <iframe
+      src="https://api.leadconnectorhq.com/widget/form/{{ formId }}"
+      id="inline-{{ formId }}"
+      data-layout="{'id':'INLINE'}"
+      data-form-name="Consent Form - {{ clientName }}"
+      data-form-id="{{ formId }}"
+      title="SMS opt-in consent form for {{ clientName }}"
+    ></iframe>
+    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+  </main>
+
+  <footer class="fd406-optin-footer">
+    <div class="inner">
+      <p class="fine">{{ senderName }} (powered by 406 Front Desk LLC) sends appointment confirmations, reminders, service replies, and occasional offers by text. Message frequency may vary. Message and data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help.</p>
+      <p class="fine">By submitting, you confirm the mobile number is yours and consent to receive the message types you've selected above. SMS consent is not required to receive services. Reply <strong>STOP</strong> to unsubscribe or <strong>HELP</strong> for help at any time. See our
+        <a href="/privacy-policy/">Privacy Policy</a> and
+        <a href="/terms-conditions/">Terms &amp; Conditions</a>.
+      </p>
+      {% if disclosureLine %}<p class="disclosure">{{ disclosureLine }}</p>{% endif %}
+      <p class="agency">Powered by 406 Front Desk</p>
+    </div>
+  </footer>
+
+</body>
+</html>
