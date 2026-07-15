@@ -40,6 +40,8 @@
   .tag-live { background: rgba(14,168,107,0.12); color: var(--success); }
   .tag-soon { background: var(--accent-light); color: var(--accent-dark); }
   .tag-addon { background: #eef1f7; color: var(--navy); }
+  .tag-free { background: rgba(14,168,107,0.12); color: var(--success); }
+  .tag-onetime { background: var(--accent-light); color: var(--accent-dark); }
 
   .routing { background: var(--navy); margin-top: 36px; padding: 72px 24px; position: relative; overflow: hidden; }
   .routing::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 75% 25%, rgba(232,168,56,0.10) 0%, transparent 55%); }
