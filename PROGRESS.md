@@ -45,12 +45,20 @@
 **Marketing-site URLs cutover-ready (2026-07-15):** every live GHL *marketing* URL resolves on Netlify
 (verified full inventory); GHL `/blog/category/*` + `/blog/author/*` → `/blog/` redirects added.
 
-**⛔ HARD CUTOVER BLOCKER — client SMS opt-in pages:** the 4 per-client A2P opt-in pages live ON
-`406frontdesk.com` (`/tls-opt-in`, `/mob-opt-in`, `/mikeys-tint-shop-opt-in`, Kalispell TRT's) and the
-**A2P campaign registrations point at those exact URLs**. DNS cutover kills them (GHL stops serving the apex).
-MUST migrate them to Netlify at IDENTICAL paths (embed the GHL opt-in forms, like demo/scorecard) BEFORE
-cutover — keeps the A2P-registered URLs byte-identical so no approved campaign is touched. Source:
-`raw/assets/406-front-desk/opt-in-forms/` + master template. NOT yet done.
+**✅ Client SMS opt-in pages MIGRATED (2026-07-15)** — the last hard cutover blocker, cleared. Each page embeds
+the client's REAL GHL consent form at the byte-identical A2P-registered slug (standalone `optin.njk` layout,
+noindex, SSR disclosure footer). URLs unchanged → no approved A2P campaign touched. Form IDs (grabbed live from
+GHL Sites→Forms, 406 sub `To7tF3i6kQHNNNuJGqpQ`):
+
+| Slug (A2P-registered) | GHL form ID | Client |
+|---|---|---|
+| `/ktrt-opt-in` | `eZs2YAlD0LMO1Wpw7KaN` | Kalispell TRT |
+| `/tls-opt-in` | `G1uV03IAA5OPQCmyKnsd` | TL Slicks |
+| `/mob-opt-in` | `YK4AOa23HvHovkOvY9Fp` | Montana's Okayest Barber |
+| `/mikeys-tint-shop-opt-in` | `FV6rsGXId99ghK1FbweU` | Mikey's Tint Shop |
+
+**✅ TRULY CUTOVER-READY (2026-07-15):** every live GHL URL — marketing pages, blog, lead pages, AND the 4 A2P
+opt-in pages — resolves on Netlify. Only Gus's DNS flip + final widget eyeball remain.
 
 **Live preview (git-connected, auto-deploys on push):** https://rainbow-dragon-3f699c.netlify.app
 Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
