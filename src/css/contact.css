@@ -6,10 +6,10 @@
     --ink-muted: #7a7e87;
     --surface: #F8F7F4;
     --white: #ffffff;
-    --accent: #E8A838;
+    --accent: #E8A435;
     --accent-light: #fdf3e0;
     --accent-dark: #c98a1a;
-    --navy: #1B2A4A;
+    --navy: #0F2540;
     --border: #e2e3e6;
     --success: #0ea86b;
     --radius: 12px;
@@ -99,21 +99,23 @@
   }
   .avail-pulse {
     width: 46px; height: 46px; flex-shrink: 0;
-    background: rgba(14,168,107,0.16);
+    background: rgba(232,164,53,0.16);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     position: relative;
   }
-  .avail-pulse::before {
+  .avail-pulse::before,
+  .avail-pulse::after {
     content: ""; position: absolute; inset: 0;
-    border-radius: 50%; border: 2px solid var(--success);
-    animation: pulse 2s infinite;
+    border-radius: 50%; border: 2px solid var(--accent);
+    animation: pulse 2.6s ease-out infinite;
   }
+  .avail-pulse::after { animation-delay: -1.3s; }
   @keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(1.5); opacity: 0; }
+    0% { transform: scale(1); opacity: 0.9; }
+    100% { transform: scale(1.6); opacity: 0; }
   }
-  .avail-dot { width: 14px; height: 14px; background: var(--success); border-radius: 50%; }
+  .avail-dot { width: 14px; height: 14px; background: var(--accent); border-radius: 50%; }
   .avail-text h2 { font-family: 'DM Serif Display', serif; color: #fff; font-size: 21px; margin-bottom: 3px; }
   .avail-text p { color: rgba(255,255,255,0.6); font-size: 14px; }
 

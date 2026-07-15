@@ -22,11 +22,25 @@
     { "label": "Pricing", "url": "/pricing/" },
     { "label": "Contact", "url": "/contact/" }
   ],
-  "footerLinks": [
-    { "label": "Home", "url": "/" },
-    { "label": "Privacy Policy", "url": "/privacy-policy/" },
-    { "label": "Terms of Service", "url": "/terms-conditions/" },
-    { "label": "SMS Consent Policy", "url": "/sms-consent/" },
-    { "label": "Contact", "url": "/contact/" }
+  "footerGroups": [
+    { "heading": "Industries", "links": [
+      { "label": "Barbershops", "url": "/barbershops/" },
+      { "label": "Clinics", "url": "/clinics/" }
+    ] },
+    { "heading": "Areas served", "links": [
+      { "label": "Kalispell", "url": "/kalispell/" }
+    ] },
+    { "heading": "Company", "links": [
+      { "label": "What We Do", "url": "/features/" },
+      { "label": "Pricing", "url": "/pricing/" },
+      { "label": "FAQ", "url": "/faq/" },
+      { "label": "Blog", "url": "/blog/" },
+      { "label": "Contact", "url": "/contact/" }
+    ] },
+    { "heading": "Legal", "links": [
+      { "label": "Privacy Policy", "url": "/privacy-policy/" },
+      { "label": "Terms of Service", "url": "/terms-conditions/" },
+      { "label": "SMS Consent", "url": "/sms-consent/" }
+    ] }
   ]
 }

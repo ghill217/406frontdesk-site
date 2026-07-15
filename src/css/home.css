@@ -6,10 +6,10 @@
     --ink-muted: #7a7e87;
     --surface: #F8F7F4;
     --white: #ffffff;
-    --accent: #E8A838;
+    --accent: #E8A435;
     --accent-light: #fdf3e0;
     --accent-dark: #c98a1a;
-    --navy: #1B2A4A;
+    --navy: #0F2540;
     --border: #e2e3e6;
     --border-strong: #c8cad0;
     --success: #0ea86b;
@@ -143,7 +143,7 @@
   .float-label { font-weight: 600; color: var(--ink); }
   .float-sub { color: var(--ink-muted); font-size: 11px; }
   .float-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
-  .dot-green { background: var(--success); }
+  .dot-green { background: var(--accent); }
 
   section { padding: 100px 40px; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
@@ -330,7 +330,7 @@
     padding: 28px 24px; text-align: center; transition: border-color 0.2s, transform 0.2s;
   }
   .industry-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  /* Uniform amber-gold tint so all industry emoji read as one consistent set (accent #E8A838) */
+  /* Uniform amber-gold tint so all industry emoji read as one consistent set (accent #E8A435) */
   .industry-icon { font-size: 28px; margin-bottom: 12px; filter: grayscale(1) sepia(1) saturate(3.2) hue-rotate(1deg) brightness(0.92); }
   .industry-card h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
   .industry-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }

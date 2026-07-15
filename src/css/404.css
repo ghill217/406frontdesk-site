@@ -2,7 +2,7 @@
   .fd404 {
     width: 100%;
     min-height: 70vh;
-    background: #1B2A4A;
+    background: #0F2540;
     font-family: 'DM Sans', system-ui, sans-serif;
     display: flex; align-items: center; justify-content: center;
     padding: 80px 24px;
@@ -11,7 +11,7 @@
   }
   .fd404-inner { max-width: 560px; position: relative; z-index: 2; }
   .fd404-eyebrow {
-    color: #E8A838; font-size: 13px; font-weight: 700;
+    color: #E8A435; font-size: 13px; font-weight: 700;
     letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 18px;
   }
   .fd404-code {
@@ -34,12 +34,12 @@
     padding: 14px 28px; border-radius: 10px; transition: background 0.2s, color 0.2s, transform 0.15s;
   }
   .fd404-btn:hover { transform: translateY(-2px); }
-  .fd404-btn-primary { background: #E8A838; color: #1B2A4A; }
-  .fd404-btn-primary:hover { background: #fff; color: #1B2A4A; }
+  .fd404-btn-primary { background: #E8A435; color: #0F2540; }
+  .fd404-btn-primary:hover { background: #fff; color: #0F2540; }
   .fd404-btn-ghost {
     background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.28);
   }
-  .fd404-btn-ghost:hover { border-color: #E8A838; color: #E8A838; }
+  .fd404-btn-ghost:hover { border-color: #E8A435; color: #E8A435; }
   .fd404-links {
     margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);
     display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;
@@ -47,7 +47,7 @@
   .fd404-links a {
     color: rgba(255,255,255,0.55); font-size: 14px; text-decoration: none; transition: color 0.2s;
   }
-  .fd404-links a:hover { color: #E8A838; }
+  .fd404-links a:hover { color: #E8A435; }
 
   /* faint oversized Montana-feel mark */
   .fd404-watermark {

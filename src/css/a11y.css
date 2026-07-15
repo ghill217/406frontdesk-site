@@ -9,7 +9,7 @@
 
 /* Visible keyboard-only focus (brand amber ring; mouse clicks stay clean) */
 :focus-visible {
-  outline: 3px solid #E8A838;
+  outline: 3px solid #E8A435;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -19,7 +19,7 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid #E8A838;
+  outline: 3px solid #E8A435;
   outline-offset: 2px;
 }
 
@@ -29,7 +29,7 @@ select:focus-visible,
   left: 12px;
   top: -60px;
   z-index: 2000;
-  background: #1B2A4A;
+  background: #0F2540;
   color: #fff;
   padding: 10px 16px;
   border-radius: 8px;
@@ -41,6 +41,16 @@ select:focus-visible,
 }
 .skip-link:focus {
   top: 12px;
+}
+
+/* Never break a phone number or email across lines.
+   Inline tel:/mailto: links stay whole; .ccard links wrap a whole card (label + long
+   sub paragraph) so they're excluded — their value text carries .nowrap instead.
+   Plain-text (non-linked) phone/email renders also use .nowrap. */
+a[href^="tel:"]:not(.ccard),
+a[href^="mailto:"]:not(.ccard),
+.nowrap {
+  white-space: nowrap;
 }
 
 /* Respect users who prefer reduced motion (the animated phone hero, fades, smooth scroll) */

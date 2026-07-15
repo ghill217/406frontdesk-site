@@ -2,8 +2,8 @@
   :root {
     --ink: #1A1A1A; --ink-soft: #3a3d42; --ink-muted: #7a7e87;
     --surface: #F8F7F4; --white: #ffffff;
-    --accent: #E8A838; --accent-light: #fdf3e0; --accent-dark: #c98a1a;
-    --navy: #1B2A4A; --border: #e2e3e6; --border-strong: #c8cad0;
+    --accent: #E8A435; --accent-light: #fdf3e0; --accent-dark: #c98a1a;
+    --navy: #0F2540; --border: #e2e3e6; --border-strong: #c8cad0;
     --success: #0ea86b; --radius: 12px; --radius-lg: 20px;
   }
   html { scroll-behavior: smooth; }

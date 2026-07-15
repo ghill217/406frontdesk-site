@@ -2,11 +2,11 @@
    406 FRONT DESK — ESSENTIALS (Lite) landing page
    Off-nav outreach destination. Namespaced .ess-* so it never
    collides with other page CSS. Palette + type match the site
-   (navy #1B2A4A, amber #E8A435, cream #F7F7F5, DM Serif + DM Sans).
+   (navy #0F2540, amber #E8A435, cream #F7F7F5, DM Serif + DM Sans).
    ============================================================ */
 .ess-page, .ess-page * { box-sizing: border-box; }
 .ess-page {
-  --navy:#1B2A4A; --navy-deep:#132038; --navy-tint:#2A3A52;
+  --navy:#0F2540; --navy-deep:#132038; --navy-tint:#2A3A52;
   --cream:#F7F7F5; --cream-card:#FBF8F1; --cream-border:#ECE3D1;
   --amber:#E8A435; --amber-hover:#EEB659;
   --ink:#13202E; --muted-navy:#B9C2D0; --muted-cream:#5A6470;
