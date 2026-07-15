@@ -57,8 +57,14 @@ GHL Sites→Forms, 406 sub `To7tF3i6kQHNNNuJGqpQ`):
 | `/mob-opt-in` | `YK4AOa23HvHovkOvY9Fp` | Montana's Okayest Barber |
 | `/mikeys-tint-shop-opt-in` | `FV6rsGXId99ghK1FbweU` | Mikey's Tint Shop |
 
-**✅ TRULY CUTOVER-READY (2026-07-15):** every live GHL URL — marketing pages, blog, lead pages, AND the 4 A2P
-opt-in pages — resolves on Netlify. Only Gus's DNS flip + final widget eyeball remain.
+**🎉 CUTOVER COMPLETE — LIVE ON NETLIFY (2026-07-15):** `406frontdesk.com` now serves the Netlify site with
+valid SSL. DNS is managed IN GHL (registrar). Two records changed in GHL DNS: apex `A → 75.2.60.5` (Netlify LB,
+unproxied) + `CNAME www → 406frontdesk.netlify.app`; `links` (booking) + Google MX (email) + Mailgun left untouched.
+Netlify project renamed to **`406frontdesk`** (→ `406frontdesk.netlify.app`). Post-cutover check clean: 15 site
+pages + 4 A2P opt-in pages all 200, 18-URL sitemap, correct chat widget, booking + email unaffected.
+
+**Post-cutover housekeeping (optional):** disconnect the old GHL connected-products (funnel/website/blog) for
+tidiness; resubmit `sitemap.xml` to Google Search Console; (future) consolidate all domains onto Gus's own Cloudflare.
 
 **Live preview (git-connected, auto-deploys on push):** https://rainbow-dragon-3f699c.netlify.app
 Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
