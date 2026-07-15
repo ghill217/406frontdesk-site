@@ -2,3 +2,6 @@
 # Example:
 # /old-path   /new-path   301
 /book   https://links.406frontdesk.com/widget/bookings/406-20-minute-demo   302
+# GHL blog taxonomy pages (no equivalent) -> blog index
+/blog/category/*   /blog/   301
+/blog/author/*     /blog/   301
