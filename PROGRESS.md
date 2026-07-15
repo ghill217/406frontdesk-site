@@ -34,9 +34,16 @@
 | SMS Consent | `/sms-consent/` | sms-consent.html | ✅ | ✅ 200+title+css |
 | 404 | `/404.html` | 404.html | ✅ | ✅ noindex |
 | Essentials (Lite) | `/essentials/` | net-new (off-nav landing) | ✅ | ✅ 200+title+css+noindex (2026-07-15) |
-| SEO: Kalispell | TBD | seo-pages/kalispell-page.html | ⬜ | |
-| SEO: Barbershops | TBD | seo-pages/barbershops-page.html | ⬜ | |
-| Blog (6 drafts) | `/blog/...` | website/blog-drafts/*.md | ⬜ | later |
+| SEO: Kalispell | `/kalispell/` | seo-pages/kalispell-page.html | ✅ | ✅ 200, in sitemap |
+| SEO: Barbershops | `/barbershops/` | seo-pages/barbershops-page.html | ✅ | ✅ 200, in sitemap |
+| Scorecard | `/scorecard/` | scorecard.html | ✅ | ✅ 200, GHL form kept, noindex |
+| Book | `/book` → GHL booking | book-blank.html | ✅ | ✅ 302 redirect |
+| Blog index | `/blog/` | net-new (Eleventy collection) | ✅ | ✅ 200, lists 3 posts |
+| Blog: 3 live posts | `/post/<slug>/` | blog-drafts/*.md (the 3 published) | ✅ | ✅ 200, URLs preserved |
+| Blog: 3 more drafts | `/post/<slug>/` | blog-drafts/*.md (7/13, unpublished) | ⬜ | held for Gus's go |
+
+**✅ CUTOVER-READY (2026-07-15):** every live GHL URL now resolves on Netlify (verified full inventory);
+GHL `/blog/category/*` + `/blog/author/*` → `/blog/` redirects added.
 
 **Live preview (git-connected, auto-deploys on push):** https://rainbow-dragon-3f699c.netlify.app
 Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
@@ -49,7 +56,9 @@ Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
 5. ✅ /site-audit re-grade: **overall A, 12/12 A-range** (SEO+Perf A+; Trust/Local/A11y A−). 
 6. ⬜ DNS cutover (Gus's trigger): point 406frontdesk.com at Netlify after final review. Add `_redirects` for any changed URLs.
 7. ⬜ Verify booking iframe + chat widget + demo form post-cutover; confirm A2P scanner still passes.
-8. ⬜ **Chat widget (GHL-side, flagged):** off-brand + consent shows "MOB LLC" → must read 406 Front Desk LLC. Reconfigure in GHL (navy/amber, design-system avatar, footer), then /a2p-check. Queued for a live session with Gus.
+8. ✅ **Chat widget — ROOT CAUSE FIXED (7/15):** the off-brand + "MOB LLC" consent was because the site loaded the WRONG widget id (`6a1f69...`). Corrected to the real 406 SMS bot `6a5100ae557ed325dae28d63`. Remaining = a quick visual confirm the correct widget renders navy/amber + consent = 406 Front Desk LLC.
+9. ✅ **Phone-mockup hero scroll bug fixed (7/15):** `.phone-screen` was user-scrollable (`overflow-y:auto`) → now `overflow:hidden` + `pointer-events:none`; JS auto-scroll animation still works.
+10. ◑ Remaining ports: 3 unpublished blog drafts (7/13) held for Gus's go.
 
 ### A− → A+ paths (from the audit)
 - Trust: add "established 2026" + a first testimonial to the homepage proof section.
