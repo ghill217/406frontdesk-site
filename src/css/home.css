@@ -93,12 +93,12 @@
   }
   .phone-notch { width: 80px; height: 22px; background: #000; border-radius: 100px; margin: 0 auto 12px; }
   .phone-screen {
-    background: #1a1c20; border-radius: 24px; padding: 16px; height: 420px;
-    overflow: hidden; overscroll-behavior: contain; pointer-events: none; display: flex; flex-direction: column; gap: 10px;
+    background: #0F2540; border-radius: 24px; padding: 16px; height: 420px;
+    overflow: hidden; overscroll-behavior: contain; pointer-events: none; display: flex; flex-direction: column;
   }
   .phone-header {
     display: flex; align-items: center; gap: 8px; padding-bottom: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06); flex-shrink: 0;
   }
   .phone-avatar {
     width: 32px; height: 32px; background: var(--accent); border-radius: 50%;
@@ -106,7 +106,7 @@
     font-size: 13px; color: #fff; font-weight: 700;
   }
   .phone-contact-name { font-size: 13px; color: #fff; font-weight: 600; }
-  .phone-contact-sub { font-size: 10px; color: rgba(255,255,255,0.4); }
+  .phone-contact-sub { font-size: 10px; color: rgba(255,255,255,0.42); display: flex; align-items: center; gap: 5px; }
   .msg {
     max-width: 82%; padding: 9px 13px; border-radius: 16px; font-size: 12px; line-height: 1.5;
     animation: fadeUp 0.4s ease both;
@@ -138,12 +138,41 @@
     padding: 12px 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     font-size: 12px; white-space: nowrap; border: 1px solid var(--border);
   }
-  .phone-float-1 { top: 40px; right: -90px; }
-  .phone-float-2 { bottom: 80px; left: -100px; }
+  .phone-float-1 { top: -18px; right: -104px; }
+  .phone-float-2 { top: 104px; left: -120px; }
   .float-label { font-weight: 600; color: var(--ink); }
   .float-sub { color: var(--ink-muted); font-size: 11px; }
   .float-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
   .dot-green { background: var(--accent); }
+  .dot-success { background: var(--accent); }
+
+  /* ---- HERO LIVE-CALL SEQUENCE ---- */
+  .sub-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(232,164,53,.6); animation: pulse 1.6s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(232,164,53,.55); } 70% { box-shadow: 0 0 0 7px rgba(232,164,53,0); } 100% { box-shadow: 0 0 0 0 rgba(232,164,53,0); } }
+  .call-stage { flex: 1; display: flex; flex-direction: column; padding-top: 14px; min-height: 0; }
+  .ring-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center; }
+  .ring { width: 84px; height: 84px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; position: relative; }
+  .ring::before, .ring::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--accent); animation: ripple 1.8s ease-out infinite; }
+  .ring::after { animation-delay: .9s; }
+  @keyframes ripple { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.9); opacity: 0; } }
+  .ring svg { width: 36px; height: 36px; stroke: #fff; }
+  .ring-label { font-size: 13px; color: #fff; font-weight: 600; }
+  .ring-sub { font-size: 11px; color: rgba(255,255,255,0.45); }
+  .answered { flex: 1; display: none; flex-direction: column; min-height: 0; }
+  .call-badge { align-self: center; display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.72); font-size: 10px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; margin-bottom: 6px; flex-shrink: 0; }
+  .call-badge .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(232,164,53,.6); animation: pulse 1.6s infinite; }
+  .wave { display: flex; align-items: center; justify-content: center; gap: 4px; height: 30px; margin: 4px 0 12px; flex-shrink: 0; }
+  .wave span { width: 4px; border-radius: 4px; background: var(--accent); animation: wv .9s ease-in-out infinite; }
+  .wave span:nth-child(1){height:10px;animation-delay:0s} .wave span:nth-child(2){height:22px;animation-delay:.1s} .wave span:nth-child(3){height:30px;animation-delay:.2s} .wave span:nth-child(4){height:16px;animation-delay:.3s} .wave span:nth-child(5){height:26px;animation-delay:.15s} .wave span:nth-child(6){height:12px;animation-delay:.25s} .wave span:nth-child(7){height:20px;animation-delay:.05s} .wave span:nth-child(8){height:28px;animation-delay:.18s} .wave span:nth-child(9){height:14px;animation-delay:.12s}
+  @keyframes wv { 0%, 100% { transform: scaleY(.4); } 50% { transform: scaleY(1); } }
+  .transcript { flex: 1; display: flex; flex-direction: column; gap: 8px; overflow: hidden; scroll-behavior: smooth; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 20px); mask-image: linear-gradient(to bottom, transparent 0, #000 20px); }
+  .transcript .typing { align-self: flex-start; }
+  .bub { max-width: 86%; padding: 8px 12px; border-radius: 15px; font-size: 12px; line-height: 1.45; animation: fadeUp .4s ease both; }
+  .bub-in { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.86); border-bottom-left-radius: 4px; align-self: flex-start; }
+  .bub-out { background: var(--accent); color: var(--navy); border-bottom-right-radius: 4px; align-self: flex-end; }
+  .bub-eyebrow { font-size: 8.5px; text-transform: uppercase; letter-spacing: .5px; opacity: .6; display: block; margin-bottom: 2px; font-weight: 600; }
+  .booked { align-self: center; display: none; align-items: center; gap: 7px; background: rgba(232,164,53,0.18); color: var(--accent); font-size: 11px; font-weight: 600; padding: 7px 14px; border-radius: 100px; margin-top: 6px; animation: fadeUp .4s ease both; }
+  .booked svg { width: 13px; height: 13px; stroke: var(--accent); }
 
   section { padding: 100px 40px; }
   .section-inner { max-width: 1100px; margin: 0 auto; }

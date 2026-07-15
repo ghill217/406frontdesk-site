@@ -24,19 +24,37 @@ pageCss: home
               <div class="phone-avatar">AI</div>
               <div>
                 <div class="phone-contact-name">406 Front Desk</div>
-                <div class="phone-contact-sub">AI Receptionist · Active now</div>
+                <div class="phone-contact-sub"><span class="sub-dot"></span> AI Receptionist · On a call now</div>
+              </div>
+            </div>
+            <div class="call-stage">
+              <div class="ring-wrap" id="ringWrap">
+                <div class="ring">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div><div class="ring-label">Incoming call</div><div class="ring-sub">Answering live…</div></div>
+              </div>
+              <div class="answered" id="answered">
+                <div class="call-badge"><span class="pulse"></span>On a call · <span id="callTimer">0:00</span></div>
+                <div class="wave" id="wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="transcript" id="transcript"></div>
+                <div class="booked" id="booked">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                  Appointment booked
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class="phone-float phone-float-1">
           <span class="float-dot dot-green"></span>
-          <span class="float-label">Live Response</span><br/>
-          <span class="float-sub">Replied in &lt; 15 seconds</span>
+          <span class="float-label">Text answered live</span><br/>
+          <span class="float-sub">Booked, no callback needed ✓</span>
         </div>
         <div class="phone-float phone-float-2">
-          <span class="float-label">Missed Call → Text</span><br/>
-          <span class="float-sub">Auto follow-up sent ✓</span>
+          <span class="float-dot dot-success"></span>
+          <span class="float-label">Web &amp; Instagram DM</span><br/>
+          <span class="float-sub">Answered in &lt; 15 seconds</span>
         </div>
       </div>
     </div>
@@ -74,8 +92,8 @@ pageCss: home
   <div class="section-inner">
     <div class="fade-in">
       <div class="section-label">Features</div>
-      <h2 class="section-title">More than a missed-call text-back.</h2>
-      <p class="section-sub">One front desk that answers, books, and follows up across every channel — calls, texts, web chat, and social DMs. Here are three that move the needle most.</p>
+      <h2 class="section-title">One front desk. Every channel.</h2>
+      <p class="section-sub">One system that answers, books, and follows up across every channel — calls, texts, web chat, and social DMs. Here are three that move the needle most.</p>
     </div>
     <div class="features-grid fade-in">
       <div class="feature-card">
@@ -338,44 +356,69 @@ pageCss: home
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  const msgs = [
-    { type: 'in',  text: "Hey, you missed my call — are you taking new customers this week?" },
-    { type: 'out', text: "Hi! Yes — we've got openings through the week. What can we help you with?" },
-    { type: 'in',  text: "Need to get on the schedule. What's your availability?" },
-    { type: 'out', text: "I can get you booked right now. Want me to send our scheduling link? 📅" },
-    { type: 'in',  text: "Yes please!" },
-    { type: 'out', text: "Here you go → [book now]. You'll get a confirmation and a reminder before your appointment 👍" },
+  // Hero live-call sequence: ring -> answered -> waveform + transcript -> booked (loops)
+  const ringWrap = document.getElementById('ringWrap');
+  const answered = document.getElementById('answered');
+  const transcript = document.getElementById('transcript');
+  const booked = document.getElementById('booked');
+  const callTimerEl = document.getElementById('callTimer');
+  let callTimers = [], callSecs = 0, callTimerInt = null;
+
+  const convo = [
+    { who: 'in',  eyebrow: 'Caller', text: 'Hi, are you taking new clients this week?' },
+    { who: 'out', eyebrow: '406 Front Desk', text: 'We are! Thursday 2:30 is open — want it? 📅' },
+    { who: 'in',  eyebrow: 'Caller', text: 'Yeah, that works.' },
+    { who: 'out', eyebrow: '406 Front Desk', text: 'Perfect — confirmation + reminder on the way. 👍' },
   ];
-  let msgIdx = 0;
-  const screen = document.getElementById('phoneScreen');
-  let pendingTimers = [];
 
-  function addMsg() {
-    if (msgIdx >= msgs.length) return;
-    const m = msgs[msgIdx]; msgIdx++;
-    if (m.type === 'out') {
-      const t = document.createElement('div');
-      t.className = 'typing'; t.innerHTML = '<span></span><span></span><span></span>';
-      t.style.alignSelf = 'flex-start'; screen.appendChild(t); scrollPhone();
-      const tid = setTimeout(() => { if (t.parentNode === screen) screen.removeChild(t); appendMsg(m); }, 900);
-      pendingTimers.push(tid);
-    } else { appendMsg(m); }
+  function clearCall() { callTimers.forEach(clearTimeout); callTimers = []; if (callTimerInt) clearInterval(callTimerInt); }
+  function ct(fn, ms) { callTimers.push(setTimeout(fn, ms)); }
+  function callScroll() { transcript.scrollTop = transcript.scrollHeight; }
+  function callBubble(item) {
+    const d = document.createElement('div');
+    d.className = 'bub bub-' + item.who;
+    d.innerHTML = '<span class="bub-eyebrow">' + item.eyebrow + '</span>' + item.text;
+    transcript.appendChild(d); callScroll();
+  }
+  function callTyping() {
+    const d = document.createElement('div'); d.className = 'typing'; d.id = 'callTyping';
+    d.innerHTML = '<span></span><span></span><span></span>'; transcript.appendChild(d); callScroll();
+  }
+  function killCallTyping() { const x = document.getElementById('callTyping'); if (x) x.remove(); }
+
+  function callRun() {
+    clearCall();
+    ringWrap.style.display = 'flex';
+    answered.style.display = 'none';
+    transcript.innerHTML = '';
+    booked.style.display = 'none';
+    callSecs = 0; callTimerEl.textContent = '0:00';
+    ct(() => {
+      ringWrap.style.display = 'none';
+      answered.style.display = 'flex';
+      callTimerInt = setInterval(() => { callSecs++; const m = Math.floor(callSecs / 60); const s = String(callSecs % 60).padStart(2, '0'); callTimerEl.textContent = m + ':' + s; }, 1000);
+    }, 1650);
+    const base = 2500;
+    const beats = [0, 1950, 4050, 5950];
+    convo.forEach((item, i) => {
+      const at = base + beats[i];
+      if (item.who === 'out') { ct(() => { callTyping(); }, at - 800); ct(() => { killCallTyping(); callBubble(item); }, at); }
+      else { ct(() => { callBubble(item); }, at); }
+    });
+    ct(() => { booked.style.display = 'inline-flex'; callScroll(); }, base + 7150);
+    ct(callRun, base + 11200);
   }
 
-  function appendMsg(m) {
-    const div = document.createElement('div');
-    div.className = 'msg msg-' + m.type; div.textContent = m.text;
-    screen.appendChild(div); scrollPhone();
+  if (ringWrap && answered) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // Static end-state (no loop): answered, full transcript, booked shown
+      ringWrap.style.display = 'none';
+      answered.style.display = 'flex';
+      callTimerEl.textContent = '0:12';
+      convo.forEach(callBubble);
+      booked.style.display = 'inline-flex';
+    } else {
+      setTimeout(callRun, 600);
+    }
   }
-
-  function scrollPhone() { screen.scrollTo({ top: screen.scrollHeight, behavior: 'smooth' }); }
-
-  function runLoop() {
-    pendingTimers.forEach(id => clearTimeout(id)); pendingTimers = []; msgIdx = 0;
-    const header = screen.querySelector('.phone-header'); screen.innerHTML = ''; screen.appendChild(header);
-    const intervals = [1200, 2200, 3800, 5000, 6800, 7600];
-    intervals.forEach(delay => { const tid = setTimeout(addMsg, delay); pendingTimers.push(tid); });
-    const restartId = setTimeout(runLoop, 14000); pendingTimers.push(restartId);
-  }
-  setTimeout(runLoop, 800);
 </script>
