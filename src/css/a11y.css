@@ -1,0 +1,54 @@
+/* ============================================================
+   Site-wide accessibility — loaded on every page after page CSS.
+   Keyboard focus, skip link, reduced-motion.
+   ============================================================ */
+
+/* Contrast: nudge the muted gray from #7a7e87 (~3.9:1 on cream) to pass WCAG AA (~4.8:1).
+   Global override — loads after each page's own :root, so it applies everywhere. */
+:root { --ink-muted: #696d76; }
+
+/* Visible keyboard-only focus (brand amber ring; mouse clicks stay clean) */
+:focus-visible {
+  outline: 3px solid #E8A838;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #E8A838;
+  outline-offset: 2px;
+}
+
+/* Skip-to-content link — hidden until focused */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 2000;
+  background: #1B2A4A;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Respect users who prefer reduced motion (the animated phone hero, fades, smooth scroll) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

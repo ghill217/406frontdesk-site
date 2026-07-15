@@ -51,7 +51,7 @@ Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
 ## Remaining phases
 1. ✅ Port pages 2–10 (done 2026-07-15).
 2. ◑ Asset polish: ✅ favicon + apple-touch + 1200×630 OG image (from design system). Pending: WebP, self-host fonts.
-3. ⬜ A2P/compliance check: SMS disclosures render in static HTML (SSR). Re-run /a2p-check on live pages + widget consent.
+3. ✅ /a2p-check PASS (2026-07-15): consent pages preserve all clauses (checkbox-scoped, no bundling, no-third-party-share, STOP/HELP, freq, data rates); demo form checkbox-scoped + 406 LLC branded; scorecard email-only (no A2P scope). Static SSR reads clean for the scanner. Cutover keeps A2P valid (same URLs, same clauses).
 4. ✅ One-time connect (done): GitHub `ghill217/406frontdesk-site` → Netlify `rainbow-dragon-3f699c.netlify.app`, auto-deploy on push.
 5. ✅ /site-audit re-grade: **overall A, 12/12 A-range** (SEO+Perf A+; Trust/Local/A11y A−). 
 6. ⬜ DNS cutover (Gus's trigger): point 406frontdesk.com at Netlify after final review. Add `_redirects` for any changed URLs.

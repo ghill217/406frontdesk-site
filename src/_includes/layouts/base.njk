@@ -33,6 +33,7 @@
 
   {# ---- Page styles ---- #}
   {% if pageCss %}<link rel="stylesheet" href="/css/{{ pageCss }}.css" />{% endif %}
+  <link rel="stylesheet" href="/css/a11y.css" />
 
   {# ---- Structured data: LocalBusiness ---- #}
   <script type="application/ld+json">
@@ -53,14 +54,25 @@
     },
     "description": "AI receptionist for local service businesses — answers calls, texts, and chats 24/7, books appointments, and follows up automatically.",
     "priceRange": "$$",
-    "slogan": "Always Answering"
+    "slogan": "Always Answering",
+    "foundingDate": "2026",
+    "founder": { "@type": "Person", "name": "Gus Hill" },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    }
   }
   </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 {% include "partials/header.njk" %}
 
+<main id="main">
 {{ content | safe }}
+</main>
 
 {% include "partials/footer.njk" %}
 
