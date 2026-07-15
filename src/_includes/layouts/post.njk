@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+---
+<article class="post">
+  <div class="post-inner">
+    <p class="post-eyebrow"><a href="/blog/">&larr; All articles</a></p>
+    <h1 class="post-title">{{ title }}</h1>
+    <p class="post-meta">{{ date | readableDate }} &middot; 406 Front Desk</p>
+    <div class="post-body">
+      {{ content | safe }}
+    </div>
+    <div class="post-cta">
+      <p>See what a 24/7 AI receptionist would do for your business.</p>
+      <div class="post-cta-btns">
+        <a class="btn-primary" href="/demo/">Try the Live Demo</a>
+        <a class="btn-secondary" href="/contact/">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</article>

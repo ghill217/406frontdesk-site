@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+title: Blog
+description: Straight talk on missed calls, AI receptionists, and getting more out of every lead — from 406 Front Desk in Kalispell, Montana.
+pageCss: post
+permalink: /blog/
+---
+<section class="bloglist">
+  <div class="bloglist-inner">
+    <div class="section-label">Blog</div>
+    <h1 class="bloglist-title">The 406 Front Desk Blog</h1>
+    <p class="bloglist-sub">Straight talk on missed calls, AI receptionists, and getting more out of every lead — no hype, from a Montana company that builds them.</p>
+    <div class="post-list">
+      {%- for post in collections.posts | reverse %}
+      <a class="post-card" href="{{ post.url }}">
+        <h2>{{ post.data.title }}</h2>
+        <p>{{ post.data.description }}</p>
+        <span class="post-card-meta">{{ post.date | readableDate }} &middot; Read &rarr;</span>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

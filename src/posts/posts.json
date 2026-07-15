@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/post.njk",
+  "tags": "posts",
+  "ogType": "article",
+  "pageCss": "post",
+  "permalink": "/post/{{ page.fileSlug }}/"
+}
