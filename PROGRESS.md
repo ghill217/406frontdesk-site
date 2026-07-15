@@ -33,6 +33,7 @@
 | Terms | `/terms-conditions/` | terms-conditions.html | ✅ | ✅ 200+title+css |
 | SMS Consent | `/sms-consent/` | sms-consent.html | ✅ | ✅ 200+title+css |
 | 404 | `/404.html` | 404.html | ✅ | ✅ noindex |
+| Essentials (Lite) | `/essentials/` | net-new (off-nav landing) | ✅ | ✅ 200+title+css+noindex (2026-07-15) |
 | SEO: Kalispell | TBD | seo-pages/kalispell-page.html | ⬜ | |
 | SEO: Barbershops | TBD | seo-pages/barbershops-page.html | ⬜ | |
 | Blog (6 drafts) | `/blog/...` | website/blog-drafts/*.md | ⬜ | later |
