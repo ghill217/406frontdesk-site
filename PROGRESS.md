@@ -41,13 +41,19 @@
 Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
 
 ## Remaining phases
-1. Port pages 2–10 (same machine: extract `<style>`→css, body→template, base64→files, links root-relative).
-2. Asset polish: real square favicon, proper 1200×630 OG image, optimize/serve WebP, self-host fonts (perf).
-3. A2P/compliance check: SMS disclosures render in static HTML (SSR — better for GHL scanner). Re-run /a2p-check.
-4. One-time connect (Gus): create GitHub repo, push, connect Netlify to repo, deploy → Netlify preview URL.
-5. Pixel-compare new build vs live GHL site; run /site-audit before/after for the A+ receipt.
-6. DNS cutover: point 406frontdesk.com at Netlify only after pixel-verified. Add `_redirects` for any changed URLs.
-7. Verify booking iframe + chat widget + demo form all work post-cutover; confirm A2P scanner still passes.
+1. ✅ Port pages 2–10 (done 2026-07-15).
+2. ◑ Asset polish: ✅ favicon + apple-touch + 1200×630 OG image (from design system). Pending: WebP, self-host fonts.
+3. ⬜ A2P/compliance check: SMS disclosures render in static HTML (SSR). Re-run /a2p-check on live pages + widget consent.
+4. ✅ One-time connect (done): GitHub `ghill217/406frontdesk-site` → Netlify `rainbow-dragon-3f699c.netlify.app`, auto-deploy on push.
+5. ✅ /site-audit re-grade: **overall A, 12/12 A-range** (SEO+Perf A+; Trust/Local/A11y A−). 
+6. ⬜ DNS cutover (Gus's trigger): point 406frontdesk.com at Netlify after final review. Add `_redirects` for any changed URLs.
+7. ⬜ Verify booking iframe + chat widget + demo form post-cutover; confirm A2P scanner still passes.
+8. ⬜ **Chat widget (GHL-side, flagged):** off-brand + consent shows "MOB LLC" → must read 406 Front Desk LLC. Reconfigure in GHL (navy/amber, design-system avatar, footer), then /a2p-check. Queued for a live session with Gus.
+
+### A− → A+ paths (from the audit)
+- Trust: add "established 2026" + a first testimonial to the homepage proof section.
+- Local: add street address + hours to LocalBusiness schema (base.njk) + contact page.
+- A11y: full contrast + keyboard pass.
 
 ## Notes / gotchas
 - Local build: `npm run build`; dev server: `npm start` (Eleventy serve on :8080). Node at `C:\Program Files\nodejs`.
