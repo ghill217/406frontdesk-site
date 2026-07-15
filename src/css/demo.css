@@ -1,0 +1,178 @@
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1A1A1A;
+    --ink-soft: #3a3d42;
+    --ink-muted: #7a7e87;
+    --surface: #F8F7F4;
+    --white: #ffffff;
+    --accent: #E8A838;
+    --accent-light: #fdf3e0;
+    --accent-dark: #c98a1a;
+    --navy: #1B2A4A;
+    --border: #e2e3e6;
+    --border-strong: #c8cad0;
+    --success: #0ea86b;
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+.nav-back {
+    text-decoration: none; color: var(--ink-soft); font-size: 14px; font-weight: 500;
+    padding: 9px 18px; border: 1px solid var(--border); border-radius: 8px; transition: all 0.2s;
+  }
+  .nav-back:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 760px) {}
+
+  .header-band {
+    background: var(--navy);
+    padding: 130px 40px 80px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .header-band::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(232,168,56,0.14) 0%, transparent 55%);
+  }
+  .header-eyebrow {
+    position: relative; display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+  }
+  .header-eyebrow::before {
+    content: ''; width: 6px; height: 6px; background: var(--accent);
+    border-radius: 50%; display: inline-block;
+  }
+  .header-band h1 {
+    position: relative; font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 5vw, 54px); color: #fff;
+    letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.1;
+  }
+  .header-band h1 em { font-style: italic; color: var(--accent); }
+  .header-band p { position: relative; color: rgba(255,255,255,0.62); font-size: 16px; max-width: 480px; margin: 0 auto; line-height: 1.65; }
+
+  .page-inner {
+    max-width: 960px; margin: -48px auto 0;
+    padding: 0 24px 40px;
+    position: relative;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+  }
+
+  .bullets-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: 0 20px 50px -28px rgba(27,42,74,0.2);
+  }
+  .bullets-card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.5px;
+  }
+  .bullets-card p { font-size: 14px; color: var(--ink-muted); margin-bottom: 28px; }
+
+  .bullet-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+  .bullet-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 14px 18px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  .bullet-icon {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--accent-light); color: var(--accent-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; flex-shrink: 0; margin-top: 1px;
+  }
+  .bullet-text strong { font-size: 14px; display: block; color: var(--ink); margin-bottom: 2px; font-weight: 600; }
+  .bullet-text span { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+
+  .divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+  .trust-row { display: flex; flex-direction: column; gap: 10px; }
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .trust-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
+
+  .form-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: 0 20px 50px -28px rgba(27,42,74,0.2);
+  }
+  .form-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.5px;
+  }
+  .form-sub { font-size: 14px; color: var(--ink-muted); margin-bottom: 24px; }
+
+  /* ── ON-PAGE CONSENT DISCLOSURE (readable by A2P scanner) ── */
+  .consent-disclosure {
+    margin-top: 22px;
+    padding: 18px 20px;
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .consent-disclosure strong { color: var(--ink); font-weight: 600; }
+  .consent-disclosure a { color: var(--navy); text-decoration: underline; }
+
+  /* ── PREFER-A-CALL OPTION ── */
+  .call-block { margin-top: 24px; text-align: center; }
+  .call-block strong { display: block; font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .call-block span { display: block; font-size: 13px; color: var(--ink-muted); margin-bottom: 14px; line-height: 1.5; }
+  .call-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 15px 18px;
+    background: var(--navy); color: #fff;
+    border-radius: 10px; text-decoration: none;
+    font-weight: 600; font-size: 15px;
+    transition: background 0.2s, transform 0.18s;
+  }
+  .call-btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
+  .call-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  /* ── LIVE BOOKING ── */
+  .booking-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+  .booking-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: 0 20px 50px -28px rgba(27,42,74,0.2);
+  }
+  .booking-card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.5px;
+  }
+  .booking-card .booking-sub { font-size: 14px; color: var(--ink-muted); margin-bottom: 24px; }
+  .booking-card iframe { width: 100%; min-height: 720px; border: none; border-radius: 8px; }
+
+@media (max-width: 780px) {
+.header-band { padding: 110px 20px 70px; }
+    .page-inner { grid-template-columns: 1fr; margin-top: -32px; }
+  }
+
+  /* ── HAMBURGER + MOBILE MENU ── */
+@media (max-width: 760px) {
+}
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }

@@ -1,0 +1,170 @@
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1A1A1A;
+    --ink-soft: #3a3d42;
+    --ink-muted: #7a7e87;
+    --surface: #F8F7F4;
+    --white: #ffffff;
+    --accent: #E8A838;
+    --accent-light: #fdf3e0;
+    --accent-dark: #c98a1a;
+    --navy: #1B2A4A;
+    --border: #e2e3e6;
+    --border-strong: #c8cad0;
+    --success: #0ea86b;
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV — identical to homepage */
+.nav-back {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px; font-weight: 500;
+    padding: 9px 18px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  .nav-back:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 760px) {}
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 140px 40px 60px;
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-header::before {
+    content: ''; position: absolute; top: -60px; right: -80px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle at center, rgba(232,168,56,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-header-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+  .eyebrow {
+    display: inline-block; background: var(--accent-light);
+    color: var(--accent-dark); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
+  }
+  .page-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height: 1.12; color: var(--ink); margin-bottom: 16px;
+  }
+  .page-header h1 em { font-style: italic; color: var(--accent-dark); }
+  .page-header p {
+    font-size: 1.05rem; color: var(--ink-muted);
+    max-width: 560px; line-height: 1.7;
+  }
+
+  /* CONTENT */
+  main { max-width: 800px; margin: 0 auto; padding: 60px 40px 90px; }
+
+  /* TRUST STRIP */
+  .trust-strip {
+    background: var(--navy); border-radius: var(--radius-lg);
+    padding: 24px 32px; display: flex; flex-wrap: wrap;
+    gap: 14px 32px; align-items: center; margin-bottom: 48px;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.78); font-size: 14px;
+  }
+  .trust-item .check { color: var(--accent); font-weight: 700; }
+
+  /* POLICY SECTIONS */
+  .policy-section { margin-bottom: 44px; }
+  .policy-section:last-child { margin-bottom: 0; }
+  .policy-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; color: var(--ink); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .policy-section h2 .num {
+    width: 32px; height: 32px; flex-shrink: 0;
+    background: var(--accent-light); color: var(--accent-dark);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+  }
+  .policy-section p {
+    color: var(--ink-soft); font-size: 1rem; line-height: 1.8; margin-bottom: 12px;
+  }
+  .policy-section p:last-child { margin-bottom: 0; }
+  .policy-section strong { color: var(--ink); font-weight: 600; }
+  .policy-section a {
+    color: var(--accent-dark); font-weight: 500;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+
+  /* HIGHLIGHT CARD */
+  .highlight-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius); padding: 24px 28px; margin-top: 8px;
+  }
+  .highlight-card .msg-row {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    font-size: 0.97rem; color: var(--ink-soft);
+  }
+  .highlight-card .msg-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .highlight-card .msg-row:first-child { padding-top: 0; }
+  .highlight-card .msg-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .highlight-card .msg-row strong { color: var(--ink); }
+
+  /* OPT-OUT LIST */
+  .opt-out-list { list-style: none; margin-top: 8px; display: flex; flex-direction: column; gap: 12px; }
+  .opt-out-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    color: var(--ink-soft); font-size: 1rem; line-height: 1.65;
+  }
+  .opt-out-list .badge {
+    background: var(--navy); color: #fff; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.05em; padding: 3px 10px; border-radius: 100px;
+    flex-shrink: 0; margin-top: 3px;
+  }
+
+  /* CTA */
+  .cta-band {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 44px 40px; text-align: center;
+    margin-top: 60px;
+  }
+  .cta-band h2 {
+    font-family: 'DM Serif Display', serif; font-size: 1.8rem;
+    color: var(--ink); margin-bottom: 10px;
+  }
+  .cta-band p { color: var(--ink-muted); font-size: 1rem; margin-bottom: 26px; }
+  .btn-primary {
+    display: inline-block; background: var(--accent); color: var(--navy);
+    font-weight: 600; font-size: 15px; padding: 13px 30px; border-radius: 8px;
+    text-decoration: none; transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent-dark); color: #fff; transform: translateY(-1px); }
+
+  /* FOOTER — identical to homepage */
+@media (max-width: 900px) {
+.page-header { padding: 120px 24px 50px; }
+    main { padding: 50px 24px 70px; }
+    .trust-strip { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .cta-band { padding: 36px 24px; }
+  }
+
+  /* ── HAMBURGER + MOBILE MENU ── */
+@media (max-width: 760px) {
+}
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }

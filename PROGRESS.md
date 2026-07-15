@@ -24,18 +24,21 @@
 | Page | URL | Source | Ported | Verified |
 |------|-----|--------|--------|----------|
 | Home | `/` | home.html | ✅ | ✅ build+render |
-| Features | `/features/` | features.html | ⬜ | |
-| Pricing | `/pricing/` | pricing.html | ⬜ | |
-| FAQ | `/faq/` | faq.html | ⬜ | |
-| Contact | `/contact/` | contact.html | ⬜ | |
-| Demo | `/demo/` | demo-page.html | ⬜ | |
-| Privacy Policy | `/privacy-policy/` | privacy-policy.html | ⬜ | |
-| Terms | `/terms-conditions/` | terms-conditions.html | ⬜ | |
-| SMS Consent | `/sms-consent/` | sms-consent.html | ⬜ | |
-| 404 | `/404.html` | 404.html | ⬜ | |
+| Features | `/features/` | features.html | ✅ | ✅ 200+title+css |
+| Pricing | `/pricing/` | pricing.html | ✅ | ✅ render spot-check |
+| FAQ | `/faq/` | faq.html | ✅ | ✅ 200+title+css |
+| Contact | `/contact/` | contact.html | ✅ | ✅ tel+mailto live |
+| Demo | `/demo/` | demo-page.html | ✅ | ✅ booking iframe kept |
+| Privacy Policy | `/privacy-policy/` | privacy-policy.html | ✅ | ✅ 200+title+css |
+| Terms | `/terms-conditions/` | terms-conditions.html | ✅ | ✅ 200+title+css |
+| SMS Consent | `/sms-consent/` | sms-consent.html | ✅ | ✅ 200+title+css |
+| 404 | `/404.html` | 404.html | ✅ | ✅ noindex |
 | SEO: Kalispell | TBD | seo-pages/kalispell-page.html | ⬜ | |
 | SEO: Barbershops | TBD | seo-pages/barbershops-page.html | ⬜ | |
 | Blog (6 drafts) | `/blog/...` | website/blog-drafts/*.md | ⬜ | later |
+
+**Live preview (git-connected, auto-deploys on push):** https://rainbow-dragon-3f699c.netlify.app
+Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
 
 ## Remaining phases
 1. Port pages 2–10 (same machine: extract `<style>`→css, body→template, base64→files, links root-relative).

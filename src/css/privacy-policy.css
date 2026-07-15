@@ -1,0 +1,164 @@
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1A1A1A;
+    --ink-soft: #3a3d42;
+    --ink-muted: #7a7e87;
+    --surface: #F8F7F4;
+    --white: #ffffff;
+    --accent: #E8A838;
+    --accent-light: #fdf3e0;
+    --accent-dark: #c98a1a;
+    --navy: #1B2A4A;
+    --border: #e2e3e6;
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+.nav-back {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px; font-weight: 500;
+    padding: 9px 18px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  .nav-back:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 760px) {}
+
+  /* ── HEADER BAND ── */
+  .header-band {
+    background: var(--navy);
+    padding: 130px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-band::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(232,168,56,0.12) 0%, transparent 55%);
+  }
+  .header-eyebrow {
+    position: relative;
+    display: inline-block;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .header-band h1 {
+    position: relative;
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .header-band p {
+    position: relative;
+    color: rgba(255,255,255,0.6);
+    font-size: 15px;
+  }
+
+  /* ── CONTENT ── */
+  .wrap {
+    max-width: 760px;
+    margin: -28px auto 0;
+    padding: 0 24px 100px;
+    position: relative;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: clamp(32px, 5vw, 60px);
+    box-shadow: 0 20px 50px -28px rgba(27,42,74,0.25);
+  }
+
+  .card section { margin-bottom: 38px; }
+  .card section:last-child { margin-bottom: 0; }
+
+  .card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  .card h2 .num {
+    font-size: 14px;
+    color: var(--accent);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    border: 1px solid var(--accent-light);
+    background: var(--accent-light);
+    border-radius: 6px;
+    padding: 2px 9px;
+    flex-shrink: 0;
+  }
+
+  .card p { color: var(--ink-soft); font-size: 15.5px; margin-bottom: 12px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .card ul { list-style: none; margin: 6px 0 0; }
+  .card li {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    padding: 7px 0 7px 26px;
+    position: relative;
+  }
+  .card li::before {
+    content: "";
+    position: absolute; left: 4px; top: 15px;
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .card li strong { color: var(--ink); font-weight: 600; }
+
+  .card a { color: var(--accent-dark); font-weight: 500; }
+
+  .effective {
+    display: inline-block;
+    font-size: 13px; font-weight: 500;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 16px;
+    margin-bottom: 34px;
+  }
+
+  .intro {
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    padding-bottom: 34px;
+    margin-bottom: 38px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── FOOTER ── */
+@media (max-width: 600px) {
+.header-band { padding: 110px 20px 56px; }
+    .card h2 { font-size: 20px; }
+  }
+
+  /* ── HAMBURGER + MOBILE MENU ── */
+@media (max-width: 760px) {
+}
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
