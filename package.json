@@ -1,0 +1,14 @@
+{
+  "name": "406-frontdesk-site",
+  "version": "1.0.0",
+  "description": "406 Front Desk marketing site — static, built with Eleventy, deployed on Netlify.",
+  "private": true,
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve --quiet",
+    "dev": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

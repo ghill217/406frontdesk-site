@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {# ---- SEO ---- #}
+  <title>{{ title }}{% if title %} · {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description }}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  {% if noindex %}<meta name="robots" content="noindex, follow" />{% endif %}
+
+  {# ---- Open Graph / social ---- #}
+  <meta property="og:type" content="{{ ogType or 'website' }}" />
+  <meta property="og:site_name" content="{{ site.name }}" />
+  <meta property="og:title" content="{{ ogTitle or title or site.name }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:image" content="{{ site.url }}{{ ogImage or site.ogImage }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ ogTitle or title or site.name }}" />
+  <meta name="twitter:description" content="{{ description }}" />
+  <meta name="twitter:image" content="{{ site.url }}{{ ogImage or site.ogImage }}" />
+
+  {# ---- Icons ---- #}
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/img/favicon.png" />
+
+  {# ---- Fonts ---- #}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  {# ---- Page styles ---- #}
+  {% if pageCss %}<link rel="stylesheet" href="/css/{{ pageCss }}.css" />{% endif %}
+
+  {# ---- Structured data: LocalBusiness ---- #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "406 Front Desk",
+    "legalName": "406 Front Desk LLC",
+    "url": "https://406frontdesk.com",
+    "telephone": "+14068400404",
+    "email": "admin@406frontdesk.com",
+    "areaServed": "Flathead Valley, Montana",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kalispell",
+      "addressRegion": "MT",
+      "addressCountry": "US"
+    },
+    "description": "AI receptionist for local service businesses — answers calls, texts, and chats 24/7, books appointments, and follows up automatically.",
+    "priceRange": "$$",
+    "slogan": "Always Answering"
+  }
+  </script>
+</head>
+<body>
+{% include "partials/header.njk" %}
+
+{{ content | safe }}
+
+{% include "partials/footer.njk" %}
+
+{# GHL chat widget — site-wide, loaded async so it never blocks first paint #}
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="{{ site.chatWidgetId }}" data-source="WEB_USER" async></script>
+</body>
+</html>

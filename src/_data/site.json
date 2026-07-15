@@ -1,0 +1,32 @@
+{
+  "name": "406 Front Desk",
+  "legalName": "406 Front Desk LLC",
+  "tagline": "Always Answering",
+  "url": "https://406frontdesk.com",
+  "phone": "+14068400404",
+  "phoneDisplay": "(406) 840-0404",
+  "email": "admin@406frontdesk.com",
+  "city": "Kalispell",
+  "region": "MT",
+  "regionName": "Montana",
+  "areaServed": "Flathead Valley",
+  "founder": "Gus Hill",
+  "ogImage": "/assets/img/og-default.jpg",
+  "demoBookingUrl": "https://links.406frontdesk.com/widget/bookings/406-20-minute-demo",
+  "chatWidgetId": "6a1f69919f5b0cd19a33c997",
+  "demoFormId": "HdbxpqHMurKjaUkoCs6W",
+  "nav": [
+    { "label": "How It Works", "url": "/#how" },
+    { "label": "What We Do", "url": "/features/" },
+    { "label": "FAQ", "url": "/faq/" },
+    { "label": "Pricing", "url": "/pricing/" },
+    { "label": "Contact", "url": "/contact/" }
+  ],
+  "footerLinks": [
+    { "label": "Home", "url": "/" },
+    { "label": "Privacy Policy", "url": "/privacy-policy/" },
+    { "label": "Terms of Service", "url": "/terms-conditions/" },
+    { "label": "SMS Consent Policy", "url": "/sms-consent/" },
+    { "label": "Contact", "url": "/contact/" }
+  ]
+}

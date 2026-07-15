@@ -1,0 +1,3 @@
+# Netlify redirects. Old GHL URLs → new clean URLs (add as needed once live).
+# Example:
+# /old-path   /new-path   301
