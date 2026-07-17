@@ -1,0 +1,111 @@
+---
+layout: layouts/base.njk
+title: Missed-Call Calculator
+description: What are missed calls really costing your business? Use your own numbers — customer value, missed calls, booking rate — and see the revenue walking out the door.
+pageCss: roi
+permalink: /roi/
+---
+
+<div class="header-band">
+  <span class="header-eyebrow">The Math</span>
+  <h1>What are missed calls <em>really</em> costing you?</h1>
+  <p>No made-up industry stats. Drag three sliders with your own numbers and see what walks out the door when nobody answers.</p>
+</div>
+
+<div class="wrap">
+  <div class="calc-card fade-in">
+    <div class="sliders">
+      <div class="slider-row">
+        <div class="slider-head">
+          <label for="rTicket">What's a new customer worth to you?</label>
+          <span class="slider-val" id="rTicketV">$300</span>
+        </div>
+        <input type="range" id="rTicket" min="25" max="3000" step="25" value="300" aria-describedby="rTicketHint">
+        <p class="slider-hint" id="rTicketHint">Think beyond the first visit — a good customer usually comes back.</p>
+      </div>
+
+      <div class="slider-row">
+        <div class="slider-head">
+          <label for="rLeads">Calls &amp; messages you miss in a month</label>
+          <span class="slider-val" id="rLeadsV">10</span>
+        </div>
+        <input type="range" id="rLeads" min="1" max="50" step="1" value="10" aria-describedby="rLeadsHint">
+        <p class="slider-hint" id="rLeadsHint">Busy with a customer, after hours, on the other line — the ones that go to voicemail or nowhere.</p>
+      </div>
+
+      <div class="slider-row">
+        <div class="slider-head">
+          <label for="rClose">How many would book if answered instantly?</label>
+          <span class="slider-val" id="rCloseV">30%</span>
+        </div>
+        <input type="range" id="rClose" min="10" max="70" step="5" value="30" aria-describedby="rCloseHint">
+        <p class="slider-hint" id="rCloseHint">Your normal booking rate, applied to the people you never got to answer.</p>
+      </div>
+    </div>
+
+    <div class="result" role="status" aria-live="polite">
+      <div class="result-label">Walking out the door</div>
+      <div class="result-big" id="rMonthly">$900<span>/month</span></div>
+      <div class="result-year">That's <strong id="rYearly">$10,800</strong> a year — from customers who already tried to reach you.</div>
+    </div>
+  </div>
+
+  <p class="honesty fade-in">Your sliders, your math: missed calls × your booking rate × what a customer is worth.
+    We don't pad it with "industry averages" — the honest number is convincing enough.</p>
+</div>
+
+<section class="context">
+  <div class="section-inner">
+    <div class="section-head fade-in">
+      <div class="section-label">Why It Adds Up</div>
+      <h2 class="section-title">You never hear the calls you miss.</h2>
+      <p class="section-sub">A missed call doesn't complain — it just books somewhere else. The customers you lose
+        this way never show up in any report, which is why the leak feels invisible until you do the math above.</p>
+    </div>
+    <div class="ctx-grid fade-in">
+      <div class="ctx-cell"><h3>While you're working</h3><p>Mid-haircut, mid-appointment, mid-job — exactly when you can't pick up is when the next customer calls.</p></div>
+      <div class="ctx-cell"><h3>After hours</h3><p>People search and reach out at night and on Sundays. If nothing answers, the next result on Google does.</p></div>
+      <div class="ctx-cell"><h3>Voicemail isn't a safety net</h3><p>Callers who wanted an answer now rarely wait for a callback — they just dial the next place on the list.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="section-inner fade-in">
+    <h2>Now watch it get caught.</h2>
+    <p>406 Front Desk answers every call and text — instantly, 24/7 — books the appointment, and follows up.
+      Recovering even a customer or two a month usually covers it. <a href="/pricing/">See pricing</a>, or try it yourself right now:</p>
+    <div class="cta-actions">
+      <a href="/demo/" class="btn-primary">Try the live demo</a>
+      <a href="tel:+14068400404" class="btn-secondary">Call (406) 840-0404</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var t = document.getElementById("rTicket"),
+        l = document.getElementById("rLeads"),
+        c = document.getElementById("rClose");
+    function fmt(n) { return "$" + Math.round(n).toLocaleString(); }
+    function render() {
+      document.getElementById("rTicketV").textContent = fmt(t.value);
+      document.getElementById("rLeadsV").textContent = l.value;
+      document.getElementById("rCloseV").textContent = c.value + "%";
+      var monthly = l.value * (c.value / 100) * t.value;
+      var big = document.getElementById("rMonthly");
+      big.innerHTML = "";
+      big.appendChild(document.createTextNode(fmt(monthly)));
+      var span = document.createElement("span"); span.textContent = "/month";
+      big.appendChild(span);
+      document.getElementById("rYearly").textContent = fmt(monthly * 12);
+    }
+    [t, l, c].forEach(function (s) { s.addEventListener("input", render); });
+    render();
+  })();
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add("visible"); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".fade-in").forEach(function (el) { observer.observe(el); });
+</script>
