@@ -9,3 +9,5 @@
 /kalispell-trt   /ktrt-opt-in/   301
 /widget          /demo/          301
 /preview         /               301
+# GHL's internal funnel-preview path (the actual GSC-reported 404, crawled 5/31)
+/_preview/*      /               301
