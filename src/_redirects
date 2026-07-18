@@ -5,3 +5,7 @@
 # GHL blog taxonomy pages (no equivalent) -> blog index
 /blog/category/*   /blog/   301
 /blog/author/*     /blog/   301
+# Legacy GHL funnel slugs Google indexed (GSC "Not found (404)" alert 2026-07-18)
+/kalispell-trt   /ktrt-opt-in/   301
+/widget          /demo/          301
+/preview         /               301
