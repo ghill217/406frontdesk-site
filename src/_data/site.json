@@ -9,6 +9,8 @@
   "city": "Kalispell",
   "region": "MT",
   "regionName": "Montana",
+  "zip": "59904",
+  "mailingAddress": "PO Box 7511, Kalispell, MT 59904",
   "areaServed": "Flathead Valley",
   "founder": "Gus Hill",
   "ogImage": "/assets/img/og-image.png",
