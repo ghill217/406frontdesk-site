@@ -13,7 +13,9 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    # microphone=self is required by the GHL voice web-call widget (runs in-page, not an iframe);
+    # the two leadconnectorhq origins cover a future iframe-based call flow.
+    Permissions-Policy = "geolocation=(), microphone=(self \"https://widgets.leadconnectorhq.com\" \"https://services.leadconnectorhq.com\"), camera=()"
 
 [[headers]]
   for = "/css/*"
