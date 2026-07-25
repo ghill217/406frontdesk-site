@@ -69,6 +69,8 @@
     position: relative;
     display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
   }
+  .page-inner > * { min-width: 0; }
+  .page-inner iframe { max-width: 100%; min-width: 0; }
 
   .bullets-card {
     background: var(--white);

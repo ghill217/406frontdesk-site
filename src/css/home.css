@@ -310,6 +310,8 @@
 
   .demo { background: var(--white); }
   .demo-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .demo-inner > * { min-width: 0; }
+  .demo-form-wrap iframe { max-width: 100%; min-width: 0; }
   .demo-content { padding-top: 10px; }
   .demo-bullets { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
   .demo-bullet {
