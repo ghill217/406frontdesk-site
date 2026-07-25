@@ -47,7 +47,7 @@
   }
   .header-band::before {
     content: ""; position: absolute; inset: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(232,168,56,0.14) 0%, transparent 55%);
+    background: radial-gradient(circle at 30% 20%, rgba(232,164,53,0.14) 0%, transparent 55%);
   }
   .header-eyebrow {
     position: relative; display: inline-block;
@@ -86,7 +86,7 @@
   }
   .card.featured {
     border: 2px solid var(--accent);
-    box-shadow: 0 26px 60px -28px rgba(232,168,56,0.5);
+    box-shadow: 0 26px 60px -28px rgba(232,164,53,0.5);
     position: relative;
   }
   .ribbon {
@@ -202,7 +202,7 @@
   }
   .col.highlight {
     border: 2px solid var(--accent);
-    box-shadow: 0 22px 50px -30px rgba(232,168,56,0.5);
+    box-shadow: 0 22px 50px -30px rgba(232,164,53,0.5);
   }
   .col-label {
     font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;

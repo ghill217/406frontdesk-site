@@ -10,7 +10,7 @@
   body { width: 100%; font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
   .header-band { background: var(--navy); padding: 130px 40px 100px; text-align: center; position: relative; overflow: hidden; }
-  .header-band::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 20%, rgba(232,168,56,0.14) 0%, transparent 55%); }
+  .header-band::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 20%, rgba(232,164,53,0.14) 0%, transparent 55%); }
   .header-eyebrow { position: relative; display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
   .header-band h1 { position: relative; font-family: 'DM Serif Display', serif; font-size: clamp(36px, 5vw, 54px); color: #fff; letter-spacing: -0.02em; margin-bottom: 14px; line-height: 1.1; }
   .header-band h1 em { font-style: italic; color: var(--accent); }
@@ -44,13 +44,13 @@
   .tag-onetime { background: var(--accent-light); color: var(--accent-dark); }
 
   .routing { background: var(--navy); margin-top: 36px; padding: 72px 24px; position: relative; overflow: hidden; }
-  .routing::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 75% 25%, rgba(232,168,56,0.10) 0%, transparent 55%); }
+  .routing::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 75% 25%, rgba(232,164,53,0.10) 0%, transparent 55%); }
   .routing-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
   .routing .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 12px; }
   .routing h2 { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.6vw, 36px); color: #fff; margin-bottom: 14px; line-height: 1.15; max-width: 600px; letter-spacing: -0.01em; }
   .routing > .routing-inner > p { color: rgba(255,255,255,0.62); font-size: 16px; max-width: 580px; margin-bottom: 36px; line-height: 1.65; }
   .route-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-  .route-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(232,168,56,0.22); border-radius: var(--radius); padding: 22px 24px; }
+  .route-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(232,164,53,0.22); border-radius: var(--radius); padding: 22px 24px; }
   .route-card .label { color: var(--accent); font-weight: 600; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 9px; }
   .route-card p { color: rgba(255,255,255,0.78); font-size: 14.5px; line-height: 1.6; }
   .route-card .arrow { color: var(--accent); font-weight: 700; }
@@ -68,7 +68,7 @@
 
   .cta-wrap { max-width: 900px; margin: 0 auto; padding: 30px 24px 90px; }
   .cta-band { background: linear-gradient(160deg, var(--navy) 0%, #142035 100%); border-radius: var(--radius-lg); padding: 52px 40px; text-align: center; position: relative; overflow: hidden; }
-  .cta-band::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 20%, rgba(232,168,56,0.12) 0%, transparent 55%); }
+  .cta-band::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 20%, rgba(232,164,53,0.12) 0%, transparent 55%); }
   .cta-band-inner { position: relative; z-index: 1; }
   .cta-band h2 { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.6vw, 36px); color: #fff; margin-bottom: 12px; line-height: 1.15; }
   .cta-band p { color: rgba(255,255,255,0.66); font-size: 16px; max-width: 500px; margin: 0 auto 28px; }

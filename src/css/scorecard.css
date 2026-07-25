@@ -38,7 +38,7 @@
   .hero { padding: 60px 40px 70px; position: relative; overflow: hidden; }
   .hero::before {
     content: ''; position: absolute; top: -80px; right: -100px; width: 620px; height: 620px;
-    background: radial-gradient(circle at center, rgba(232,168,56,0.10) 0%, transparent 70%); pointer-events: none;
+    background: radial-gradient(circle at center, rgba(232,164,53,0.10) 0%, transparent 70%); pointer-events: none;
   }
   .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--border); }
   .hero-inner { max-width: 760px; margin: 0 auto; text-align: center; position: relative; }

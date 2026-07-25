@@ -47,7 +47,7 @@
   }
   .header-band::before {
     content: ""; position: absolute; inset: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(232,168,56,0.14) 0%, transparent 55%);
+    background: radial-gradient(circle at 30% 20%, rgba(232,164,53,0.14) 0%, transparent 55%);
   }
   .header-eyebrow {
     position: relative; display: inline-block;
@@ -98,7 +98,7 @@
 
   /* ── CTA STRIP ── */
   .faq-cta {
-    background: linear-gradient(135deg, var(--navy) 0%, #243a63 100%);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft, #1B2A4A) 100%);
     border-radius: var(--radius-lg);
     padding: 40px; text-align: center; margin-top: 36px;
   }
