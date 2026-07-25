@@ -6,6 +6,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
 
+  // Cache-buster for /css/* links: the Netlify headers serve CSS as immutable/1yr,
+  // so the URL must change per deploy or returning visitors keep stale styles.
+  eleventyConfig.addGlobalData("buildStamp", Date.now().toString(36));
+
   // Date filters
   eleventyConfig.addFilter("isoDate", (d) => (d instanceof Date ? d.toISOString() : d));
   eleventyConfig.addFilter("readableDate", (d) => {
