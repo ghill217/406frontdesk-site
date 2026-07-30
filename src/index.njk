@@ -313,22 +313,25 @@ pageCss: home
     <div class="brandstrip fade-in">
       <div class="bs-label">Now serving local businesses in the Flathead</div>
       <div class="brandstrip-logos">
-        <!-- Chips link OUT to each client's own site, new tab so the prospect keeps this page.
-             img alt is intentionally EMPTY — the business name is already in .bc-meta, so a
-             populated alt makes the link's accessible name announce the name twice.
-             ↗ NEXT STEP: repoint these at 406 case-study pages (/work/<client>/) once those
-             exist, and let the case study link out to the client instead. Tracked in To-Do.md. -->
+        <!-- img alt is intentionally EMPTY on both — the business name is already in .bc-meta,
+             so a populated alt makes the link's accessible name announce the name twice.
+             Arrow glyph encodes the destination and is NOT decoration-by-accident:
+               → = internal (stays on 406, goes to our case study)
+               ↗ = external (leaves for the client's own site, new tab)
+             TL Slicks still points out to their site because it has no case study yet — that
+             page needs Tucker's OK first (non-paying pilot). Tracked in To-Do.md; when it
+             exists, mirror the Kalispell TRT treatment below. -->
         <a class="brand-chip" href="https://tlslicks.com" target="_blank" rel="noopener"
            aria-label="TL Slicks, Kalispell barbershop — visit their website (opens in a new tab)">
           <img src="/assets/img/tlslicks-logo.png" alt="" width="120" height="60" loading="lazy" />
           <div class="bc-meta"><strong>TL Slicks</strong><span>Kalispell barbershop</span></div>
           <span class="bc-go" aria-hidden="true">↗</span>
         </a>
-        <a class="brand-chip" href="https://kalispelltrt.com" target="_blank" rel="noopener"
-           aria-label="Kalispell TRT, hormone therapy and peptide clinic — visit their website (opens in a new tab)">
+        <a class="brand-chip" href="/work/kalispell-trt/"
+           aria-label="Kalispell TRT, hormone therapy and peptide clinic — read the case study">
           <img src="/assets/img/kalispelltrt-logo.png" alt="" width="115" height="128" loading="lazy" />
           <div class="bc-meta"><strong>Kalispell TRT</strong><span>Hormone therapy &amp; peptide clinic</span></div>
-          <span class="bc-go" aria-hidden="true">↗</span>
+          <span class="bc-go" aria-hidden="true">→</span>
         </a>
       </div>
     </div>

@@ -1,0 +1,135 @@
+---
+layout: layouts/base.njk
+title: "Case Study: Kalispell TRT — AI Receptionist for a Montana Hormone Clinic"
+description: How Kalispell TRT put an AI receptionist in front of their phone without taking the phone away from their staff — person-first routing, same-day tuning, and a booking system the owner runs himself. In his words, publicly.
+pageCss: case-study
+permalink: /work/kalispell-trt/
+---
+
+{#
+  CASE STUDY — KALISPELL TRT
+  ⛔ EVERY claim on this page must be a thing that actually happened, traceable to a dated
+  entry in the vault (Healthcare Proof Pack / Proof Library). No invented figures, ever.
+  ⛔ NO performance numbers here yet — the free-July figures are still logged as
+  "PLACEHOLDER — fill mid-July" in the Healthcare Proof Pack. Do not add a stats row until
+  those are confirmed from the voice agent's weekly summaries, and exclude the Bob Robertson
+  widget-test appointment from any count.
+  ⛔ NO pricing on this page.
+  ⛔ Do NOT recount specific patient questions. The guardrail section describes designed
+  behavior verified on real calls — deliberately without the call content, which would be
+  a poor look for the client even though it carries no identifiers.
+  ⛔ NO built/verified DATES on case studies (Gus, 2026-07-30) — not here and not on
+  future ones. Dating the work advertises how recently 406 started, which collides with the
+  standing "never signal 406 is new" rule. Describe WHAT happened, never WHEN.
+  ⚠ The review was SOLICITED (Gus asked at the 7/27 sit-down) — the vault calls it
+  "unprompted-in-wording", not unprompted. Never label it "unprompted" on a public page.
+  ⚠ KTRT went live 7/3; the owner self-booked 7/9 = within the first week, NOT "nine days".
+  ✅ Jason's quote is verbatim from his public Google review. Verify against the live review,
+  not against this file, before editing it.
+#}
+
+<div class="header-band">
+  <span class="header-eyebrow">Case study &middot; Kalispell TRT</span>
+  <h1>The phone still rings at the desk.<br /><em>Nothing gets missed after it stops.</em></h1>
+  <p>Kalispell TRT is a hormone therapy and peptide clinic in Kalispell, serving patients by telehealth across Montana. They wanted their own team answering the phone &mdash; not an AI standing in front of it. That's what got built.</p>
+</div>
+
+<div class="wrap">
+
+  <section class="cs-section">
+    <h2>What they needed</h2>
+    <p class="cs-lede">A clinic's front desk isn't a call center. The people who answer are the same people checking patients in, and the calls that get missed are the ones that arrive while they're doing that &mdash; plus every call that comes in after close.</p>
+    <p>The brief was specific, and it ruled out the obvious approach: <strong>staff answer first, always.</strong> An AI that picked up before a human did would have been the wrong build, however impressive the demo.</p>
+  </section>
+
+  <section class="cs-section">
+    <h2>What we built</h2>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <h3>Person-first routing</h3>
+        <p>Conditional forwarding rings the staff phone for about twenty seconds. The AI picks up <em>only</em> when nobody can. Verified end to end with the clinic on the line during staffed hours.</p>
+      </div>
+      <div class="cs-card">
+        <h3>Booking that runs itself</h3>
+        <p>Consults land on the real calendar with a confirmation text, 24-hour and 1-hour reminders, and a public booking widget that blocks overlapping slots so a double-booking isn't possible.</p>
+      </div>
+      <div class="cs-card">
+        <h3>A hard clinical boundary</h3>
+        <p>The assistant handles front-desk work only &mdash; hours, location, what the clinic treats, booking, messages. Anything clinical is declined and routed to staff by design, and that scope is written into the contract, not just the prompt.</p>
+      </div>
+      <div class="cs-card">
+        <h3>Calls, texts, and chat in one place</h3>
+        <p>The same front desk answers the phone line, SMS, and the website chat, so a patient who starts in one channel isn't asked to repeat themselves in another.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <h2>Three things that actually happened</h2>
+
+    <div class="cs-moment">
+      <div class="cs-moment-mark">01</div>
+      <div>
+        <h3>The AI declined a clinical question and handed it to staff</h3>
+        <p>During the first live week, callers asked the assistant clinical questions. It refused to answer them from its own knowledge and routed the callers to staff &mdash; exactly the designed behavior. The questions showed up in the knowledge-base log as <em>unanswered</em>, and they were left that way on purpose, with the clinic's agreement.</p>
+        <p class="cs-note">That's the part worth reading twice: the gap was left open deliberately. An AI front desk that quietly starts answering medical questions is a liability, not a feature.</p>
+      </div>
+    </div>
+
+    <div class="cs-moment">
+      <div class="cs-moment-mark">02</div>
+      <div>
+        <h3>Three requested changes went live the same afternoon</h3>
+        <p>The clinic emailed three refinements at 2:00 PM &mdash; how the assistant pronounced the website, leading pricing answers with the free consult, and how it handled a lab-work question. All three were deployed, test-called, verified, and confirmed back to the clinic that same afternoon.</p>
+        <p class="cs-note">No ticket queue. The person who built it is the person who changes it.</p>
+      </div>
+    </div>
+
+    <div class="cs-moment">
+      <div class="cs-moment-mark">03</div>
+      <div>
+        <h3>The owner booked a real patient himself, untrained, and got it right first try</h3>
+        <p>Within the first week, Jason booked a patient consultation directly in the calendar without being walked through it, then messaged to ask whether he'd done it correctly. He had &mdash; right calendar, appointment confirmed, telehealth link attached. The confirmation text reached the patient within seconds, the reminders armed themselves, and the public widget blocked the overlapping slot.</p>
+        <p class="cs-note">A system the owner can drive on instinct is worth more than one that needs its builder in the room.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section cs-quote-section">
+    <h2>In his own words &mdash; publicly</h2>
+    <figure class="cs-quote-card">
+      <div class="cs-quote-top">
+        <div class="cs-stars" aria-hidden="true">&starf;&starf;&starf;&starf;&starf;</div>
+        <span class="cs-source">Public Google review</span>
+      </div>
+      <blockquote>
+        <p>&ldquo;I shopped around a lot before finding 406 Front Desk, and Gus offers all the features and capabilities of big national companies. Price wise, 406 Front Desk is extremely competitive but what I appreciate most is that Gus actually cares. You never get the feeling he&rsquo;s just trying to sell you something. &hellip; You get the quality you&rsquo;d expect from a big national company, but with the personal service and attention that you just don&rsquo;t get from a giant corporation.&rdquo;</p>
+      </blockquote>
+      <figcaption>
+        <div class="cs-avatar" aria-hidden="true">JR</div>
+        <div class="cs-quote-meta">
+          <strong>Jason Rountree</strong>
+          <span>Owner, Kalispell TRT</span>
+        </div>
+        <a class="cs-verify" href="https://search.google.com/local/reviews?placeid=ChIJO3pT324js28RlX6kcZKjg1A" target="_blank" rel="noopener">Read the full review on Google &rarr;</a>
+      </figcaption>
+    </figure>
+    <p class="cs-quote-foot">We didn't write that and we can't edit it. The <span class="cs-ellipsis">&hellip;</span> stands in for three full sentences we left out for length &mdash; the link goes to the unedited original.</p>
+  </section>
+
+  <section class="cs-section">
+    <h2>Want to see the clinic itself?</h2>
+    <p>Kalispell TRT's site is worth a look, and their front desk is the system described above &mdash; so if you call, you're hearing it work.</p>
+    <a class="cs-outlink" href="https://kalispelltrt.com" target="_blank" rel="noopener">Visit kalispelltrt.com <span aria-hidden="true">&#8599;</span></a>
+  </section>
+
+  <section class="cs-cta">
+    <h2>Your front desk, built the same way</h2>
+    <p>Same approach, whatever you run: your line, your hours, your booking system. Nothing gets ripped out that already works.</p>
+    <div class="cs-cta-row">
+      <a class="cs-btn-primary" href="/contact/">Start a conversation &rarr;</a>
+      <a class="cs-btn-ghost" href="/demo/">Hear it answer first</a>
+    </div>
+  </section>
+
+</div>
