@@ -31,6 +31,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
 
+  {# ---- Design tokens: must load BEFORE page styles ---- #}
+  <link rel="stylesheet" href="/css/tokens.css?v={{ buildStamp }}" />
+
   {# ---- Page styles ---- #}
   {% if pageCss %}<link rel="stylesheet" href="/css/{{ pageCss }}.css?v={{ buildStamp }}" />{% endif %}
   <link rel="stylesheet" href="/css/a11y.css?v={{ buildStamp }}" />
@@ -82,11 +85,19 @@
    with every capability incl. transfers, which GHL web-call widgets don't support #}
 <a href="tel:{{ site.phone }}" class="call-cta" aria-label="Call the AI receptionist live at {{ site.phoneDisplay }}">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
-  <span>Hear it live — {{ site.phoneDisplay }}</span>
+  <span class="call-cta__label">Hear it live — {{ site.phoneDisplay }}</span>
 </a>
 <style>
-.call-cta{position:fixed;bottom:20px;left:20px;z-index:9990;display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.15rem;border-radius:999px;background:#E8A435;color:#0F2540;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 4px 14px rgba(15,37,64,.35);transition:transform .15s ease,box-shadow .15s ease}
+/* Icon-only by default so this fixed button never covers left-aligned section
+   headlines — it used to sit on top of "Let it run forever" at 1440x1000.
+   Hover/focus reveals the number on desktop; on touch a tap just dials. */
+.call-cta{position:fixed;bottom:20px;left:20px;z-index:9990;display:inline-flex;align-items:center;gap:0;padding:.85rem;border-radius:var(--radius-pill,999px);background:var(--accent,#E8A435);color:var(--navy,#0F2540);font-weight:600;font-size:var(--fs-base,16px);line-height:1;text-decoration:none;box-shadow:0 4px 14px rgba(15,37,64,.35);transition:transform .15s ease,box-shadow .15s ease,padding .2s ease,gap .2s ease}
 .call-cta:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,37,64,.45)}
+.call-cta svg{flex:none}
+.call-cta__label{max-width:0;opacity:0;overflow:hidden;white-space:nowrap;transition:max-width .2s ease,opacity .15s ease}
+.call-cta:hover,.call-cta:focus-visible{padding:.8rem 1.15rem;gap:.5rem}
+.call-cta:hover .call-cta__label,.call-cta:focus-visible .call-cta__label{max-width:22ch;opacity:1}
+@media (prefers-reduced-motion:reduce){.call-cta,.call-cta__label{transition:none}}
 </style>
 </body>
 </html>

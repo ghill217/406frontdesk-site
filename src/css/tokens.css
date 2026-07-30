@@ -1,0 +1,67 @@
+/* ============================================================
+   406 Front Desk — design tokens (single source of truth)
+   Loaded site-wide in base.njk BEFORE the per-page stylesheet.
+
+   Page CSS files still carry their own :root colour block for now;
+   those values are identical to the ones below and can be deleted
+   per page as each is migrated onto these tokens.
+   ============================================================ */
+
+:root {
+  /* ---- Colour (roles, not names) ---- */
+  --ink: #1A1A1A;
+  --ink-soft: #3a3d42;
+  --ink-muted: #7a7e87;
+  --surface: #F8F7F4;
+  --white: #ffffff;
+  --accent: #E8A435;
+  --accent-light: #fdf3e0;
+  --accent-dark: #c98a1a;
+  --navy: #0F2540;
+  --navy-soft: #1B2A4A;
+  --border: #e2e3e6;
+  --border-strong: #c8cad0;
+  --success: #0ea86b;
+
+  /* ---- Spacing: strict 4px grid. Name = multiple of 4. ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 28px;
+  --sp-8: 32px;
+  --sp-9: 36px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-14: 56px;
+  --sp-15: 60px;
+  --sp-20: 80px;
+  --sp-25: 100px;
+
+  /* ---- Radius: five values, replacing the thirteen in use ---- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  /* circles use border-radius:50% directly — a shape, not a scale step */
+
+  /* ---- Type: 7 static steps. Fluid display sizes stay as clamp(). ----
+     Only ONE step sits below 16px (--fs-xs, the small-label size). */
+  --fs-xs: 13px;    /* eyebrows, badges, meta, fine print */
+  --fs-base: 16px;  /* body copy */
+  --fs-md: 18px;    /* lead paragraphs */
+  --fs-lg: 22px;    /* small headings */
+  --fs-xl: 26px;    /* section sub-headings */
+  --fs-2xl: 36px;   /* headings */
+  --fs-3xl: 48px;   /* display, non-fluid contexts */
+
+  /* ---- Weight: DM Sans is loaded at 300/400/500/600 only.
+     600 is the top weight. Never declare 700 — the browser fakes it. ---- */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 600;
+}
