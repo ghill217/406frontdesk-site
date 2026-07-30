@@ -231,6 +231,35 @@
   .proof-stars { color: var(--accent); font-size: 15px; letter-spacing: 2px; margin-bottom: 14px; }
   .proof-quote { font-size: 15px; color: var(--ink-soft); line-height: 1.65; flex: 1; }
   .proof-author { display: flex; align-items: center; gap: 12px; margin-top: 22px; }
+
+  /* Featured review — one real quote carries the row, invite card sits beside it */
+  .proof-card--featured {
+    grid-column: span 2;
+    margin: 0; padding: 36px 38px;
+    box-shadow: 0 24px 50px -34px rgba(27,42,74,0.3);
+  }
+  .proof-topline {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+  }
+  .proof-card--featured .proof-stars { font-size: 17px; margin-bottom: 0; }
+  .proof-source {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;
+    color: var(--ink-muted); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 100px; padding: 4px 11px;
+  }
+  .proof-card--featured .proof-quote {
+    margin: 0; font-size: 17px; line-height: 1.7;
+  }
+  .proof-card--featured .proof-quote p { margin: 0; }
+  .proof-card--featured .proof-author {
+    margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .proof-verify {
+    margin-left: auto; font-size: 13px; font-weight: 600; color: var(--accent-dark);
+    text-decoration: none; white-space: nowrap;
+  }
+  .proof-verify:hover { text-decoration: underline; }
   .proof-avatar {
     width: 42px; height: 42px; border-radius: 50%;
     background: var(--accent-light); color: var(--accent-dark);
@@ -240,26 +269,26 @@
   .proof-meta strong { display: block; font-size: 14px; color: var(--ink); font-weight: 600; }
   .proof-meta span { font-size: 13px; color: var(--ink-muted); }
 
-  /* Invitation (empty-state) card — spans full width until real quotes exist */
+  /* Founding-rate card — the narrow column beside the featured review */
   .proof-invite {
-    grid-column: 1 / -1;
+    grid-column: span 1;
     background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
     border-radius: var(--radius-lg);
-    padding: 48px 40px; text-align: center;
+    padding: 36px 32px;
+    display: flex; flex-direction: column; align-items: flex-start;
   }
   .proof-invite .pi-eyebrow {
     font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
     color: var(--accent); margin-bottom: 14px;
   }
   .proof-invite h3 {
-    font-family: 'DM Serif Display', serif; font-size: clamp(24px, 3vw, 32px);
-    color: #fff; line-height: 1.25; margin-bottom: 14px; max-width: 620px;
-    margin-left: auto; margin-right: auto;
+    font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.2vw, 26px);
+    color: #fff; line-height: 1.25; margin-bottom: 14px;
   }
   .proof-invite h3 em { font-style: italic; color: var(--accent); }
   .proof-invite p {
-    font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.6;
-    max-width: 540px; margin: 0 auto 28px;
+    font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.6;
+    margin: 0 0 26px; flex: 1;
   }
   .proof-invite a {
     display: inline-block; background: var(--accent); color: var(--navy);
@@ -393,6 +422,9 @@
     .industry-grid { grid-template-columns: repeat(2, 1fr); }
     .worth-grid { grid-template-columns: 1fr; }
     .proof-grid { grid-template-columns: 1fr; }
+    .proof-card--featured { grid-column: span 1; padding: 30px 26px; }
+    .proof-card--featured .proof-quote { font-size: 16px; }
+    .proof-verify { margin-left: 0; width: 100%; margin-top: 14px; }
     .founder-inner { grid-template-columns: 1fr; gap: 36px; }
     .founder-photo-wrap { max-width: 360px; margin: 0 auto; }
   }
