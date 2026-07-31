@@ -425,6 +425,12 @@
   /* ── FOUNDER ── */
   .founder { background: var(--surface); }
   .founder-inner { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: var(--sp-15); align-items: center; }
+  /* <picture> wrappers (WebP + fallback) must not introduce a layout box:
+     .founder-photo sizes at width:100% of .founder-photo-wrap, and .brand-chip
+     is an inline-flex row whose direct children are laid out. display:contents
+     keeps the <img> the effective child in both cases. */
+  picture { display: contents; }
+
   .founder-photo-wrap { position: relative; max-width: 420px; }
   .founder-photo { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: 0 30px 60px -30px rgba(27,42,74,0.35); display: block; }
   .founder-badge { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: var(--sp-2); background: rgba(27,42,74,0.92); color: #fff; font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.3px; padding: var(--sp-2) var(--sp-3); border-radius: var(--radius-pill); }
