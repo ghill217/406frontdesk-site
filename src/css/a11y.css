@@ -7,6 +7,66 @@
    Global override — loads after each page's own :root, so it applies everywhere. */
 :root { --ink-muted: #696d76; }
 
+/* ============================================================
+   Contrast pass — amber as TEXT on light backgrounds.
+
+   Brand amber is a fill colour, not a text colour: #E8A435 lands at
+   2.0:1 on cream and #c98a1a at 2.8:1, both well under the 4.5:1 AA
+   floor for body-size text. Amber on the navy bands already passes and
+   is deliberately left alone — only light-background text is retargeted.
+
+   Two replacements, both on the brand hue, each the lightest value that
+   clears its threshold (measured against #fff, #F8F7F4 and #fdf3e0):
+     --accent-dark / --accent-text  #976411 → 5.05 / 4.71 / 4.59  (AA, any size)
+     --accent-display               #c08016 → 3.32 / 3.10 / 3.02  (AA for ≥24px)
+
+   --accent-dark is overridden here rather than in tokens.css because most
+   page stylesheets still carry their own :root palette; this file loads
+   last, so it's the only place a palette change reliably wins. Same
+   reason --ink-muted is set above.
+   ============================================================ */
+:root {
+  --accent-dark: #976411;
+  --accent-text: #976411;
+  --accent-display: #c08016;
+  --success-text: #097a4d;
+}
+
+/* Small amber text on light: labels, tags, stars.
+   .section-label is listed unqualified on purpose — the two navy-section
+   variants (.worth .section-label, .cta-section .section-label) are more
+   specific and keep their own colours. */
+.section-label,
+.proof-stars,
+.cs-stars,
+.lp-logo em,
+.ess-card .ess-tag,
+.ess-founding { color: var(--accent-text); }
+
+/* Large display italics on light backgrounds — AA-large applies (3:1).
+   The .header-band h1 em rules on features/demo/roi/case-study sit on navy
+   and are intentionally not listed here. */
+.hero h1 em,
+.founder-content h2 em { color: var(--accent-display); }
+
+/* Amber-filled button: navy on amber is 7.2:1. It was already meant to be navy,
+   but essentials.css's `.ess-page a { color: inherit }` outranks `.ess-btn-amber`
+   on specificity and forced the cream hero colour through at 2:1. Matching that
+   specificity fixes it. */
+.ess-page a.ess-btn-amber { color: var(--navy, #0F2540); }
+
+/* Status pills: the success green is a fill colour too (3.1:1 as 10px text). */
+.tag-live,
+.tag-free { color: var(--success-text); }
+
+/* White text on the navy bands was set at 40–45% alpha (3.6–4.2:1).
+   0.62 clears AA at these sizes while staying visibly secondary. */
+.cta-section .section-label,
+.stat-label,
+.phone-contact-sub,
+.ring-sub,
+.lp-footer div { color: rgba(255,255,255,0.62); }
+
 /* Visible keyboard-only focus (brand amber ring; mouse clicks stay clean) */
 :focus-visible {
   outline: 3px solid #E8A435;
