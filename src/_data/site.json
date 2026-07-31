@@ -28,7 +28,8 @@
     { "heading": "Industries", "links": [
       { "label": "Barbershops", "url": "/barbershops/" },
       { "label": "Clinics", "url": "/clinics/" },
-      { "label": "Gyms", "url": "/gyms/" }
+      { "label": "Gyms", "url": "/gyms/" },
+      { "label": "Accounting", "url": "/accounting/" }
     ] },
     { "heading": "Areas served", "links": [
       { "label": "Kalispell", "url": "/kalispell/" }
