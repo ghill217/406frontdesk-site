@@ -35,6 +35,7 @@
 | 404 | `/404.html` | 404.html | ✅ | ✅ noindex |
 | Essentials (Lite) | `/essentials/` | net-new (off-nav landing) | ✅ | ✅ 200+title+css+noindex (2026-07-15) |
 | Gyms (vertical) | `/gyms/` | net-new | ✅ | ✅ 200, in sitemap, no h-overflow @390/1440 (2026-07-31) |
+| Accounting (vertical) | `/accounting/` | net-new | ✅ | ✅ 200, in sitemap, a11y-clean (2026-07-31) |
 | SEO: Kalispell | `/kalispell/` | seo-pages/kalispell-page.html | ✅ | ✅ 200, in sitemap |
 | SEO: Barbershops | `/barbershops/` | seo-pages/barbershops-page.html | ✅ | ✅ 200, in sitemap |
 | Scorecard | `/scorecard/` | scorecard.html | ✅ | ✅ 200, GHL form kept, noindex |
@@ -72,7 +73,9 @@ Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
 
 ## Remaining phases
 1. ✅ Port pages 2–10 (done 2026-07-15).
-2. ◑ Asset polish: ✅ favicon + apple-touch + 1200×630 OG image (from design system). Pending: WebP, self-host fonts.
+2. ✅ Asset polish: favicon + apple-touch + 1200×630 OG image; ✅ fonts self-hosted (2026-07-31, no more
+   fonts.googleapis.com/gstatic requests); ✅ WebP where it wins (founder −25%, Kalispell TRT logo −65%;
+   the small flat PNGs and the OG image are deliberately left alone — WebP was larger or riskier).
 3. ✅ /a2p-check PASS (2026-07-15): consent pages preserve all clauses (checkbox-scoped, no bundling, no-third-party-share, STOP/HELP, freq, data rates); demo form checkbox-scoped + 406 LLC branded; scorecard email-only (no A2P scope). Static SSR reads clean for the scanner. Cutover keeps A2P valid (same URLs, same clauses).
 4. ✅ One-time connect (done): GitHub `ghill217/406frontdesk-site` → Netlify `rainbow-dragon-3f699c.netlify.app`, auto-deploy on push.
 5. ✅ /site-audit re-grade: **overall A, 12/12 A-range** (SEO+Perf A+; Trust/Local/A11y A−). 
@@ -84,8 +87,12 @@ Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
 
 ### A− → A+ paths (from the audit)
 - Trust: add "established 2026" + a first testimonial to the homepage proof section.
-- Local: add street address + hours to LocalBusiness schema (base.njk) + contact page.
-- A11y: full contrast + keyboard pass.
+- Local: add street address to LocalBusiness schema (base.njk) + contact page. (Hours already present;
+  `areaServed` widened to Flathead Valley / Montana / US on 2026-07-31.)
+- ✅ A11y: full contrast + keyboard pass done 2026-07-31. All 17 pages audited — 0 contrast failures,
+  0 heading-order breaks, 0 mobile overflow. Amber is now a fill-only colour: `--accent-text` #976411
+  and `--accent-display` #c08016 carry amber *text* on light backgrounds (see the block in `a11y.css`).
+  Re-run the audit before shipping palette changes.
 
 ## Notes / gotchas
 - Local build: `npm run build`; dev server: `npm start` (Eleventy serve on :8080). Node at `C:\Program Files\nodejs`.
