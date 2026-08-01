@@ -131,6 +131,11 @@
   .opt-out-list li {
     display: flex; align-items: flex-start; gap: 12px;
     color: var(--ink-soft); font-size: 1rem; line-height: 1.65;
+    /* The support address is white-space:nowrap (a11y.css keeps addresses
+       unbroken), so the text block can't shrink past it and this row pushed
+       the page 75px wide at 390px. Wrapping lets the badge and the text sit
+       on separate lines instead of forcing a horizontal scrollbar. */
+    flex-wrap: wrap;
   }
   .opt-out-list .badge {
     background: var(--navy); color: #fff; font-size: 11px; font-weight: 600;

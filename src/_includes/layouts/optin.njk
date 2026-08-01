@@ -13,7 +13,14 @@
   <link rel="stylesheet" href="/css/fonts.css?v={{ buildStamp }}" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --ink:#1A1A1A; --muted:#7a7e87; --navy:#0F2540; --amber:#E8A435; --amber-light:#fdf3e0; --amber-dark:#c98a1a; --cream:#F7F2E8; }
+    /* This layout is standalone — it loads neither tokens.css nor a11y.css, so
+       the site-wide contrast fixes do NOT reach it and the palette below is the
+       only source of truth for these four pages. --muted and --amber-dark are
+       used for text only (never as a background), and both are set to the same
+       AA-passing values a11y.css defines: #7a7e87 was 3.65:1 and #c98a1a was
+       2.64:1 on this cream. Consent wording is untouched — colour only, so no
+       approved A2P campaign is affected. */
+    :root { --ink:#1A1A1A; --muted:#696d76; --navy:#0F2540; --amber:#E8A435; --amber-light:#fdf3e0; --amber-dark:#976411; --cream:#F7F2E8; }
     body { background: var(--cream); font-family: 'DM Sans', system-ui, sans-serif; color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
     .fd406-optin-header { background: var(--cream); padding: 72px 24px 32px; text-align: center; }
@@ -32,7 +39,8 @@
     .fd406-optin-footer .fine a { color: var(--amber-dark); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
     .fd406-optin-footer .fine strong { color: var(--ink); }
     .fd406-optin-footer .disclosure { font-size: 12.5px; color: var(--muted); margin-top: 18px; }
-    .fd406-optin-footer .agency { font-size: 11.5px; color: var(--muted); letter-spacing: .04em; margin-top: 22px; opacity: .85; }
+    /* No opacity here: it silently undercuts the contrast the colour just bought. */
+    .fd406-optin-footer .agency { font-size: 11.5px; color: var(--muted); letter-spacing: .04em; margin-top: 22px; }
 
     :focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; border-radius: 4px; }
   </style>
