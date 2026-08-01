@@ -122,7 +122,10 @@
   .intro-line {
     grid-column: 1 / -1;
     text-align: center;
-    color: rgba(255,255,255,0.62);
+    /* Was rgba(255,255,255,0.62) — white text, but this sits in .wrap on the
+       cream page body, not in the navy header band. It was rendering at 1.04:1,
+       i.e. invisible. */
+    color: var(--ink-soft, #3a3d42);
     font-size: 16px;
     margin-bottom: 6px;
   }
