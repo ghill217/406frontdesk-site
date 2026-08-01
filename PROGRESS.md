@@ -118,8 +118,9 @@ the PR — turned up two things the manual pass missed:
 Still open:
 - Trust A+: a first testimonial in the homepage proof section.
 - Local A+: street address in the LocalBusiness schema + contact page. Needs a real address.
-- `/trades/` — "Trades & Contractors" is pitched as an industry on the homepage and
-  `/features/` but has no page. Best candidate for the next vertical.
+- ~~`/trades/`~~ — built 2026-08-01 (HVAC, plumbing, electrical, roofing, GC/remodel,
+  excavation/landscaping). Same shell as the other verticals; no proof/testimonial section
+  until a trades client is live (same rule as the rest).
 - Josh Snook / Living Proof Fitness: offered a founding-client build when the gym opens
   (waived setup + founding rate). Terms not sent yet — Gus's call.
 

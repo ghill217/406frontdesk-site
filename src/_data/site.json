@@ -29,7 +29,8 @@
       { "label": "Barbershops", "url": "/barbershops/" },
       { "label": "Clinics", "url": "/clinics/" },
       { "label": "Gyms", "url": "/gyms/" },
-      { "label": "Accounting", "url": "/accounting/" }
+      { "label": "Accounting", "url": "/accounting/" },
+      { "label": "Trades & Contractors", "url": "/trades/" }
     ] },
     { "heading": "Areas served", "links": [
       { "label": "Kalispell", "url": "/kalispell/" }
