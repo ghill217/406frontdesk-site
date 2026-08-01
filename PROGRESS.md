@@ -94,6 +94,35 @@ Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
   and `--accent-display` #c08016 carry amber *text* on light backgrounds (see the block in `a11y.css`).
   Re-run the audit before shipping palette changes.
 
+## Session log — 2026-07-31 / 08-01
+
+Shipped (PR #1, merged as `39e5d8d`):
+- `/gyms/` and `/accounting/` vertical pages. No brand chip on either — no client in those
+  verticals yet, and both files carry a comment saying not to add proof until there is one.
+- Out-of-area: new FAQ entry + JSON-LD; `areaServed` widened to Flathead Valley / Montana / US.
+  Postal address stays Kalispell so the local-pack signal is untouched.
+- Fonts self-hosted; no fonts.googleapis.com / gstatic requests remain anywhere.
+- WebP for the two images where it was actually smaller (see phase 2 above).
+- WCAG AA pass: amber retired as a text colour on light backgrounds.
+
+Follow-up (same branch, after the merge): committed `scripts/a11y-audit.mjs` + `CLAUDE.md`.
+Running the committed audit over **all 31 pages** — rather than the 17 checked by hand during
+the PR — turned up two things the manual pass missed:
+- **The four A2P opt-in pages had 20 contrast failures.** `optin.njk` is a standalone layout
+  that loads neither `tokens.css` nor `a11y.css`, so every site-wide contrast fix skipped it.
+  Fixed in its own inline palette. Colour only — rendered consent text verified byte-identical.
+- **`/sms-consent/` scrolled 75px sideways at 390px.** The support address is `nowrap`
+  (a11y.css keeps addresses unbroken), which stopped a flex row from shrinking. `flex-wrap`
+  on the row fixes it without breaking the address.
+
+Still open:
+- Trust A+: a first testimonial in the homepage proof section.
+- Local A+: street address in the LocalBusiness schema + contact page. Needs a real address.
+- `/trades/` — "Trades & Contractors" is pitched as an industry on the homepage and
+  `/features/` but has no page. Best candidate for the next vertical.
+- Josh Snook / Living Proof Fitness: offered a founding-client build when the gym opens
+  (waived setup + founding rate). Terms not sent yet — Gus's call.
+
 ## Notes / gotchas
 - Local build: `npm run build`; dev server: `npm start` (Eleventy serve on :8080). Node at `C:\Program Files\nodejs`.
 - Preview-pane screenshots time out because the GHL chat widget + form iframe keep the network open;
