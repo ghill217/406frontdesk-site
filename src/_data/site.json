@@ -40,7 +40,8 @@
       { "label": "Missed-Call Calculator", "url": "/roi/" },
       { "label": "FAQ", "url": "/faq/" },
       { "label": "Blog", "url": "/blog/" },
-      { "label": "Contact", "url": "/contact/" }
+      { "label": "Contact", "url": "/contact/" },
+      { "label": "Instagram", "url": "https://www.instagram.com/406_frontdesk/" }
     ] },
     { "heading": "Legal", "links": [
       { "label": "Privacy Policy", "url": "/privacy-policy/" },
