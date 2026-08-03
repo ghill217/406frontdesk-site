@@ -5,7 +5,7 @@ description: Answer every call while you're under a car, capture the year, make 
 pageCss: auto-shops
 permalink: /auto-shops/
 ---
-
+{% from "partials/icons.njk" import icon %}
 <div class="header-band">
   <span class="header-eyebrow">For Auto Shops</span>
   <h1>Hands in a job.<br /><em>Phone still ringing.</em></h1>
@@ -16,21 +16,21 @@ permalink: /auto-shops/
   <div class="grid-3">
     <div class="lcard">
       <div class="lcard-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        {{ icon("phone") }}
       </div>
       <h2 class="lcard-title">Under a car, not by the phone</h2>
       <p>You're on a lift, in a bay, or halfway through an install. The phone rings, rolls to voicemail, and the caller tries the next shop on the list.</p>
     </div>
     <div class="lcard">
       <div class="lcard-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        {{ icon("tag") }}
       </div>
       <h2 class="lcard-title">The price-shopper call</h2>
       <p>"How much for…" before they've told you the vehicle. Plenty of these callers never book, and sorting them out costs the same interruption either way.</p>
     </div>
     <div class="lcard">
       <div class="lcard-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        {{ icon("clock") }}
       </div>
       <h2 class="lcard-title">Nights and weekends</h2>
       <p>People look for a shop after work and on Sunday afternoon. Those calls land when the bay is dark and there's nobody there to take them.</p>
