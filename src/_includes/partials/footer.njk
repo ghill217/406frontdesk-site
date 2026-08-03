@@ -63,7 +63,9 @@
     <div class="fd406-footer-col">
       <div class="fd406-footer-heading">{{ group.heading }}</div>
       {%- for item in group.links %}
-      <a href="{{ item.url }}">{{ item.label }}</a>
+      {#- external = absolute URL that isn't ours; opens in a new tab so the site is never navigated away from #}
+      {%- set isExternal = item.url.startsWith("http") and not item.url.startsWith(site.url) %}
+      <a href="{{ item.url }}"{% if isExternal %} target="_blank" rel="noopener" aria-label="{{ item.label }} (opens in a new tab)"{% endif %}>{{ item.label }}</a>
       {%- endfor %}
     </div>
     {%- endfor %}
