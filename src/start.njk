@@ -1,0 +1,178 @@
+---
+layout: layouts/base.njk
+title: Start Here
+description: Tell us how calls get handled at your business today, then pick a time. Twenty minutes, no pitch — 406 Front Desk, Kalispell.
+pageCss: start
+permalink: /start/
+noindex: true
+# ── GHL form id for "Front Desk Application". EMPTY until the form is built in GHL.
+#    While empty the page renders a staging notice instead of a dead iframe.
+#    Spec for the form lives in the vault: "406 Front Desk — Pre-Call Funnel (Application → Calendar)".
+#    Deliberately inline (not in _data/site.json) — that file has a pending diff from another track.
+applicationFormId: ""
+---
+{% from "partials/icons.njk" import icon %}
+<header class="lp-header">
+  <a href="/" class="lp-logo"><em>406</em> Front Desk</a>
+  <a href="tel:+14068400404" class="lp-call">(406) 840-0404</a>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner fade-in">
+    <div class="hero-badge">About 3 minutes · You pick the time</div>
+    <h1>Let's find out what your<br /><em>phone is costing you.</em></h1>
+    <p>Answer a few questions about how calls get handled at your business today. Then pick a time that works for you — twenty minutes, on your schedule.</p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn-primary">Start here</a>
+      <a href="#what" class="btn-secondary">What happens on the call</a>
+    </div>
+    <p class="hero-microtrust">No pitch deck, no pressure. <strong>Our pricing is already public</strong> — you can read it <a href="/pricing/">right here</a> before you ever talk to us.</p>
+  </div>
+</section>
+
+<!-- ── WHY THE QUESTIONS ── -->
+<section class="why">
+  <div class="section-inner">
+    <div class="section-head fade-in">
+      <div class="section-label">Why We Ask</div>
+      <h2 class="section-title">So we don't waste your twenty minutes.</h2>
+      <p class="section-sub">Most of a first call gets burned on questions we could have read beforehand. Answer them now and we show up already knowing your setup — so the whole conversation is about your business instead of ours.</p>
+    </div>
+    <div class="steps fade-in">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Tell us how calls work now</h3>
+        <p>Who picks up, what happens after hours, roughly how many calls slip. Short answers are fine.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Pick your time</h3>
+        <p>You go straight to the calendar. No back-and-forth about what day works.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>We come prepared</h3>
+        <p>We look at your phone setup, website and Google listing before the call, and bring what we find.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT HAPPENS ── -->
+<section class="what" id="what">
+  <div class="section-inner">
+    <div class="section-head fade-in">
+      <div class="section-label">The Call</div>
+      <h2 class="section-title">Twenty minutes. Here's the whole agenda.</h2>
+    </div>
+    <div class="agenda fade-in">
+      <div class="agenda-row">
+        <div class="agenda-ic" aria-hidden="true">{{ icon("check") }}</div>
+        <div><strong>What's actually leaking</strong><span>Missed calls, after-hours, both-lines-busy — in your numbers, not ours.</span></div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-ic" aria-hidden="true">{{ icon("check") }}</div>
+        <div><strong>What the system would do about it</strong><span>Specifically, for your business. Including the parts it can't help with.</span></div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-ic" aria-hidden="true">{{ icon("check") }}</div>
+        <div><strong>What it would cost</strong><span>The same numbers on the pricing page. No custom quote theatre.</span></div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-ic" aria-hidden="true">{{ icon("check") }}</div>
+        <div><strong>Whether it's a fit</strong><span>If it isn't, we'll say so. A bad fit costs us more than it costs you.</span></div>
+      </div>
+    </div>
+    <p class="agenda-note fade-in">That's it. There is no second call, no proposal you have to wait a week for.</p>
+  </div>
+</section>
+
+<!-- ── THE APPLICATION ── -->
+<section class="apply" id="apply">
+  <div class="section-inner">
+    <div class="apply-inner">
+      <div class="apply-content fade-in">
+        <div class="section-label">Start Here</div>
+        <h2 class="section-title" style="text-align:left;">Tell us about your front desk.</h2>
+        <p class="section-sub">A few short questions, then the calendar. Nothing here obligates you to anything.</p>
+        <div class="apply-bullets">
+          <div class="ap-bullet"><div class="ap-icon" aria-hidden="true">{{ icon("clock") }}</div><div class="ap-text"><strong>About three minutes</strong><span>Short answers are the right answers.</span></div></div>
+          <div class="ap-bullet"><div class="ap-icon" aria-hidden="true">{{ icon("check") }}</div><div class="ap-text"><strong>Straight to the calendar</strong><span>You pick the time on the next screen.</span></div></div>
+          <div class="ap-bullet"><div class="ap-icon" aria-hidden="true">{{ icon("map-pin") }}</div><div class="ap-text"><strong>A real person reads it</strong><span>Gus, here in the Flathead. Not a routing queue.</span></div></div>
+        </div>
+      </div>
+
+      <div class="form-wrap fade-in">
+        <div class="form-title">Front desk questions</div>
+        <p class="form-sub">Then you'll pick a time.</p>
+
+        {% if applicationFormId %}
+        <!-- APPLICATION FORM — GHL "Front Desk Application".
+             On submit → redirect to /start/schedule/ (set in the GHL form's submit action).
+             Never add loading="lazy" — form_embed.js can't hook it and the iframe collapses. -->
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/{{ applicationFormId }}"
+          style="width:100%;min-height:760px;border:none;border-radius:8px"
+          id="inline-{{ applicationFormId }}"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-activation-type="alwaysActivated"
+          data-deactivation-type="neverDeactivate"
+          data-form-name="Front Desk Application"
+          data-height="760"
+          data-layout-iframe-id="inline-{{ applicationFormId }}"
+          data-form-id="{{ applicationFormId }}"
+          title="Front Desk Application form"
+        ></iframe>
+        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+        {% else %}
+        <div class="form-staging" role="status">
+          <strong>This page is staged, not live.</strong>
+          <span>The application form has not been built in GoHighLevel yet. Set <code>applicationFormId</code> in the front matter of <code>src/start.njk</code> and this block becomes the real form.</span>
+        </div>
+        {% endif %}
+
+        <div class="call-block">
+          <strong>Would rather just hear it?</strong>
+          <span>Call our own line. An AI answers it — the same one we build for clients. Ask it anything.</span>
+          <a href="tel:+14068400404" class="call-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call (406) 840-0404
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOCAL TRUST ── -->
+<section class="local">
+  <div class="section-inner">
+    <div class="section-head fade-in">
+      <div class="section-label">Built Here</div>
+      <h2 class="section-title">A Flathead business, backing local business.</h2>
+      <p class="section-sub">406 Front Desk builds the AI front desk that Montana shops run on — answering calls, texts and messages around the clock so nobody who wants to give you money hangs up on a voicemail.</p>
+      <div class="local-badge"><span class="pill-ic" aria-hidden="true">{{ icon("map-pin") }}</span> Serving Kalispell &amp; the Flathead Valley</div>
+    </div>
+  </div>
+</section>
+
+<footer class="lp-footer">
+  <div class="lp-foot-brand"><em>406</em> Front Desk</div>
+  <div>AI receptionist &amp; website systems for Montana businesses.</div>
+  <div class="lp-foot-links">
+    <a href="/">Home</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/features/">What We Do</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div style="margin-top:14px;font-size:12.5px;color:rgba(255,255,255,0.62)">© 406 Front Desk LLC · Kalispell, MT · <a href="tel:+14068400404">(406) 840-0404</a></div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
