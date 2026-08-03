@@ -5,7 +5,10 @@ layout: layouts/base.njk
   <div class="post-inner">
     <p class="post-eyebrow"><a href="/blog/">&larr; All articles</a></p>
     <h1 class="post-title">{{ title }}</h1>
-    <p class="post-meta">{{ date | readableDate }} &middot; 406 Front Desk</p>
+    {#- No published date on display. These are evergreen explainers, so a date only makes them look
+        stale later — and it is the one thing that would show several posts going out the same day.
+        The real date stays in each post's front matter, so ordering still works and nothing is faked. #}
+    <p class="post-meta">406 Front Desk &middot; Kalispell, Montana</p>
     <div class="post-body">
       {{ content | safe }}
     </div>
