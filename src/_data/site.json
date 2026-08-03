@@ -32,7 +32,8 @@
       { "label": "Gyms", "url": "/gyms/" },
       { "label": "Accounting", "url": "/accounting/" },
       { "label": "Trades & Contractors", "url": "/trades/" },
-      { "label": "Auto Shops", "url": "/auto-shops/" }
+      { "label": "Auto Shops", "url": "/auto-shops/" },
+      { "label": "Tattoo & Piercing", "url": "/tattoo-studios/" }
     ] },
     { "heading": "Areas served", "links": [
       { "label": "Kalispell", "url": "/kalispell/" }
