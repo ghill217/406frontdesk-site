@@ -4,6 +4,7 @@ title: AI Receptionist for Local Business
 description: 406 Front Desk is an AI receptionist that answers calls, texts, and chats 24/7, books customers in, and follows up automatically — built in Kalispell for Flathead Valley businesses.
 pageCss: home
 ---
+{% from "partials/icons.njk" import icon -%}
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
@@ -97,18 +98,18 @@ pageCss: home
     </div>
     <div class="features-grid fade-in">
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2m0 3a3 3 0 0 1 3 -3h0a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3h0a3 3 0 0 1 -3 -3z"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M8 21l8 0"/><path d="M12 17l0 4"/></svg></div>
+        <div class="feature-icon" aria-hidden="true">{{ icon("microphone") }}</div>
         <h3>AI Voice &amp; Text Answering</h3>
         <p>Missed calls and texts get an instant reply — every message answered day or night instead of going to voicemail. Add the natural-sounding voice agent and your calls get answered live, too.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M16 3l0 4"/><path d="M8 3l0 4"/><path d="M4 11l16 0"/><path d="M8 15h2v2h-2z"/></svg></div>
+        <div class="feature-icon" aria-hidden="true">{{ icon("calendar") }}</div>
         <h3>Full Scheduling &amp; Booking</h3>
         <p>A complete calendar runs inside your front desk — your services, staff, and hours. Customers book straight in by text or chat, or we plug into the booking tool you already use.</p>
       </div>
       <div class="feature-card featured">
         <div>
-          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 17h-5.397a5 5 0 0 1 -4.096 -2.133l-.514 -.734a5 5 0 0 0 -4.096 -2.133h-3.897"/><path d="M21 7h-5.395a5 5 0 0 0 -4.098 2.135l-.51 .73a5 5 0 0 1 -4.097 2.135h-3.9"/><path d="M18 10l3 -3l-3 -3"/><path d="M18 20l3 -3l-3 -3"/></svg></div>
+          <div class="feature-icon" aria-hidden="true">{{ icon("routing") }}</div>
           <h3>Smart Lead Routing</h3>
           <p>Inquiries from your site, Facebook, and Instagram get captured, sorted, and sent to the right person automatically. Nothing sits in one inbox waiting to be noticed.</p>
         </div>
@@ -134,14 +135,14 @@ pageCss: home
       <p class="section-sub">Any business that takes calls, books appointments, or loses leads after hours is a perfect fit.</p>
     </div>
     <div class="industry-grid fade-in">
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M8.6 8.6l10.4 10.4"/><path d="M8.6 15.4l10.4 -10.4"/></svg></div><h3>Salons & Barbers</h3><p>Capture walk-in inquiries and book appointments while you're behind the chair.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10m0 2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-4a2 2 0 0 1 -2 -2z"/><path d="M6 10v-4a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4"/><path d="M15 7h.01"/><path d="M18 9h.01"/><path d="M18 5h.01"/><path d="M21 3h.01"/><path d="M21 7h.01"/><path d="M21 11h.01"/><path d="M10 7h1"/></svg></div><h3>Cleaning Services</h3><p>Book jobs and answer quote requests around the clock, even when your hands are full.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg></div><h3>Home Services</h3><p>Turn every missed call into a quote request, automatically.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/></svg></div><h3>Trades & Contractors</h3><p>Catch the job that calls while you're on the last one — never lose it to voicemail.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.074 -.586 -2.583 -1.5 -4 -1.5c-2.1 0 -4 1.247 -4 5c0 4.899 1.056 8.41 2.671 10.537c.573 .756 1.97 .521 2.567 -.236c.398 -.505 .819 -1.439 1.262 -2.801c.292 -.771 .892 -1.504 1.5 -1.5c.602 0 1.21 .737 1.5 1.5c.443 1.362 .864 2.295 1.262 2.8c.597 .759 2 .993 2.567 .237c1.615 -2.127 2.671 -5.637 2.671 -10.537c0 -3.74 -1.908 -5 -4 -5c-1.423 0 -2.92 .911 -4 1.5z"/><path d="M12 5.5l3 1.5"/></svg></div><h3>Dental & Med Spa</h3><p>Handle appointment scheduling and FAQs while staff focuses on patients.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 13.5c-1.1 -2 -1.441 -2.5 -2.7 -2.5c-1.259 0 -1.736 .755 -2.836 2.747c-.942 1.703 -2.846 1.845 -3.321 3.291c-.097 .265 -.145 .677 -.143 .962c0 1.176 .787 2 1.8 2c1.259 0 3 -1 4.5 -1s3.241 1 4.5 1c1.013 0 1.8 -.823 1.8 -2c0 -.285 -.049 -.697 -.146 -.962c-.475 -1.451 -2.512 -1.835 -3.454 -3.538z"/><path d="M20.188 8.082a1.039 1.039 0 0 0 -.406 -.082h-.015c-.735 .012 -1.56 .75 -1.993 1.866c-.519 1.335 -.28 2.7 .538 3.052c.129 .055 .267 .082 .406 .082c.739 0 1.575 -.742 2.011 -1.866c.516 -1.335 .273 -2.7 -.54 -3.052z"/><path d="M9.474 9c.055 0 .109 0 .163 -.011c.944 -.128 1.533 -1.346 1.32 -2.722c-.203 -1.297 -1.047 -2.267 -1.932 -2.267c-.055 0 -.109 0 -.163 .011c-.944 .128 -1.533 1.346 -1.32 2.722c.204 1.293 1.048 2.267 1.933 2.267z"/><path d="M16.456 6.733c.214 -1.376 -.375 -2.594 -1.32 -2.722a1.164 1.164 0 0 0 -.162 -.011c-.885 0 -1.728 .97 -1.93 2.267c-.214 1.376 .375 2.594 1.32 2.722c.054 .007 .108 .011 .162 .011c.885 0 1.73 -.974 1.93 -2.267z"/><path d="M5.69 12.918c.816 -.352 1.054 -1.719 .536 -3.052c-.436 -1.124 -1.271 -1.866 -2.009 -1.866c-.14 0 -.277 .027 -.407 .082c-.816 .352 -1.054 1.719 -.536 3.052c.436 1.124 1.271 1.866 2.009 1.866c.14 0 .277 -.027 .407 -.082z"/></svg></div><h3>Pet Services</h3><p>Answer grooming questions and schedule bookings around the clock.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z"/><path d="M8 14l0 .01"/><path d="M12 14l0 .01"/><path d="M16 14l0 .01"/><path d="M8 17l0 .01"/><path d="M12 17l0 .01"/><path d="M16 17l0 .01"/></svg></div><h3>Accounting & Tax</h3><p>Capture new-client inquiries and book consultations, even when you're buried in deadlines.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M9 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M4 22l4 -2v-3h12"/><path d="M11 20h9"/><path d="M8 14l3 -2l1 -4c3 1 3 4 3 6"/></svg></div><h3>Massage & Wellness</h3><p>Fill the book with instant replies to new-client inquiries, day or night.</p></div>
+      <div class="industry-card"><div class="industry-icon" aria-hidden="true">{{ icon("scissors") }}</div><h3>Salons & Barbers</h3><p>Capture walk-in inquiries and book appointments while you're behind the chair.</p></div>
+      <div class="industry-card"><div class="industry-icon" aria-hidden="true">{{ icon("spray") }}</div><h3>Cleaning Services</h3><p>Book jobs and answer quote requests around the clock, even when your hands are full.</p></div>
+      <div class="industry-card"><div class="industry-icon" aria-hidden="true">{{ icon("home") }}</div><h3>Home Services</h3><p>Turn every missed call into a quote request, automatically.</p></div>
+      <div class="industry-card"><div class="industry-icon" aria-hidden="true">{{ icon("tool") }}</div><h3>Trades & Contractors</h3><p>Catch the job that calls while you're on the last one — never lose it to voicemail.</p></div>
+      <div class="industry-card"><div class="industry-icon" aria-hidden="true">{{ icon("tooth") }}</div><h3>Dental & Med Spa</h3><p>Handle appointment scheduling and FAQs while staff focuses on patients.</p></div>
+      <div class="industry-card"><div class="industry-icon" aria-hidden="true">{{ icon("paw") }}</div><h3>Pet Services</h3><p>Answer grooming questions and schedule bookings around the clock.</p></div>
+      <div class="industry-card"><div class="industry-icon" aria-hidden="true">{{ icon("calculator") }}</div><h3>Accounting & Tax</h3><p>Capture new-client inquiries and book consultations, even when you're buried in deadlines.</p></div>
+      <div class="industry-card"><div class="industry-icon" aria-hidden="true">{{ icon("massage") }}</div><h3>Massage & Wellness</h3><p>Fill the book with instant replies to new-client inquiries, day or night.</p></div>
     </div>
   </div>
 </section>
@@ -189,21 +190,21 @@ pageCss: home
         <p class="section-sub">Enter your name and number and our AI texts you back in seconds — ask it anything, exactly like your customers would. Prefer to talk? Call it live instead, 24/7.</p>
         <div class="demo-bullets">
           <div class="demo-bullet">
-            <div class="bullet-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></svg></div>
+            <div class="bullet-icon" aria-hidden="true">{{ icon("bolt") }}</div>
             <div class="bullet-text">
               <strong>Instant text reply</strong>
               <span>Submit the form and the AI texts you back in seconds — no waiting</span>
             </div>
           </div>
           <div class="demo-bullet">
-            <div class="bullet-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"/><path d="M12 2v2"/><path d="M9 12v9"/><path d="M15 12v9"/><path d="M5 16l4 -2"/><path d="M15 14l4 2"/><path d="M9 18h6"/><path d="M10 8v.01"/><path d="M14 8v.01"/></svg></div>
+            <div class="bullet-icon" aria-hidden="true">{{ icon("robot") }}</div>
             <div class="bullet-text">
               <strong>Real AI conversation</strong>
               <span>Ask it anything — hours, pricing, booking, you name it</span>
             </div>
           </div>
           <div class="demo-bullet">
-            <div class="bullet-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"/><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M8 11v-4a4 4 0 1 1 8 0v4"/></svg></div>
+            <div class="bullet-icon" aria-hidden="true">{{ icon("lock") }}</div>
             <div class="bullet-text">
               <strong>No spam, ever</strong>
               <span>Your number is only used for this demo. Reply STOP anytime.</span>

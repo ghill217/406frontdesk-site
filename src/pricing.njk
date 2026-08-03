@@ -5,7 +5,7 @@ description: Simple, done-for-you pricing for 406 Front Desk — an AI reception
 pageCss: pricing
 permalink: /pricing/
 ---
-
+{% from "partials/icons.njk" import icon %}
 <div class="header-band">
     <span class="header-eyebrow">Pricing</span>
     <h1>Simple, honest pricing</h1>
@@ -32,9 +32,9 @@ permalink: /pricing/
             <span class="price-per">/ month base</span>
           </div>
           <div class="price-setup"><strong>Setup $500–$999+</strong> — one time, by scope</div>
-          <div class="price-freebie"><span aria-hidden="true">✦</span> First month free — see it work before you pay</div>
+          <div class="price-freebie"><span class="pill-ic" aria-hidden="true">{{ icon("sparkles") }}</span> First month free — see it work before you pay</div>
           <br />
-          <div class="price-lock"><span aria-hidden="true">🔒</span> Founding base rate locked — never goes up</div>
+          <div class="price-lock"><span class="pill-ic" aria-hidden="true">{{ icon("lock") }}</span> Founding base rate locked — never goes up</div>
         </div>
 
         <ul class="feat-list">

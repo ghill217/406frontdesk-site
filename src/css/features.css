@@ -34,7 +34,8 @@
   .feat:hover { border-color: var(--accent); transform: translateY(-2px); }
   .feat.full { grid-column: 1 / -1; }
   .feat-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--navy); margin-bottom: 7px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; letter-spacing: -0.01em; line-height: 1.25; }
-  .feat-icon { font-size: 19px; line-height: 1; }
+  .feat-icon { display: inline-flex; align-items: center; color: var(--accent-dark); flex-shrink: 0; line-height: 1; }
+  .feat-icon svg { width: 20px; height: 20px; }
   .feat p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; }
   .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; white-space: nowrap; }
   .tag-live { background: rgba(14,168,107,0.12); color: var(--success); }
@@ -62,7 +63,8 @@
   .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
   .who-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 24px; box-shadow: 0 16px 44px -34px rgba(27,42,74,0.25); transition: border-color 0.2s, transform 0.18s; }
   .who-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .who-card .ic { font-size: 26px; margin-bottom: 12px; }
+  .who-card .ic { display: flex; align-items: center; height: 30px; color: var(--accent-dark); margin-bottom: 12px; }
+  .who-card .ic svg { width: 27px; height: 27px; }
   .who-card h3 { font-family: 'DM Serif Display', serif; color: var(--navy); font-size: 17px; margin-bottom: 5px; }
   .who-card p { color: var(--ink-muted); font-size: 13.5px; line-height: 1.55; }
 

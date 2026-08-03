@@ -5,7 +5,7 @@ description: Try 406 Front Desk yourself — enter your number and the AI texts 
 pageCss: demo
 permalink: /demo/
 ---
-
+{% from "partials/icons.njk" import icon %}
 <div class="header-band">
   <span class="header-eyebrow">Live Demo</span>
   <h1>See it work —<br /><em>on your phone.</em></h1>
@@ -19,28 +19,28 @@ permalink: /demo/
     <p>The whole demo takes about 2 minutes.</p>
     <div class="bullet-list">
       <div class="bullet-item">
-        <div class="bullet-icon" aria-hidden="true">⚡</div>
+        <div class="bullet-icon" aria-hidden="true">{{ icon("bolt") }}</div>
         <div class="bullet-text">
           <strong>Instant text reply</strong>
           <span>Submit the form and the AI texts you back in seconds — day or night.</span>
         </div>
       </div>
       <div class="bullet-item">
-        <div class="bullet-icon" aria-hidden="true">💬</div>
+        <div class="bullet-icon" aria-hidden="true">{{ icon("robot") }}</div>
         <div class="bullet-text">
           <strong>Ask it anything</strong>
           <span>Hours, pricing, services, availability — reply naturally and watch it answer like it knows your business.</span>
         </div>
       </div>
       <div class="bullet-item">
-        <div class="bullet-icon" aria-hidden="true">📅</div>
+        <div class="bullet-icon" aria-hidden="true">{{ icon("calendar") }}</div>
         <div class="bullet-text">
           <strong>Watch it book you in</strong>
           <span>Ask to schedule and it guides you to a time and confirms — the same flow your customers would use.</span>
         </div>
       </div>
       <div class="bullet-item">
-        <div class="bullet-icon" aria-hidden="true">🎙️</div>
+        <div class="bullet-icon" aria-hidden="true">{{ icon("microphone") }}</div>
         <div class="bullet-text">
           <strong>Talk to it live — try to catch it missing a call</strong>
           <span>Call <span class="nowrap">(406) 840-0404</span> and just talk. Call after hours, on a weekend, hang up mid-sentence — go ahead, try to catch us. Our live AI voice agent answers, books, and helps exactly like it would for your callers, before voicemail ever could. That's the point.</span>

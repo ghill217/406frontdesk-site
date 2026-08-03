@@ -123,7 +123,8 @@
   }
   .highlight-card .msg-row:last-child { border-bottom: none; padding-bottom: 0; }
   .highlight-card .msg-row:first-child { padding-top: 0; }
-  .highlight-card .msg-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .highlight-card .msg-icon { display: inline-flex; align-items: center; color: var(--accent-dark); flex-shrink: 0; }
+  .highlight-card .msg-icon svg { width: 19px; height: 19px; }
   .highlight-card .msg-row strong { color: var(--ink); }
 
   /* OPT-OUT LIST */

@@ -97,8 +97,9 @@
     width: 30px; height: 30px; border-radius: 8px;
     background: var(--accent-light); color: var(--accent-dark);
     display: flex; align-items: center; justify-content: center;
-    font-size: 15px; flex-shrink: 0; margin-top: 1px;
+    flex-shrink: 0; margin-top: 1px;
   }
+  .bullet-icon svg { width: 17px; height: 17px; }
   .bullet-text strong { font-size: 14px; display: block; color: var(--ink); margin-bottom: 2px; font-weight: 600; }
   .bullet-text span { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
 

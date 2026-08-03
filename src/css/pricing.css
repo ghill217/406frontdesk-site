@@ -111,15 +111,17 @@
   .price-setup strong { color: var(--navy); font-weight: 600; }
   .price-setup .strike { color: var(--ink-muted); text-decoration: line-through; margin-right: 6px; }
   .price-freebie {
-    display: inline-block; margin-top: 10px;
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 10px;
     font-size: 13.5px; font-weight: 700; color: var(--accent-dark);
     background: var(--accent-light); padding: 5px 12px; border-radius: 999px;
   }
   .price-lock {
-    display: inline-block; margin-top: 8px;
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 8px;
     font-size: 13px; font-weight: 600; color: var(--navy);
     background: #eef1f7; padding: 5px 12px; border-radius: 999px;
   }
+  .pill-ic { display: inline-flex; align-items: center; flex-shrink: 0; }
+  .pill-ic svg { width: 15px; height: 15px; }
 
   .feat-list { list-style: none; margin: 22px 0 18px; flex: 1; }
   .feat-list li {

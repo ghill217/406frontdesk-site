@@ -6,7 +6,7 @@ pageCss: scorecard
 permalink: /scorecard/
 noindex: true
 ---
-
+{% from "partials/icons.njk" import icon %}
 <header class="lp-header">
   <a href="/" class="lp-logo"><em>406</em> Front Desk</a>
 </header>
@@ -100,9 +100,9 @@ noindex: true
         <h2 class="section-title" style="text-align:left;">Get your free scorecard.</h2>
         <p class="section-sub">Enter your name and website and we'll send your graded report within 24 hours. No spam, no obligation.</p>
         <div class="request-bullets">
-          <div class="req-bullet"><div class="req-icon" aria-hidden="true">✓</div><div class="req-text"><strong>Completely free</strong><span>No credit card, no strings, no automated upsell.</span></div></div>
-          <div class="req-bullet"><div class="req-icon" aria-hidden="true">⏱️</div><div class="req-text"><strong>24-hour turnaround</strong><span>A real person grades it and writes the receipts.</span></div></div>
-          <div class="req-bullet"><div class="req-icon" aria-hidden="true">🎨</div><div class="req-text"><strong>Free section mockup included</strong><span>See one part of your site reimagined, on us.</span></div></div>
+          <div class="req-bullet"><div class="req-icon" aria-hidden="true">{{ icon("check") }}</div><div class="req-text"><strong>Completely free</strong><span>No credit card, no strings, no automated upsell.</span></div></div>
+          <div class="req-bullet"><div class="req-icon" aria-hidden="true">{{ icon("clock") }}</div><div class="req-text"><strong>24-hour turnaround</strong><span>A real person grades it and writes the receipts.</span></div></div>
+          <div class="req-bullet"><div class="req-icon" aria-hidden="true">{{ icon("palette") }}</div><div class="req-text"><strong>Free section mockup included</strong><span>See one part of your site reimagined, on us.</span></div></div>
         </div>
       </div>
 
@@ -148,7 +148,7 @@ noindex: true
       <div class="section-label">Built Here</div>
       <h2 class="section-title">A Flathead business, backing local business.</h2>
       <p class="section-sub">406 Front Desk builds AI receptionist and website systems for Montana shops that can't afford to miss a call. The scorecard is where it starts.</p>
-      <div class="local-badge">📍 Serving Kalispell &amp; the Flathead Valley</div>
+      <div class="local-badge"><span class="pill-ic" aria-hidden="true">{{ icon("map-pin") }}</span> Serving Kalispell &amp; the Flathead Valley</div>
     </div>
   </div>
 </section>
