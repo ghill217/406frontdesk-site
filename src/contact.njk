@@ -5,7 +5,7 @@ description: Get in touch with 406 Front Desk in Kalispell, Montana. Book a demo
 pageCss: contact
 permalink: /contact/
 ---
-
+{% from "partials/icons.njk" import icon %}
 <div class="header-band">
     <span class="header-eyebrow">Contact</span>
     <h1>Let's talk</h1>
@@ -20,7 +20,7 @@ permalink: /contact/
       <!-- CALL — main line -->
       <a href="tel:+14068400404" class="ccard" style="grid-column: 1 / -1;">
         <div class="ccard-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          {{ icon("phone") }}
         </div>
         <div class="ccard-label">Call or Text</div>
         <div class="ccard-value"><span class="nowrap">(406) 840-0404</span></div>
@@ -30,7 +30,7 @@ permalink: /contact/
       <!-- EMAIL -->
       <a href="mailto:admin@406frontdesk.com" class="ccard">
         <div class="ccard-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          {{ icon("mail") }}
         </div>
         <div class="ccard-label">Email</div>
         <div class="ccard-value"><span class="nowrap">admin@406frontdesk.com</span></div>
@@ -40,7 +40,7 @@ permalink: /contact/
       <!-- LOCATION -->
       <div class="ccard" style="cursor:default;">
         <div class="ccard-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          {{ icon("map-pin") }}
         </div>
         <div class="ccard-label">Location</div>
         <div class="ccard-value">Kalispell, Montana</div>
@@ -50,7 +50,7 @@ permalink: /contact/
       <!-- DEMO -->
       <a href="/demo/" class="ccard" style="grid-column: 1 / -1;">
         <div class="ccard-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="2" y="9" width="20" height="12" rx="2"/><path d="M12 13v4"/></svg>
+          {{ icon("lock") }}
         </div>
         <div class="ccard-label">Try it first</div>
         <div class="ccard-value">See the demo</div>
