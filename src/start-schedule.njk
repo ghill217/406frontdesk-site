@@ -5,9 +5,10 @@ description: Pick a time for your twenty-minute call with 406 Front Desk, and se
 pageCss: start
 permalink: /start/schedule/
 noindex: true
-# Set once the Remotion ChatDemo render is committed to src/assets/video/.
+# Remotion ChatDemo render (props/pre-call-briefing.json in the 406-video project).
 # Empty = the video block is skipped rather than shipping a broken <video>.
-preCallVideo: ""
+preCallVideo: "/assets/video/pre-call-briefing.mp4"
+preCallPoster: "/assets/img/pre-call-briefing-poster.jpg"
 ---
 {% from "partials/icons.njk" import icon %}
 <header class="lp-header">
@@ -69,7 +70,7 @@ preCallVideo: ""
       <p class="section-sub">A customer messages after close. Watch what happens instead of nothing.</p>
     </div>
     <div class="precall-frame fade-in">
-      <video controls playsinline preload="metadata" poster="/assets/img/og-image.png">
+      <video controls playsinline preload="metadata" poster="{{ preCallPoster }}">
         <source src="{{ preCallVideo }}" type="video/mp4" />
         Your browser can't play this video. Call <a href="tel:+14068400404">(406) 840-0404</a> and hear it instead.
       </video>

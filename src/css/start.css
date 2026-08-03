@@ -2,24 +2,11 @@
    Shares the standalone landing-page shell with scorecard.css (own header/footer,
    not the site chrome), then adds the application + scheduling blocks. ── */
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* No local :root block — tokens.css loads site-wide before this file and already
+   defines every colour and radius used here, and a11y.css loads after it to set
+   the AA-safe amber. Per CLAUDE.md, new pages must not re-declare the palette. */
 
-  :root {
-    --ink: #1A1A1A;
-    --ink-soft: #3a3d42;
-    --ink-muted: #7a7e87;
-    --surface: #F8F7F4;
-    --white: #ffffff;
-    --accent: #E8A435;
-    --accent-light: #fdf3e0;
-    --accent-dark: #c98a1a;
-    --navy: #0F2540;
-    --border: #e2e3e6;
-    --border-strong: #c8cad0;
-    --success: #0ea86b;
-    --radius: 12px;
-    --radius-lg: 20px;
-  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html { scroll-behavior: smooth; }
   body {
@@ -149,7 +136,10 @@
   /* ── PRE-CALL VIDEO ── */
   .precall { background: var(--surface); }
   .precall-frame { max-width: 420px; margin: 44px auto 0; border-radius: var(--radius-lg); overflow: hidden; background: var(--navy); box-shadow: 0 10px 34px rgba(15,37,64,0.22); }
-  .precall-frame video { display: block; width: 100%; height: auto; }
+  /* The fallback text inside <video> only shows when playback is unsupported —
+     it sits on the navy frame, so it must not inherit --ink (1.13:1). */
+  .precall-frame video { display: block; width: 100%; height: auto; color: #fff; padding: 20px; font-size: 15px; line-height: 1.6; }
+  .precall-frame video a { color: var(--accent); }
 
   /* ── OBJECTIONS ── */
   .objections { background: var(--white); }
