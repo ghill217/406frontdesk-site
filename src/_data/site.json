@@ -28,6 +28,7 @@
     { "heading": "Industries", "links": [
       { "label": "Barbershops", "url": "/barbershops/" },
       { "label": "Clinics", "url": "/clinics/" },
+      { "label": "Chiropractors", "url": "/chiropractors/" },
       { "label": "Gyms", "url": "/gyms/" },
       { "label": "Accounting", "url": "/accounting/" },
       { "label": "Trades & Contractors", "url": "/trades/" },
