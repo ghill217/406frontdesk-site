@@ -25,18 +25,23 @@
     { "label": "Contact", "url": "/contact/" }
   ],
   "footerGroups": [
-    { "heading": "Industries", "links": [
-      { "label": "Barbershops", "url": "/barbershops/" },
-      { "label": "Clinics", "url": "/clinics/" },
+    { "heading": "Health & wellness", "links": [
       { "label": "Chiropractors", "url": "/chiropractors/" },
+      { "label": "Physical Therapy", "url": "/physical-therapy/" },
       { "label": "Dental", "url": "/dental/" },
+      { "label": "Clinics", "url": "/clinics/" },
+      { "label": "Gyms", "url": "/gyms/" }
+    ] },
+    { "heading": "By appointment", "links": [
+      { "label": "Barbershops", "url": "/barbershops/" },
       { "label": "Salons & Spas", "url": "/salons-spas/" },
-      { "label": "Pet Care", "url": "/pet-care/" },
-      { "label": "Gyms", "url": "/gyms/" },
-      { "label": "Accounting", "url": "/accounting/" },
+      { "label": "Tattoo & Piercing", "url": "/tattoo-studios/" },
+      { "label": "Pet Care", "url": "/pet-care/" }
+    ] },
+    { "heading": "Home & business", "links": [
       { "label": "Trades & Contractors", "url": "/trades/" },
       { "label": "Auto Shops", "url": "/auto-shops/" },
-      { "label": "Tattoo & Piercing", "url": "/tattoo-studios/" }
+      { "label": "Accounting", "url": "/accounting/" }
     ] },
     { "heading": "Areas served", "links": [
       { "label": "Kalispell", "url": "/kalispell/" }
