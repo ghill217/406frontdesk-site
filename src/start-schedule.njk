@@ -11,10 +11,9 @@ preCallVideo: "/assets/video/pre-call-briefing.mp4"
 preCallPoster: "/assets/img/pre-call-briefing-poster.jpg"
 ---
 {% from "partials/icons.njk" import icon %}
-<header class="lp-header">
-  <a href="/" class="lp-logo"><em>406</em> Front Desk</a>
-  <a href="tel:+14068400404" class="lp-call">(406) 840-0404</a>
-</header>
+{# No page-level logo header: base.njk already renders the global nav, whose logo
+   lockup says the same thing 40px higher. The number that used to sit here is
+   still one tap away in the fixed call CTA base.njk paints bottom-left. #}
 
 <!-- ── HERO ── -->
 <section class="hero hero-tight">

@@ -24,15 +24,8 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── LOGO HEADER (minimal — remove if deployed inside the GHL global header) ── */
-  .lp-header {
-    display: flex; align-items: center; justify-content: space-between;
-    max-width: 1100px; margin: 0 auto; padding: 22px 40px;
-  }
-  .lp-logo { font-family: 'DM Serif Display', serif; font-size: 22px; letter-spacing: -0.5px; color: var(--navy); text-decoration: none; }
-  .lp-logo em { color: var(--accent); font-style: normal; }
-  .lp-header a.lp-call { font-size: 14px; font-weight: 600; color: var(--navy); text-decoration: none; }
-  .lp-header a.lp-call:hover { color: var(--accent-dark); }
+  /* No .lp-header styles here — this page renders inside the site's global nav
+     (base.njk), so the page-level logo header was removed as a duplicate. */
 
   /* ── HERO ── */
   .hero { padding: 60px 40px 70px; position: relative; overflow: hidden; }
@@ -147,7 +140,6 @@
   @media (max-width: 900px) {
     section { padding: 64px 24px; }
     .hero { padding: 40px 24px 56px; }
-    .lp-header { padding: 18px 24px; }
     .grade-grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr; }
     .request-inner { grid-template-columns: 1fr; gap: 40px; }
