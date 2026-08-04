@@ -97,6 +97,10 @@
   .ap-text strong { font-size: 14px; display: block; color: var(--ink); margin-bottom: 2px; }
   .ap-text span { font-size: 13px; color: var(--ink-muted); }
 
+  /* /pre-call/ — single column: whoever lands here has already booked, so there is
+     no calendar or sell copy beside the form, just the questions. */
+  .precall-inner { max-width: 620px; margin: 0 auto; }
+
   .form-wrap { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 40px; }
   .form-title { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.5px; }
   .form-sub { font-size: 14px; color: var(--ink-muted); margin-bottom: 26px; }

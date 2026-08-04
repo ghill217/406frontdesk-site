@@ -1,0 +1,79 @@
+---
+layout: layouts/base.njk
+title: Pre-Call Questions
+description: A few quick questions before your twenty-minute call with 406 Front Desk, so the time goes on your business instead of the basics.
+pageCss: start
+permalink: /pre-call/
+noindex: true
+# ── GHL form id for "Pre-Call Questions" — the POST-BOOKING twin of the Front Desk
+#    Application (EMcLe6zX1oaUWLgMfmsB). Same nine questions and the same custom fields,
+#    but it must NOT redirect to /start/schedule/ on submit: everyone who lands here has
+#    ALREADY booked, and sending them back to the calendar would invite a double booking.
+#    That redirect is the whole reason this is a separate form rather than a reused one.
+#    Leave empty until the form exists in GHL — the page then renders a staging notice
+#    instead of a collapsed iframe. Spec: "406 Front Desk — Pre-Call Funnel" (vault).
+preCallFormId: ""
+---
+{% from "partials/icons.njk" import icon %}
+
+<!-- ── HERO ── -->
+<section class="hero hero-tight">
+  <div class="hero-inner fade-in">
+    <div class="hero-badge">You're booked</div>
+    <h1>One thing before <em>we talk.</em></h1>
+    <p>About three minutes of questions. Answer them and we'll spend your twenty minutes on your business instead of the basics — we look at your phone setup, your website and your Google listing before the call, and your answers tell us where to look.</p>
+  </div>
+</section>
+
+<!-- ── THE QUESTIONS ── -->
+<section class="apply">
+  <div class="section-inner">
+    <div class="precall-inner">
+      <div class="form-wrap fade-in">
+        <div class="form-title">Front desk questions</div>
+        <p class="form-sub">About three minutes. Your appointment is already confirmed — nothing here changes it, and skipping it doesn't cancel anything.</p>
+
+        {% if preCallFormId %}
+        <!-- PRE-CALL FORM — GHL "Pre-Call Questions" (post-booking twin of the application).
+             Never add loading="lazy" — form_embed.js can't hook it and the iframe collapses. -->
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/{{ preCallFormId }}"
+          style="width:100%;min-height:760px;border:none;border-radius:8px"
+          id="inline-{{ preCallFormId }}"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-activation-type="alwaysActivated"
+          data-deactivation-type="neverDeactivate"
+          data-form-name="Pre-Call Questions"
+          data-height="760"
+          data-layout-iframe-id="inline-{{ preCallFormId }}"
+          data-form-id="{{ preCallFormId }}"
+          title="Pre-call questions form"
+        ></iframe>
+        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+        {% else %}
+        <div class="form-staging" role="status">
+          <strong>This page is staged, not live.</strong>
+          <span>The <em>Pre-Call Questions</em> form has not been built in GoHighLevel yet. It is a copy of the Front Desk Application that ends in a thank-you instead of redirecting to the calendar. Set <code>preCallFormId</code> in the front matter of <code>src/pre-call.njk</code> and this block becomes the real form.</span>
+        </div>
+        {% endif %}
+
+        <div class="call-block">
+          <strong>Rather just say it out loud?</strong>
+          <span>Call and tell us — or bring it to the call. Either works.</span>
+          <a href="tel:+14068400404" class="call-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call (406) 840-0404
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
