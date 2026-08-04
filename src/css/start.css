@@ -1,6 +1,7 @@
 /* ── /start/ + /start/schedule/ — the pre-call funnel pages.
-   Shares the standalone landing-page shell with scorecard.css (own header/footer,
-   not the site chrome), then adds the application + scheduling blocks. ── */
+   These render INSIDE the site chrome (base.njk's fd406-nav + fd406-footer). They
+   were originally built standalone with their own header/footer; both were removed
+   as duplicates on 2026-08-04, so do not reintroduce page-level chrome here. ── */
 
 /* No local :root block — tokens.css loads site-wide before this file and already
    defines every colour and radius used here, and a11y.css loads after it to set
@@ -150,11 +151,8 @@
   .pill-ic svg { width: 15px; height: 15px; }
 
   /* ── FOOTER ── */
-  .lp-footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 40px; text-align: center; font-size: 13.5px; }
-  .lp-footer a { color: var(--accent); text-decoration: none; }
-  .lp-footer .lp-foot-brand { font-family: 'DM Serif Display', serif; font-size: 18px; color: #fff; margin-bottom: 8px; }
-  .lp-footer .lp-foot-links { margin-top: 12px; }
-  .lp-footer .lp-foot-links a { color: rgba(255,255,255,0.7); margin: 0 10px; }
+  /* No .lp-footer styles here — this page renders inside the site's global
+     fd406-footer (base.njk); the page-level footer was removed as a duplicate. */
 
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }

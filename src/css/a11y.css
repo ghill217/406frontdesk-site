@@ -64,8 +64,7 @@
 .cta-section .section-label,
 .stat-label,
 .phone-contact-sub,
-.ring-sub,
-.lp-footer div { color: rgba(255,255,255,0.62); }
+.ring-sub {  color: rgba(255,255,255,0.62); }
 
 /* Visible keyboard-only focus (brand amber ring; mouse clicks stay clean) */
 :focus-visible {
