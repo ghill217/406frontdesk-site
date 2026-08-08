@@ -217,6 +217,22 @@ body {
 }
 
 .result-cta { border-top: 1px solid var(--border); background: var(--surface); padding: 30px; }
+/* The primary ask sits on white so it reads as the page's one action; the
+   scorecard offer below it is deliberately quieter (see score.njk comment). */
+.result-cta-content {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 26px 24px;
+}
+.btn-cta { margin-top: 6px; }
+.cta-microtrust { font-size: 13px; color: var(--ink-muted); margin: 10px 0 0; }
+
+.result-secondary { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border); }
+.result-secondary h4 {
+  font-family: 'DM Serif Display', serif; font-size: 19px;
+  color: var(--navy); margin-bottom: 8px;
+}
+.result-secondary p { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; }
+.result-secondary p em { color: var(--navy); font-style: italic; }
 .section-label {
   font-size: 12px; font-weight: var(--fw-bold); letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px;

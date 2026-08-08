@@ -151,10 +151,25 @@ scoreFormId: "IRwcugzKQESclKqcXgNI"
     <div class="result-cta">
       <div class="result-cta-content">
         <div class="section-label">What Now</div>
-        <h3>Want the other half of the picture?</h3>
-        <p>This graded how your <strong>phone</strong> is covered. The other place customers quietly
-          disappear is your <strong>website</strong> — and we'll grade that one by hand, twelve checks
-          with the receipts, and send it back inside a day. Free, same as this was.</p>
+        {# PRIMARY = the twenty minutes (set 2026-08-08). This page is the landing spot for
+           the Wave-1 mailers, and every one of those recipients already holds a printed
+           website scorecard — so leading with "get a free scorecard" offered them the thing
+           in their other hand. The scorecard offer moves below, with an explicit skip line. #}
+        <h3>Twenty minutes, and you'll know what to do about it.</h3>
+        <p>Bring the leaks above. We'll go through what they're actually costing you, what a fix looks
+          like for a business your size, and what it would run — the same numbers on our
+          <a href="/pricing/">public pricing page</a>, which you can read before you ever book. The whole
+          agenda is published. If it isn't a fit, we'll tell you.</p>
+        <a href="/start/" class="btn-primary btn-cta">Book twenty minutes</a>
+        <p class="cta-microtrust">No pitch deck, no pressure, and you pick the time.</p>
+      </div>
+
+      <div class="result-secondary">
+        <h4>Not ready to talk yet?</h4>
+        <p>This graded your <strong>phone</strong>. The other place customers quietly disappear is your
+          <strong>website</strong>, and we'll grade that one by hand — twelve checks with the receipts,
+          back inside a day, free. <em>Already got your scorecard from us in the mail? Skip this
+          one.</em></p>
 
         {% if scoreFormId %}
         <!-- Never add loading="lazy" — form_embed.js can't hook it and the iframe collapses. -->
@@ -184,9 +199,7 @@ scoreFormId: "IRwcugzKQESclKqcXgNI"
         </div>
         {% endif %}
 
-        <p class="result-alt">Rather just talk it through? <a href="/start/">Book twenty minutes</a> —
-          the agenda is published, and our <a href="/pricing/">pricing is public</a> before you ever
-          get on the call. Or work out what the misses are costing you on the
+        <p class="result-alt">Or work out what the misses are costing you, in your own numbers, on the
           <a href="/roi/">missed-call calculator</a>.</p>
       </div>
     </div>
