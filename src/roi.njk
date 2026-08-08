@@ -4,7 +4,19 @@ title: Missed-Call Calculator
 description: What are missed calls really costing your business? Use your own numbers — customer value, missed calls, booking rate — and see the revenue walking out the door.
 pageCss: roi
 permalink: /roi/
+# ── GHL form id for "Free Website Scorecard - ROI Calculator": a duplicate of the
+#    /scorecard/ form (J9WkThXTnIN59SBHNPxX). Attribution comes from the form
+#    IDENTITY, not a hidden field — submissions are tracked per form, so a lead
+#    arriving here is distinguishable from one on /scorecard/ or /score/ with no
+#    extra field to maintain.
+#    Same three fields (Full Name / Website / Email), same fulfilment, no phone
+#    field — so this capture carries no A2P surface.
+#    Verified 2026-08-08 against the public widget config: actionType 2
+#    (thank-you message), redirectUrl empty — it did NOT inherit a redirect.
+#    Deliberately inline rather than in _data/site.json, matching start.njk.
+scorecardRoiFormId: "FFjmbww4O3Uf48asjxaf"
 ---
+{% from "partials/icons.njk" import icon %}
 
 <div class="header-band">
   <span class="header-eyebrow">The Math</span>
@@ -53,6 +65,63 @@ permalink: /roi/
   <p class="honesty fade-in">Your sliders, your math: missed calls × your booking rate × what a customer is worth.
     We don't pad it with "industry averages" — the honest number is convincing enough.</p>
 </div>
+
+<!-- ── CAPTURE ── the number above is the highest-intent moment on the site.
+     Before this block it had no next step but the nav. Offer is the same free
+     12-point scorecard /scorecard/ fulfils; the form is a duplicate carrying a
+     hidden source value so calculator leads are attributable. -->
+<section class="capture" id="breakdown">
+  <div class="capture-inner fade-in">
+    <div class="capture-content">
+      <div class="section-label">The Other Half</div>
+      <h2 class="capture-title">That's the <em>what.</em> Here's the <em>why.</em></h2>
+      <p class="capture-sub">The number above tells you what's walking out the door. It can't tell you
+        <strong>why</strong> those callers went looking somewhere else in the first place — that part is
+        usually sitting on your website. We'll grade yours by hand, twelve checks, and send it back with
+        the receipts.</p>
+      <div class="capture-bullets">
+        <div class="cap-bullet"><div class="cap-icon" aria-hidden="true">{{ icon("check") }}</div><div class="cap-text"><strong>Free, and free of strings</strong><span>No card, no call required, no automated upsell.</span></div></div>
+        <div class="cap-bullet"><div class="cap-icon" aria-hidden="true">{{ icon("clock") }}</div><div class="cap-text"><strong>Back within 24 hours</strong><span>Graded by a person here in the Flathead, not a plugin.</span></div></div>
+        <div class="cap-bullet"><div class="cap-icon" aria-hidden="true">{{ icon("lock") }}</div><div class="cap-text"><strong>Your numbers stay on this page</strong><span>The sliders are yours. We don't need them to grade your site.</span></div></div>
+      </div>
+    </div>
+
+    <div class="capture-form">
+      <div class="capture-form-title">Send me the scorecard</div>
+      <p class="capture-form-sub">Name, website, email. Nothing else.</p>
+
+      {% if scorecardRoiFormId %}
+      <!-- Never add loading="lazy" — form_embed.js can't hook it and the iframe
+           collapses to zero height. -->
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/{{ scorecardRoiFormId }}"
+        style="width:100%;min-height:460px;border:none;border-radius:8px"
+        id="inline-{{ scorecardRoiFormId }}"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-activation-type="alwaysActivated"
+        data-deactivation-type="neverDeactivate"
+        data-form-name="Free Website Scorecard — ROI"
+        data-height="460"
+        data-layout-iframe-id="inline-{{ scorecardRoiFormId }}"
+        data-form-id="{{ scorecardRoiFormId }}"
+        title="Free website scorecard request form"
+      ></iframe>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      {% else %}
+      {# FALLBACK — public-safe by design. Until scorecardRoiFormId is set this
+         must read as a normal CTA, never as developer instructions: it renders
+         to real visitors on a live page. Hands off to /scorecard/, which carries
+         the same form. #}
+      <div class="form-fallback">
+        <p>Takes about thirty seconds, and the scorecard comes back within a day.</p>
+        <a href="/scorecard/" class="btn-primary">Get my free scorecard</a>
+        <span class="form-fallback-note">Free, no card, no obligation.</span>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
 
 <section class="context">
   <div class="section-inner">
