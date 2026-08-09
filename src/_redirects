@@ -1,4 +1,8 @@
 # Netlify redirects. Old GHL URLs → new clean URLs (add as needed once live).
+# The free .netlify.app subdomain serves the site as a 200 duplicate unless forced
+# to the canonical domain (GSC duplicate-canonical flag). Domain-level rules only
+# work from THIS file — the netlify.toml equivalent silently never fires.
+https://406frontdesk.netlify.app/*  https://406frontdesk.com/:splat  301!
 # Example:
 # /old-path   /new-path   301
 /book   https://links.406frontdesk.com/widget/bookings/406-20-minute-demo   302
