@@ -1,0 +1,233 @@
+---
+layout: layouts/base.njk
+title: Fit Finder
+description: Tell us what you do for a living and see exactly which front-desk automations we'd turn on for your business — real features, straight answers, no pricing games.
+pageCss: fit
+permalink: /fit/
+# ── Fit Finder ─────────────────────────────────────────────────────────────
+# Data lives in src/_data/fitFinder.json (one entry per profession, copy lifted
+# from the Blueprint-checked verticals.json). Deterministic client-side match —
+# NO LLM, no backend, no API key. Free text that matches nothing shows the
+# fallback (core offering) and posts the raw text to the Netlify form
+# "fit-no-match" — that backlog is the roadmap for which profession to add next.
+# Spec of record: vault page "406 Front Desk — Fit Finder (Public Vertical Tool Spec)".
+---
+{% from "partials/icons.njk" import icon %}
+
+<div class="header-band">
+  <span class="header-eyebrow">The Fit Finder</span>
+  <h1>What do you do? <em>We'll show you what we'd turn on.</em></h1>
+  <p>Pick your line of work and get the straight answer: what your front desk is missing, and exactly which pieces of the system we'd switch on for a business like yours.</p>
+</div>
+
+<div class="wrap">
+  <div class="fit-card fade-in">
+    <div class="fit-pick-head">
+      <h2>Pick your line of work</h2>
+      <p>Every answer below is a real feature we deploy today — nothing hypothetical, no pricing games.</p>
+    </div>
+    <div class="fit-grid" role="list">
+      {% for p in fitFinder.professions %}
+      <button type="button" class="fit-pick" data-slug="{{ p.slug }}" role="listitem">
+        <span class="fit-pick-icon" aria-hidden="true">{{ icon(p.icon) }}</span>
+        <span class="fit-pick-label">{{ p.label }}</span>
+      </button>
+      {% endfor %}
+    </div>
+    <div class="fit-free">
+      <label for="fitText">Not seeing yours? Tell us what you do:</label>
+      <div class="fit-free-row">
+        <input type="text" id="fitText" maxlength="80" placeholder="e.g. wedding photographer, locksmith, property manager…" autocomplete="off" />
+        <button type="button" class="btn-primary" id="fitGo">Show me</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# Result panel — filled client-side, hidden until a pick happens. #}
+<section class="fit-result" id="fitResult" hidden aria-live="polite">
+  <div class="section-inner">
+    <div class="fit-result-card">
+      <div class="fr-head">
+        <div class="section-label" id="frEyebrow">Your fit</div>
+        <h2 class="fr-title" id="frTitle"></h2>
+        <p class="fr-intro" id="frIntro" hidden></p>
+      </div>
+      <div class="fr-cols">
+        <div class="fr-col" id="frPainsCol">
+          <h3><span class="fr-col-icon" aria-hidden="true">{{ icon("phone") }}</span> What your front desk misses</h3>
+          <ul id="frPains" class="fr-pains"></ul>
+        </div>
+        <div class="fr-col">
+          <h3><span class="fr-col-icon" aria-hidden="true">{{ icon("check") }}</span> What we'd turn on for you</h3>
+          <ul id="frFeatures" class="fr-features"></ul>
+        </div>
+      </div>
+      <div class="fr-proof" id="frProof" hidden>
+        <span class="fr-proof-icon" aria-hidden="true">{{ icon("star") }}</span>
+        <p id="frProofText"></p>
+        <a id="frProofLink" href="#"></a>
+      </div>
+      <p class="fr-note" id="frNote" hidden></p>
+      <div class="fr-ctas">
+        <a href="/demo/" class="btn-primary">Try the live demo</a>
+        <a href="/roi/" class="btn-outline">Run your own numbers</a>
+        <a href="#" class="fr-pagelink" id="frPageLink" hidden></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="section-inner fade-in">
+    <h2>Rather just hear it?</h2>
+    <p>The fastest way to judge the fit is to talk to the receptionist itself. Call or text the live demo and
+      ask it what your customers ask you — or bring your questions to a twenty-minute call.</p>
+    <div class="cta-actions">
+      <a href="/start/" class="btn-primary">Start here</a>
+      <a href="tel:+14068400404" class="btn-secondary">Call (406) 840-0404</a>
+    </div>
+  </div>
+</section>
+
+{# Netlify form: captures ONLY the free-typed profession text on a no-match —
+   no name, no contact info, nothing personal. The submission list is the
+   backlog of professions worth adding. Hidden from users entirely. #}
+<form name="fit-no-match" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="fit-no-match" />
+  <input type="text" name="bot-field" />
+  <input type="text" name="profession" />
+</form>
+
+<script type="application/json" id="fitData">{{ fitFinder | dump | safe }}</script>
+<script>
+  (function () {
+    var DATA = JSON.parse(document.getElementById("fitData").textContent);
+    var result = document.getElementById("fitResult");
+
+    function norm(s) {
+      return (s || "").toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+    }
+
+    /* Deterministic scoring — exact > prefix > substring > token overlap. */
+    function matchProfession(query) {
+      var q = norm(query);
+      if (!q) return null;
+      var qTokens = q.split(" ");
+      var best = null, bestScore = 0;
+      DATA.professions.forEach(function (p) {
+        var surfaces = [p.label].concat(p.aliases || []);
+        surfaces.forEach(function (a) {
+          var s = norm(a), score = 0;
+          if (s === q) score = 100;
+          else if (s.length >= 3 && (s.indexOf(q) === 0 || q.indexOf(s) === 0)) score = 80;
+          else if ((s.length >= 4 && q.indexOf(s) !== -1) || (q.length >= 4 && s.indexOf(q) !== -1)) score = 65;
+          else {
+            var sTokens = s.split(" "), hits = 0;
+            qTokens.forEach(function (t) { if (t.length >= 3 && sTokens.indexOf(t) !== -1) hits++; });
+            if (hits) score = 60 * (hits / Math.max(qTokens.length, sTokens.length));
+          }
+          if (score > bestScore) { bestScore = score; best = p; }
+        });
+      });
+      return bestScore >= 60 ? best : null;   /* below threshold = no guess, ever */
+    }
+
+    function li(parent, strong, body) {
+      var el = document.createElement("li");
+      if (strong) {
+        var st = document.createElement("strong");
+        st.textContent = strong;
+        el.appendChild(st);
+      }
+      var sp = document.createElement("span");
+      sp.textContent = body;
+      el.appendChild(sp);
+      parent.appendChild(el);
+    }
+
+    function show(p, freeText) {
+      var pains = document.getElementById("frPains");
+      var feats = document.getElementById("frFeatures");
+      var painsCol = document.getElementById("frPainsCol");
+      var intro = document.getElementById("frIntro");
+      var note = document.getElementById("frNote");
+      var proof = document.getElementById("frProof");
+      var pageLink = document.getElementById("frPageLink");
+      pains.textContent = "";
+      feats.textContent = "";
+
+      if (p) {
+        document.getElementById("frTitle").textContent = p.label;
+        intro.hidden = true;
+        painsCol.hidden = false;
+        p.pains.forEach(function (t) { li(pains, null, t); });
+        p.features.forEach(function (f) { li(feats, f.strong, f.body); });
+        if (p.proof) {
+          document.getElementById("frProofText").textContent = p.proof.text;
+          var pl = document.getElementById("frProofLink");
+          pl.textContent = p.proof.linkLabel + " →";
+          pl.href = p.proof.href;
+          proof.hidden = false;
+        } else { proof.hidden = true; }
+        note.hidden = true;
+        pageLink.textContent = "Read the full " + p.label + " page →";
+        pageLink.href = p.page;
+        pageLink.hidden = false;
+      } else {
+        var fb = DATA.fallback;
+        document.getElementById("frTitle").textContent = freeText ? "“" + freeText + "” — here’s the honest answer" : fb.label;
+        intro.textContent = fb.intro;
+        intro.hidden = false;
+        painsCol.hidden = true;
+        fb.features.forEach(function (f) { li(feats, f.strong, f.body); });
+        proof.hidden = true;
+        note.textContent = fb.note;
+        note.hidden = false;
+        pageLink.hidden = true;
+      }
+
+      result.hidden = false;
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      result.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+    }
+
+    /* No-match telemetry: the typed text ONLY — it is the add-next backlog. */
+    function logNoMatch(text) {
+      try {
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: "form-name=fit-no-match&profession=" + encodeURIComponent(text.slice(0, 80))
+        }).catch(function () {});
+      } catch (e) {}
+    }
+
+    document.querySelectorAll(".fit-pick").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        document.querySelectorAll(".fit-pick").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var p = DATA.professions.find(function (x) { return x.slug === btn.getAttribute("data-slug"); });
+        if (p) show(p, null);
+      });
+    });
+
+    function goFree() {
+      var text = document.getElementById("fitText").value.trim();
+      if (!text) return;
+      document.querySelectorAll(".fit-pick").forEach(function (b) { b.classList.remove("active"); });
+      var p = matchProfession(text);
+      if (!p) logNoMatch(text);
+      show(p, text);
+    }
+    document.getElementById("fitGo").addEventListener("click", goFree);
+    document.getElementById("fitText").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); goFree(); }
+    });
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add("visible"); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".fade-in").forEach(function (el) { observer.observe(el); });
+  })();
+</script>

@@ -205,6 +205,11 @@
   .worth-cta p { margin-top: var(--sp-3); font-size: var(--fs-xs); color: rgba(255,255,255,0.55); }
   .worth-cta p em { font-style: italic; color: var(--accent); }
 
+  /* Fit Finder CTA under the industry grid (light section — muted ink, not the
+     worth-cta white, which is styled for the navy band) */
+  .industries-cta { text-align: center; margin-top: var(--sp-7); }
+  .industries-cta p { margin-top: var(--sp-3); font-size: var(--fs-xs); color: var(--ink-muted); }
+
   /* TESTIMONIALS */
   .proof { background: var(--surface); }
   .proof-grid {

@@ -1,0 +1,265 @@
+{
+  "_comment": "Fit Finder data — ONE source for /fit/. Every feature line is lifted from src/_data/verticals.json (the Blueprint-checked, literally-true copy of the 12 vertical pages). RULES: no pricing, no invented stats, proof only where it really exists (proof: null renders NOTHING). Adding a profession = adding an entry here. Spec of record: vault page '406 Front Desk — Fit Finder (Public Vertical Tool Spec)'.",
+  "professions": [
+    {
+      "slug": "barbershops",
+      "label": "Barbershops",
+      "icon": "scissors",
+      "page": "/barbershops/",
+      "aliases": ["barber", "barbershop", "barber shop", "fades", "haircuts", "mens haircuts"],
+      "pains": [
+        "The mid-cut call rings out — and that client books down the street.",
+        "Instagram and Facebook DMs stack up all day and get answered at close, if at all.",
+        "Hours, prices, walk-ins, who's working Saturday — the same five questions, a thousand times."
+      ],
+      "features": [
+        { "strong": "Missed-call text-back", "body": "A call you can't take instantly becomes a text conversation: \"Sorry we missed you — want to grab a time?\"" },
+        { "strong": "Answers the usuals", "body": "Hours, prices, location, each barber's schedule — answered instantly and accurately, any hour." },
+        { "strong": "Straight to your calendar", "body": "Clients get sent directly to your real booking page — even the right link for the barber they asked for." },
+        { "strong": "Instagram & Facebook DMs", "body": "Every DM answered in minutes with real info and a booking link — not left on read until close." },
+        { "strong": "Human handoff", "body": "Anything the AI shouldn't handle gets flagged to your phone with a summary — you jump in when it matters." }
+      ],
+      "proof": {
+        "text": "This exact setup runs right now in a real Kalispell barbershop — the phone line, the texts, the Instagram and Facebook messages, and the website chat.",
+        "href": "/work/tl-slicks/",
+        "linkLabel": "See the barbershop case study"
+      }
+    },
+    {
+      "slug": "salons-spas",
+      "label": "Salons, Spas & Massage",
+      "icon": "massage",
+      "page": "/salons-spas/",
+      "aliases": ["salon", "hair salon", "hair stylist", "stylist", "spa", "day spa", "massage", "massage therapist", "nails", "nail salon", "nail tech", "lashes", "lash tech", "esthetician", "waxing", "booth renter", "cosmetologist"],
+      "pains": [
+        "A colour service runs two hours — you physically cannot take that call.",
+        "\"How much for balayage?\" can't be quoted blind without undercharging or scaring off a booking.",
+        "The gift-card call always arrives mid-service, and somebody still has to answer it."
+      ],
+      "features": [
+        { "strong": "Missed-call text-back", "body": "A call you couldn't take mid-service becomes a text conversation in seconds, instead of a voicemail you clear at close." },
+        { "strong": "Answers the menu questions", "body": "Services, rough timings, what's included, gift cards, parking, whether you take walk-ins — answered instantly and accurately, any hour." },
+        { "strong": "Never quotes a custom service", "body": "Colour, extensions and corrections get captured — length, current colour, what they're after — then handed to you. It only quotes what you've published." },
+        { "strong": "Fills cancellations", "body": "When a slot opens, it offers it out and takes the first yes, so a late cancellation doesn't become a dead two hours." },
+        { "strong": "Keeps people rebooking", "body": "A nudge when a client is due, so the six-week colour cycle doesn't quietly stretch to ten and the monthly massage doesn't lapse." }
+      ],
+      "proof": null
+    },
+    {
+      "slug": "tattoo-studios",
+      "label": "Tattoo & Piercing",
+      "icon": "palette",
+      "page": "/tattoo-studios/",
+      "aliases": ["tattoo", "tattoo artist", "tattoo shop", "tattoo studio", "piercing", "piercer", "ink"],
+      "pains": [
+        "You're gloved up for four hours and every inquiry waits until you're done — the ones who wanted an answer today are already messaging the next artist.",
+        "Most DMs arrive with no size, no placement and no reference — answering properly means asking the same four questions over and over.",
+        "\"How much for a sleeve?\" is unanswerable without seeing it, and answering badly costs you the piece or the trust."
+      ],
+      "features": [
+        { "strong": "Works the DMs, not just the phone", "body": "Instagram and Facebook messages answered in minutes — the channels most studios actually run on, and the ones that go unread longest." },
+        { "strong": "Captures the consult brief", "body": "The idea, rough size, placement, colour or black-and-grey, references, budget range and timeline — gathered before it ever reaches you." },
+        { "strong": "Never quotes a price", "body": "It explains how you price and what a consult involves, then tells them you'll confirm. No number goes out that you didn't set." },
+        { "strong": "Answers the studio questions", "body": "Deposits, shop minimum policy, age and ID, hours, parking, walk-ins versus appointment, whether you're booking at all right now." },
+        { "strong": "Books consults when you're ready", "body": "Start with capture only. Once you trust it, let it put fixed-length consultations straight onto a calendar." }
+      ],
+      "proof": null
+    },
+    {
+      "slug": "pet-care",
+      "label": "Pet Grooming, Boarding & Vets",
+      "icon": "paw",
+      "page": "/pet-care/",
+      "aliases": ["groomer", "grooming", "dog groomer", "pet groomer", "mobile groomer", "boarding", "kennel", "doggy daycare", "dog daycare", "vet", "veterinarian", "veterinary", "pet sitting", "dog trainer"],
+      "pains": [
+        "You're holding a wet, wriggling dog — the phone rings out and the caller books with whoever picks up first.",
+        "Everyone calls about holiday boarding in the same two weeks; whoever answers fills the kennel.",
+        "\"How much for a groom?\" depends on breed, coat and matting — quote it blind and you've lost money or lost the client."
+      ],
+      "features": [
+        { "strong": "Missed-call text-back", "body": "A call you couldn't take mid-groom becomes a text conversation, instead of a voicemail you clear after closing." },
+        { "strong": "Gets the pet's details first", "body": "Breed, size, coat condition, age, temperament, and what the owner is actually asking for — captured before you call back." },
+        { "strong": "Never quotes blind", "body": "It explains how you price and what changes it — matting, size, coat type — then tells them you'll confirm. No number goes out that you didn't set." },
+        { "strong": "Screens vaccination requirements", "body": "The single most repeated question in boarding and daycare, answered instantly from the policy you've published." },
+        { "strong": "Books and rebooks", "body": "New appointments onto your calendar, and a nudge when a regular is due for their next groom, so the six-week cycle doesn't quietly become twelve." }
+      ],
+      "proof": null
+    },
+    {
+      "slug": "clinics",
+      "label": "Clinics & Health Practices",
+      "icon": "shield-check",
+      "page": "/clinics/",
+      "aliases": ["clinic", "medical clinic", "medical practice", "health practice", "med spa", "medspa", "trt", "hormone therapy", "wellness clinic", "iv therapy", "naturopath", "functional medicine", "acupuncture", "dermatology", "optometrist", "urgent care", "midwife", "counseling", "therapist", "mental health"],
+      "pains": [
+        "A new patient calls while your desk is checking someone in — it rings out, and they book with the next practice that picks up.",
+        "People look for care in the evening and on weekends, when your desk is closed. Voicemail loses them.",
+        "Hours, location, what you treat, whether you take new patients — the same intake questions, all day."
+      ],
+      "features": [
+        { "strong": "Missed-call text-back", "body": "A call you can't take instantly becomes a text: \"Sorry we missed you — want to get you scheduled?\"" },
+        { "strong": "Answers the front-desk questions", "body": "Hours, location, what you treat, new-patient availability, how to book — answered instantly and accurately, any hour." },
+        { "strong": "Books straight to your calendar", "body": "New patients get sent to your real booking page for a consult or appointment — no phone tag, no double-booking." },
+        { "strong": "New-patient follow-up", "body": "Inquiries that don't book right away get a gentle, automatic nudge so they don't slip through the cracks." },
+        { "strong": "Human handoff — never clinical", "body": "Anything clinical or sensitive is flagged to your staff with a summary. The AI never gives medical advice, and it never touches a health record." }
+      ],
+      "proof": {
+        "text": "A Flathead clinic runs on this system today — Kalispell TRT's calls, texts, chat and telehealth booking all go through their 406 front desk.",
+        "href": "/work/kalispell-trt/",
+        "linkLabel": "See the clinic case study"
+      }
+    },
+    {
+      "slug": "chiropractors",
+      "label": "Chiropractors",
+      "icon": "user-check",
+      "page": "/chiropractors/",
+      "aliases": ["chiropractor", "chiro", "chiropractic"],
+      "pains": [
+        "\"I threw my back out\" doesn't shop around — whoever answers first gets the patient.",
+        "A care plan is two or three visits a week, and every change is a phone call.",
+        "\"Do you take my insurance?\" deserves a straight answer at 8 PM, not a voicemail."
+      ],
+      "features": [
+        { "strong": "Missed-call text-back", "body": "A call nobody could reach becomes a text conversation in seconds, instead of a voicemail your desk works through after close." },
+        { "strong": "The insurance question, answered honestly", "body": "It tells callers which plans you're in-network with and what a cash visit runs, then hands anything specific to your team. It never verifies benefits or promises coverage." },
+        { "strong": "Books new patients", "body": "New-patient calls go straight onto the schedule instead of into a callback pile — including the ones that come in at 9 PM." },
+        { "strong": "Reschedules by text", "body": "The \"can I move Thursday?\" message gets handled without anyone picking up a phone, so care plans stay intact." },
+        { "strong": "Human handoff", "body": "Anything clinical, anything sensitive, anything unusual goes to your staff with a summary of the conversation." }
+      ],
+      "proof": null
+    },
+    {
+      "slug": "dental",
+      "label": "Dental Practices",
+      "icon": "tooth",
+      "page": "/dental/",
+      "aliases": ["dentist", "dental", "dental practice", "orthodontist", "dental office", "hygienist"],
+      "pains": [
+        "Plenty of practices are dark three days a week — a broken tooth on a Saturday goes to whoever answers.",
+        "Hygiene recall is the most valuable list in the practice and the first thing that slips when the desk is busy.",
+        "Someone cancels an hour out and the chair sits empty while nobody at the desk has a free minute to fill it."
+      ],
+      "features": [
+        { "strong": "Missed-call text-back", "body": "A call nobody could reach becomes a text conversation in seconds, including on the days and hours the office is closed." },
+        { "strong": "The emergency call, handled correctly", "body": "It recognises urgency, gives your posted after-hours instructions, and gets the patient onto the first available slot. It never assesses the problem." },
+        { "strong": "Works the hygiene recall", "body": "Overdue patients get a friendly text that books them, instead of a call your desk never gets to. The list finally gets worked." },
+        { "strong": "Fills short-notice openings", "body": "When a slot opens, it offers it out and takes the first yes — so the chair gets filled without anyone dialling down a list." },
+        { "strong": "Human handoff", "body": "Anything clinical, anything about a specific treatment plan, anything sensitive goes to your team with a summary of the conversation." }
+      ],
+      "proof": null
+    },
+    {
+      "slug": "physical-therapy",
+      "label": "Physical Therapy",
+      "icon": "refresh",
+      "page": "/physical-therapy/",
+      "aliases": ["physical therapy", "physical therapist", "physio", "physiotherapy", "rehab", "sports rehab", "occupational therapy"],
+      "pains": [
+        "A physician sends a referral and nobody reaches them for two days — they call the next clinic, and the referring office notices.",
+        "Patients start a plan of care strong and fade — every skipped visit is worse outcomes for them and lost revenue for you.",
+        "A move or a second location brings a call surge exactly when your front desk is least able to absorb it."
+      ],
+      "features": [
+        { "strong": "Missed-call text-back", "body": "A call your desk couldn't reach becomes a text conversation in seconds, instead of a voicemail cleared at the end of the day." },
+        { "strong": "Books new referrals fast", "body": "New patients get scheduled the same day they call rather than waiting on a callback — the single biggest reason referrals leak to another clinic." },
+        { "strong": "Answers the referral question", "body": "Whether a referral is needed, what to bring, what the first visit involves, how long sessions run — answered from what you've published, any hour." },
+        { "strong": "Keeps the plan on track", "body": "Reminders and easy rescheduling by text, so a missed visit becomes a moved visit instead of the moment someone quietly stops coming." },
+        { "strong": "Fills cancellations", "body": "When a slot opens, it offers it out and takes the first yes — so a late cancellation doesn't leave a therapist idle." }
+      ],
+      "proof": null
+    },
+    {
+      "slug": "gyms",
+      "label": "Gyms & Fitness Studios",
+      "icon": "bolt",
+      "page": "/gyms/",
+      "aliases": ["gym", "fitness", "fitness studio", "crossfit", "yoga", "yoga studio", "pilates", "personal trainer", "martial arts", "bjj", "jiu jitsu", "boxing", "dance studio"],
+      "pains": [
+        "You're spotting a set or running the floor — the membership call rings out and they join the gym that picked up.",
+        "People decide to get in shape at night, on the couch — hours before anyone's at your desk.",
+        "Every Instagram message sitting on read is someone who was ready to walk in this week."
+      ],
+      "features": [
+        { "strong": "Missed-call text-back", "body": "A call you can't take instantly becomes a text conversation: \"Sorry we missed you — want to come take a look?\"" },
+        { "strong": "Answers the usuals", "body": "Rates, hours, day passes, class times, childcare, what's included, how contracts work — answered instantly, any hour." },
+        { "strong": "Books tours & intro sessions", "body": "Prospects get put straight onto your real calendar for a walkthrough, a free week, or a first session." },
+        { "strong": "Instagram & Facebook DMs", "body": "Every DM answered in minutes with real info and a booking link — not left until someone gets to the office." },
+        { "strong": "Website chat", "body": "A chat bubble on your site that answers questions and captures the prospect's name and number before they bounce." }
+      ],
+      "proof": null
+    },
+    {
+      "slug": "trades",
+      "label": "Trades & Contractors",
+      "icon": "tool",
+      "page": "/trades/",
+      "aliases": ["hvac", "plumber", "plumbing", "electrician", "electrical", "roofer", "roofing", "contractor", "general contractor", "remodel", "handyman", "excavation", "landscaping", "landscaper", "tree service", "concrete", "painting", "painter", "septic", "garage doors", "fencing", "welding", "snow removal", "gutters", "flooring", "drywall", "cleaning", "house cleaning", "janitorial", "carpet cleaning", "window cleaning", "pressure washing", "pest control"],
+      "pains": [
+        "You're in a crawlspace, on a roof, or elbow-deep in a panel — the caller dials the next name on the list.",
+        "A furnace dies at midnight in January. Whoever answers first gets the job, and usually the bigger repair that follows it.",
+        "Half your calls are people pricing a job they may never book, and sorting them out costs the same interruption either way."
+      ],
+      "features": [
+        { "strong": "Missed-call text-back", "body": "A call you can't take on the job becomes a text conversation instead of a voicemail you hear at dinner." },
+        { "strong": "Screens the job", "body": "What's the problem, where's the property, how urgent, owner or renter — captured before it reaches you, so you know if it's worth a truck roll." },
+        { "strong": "Books estimates", "body": "Real jobs go straight onto your calendar as estimate appointments — not into a voicemail queue you work through at 8 PM." },
+        { "strong": "Flags real emergencies", "body": "A no-heat call in January isn't a Tuesday quote request. Urgent jobs get flagged and routed to you or your on-call right away." },
+        { "strong": "Human handoff", "body": "Anything that needs a tradesman's answer — scope, price, code questions — goes to you with a summary of the conversation." }
+      ],
+      "proof": null
+    },
+    {
+      "slug": "auto-shops",
+      "label": "Auto Shops",
+      "icon": "settings",
+      "page": "/auto-shops/",
+      "aliases": ["auto", "auto shop", "mechanic", "auto repair", "car repair", "detailing", "detailer", "auto detailing", "window tint", "tint", "ppf", "paint protection", "auto glass", "windshield", "car audio", "oil change", "transmission", "body shop", "towing", "wraps"],
+      "pains": [
+        "You're on a lift or halfway through an install — the phone rolls to voicemail and the caller tries the next shop.",
+        "\"How much for…\" arrives before they've told you the vehicle, and sorting it out costs the same interruption either way.",
+        "People look for a shop after work and on Sunday afternoon, when the bay is dark."
+      ],
+      "features": [
+        { "strong": "Missed-call text-back", "body": "A call you can't take from under a car becomes a text conversation instead of a voicemail you clear at closing." },
+        { "strong": "Gets the vehicle first", "body": "Year, make, model, and what's actually wrong — captured before it reaches you, so the callback doesn't start from zero." },
+        { "strong": "Books drop-offs", "body": "Real jobs go onto your calendar as drop-offs or estimate appointments, not into a voicemail queue you work through after close." },
+        { "strong": "Never quotes a price", "body": "It captures what the job involves and tells the customer you'll confirm the price. No number goes out that you didn't set." },
+        { "strong": "Human handoff", "body": "Anything that needs your judgment — a diagnosis, an odd vehicle, a scope question — comes to you with a summary of the conversation." }
+      ],
+      "proof": null
+    },
+    {
+      "slug": "accounting",
+      "label": "CPAs & Accounting",
+      "icon": "calculator",
+      "page": "/accounting/",
+      "aliases": ["accountant", "accounting", "cpa", "bookkeeper", "bookkeeping", "tax", "tax prep", "tax preparer", "enrolled agent", "payroll", "financial advisor"],
+      "pains": [
+        "February through April the phone doesn't stop, and every minute on it is a minute not spent on a return.",
+        "\"Is my return done yet?\" — the same status check, twenty times a week.",
+        "A business owner shopping for a new accountant in July calls three firms. The one that picks up gets a client worth years."
+      ],
+      "features": [
+        { "strong": "Missed-call text-back", "body": "A call you can't take becomes a text conversation instead of a voicemail you'll return at nine tonight." },
+        { "strong": "Answers the usuals", "body": "Hours, location, what you charge to prepare, what to bring, deadlines and extension dates — answered instantly, any hour." },
+        { "strong": "Screens new clients", "body": "Individual or business, entity type, which services, roughly what scale — captured before the call reaches you, so you know if it's a fit." },
+        { "strong": "Books consults", "body": "Qualified prospects go straight onto your calendar for an intro call — not into a queue you work through on Sunday." },
+        { "strong": "Chases documents", "body": "Automatic follow-ups to the clients still sitting on their W-2s, 1099s, or signed engagement letter." }
+      ],
+      "proof": null
+    }
+  ],
+  "fallback": {
+    "label": "Your business",
+    "intro": "We don't have a page for your exact line of work yet — but if the phone rings while your hands are busy, the core system fits. Here's what every 406 front desk does, whatever the trade:",
+    "features": [
+      { "strong": "Missed-call text-back", "body": "A call you can't take instantly becomes a text conversation instead of a voicemail — the conversation continues instead of dying." },
+      { "strong": "Answers calls, texts & chats 24/7", "body": "Hours, location, what you do, how to get started — answered instantly and accurately, any hour, on every channel." },
+      { "strong": "Books onto your calendar", "body": "Real inquiries go straight onto the calendar you already keep — no migration, no double-booking." },
+      { "strong": "Follows up with the quiet ones", "body": "Leads that don't book right away get a gentle, automatic nudge so they don't slip through the cracks." },
+      { "strong": "Human handoff", "body": "Anything that needs your judgment lands on your phone with a summary of the conversation so far." }
+    ],
+    "note": "Every line above is a feature we already deploy — nothing here is hypothetical. Tell us what you do on a twenty-minute call and we'll map it to your business specifically."
+  }
+}
