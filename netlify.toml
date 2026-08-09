@@ -6,6 +6,14 @@
 [build.environment]
   NODE_VERSION = "24"
 
+# The free .netlify.app subdomain serves the whole site as a 200 duplicate unless
+# forced to the canonical domain — Search Console flags the copies as duplicates.
+[[redirects]]
+  from = "https://406frontdesk.netlify.app/*"
+  to = "https://406frontdesk.com/:splat"
+  status = 301
+  force = true
+
 # Security + caching headers (helps Performance + best-practices audits)
 [[headers]]
   for = "/*"
