@@ -41,18 +41,27 @@ AA at ≥24px only). Amber on the navy bands passes and is deliberately left alo
 
 ## Adding a vertical landing page
 
-`/barbershops/`, `/clinics/`, `/gyms/`, `/accounting/` are one pattern. To add another, copy
-the closest existing pair:
+All 12 vertical pages (`/barbershops/`, `/clinics/`, `/dental/`, …) render from **ONE
+pagination template + ONE stylesheet + ONE data file** (collapsed 2026-08-09; before that,
+12 hand-copied file pairs had drifted into 7 variants):
 
-1. `src/<name>.njk` — header band, `.wrap` with three `.lcard` problem cards, `.inner-sec`
-   service grid, `.book-band` of that industry's scheduling software, `.proof-band`, `.cta-band`.
-2. `src/css/<name>.css` — copy `gyms.css`. It has **no local `:root`** (tokens cover it); keep
-   it that way for new pages.
-3. Add it to `footerGroups` → Industries in `src/_data/site.json`.
-4. Card headings are `<h2 class="lcard-title">`, not `h3` — an `h3` straight after the page
-   `h1` is a heading-order break.
+- `src/verticals.njk` — the template. Don't copy it, don't add per-vertical markup here.
+- `src/css/vertical.css` — the shared stylesheet. **No local `:root`** (tokens cover it).
+- `src/_data/verticals.json` — the content. **To add a vertical: copy the closest JSON entry,
+  rewrite the copy, done.** Fields: `eyebrow/h1/intro`, 3 `cards` (icon key from
+  `partials/icons.njk`), 1–2 `sections` of 6 items, `book` pills, `proof` points, `cta`.
+  HTML is allowed in values (`<em>`, `<br />`, links) — they render with `| safe`.
+- Each entry's **`note` field is that vertical's guardrail** (no proof/brand chips until a
+  client in that vertical is signed and confirmed on real calls). Read it before editing;
+  keep it when adding a new vertical.
+- `brandstrip` (clinics only today) is an optional verbatim-HTML field for the client-badge
+  strip once a vertical HAS a live client.
+- Still manual: add the new page to `footerGroups` → Industries in `src/_data/site.json`.
 
-The sitemap picks up any page without `noindex: true` automatically.
+⚠️ `addAllPagesToCollections: true` in `verticals.njk` is **load-bearing**: `sitemap.xml`
+iterates `collections.all`, so removing it silently drops every vertical but the first from
+the sitemap. Card headings are `<h2 class="lcard-title">`, not `h3` — an `h3` straight after
+the page `h1` is a heading-order break (the template already does this right).
 
 ## Verify before you hand anything over
 

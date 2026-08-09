@@ -1,0 +1,1408 @@
+[
+  {
+    "slug": "accounting",
+    "title": "AI Receptionist for CPAs & Accounting Firms",
+    "description": "Answer every caller through tax season, screen new clients before they reach your desk, and chase missing documents automatically — 406 Front Desk is a 24/7 AI receptionist built for CPAs, bookkeepers, and tax preparers.",
+    "eyebrow": "For CPAs &amp; Accounting Firms",
+    "h1": "Do the work.<br /><em>We'll answer the phone.</em>",
+    "intro": "An AI receptionist that answers your firm's calls, texts, and chats, screens new clients before they land on your desk, and chases the documents you're still waiting on — so filing season doesn't cost you your focus.",
+    "cards": [
+      {
+        "icon": "phone",
+        "title": "February through April",
+        "body": "The phone doesn't stop, and every minute on it is a minute not spent on a return. The work that pays is the work the phone keeps interrupting."
+      },
+      {
+        "icon": "file-text",
+        "title": "\"Is my return done yet?\"",
+        "body": "The same status check, twenty times a week, from clients who just want to know where things stand. None of it needs you — all of it reaches you."
+      },
+      {
+        "icon": "clock",
+        "title": "The off-season inquiry",
+        "body": "A business owner shopping for a new accountant in July calls three firms. The one that picks up gets a client worth years, not one return."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works in a firm",
+        "h2": "Every caller handled, every good lead qualified",
+        "lede": "One receptionist covers the phone, the texts, and the website — answering what's routine, screening what's new, and leaving the actual accounting to you.",
+        "items": [
+          {
+            "strong": "Missed-call text-back",
+            "body": "A call you can't take becomes a text conversation instead of a voicemail you'll return at nine tonight."
+          },
+          {
+            "strong": "Answers the usuals",
+            "body": "Hours, location, what you charge to prepare, what to bring, deadlines and extension dates — answered instantly, any hour."
+          },
+          {
+            "strong": "Screens new clients",
+            "body": "Individual or business, entity type, which services, roughly what scale — captured before the call reaches you, so you know if it's a fit."
+          },
+          {
+            "strong": "Books consults",
+            "body": "Qualified prospects go straight onto your calendar for an intro call — not into a queue you work through on Sunday."
+          },
+          {
+            "strong": "Chases documents",
+            "body": "Automatic follow-ups to the clients still sitting on their W-2s, 1099s, or signed engagement letter."
+          },
+          {
+            "strong": "Human handoff",
+            "body": "Anything that touches actual advice, a notice, or an existing return goes to you with a summary of the conversation."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "Keep the software you already run",
+      "body": "No migration, and nothing new to learn in the middle of tax season. Your practice software keeps the work, the files and the workflows — the receptionist screens who's calling, books consults onto the calendar you already keep, and chases the documents you're waiting on. It files nothing into your system on its own.",
+      "pills": [
+        "Karbon",
+        "Canopy",
+        "TaxDome",
+        "Calendly",
+        "…or ours, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Confidentiality by design",
+      "h2": "Built to never discuss a client's return",
+      "body": "Your front desk answers logistics — hours, pricing, what to bring, deadlines, how to get started — and routes everything else to you. It doesn't ask for, store, or discuss Social Security numbers, income figures, filings, or IRS correspondence. That's deliberate: a front desk should get people to you, not handle what only you should handle.",
+      "points": [
+        {
+          "strong": "Front-desk facts only",
+          "body": "It answers operational questions and books consults. Anything about a specific return, notice, or number goes straight to your team."
+        },
+        {
+          "strong": "No sensitive data collected",
+          "body": "It captures a name, a number, and a reason to follow up — never an SSN, EIN, account balance, or document contents."
+        },
+        {
+          "strong": "Screening you actually control",
+          "body": "You set the qualifying questions, so the leads that reach your calendar match the work you want and the clients you'd take."
+        },
+        {
+          "strong": "Busiest season, same coverage",
+          "body": "It doesn't get overwhelmed in March. The hundredth caller of the day gets the same answer as the first, at the same speed."
+        }
+      ]
+    },
+    "note": "No accounting client live yet. Do NOT add a brand chip, testimonial, or live-call proof stats to this page until one is signed and confirmed on real calls — same rule as /clinics/ and /gyms/.",
+    "cta": {
+      "h2": "Try it like a new client would",
+      "body": "Call or text the live demo and ask it what someone shopping for an accountant would ask. Then imagine it on your firm's number through April. Setup is done for you — your staff doesn't touch a thing."
+    }
+  },
+  {
+    "slug": "auto-shops",
+    "title": "AI Receptionist for Auto Shops",
+    "description": "Answer every call while you're under a car, capture the year, make and model before the callback, and book drop-offs automatically — 406 Front Desk is a 24/7 AI receptionist built for repair shops, detailers, window tint, auto glass, and audio installers.",
+    "eyebrow": "For Auto Shops",
+    "h1": "Hands in a job.<br /><em>Phone still ringing.</em>",
+    "intro": "An AI receptionist that answers your calls, texts, and messages, gets the year, make and model before the conversation reaches you, and books drop-offs onto your calendar — so the customer who calls while you're on a lift doesn't end up at the shop down the road.",
+    "cards": [
+      {
+        "icon": "phone",
+        "title": "Under a car, not by the phone",
+        "body": "You're on a lift, in a bay, or halfway through an install. The phone rings, rolls to voicemail, and the caller tries the next shop on the list."
+      },
+      {
+        "icon": "tag",
+        "title": "The price-shopper call",
+        "body": "\"How much for…\" before they've told you the vehicle. Plenty of these callers never book, and sorting them out costs the same interruption either way."
+      },
+      {
+        "icon": "clock",
+        "title": "Nights and weekends",
+        "body": "People look for a shop after work and on Sunday afternoon. Those calls land when the bay is dark and there's nobody there to take them."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works in the shop",
+        "h2": "Every call answered, every real job captured",
+        "lede": "One receptionist covers the phone, the texts, and the website — answering what's routine, getting the vehicle details up front, and leaving the actual work to you.",
+        "items": [
+          {
+            "strong": "Missed-call text-back",
+            "body": "A call you can't take from under a car becomes a text conversation instead of a voicemail you clear at closing."
+          },
+          {
+            "strong": "Answers the usuals",
+            "body": "Hours, location, whether you work on that make, walk-in or appointment, how long a job ties up the car — answered instantly, any hour."
+          },
+          {
+            "strong": "Gets the vehicle first",
+            "body": "Year, make, model, and what's actually wrong — captured before it reaches you, so the callback doesn't start from zero."
+          },
+          {
+            "strong": "Books drop-offs",
+            "body": "Real jobs go onto your calendar as drop-offs or estimate appointments, not into a voicemail queue you work through after close."
+          },
+          {
+            "strong": "Never quotes a price",
+            "body": "It captures what the job involves and tells the customer you'll confirm the price. No number goes out that you didn't set."
+          },
+          {
+            "strong": "Human handoff",
+            "body": "Anything that needs your judgment — a diagnosis, an odd vehicle, a scope question — comes to you with a summary of the conversation."
+          }
+        ]
+      },
+      {
+        "eyebrow": "Who it's built for",
+        "h2": "The shops that run on the phone",
+        "lede": "If your shop isn't listed — exhaust, wheels and tires, upholstery, mobile work — the fit is the same: if the phone rings while your hands are busy, it belongs here.",
+        "items": [
+          {
+            "strong": "General repair &amp; maintenance",
+            "body": "Diagnostics, brakes, timing jobs. The caller wants to know if you can look at it this week — answered without pulling you out of a bay."
+          },
+          {
+            "strong": "Detailing &amp; ceramic coating",
+            "body": "Every job is a different vehicle in a different condition. The receptionist captures size and condition instead of guessing at a package."
+          },
+          {
+            "strong": "Window tint &amp; PPF",
+            "body": "Vehicle, number of windows, film choice, the legality question everyone asks. Captured up front so the quote you give is the right one."
+          },
+          {
+            "strong": "Auto glass",
+            "body": "A cracked windshield is an urgent call and a same-week job. It gets captured and flagged while you're still on the previous install."
+          },
+          {
+            "strong": "Car audio &amp; accessories",
+            "body": "Head units, speakers, remote start, lighting. Fitment questions get routed to you instead of guessed at."
+          },
+          {
+            "strong": "One-man shops",
+            "body": "Solo operators feel this hardest. Every call answered is one that didn't interrupt the work, and every one missed is a booking that went elsewhere."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "Keep the calendar you already run",
+      "body": "No migration, no double-booking. Drop-offs land on the calendar you already keep — and it reads that calendar for conflicts before it books, so it never puts a car in a bay you've already committed.",
+      "pills": [
+        "Google Calendar",
+        "Outlook",
+        "Office 365",
+        "…or ours, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Built for how a shop actually takes work",
+      "h2": "It captures the job. You set the price.",
+      "body": "A front desk for a shop can't price a job it hasn't seen. Yours answers the questions you've approved, captures the vehicle and the work, and hands the number to you — it never quotes a price you didn't set or promises a turnaround you can't hit.",
+      "points": [
+        {
+          "strong": "You set the rules",
+          "body": "What you work on, what you don't, what books directly and what waits for your callback — the receptionist runs on your answers, not its own."
+        },
+        {
+          "strong": "No prices you didn't approve",
+          "body": "It shares the pricing you've published — a diagnostic fee, a free-estimate policy — and nothing else. The quote stays yours."
+        },
+        {
+          "strong": "The vehicle, captured right",
+          "body": "Year, make, model and the symptom, in every conversation — so your callback starts with the details instead of asking for them."
+        },
+        {
+          "strong": "Saturday rush, same coverage",
+          "body": "It doesn't get overwhelmed when everyone calls at once. The twentieth caller of the morning gets the same answer as the first."
+        }
+      ]
+    },
+    "note": "No auto-shop client live yet. Do NOT add a brand chip, testimonial, or live-call proof stats to this page until one is signed and confirmed on real calls — same rule as /clinics/, /gyms/, /accounting/ and /trades/.",
+    "cta": {
+      "h2": "Try it like a customer with a check-engine light would",
+      "body": "Call or text the live demo and ask it what your customers ask. Then imagine it on your shop line while you're under a car. Setup is done for you — you don't touch a thing."
+    }
+  },
+  {
+    "slug": "barbershops",
+    "title": "AI Receptionist for Barbershops",
+    "description": "Capture walk-ins and book appointments while you're behind the chair — 406 Front Desk is a 24/7 AI receptionist built for barbershops and salons.",
+    "eyebrow": "For Barbershops &amp; Salons",
+    "h1": "Cut hair.<br /><em>We've got the phone.</em>",
+    "intro": "An AI receptionist that answers your shop's calls, texts, and DMs, sends clients straight to your booking calendar, and wins back the ones you'd have missed — while your hands stay on the clippers.",
+    "cards": [
+      {
+        "icon": "phone",
+        "title": "The mid-cut call",
+        "body": "You're halfway through a fade. The phone rings, rings out — and that client books down the street. That's the call this system exists to catch."
+      },
+      {
+        "icon": "message",
+        "title": "The DM pile",
+        "body": "Instagram and Facebook messages stack up all day and get answered at close — if at all. Every one of those is someone ready to book right now."
+      },
+      {
+        "icon": "clock",
+        "title": "The same five questions",
+        "body": "Hours, prices, walk-ins, where you're at, who's working Saturday. You've answered them a thousand times — you never have to again."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works in a shop",
+        "h2": "Every channel covered, every client booked",
+        "lede": "One receptionist handles the phone, the texts, the website, and the socials — and its whole job is getting people onto your books.",
+        "items": [
+          {
+            "strong": "Missed-call text-back",
+            "body": "A call you can't take instantly becomes a text conversation: \"Sorry we missed you — want to grab a time?\""
+          },
+          {
+            "strong": "Answers the usuals",
+            "body": "Hours, prices, location, each barber's schedule — answered instantly and accurately, any hour."
+          },
+          {
+            "strong": "Straight to your calendar",
+            "body": "Clients get sent directly to your real booking page — even the right link for the barber they asked for."
+          },
+          {
+            "strong": "Instagram &amp; Facebook DMs",
+            "body": "Every DM answered in minutes with real info and a booking link — not left on read until close."
+          },
+          {
+            "strong": "Website chat",
+            "body": "A chat bubble on your site that answers questions and captures the client's name and number."
+          },
+          {
+            "strong": "Human handoff",
+            "body": "Anything the AI shouldn't handle gets flagged to your phone with a summary — you jump in when it matters."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "Keep the books you already run",
+      "body": "No migration, and no new system for you or your barbers to learn. The receptionist answers what people ask, then sends them straight to your booking link and follows up with the ones who never finish. It writes nothing into your books itself, so it can't double-book a chair.",
+      "pills": [
+        "Booksy",
+        "Vagaro",
+        "Square",
+        "Schedulicity",
+        "…or ours, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Not a demo — a working shop",
+      "h2": "Live in a Kalispell barbershop today",
+      "body": "This exact setup runs right now in a real Kalispell barbershop: the phone line, the texts, the Instagram and Facebook messages, and the website chat are all answered by the receptionist — with clients routed to each barber's own booking page.",
+      "points": [
+        {
+          "strong": "Real calls, real bookings",
+          "body": "Callers get answers about hours, prices, and each barber's availability, then a direct link to book — verified on live calls, not a test bench."
+        },
+        {
+          "strong": "Missed calls come back",
+          "body": "When the shop can't pick up, the caller gets an instant text with the booking link — the conversation continues instead of dying in voicemail."
+        },
+        {
+          "strong": "Per-barber schedules",
+          "body": "The receptionist knows who works which days and sends clients to the right chair — including the early-bird and Monday guys."
+        },
+        {
+          "strong": "Owner stays in control",
+          "body": "Anything that needs a human lands on the owner's phone with a summary of the conversation so far."
+        }
+      ]
+    },
+    "cta": {
+      "h2": "Try it like a client would",
+      "body": "Call or text the live demo and ask it whatever your clients ask you. Then imagine it on your shop's number. Setup is done for you — you don't touch a thing."
+    }
+  },
+  {
+    "slug": "chiropractors",
+    "title": "AI Receptionist for Chiropractors",
+    "description": "Answer the acute-pain caller who wants in today, handle reschedules without a phone call, and cover the hours your front desk can't — 406 Front Desk is a 24/7 AI receptionist built for chiropractic practices, and it never touches a health record.",
+    "eyebrow": "For Chiropractors",
+    "h1": "Adjust patients.<br /><em>We'll cover the phone.</em>",
+    "intro": "An AI receptionist that answers the calls your desk can't get to, gets the acute-pain caller onto today's schedule, and handles the endless reschedules by text — without ever touching a health record or guessing at someone's coverage.",
+    "cards": [
+      {
+        "icon": "phone",
+        "title": "\"I threw my back out\"",
+        "body": "Acute pain doesn't shop around. Whoever answers first gets the patient, and that call almost never arrives at a convenient moment."
+      },
+      {
+        "icon": "refresh",
+        "title": "The reschedule treadmill",
+        "body": "A care plan is two or three visits a week for weeks. Every change is a phone call, and a missed visit doesn't just cost that slot — it breaks the plan."
+      },
+      {
+        "icon": "shield-check",
+        "title": "\"Do you take my insurance?\"",
+        "body": "The first question on nearly every new-patient call, and the one most likely to end it. It deserves a straight answer at 8 PM, not a voicemail."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works in a chiro office",
+        "h2": "Every call answered, every visit kept",
+        "lede": "One receptionist covers the phone, the texts, the website and the socials — getting new patients booked and existing ones rescheduled, while your team stays in the adjusting room.",
+        "items": [
+          {
+            "strong": "Missed-call text-back",
+            "body": "A call nobody could reach becomes a text conversation in seconds, instead of a voicemail your desk works through after close."
+          },
+          {
+            "strong": "Answers the front-desk questions",
+            "body": "Hours, location, whether you're taking new patients, what a first visit involves, techniques you use — answered instantly, any hour."
+          },
+          {
+            "strong": "The insurance question, answered honestly",
+            "body": "It tells callers which plans you're in-network with and what a cash visit runs, then hands anything specific to your team. It never verifies benefits or promises coverage."
+          },
+          {
+            "strong": "Books new patients",
+            "body": "New-patient calls go straight onto the schedule instead of into a callback pile — including the ones that come in at 9 PM."
+          },
+          {
+            "strong": "Reschedules by text",
+            "body": "The \"can I move Thursday?\" message gets handled without anyone picking up a phone, so care plans stay intact."
+          },
+          {
+            "strong": "Human handoff",
+            "body": "Anything clinical, anything sensitive, anything unusual goes to your staff with a summary of the conversation."
+          }
+        ]
+      },
+      {
+        "eyebrow": "Who it's built for",
+        "h2": "However your practice is set up",
+        "lede": "The front-desk load looks different in a solo office than in a three-provider clinic, and the receptionist is configured to match rather than assuming one shape.",
+        "items": [
+          {
+            "strong": "Solo practice",
+            "body": "You're adjusting and answering. Every call you take is a patient waiting, and every one you don't is a patient lost."
+          },
+          {
+            "strong": "Two providers, one front desk",
+            "body": "Double the schedule, same one person at the desk. The overflow is where patients go missing."
+          },
+          {
+            "strong": "Cash practice",
+            "body": "No benefits to check, but far more price and plan questions up front — answered from what you've published, never invented."
+          },
+          {
+            "strong": "Insurance-based",
+            "body": "The in-network question gets a straight answer, and anything needing real verification reaches a human."
+          },
+          {
+            "strong": "Sports &amp; rehab focus",
+            "body": "Weekend injuries mean Sunday-night searches. Those calls land when the office is dark."
+          },
+          {
+            "strong": "Family &amp; prenatal care",
+            "body": "Whether you adjust kids or expectant mothers is a common gate question, and one your website often doesn't answer clearly."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "Keep the practice software you already run",
+      "body": "No migration, and nothing for your front desk to relearn. The receptionist answers what patients ask, then sends them to your existing booking link and follows up with the ones who never finish — or books onto a calendar we run for you, if you'd rather. It writes nothing into your practice software and nothing into a patient record.",
+      "pills": [
+        "ChiroTouch",
+        "Jane",
+        "ChiroFusion",
+        "…or ours, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Where it actually fits",
+      "h2": "It doesn't replace your front desk. It covers what they can't.",
+      "body": "Your desk person knows your patients, your providers and your schedule — that's not something to automate away, and this doesn't try to. It takes the hours nobody is there, the calls that arrive while both lines are busy, and the messages that pile up over a weekend. Everything else still goes to the person your patients already know.",
+      "points": [
+        {
+          "strong": "Your desk keeps the relationship",
+          "body": "Regulars still reach the person they know. The receptionist takes the overflow and the after-hours, then hands anything real straight to your team."
+        },
+        {
+          "strong": "It covers the hours nobody's there",
+          "body": "Evenings, weekends, the lunch hour, and the ten minutes when both lines are ringing and everyone is in a room with a patient."
+        },
+        {
+          "strong": "It never verifies benefits",
+          "body": "It shares what you've published about plans and cash rates, and nothing more. Coverage questions reach a human, because a wrong answer there costs you a patient."
+        },
+        {
+          "strong": "It never touches a health record",
+          "body": "Front-desk logistics only — a name, a number, a reason to follow up. Symptoms, history and anything clinical go to your staff, so most practices need no compliance layer at all."
+        }
+      ]
+    },
+    "note": "No chiropractic client live yet. Do NOT add a brand chip, testimonial, or live-call proof stats to this page until one is signed and confirmed on real calls — same rule as /clinics/, /gyms/, /accounting/, /trades/ and /auto-shops/.",
+    "cta": {
+      "h2": "Try it like a patient with a locked-up back would",
+      "body": "Call or text the live demo and ask it what your patients ask. Then imagine it on your practice's line at 7 PM on a Friday. Setup is done for you — your staff doesn't touch a thing."
+    }
+  },
+  {
+    "slug": "clinics",
+    "title": "AI Receptionist for Clinics & Health Practices",
+    "description": "A PHI-free AI receptionist for clinics and health practices — answers calls, texts, and chats 24/7, books consults and new-patient appointments, and routes anything clinical to your staff. Built in Kalispell for Flathead Valley practices.",
+    "eyebrow": "For Clinics &amp; Health Practices",
+    "h1": "Treat patients.<br /><em>We'll work the front desk.</em>",
+    "intro": "An AI receptionist that answers your practice's calls, texts, and chats, books consults and new-patient appointments, and follows up — while your staff stays with patients. It handles the front desk, never clinical questions or health records.",
+    "cards": [
+      {
+        "icon": "phone",
+        "title": "The front-desk bottleneck",
+        "body": "A new patient calls while your desk is checking someone in. It rings out — and they book with the next practice that picks up. That's the call this exists to catch."
+      },
+      {
+        "icon": "clock",
+        "title": "The after-hours search",
+        "body": "People look for care in the evening and on weekends, when your desk is closed. Voicemail loses them; an instant reply books them."
+      },
+      {
+        "icon": "message-2",
+        "title": "The same intake questions",
+        "body": "Hours, location, what you treat, whether you take new patients, how to book. Answered instantly and accurately, any hour — so your staff doesn't have to."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works in a practice",
+        "h2": "Every inquiry answered, every patient routed",
+        "lede": "One receptionist covers the phone, the texts, the website, and the socials — and its whole job is getting the right patient onto your schedule while your team focuses on care.",
+        "items": [
+          {
+            "strong": "Missed-call text-back",
+            "body": "A call you can't take instantly becomes a text: \"Sorry we missed you — want to get you scheduled?\""
+          },
+          {
+            "strong": "Answers the front-desk questions",
+            "body": "Hours, location, what you treat, new-patient availability, how to book — answered instantly and accurately, any hour."
+          },
+          {
+            "strong": "Books straight to your calendar",
+            "body": "New patients get sent to your real booking page for a consult or appointment — no phone tag, no double-booking."
+          },
+          {
+            "strong": "Text &amp; social messages",
+            "body": "Website chat, texts, and Facebook and Instagram DMs answered in minutes with real info and a booking link."
+          },
+          {
+            "strong": "New-patient follow-up",
+            "body": "Inquiries that don't book right away get a gentle, automatic nudge so they don't slip through the cracks."
+          },
+          {
+            "strong": "Human handoff",
+            "body": "Anything clinical or sensitive is flagged to your staff with a summary — the AI never gives medical advice or handles records."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "Keep the practice software you already run",
+      "body": "No migration, and nothing for your front desk to relearn. The receptionist answers what patients ask, then sends them to your existing booking link and follows up with the ones who never finish — or books onto a calendar we run for you, if you'd rather. It writes nothing into your practice software and nothing into a patient record.",
+      "pills": [
+        "Jane",
+        "SimplePractice",
+        "Acuity",
+        "Calendly",
+        "…or ours, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Compliance-first by design",
+      "h2": "Built to never touch a health record",
+      "body": "Your front desk answers logistics — hours, location, what you treat, how to book — and routes everything clinical to your team. It doesn't ask for, store, or discuss patient health information. That's designed to keep your practice's exposure low and your patients' privacy intact.",
+      "points": [
+        {
+          "strong": "Front-desk facts only",
+          "body": "It answers operational questions and books appointments. Symptoms, results, and anything clinical go straight to your staff."
+        },
+        {
+          "strong": "No health records",
+          "body": "The receptionist captures a name, a number, and a reason to follow up — not patient health information."
+        },
+        {
+          "strong": "Your staff stays in control",
+          "body": "Anything sensitive is flagged to your team with a summary, so a human handles what a human should."
+        },
+        {
+          "strong": "A compliance tier when you need it",
+          "body": "Practices that need a formal compliance layer can add one. Most start with the PHI-free build that needs none."
+        }
+      ]
+    },
+    "brandstrip": "<section class=\"inner-sec\" style=\"padding-top: 10px;\">\n  <div class=\"brandstrip\">\n    <div class=\"bs-label\">Now serving a Flathead clinic</div>\n    <div class=\"brandstrip-logos\">\n      <div class=\"brand-chip\">\n        <picture>\n          <source srcset=\"/assets/img/kalispelltrt-logo.webp\" type=\"image/webp\" />\n          <img src=\"/assets/img/kalispelltrt-logo.png\" alt=\"Kalispell TRT\" width=\"115\" height=\"128\" loading=\"lazy\" />\n        </picture>\n        <div class=\"bc-meta\"><strong>Kalispell TRT</strong><span>Hormone therapy and peptide clinic</span></div>\n      </div>\n    </div>\n  </div>\n</section>",
+    "note": "Client badge above = a \"businesses we serve\" mark (Kalispell TRT), matching the homepage brand strip. A live-call PROOF / testimonial band still belongs here later — do NOT publish live-call proof stats until confirmed on real calls (no fabricated proof).",
+    "cta": {
+      "h2": "Try it like a patient would",
+      "body": "Call or text the live demo and ask it what your patients ask you. Then imagine it on your practice's number. Setup is done for you — your staff doesn't touch a thing."
+    }
+  },
+  {
+    "slug": "dental",
+    "title": "AI Receptionist for Dental Practices",
+    "description": "Catch the broken-tooth call on a day you're closed, work the hygiene recall list without anyone picking up a phone, and fill short-notice cancellations — a 24/7 AI receptionist for dental practices that never diagnoses, quotes treatment, or touches a chart.",
+    "eyebrow": "For Dental Practices",
+    "h1": "Fill the chair.<br /><em>Without working the phone.</em>",
+    "intro": "An AI receptionist that answers the emergency call on a day you're closed, works your hygiene recall list by text, and fills short-notice openings — while your team stays with patients. It never diagnoses, never quotes treatment, and never opens a chart.",
+    "cards": [
+      {
+        "icon": "phone",
+        "title": "The days you're closed",
+        "body": "Plenty of practices are dark three days a week. A broken tooth on a Saturday doesn't wait until Tuesday — it goes to whoever answers, and that patient usually stays there."
+      },
+      {
+        "icon": "refresh",
+        "title": "The recall list nobody works",
+        "body": "Hygiene recall is the most valuable list in the practice and the first thing that slips when the desk is busy. Every overdue patient is revenue already sitting in your system."
+      },
+      {
+        "icon": "calendar",
+        "title": "The 8 AM cancellation",
+        "body": "Someone cancels an hour out and the chair sits empty. Filling it means calling down a list by hand, during the exact hour nobody at the desk has a free minute."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works in a practice",
+        "h2": "Every call answered, every chair worth filling",
+        "lede": "One receptionist covers the phone, the texts and the website — catching new patients, reactivating overdue ones, and handling the scheduling churn your desk currently absorbs by hand.",
+        "items": [
+          {
+            "strong": "Missed-call text-back",
+            "body": "A call nobody could reach becomes a text conversation in seconds, including on the days and hours the office is closed."
+          },
+          {
+            "strong": "The emergency call, handled correctly",
+            "body": "It recognises urgency, gives your posted after-hours instructions, and gets the patient onto the first available slot. It never assesses the problem."
+          },
+          {
+            "strong": "Works the hygiene recall",
+            "body": "Overdue patients get a friendly text that books them, instead of a call your desk never gets to. The list finally gets worked."
+          },
+          {
+            "strong": "Fills short-notice openings",
+            "body": "When a slot opens, it offers it out and takes the first yes — so the chair gets filled without anyone dialling down a list."
+          },
+          {
+            "strong": "Answers the front-desk questions",
+            "body": "Hours, location, whether you're taking new patients, which plans you're in-network with, what a first visit involves — answered instantly, any hour."
+          },
+          {
+            "strong": "Human handoff",
+            "body": "Anything clinical, anything about a specific treatment plan, anything sensitive goes to your team with a summary of the conversation."
+          }
+        ]
+      },
+      {
+        "eyebrow": "Who it's built for",
+        "h2": "However the practice is set up",
+        "lede": "The front-desk load is different in a single-doctor office than in a group practice, and the receptionist is configured to match rather than assuming one shape.",
+        "items": [
+          {
+            "strong": "Single-doctor practices",
+            "body": "One desk, one schedule, and no cover when that person is at lunch, on another line, or off for the day."
+          },
+          {
+            "strong": "Group &amp; multi-provider",
+            "body": "More chairs means more churn — reschedules, recalls and new-patient calls arriving faster than one desk can work them."
+          },
+          {
+            "strong": "Practices you just bought",
+            "body": "A new owner inherits a patient list and often a neglected recall list. That list is the fastest revenue in the building."
+          },
+          {
+            "strong": "Hygiene-driven schedules",
+            "body": "If cleanings anchor the calendar, keeping recall current is the whole game — and it's the first task to get dropped."
+          },
+          {
+            "strong": "Pediatric &amp; family",
+            "body": "Parents book after work and on weekends, exactly when the office is closed and the call goes unanswered."
+          },
+          {
+            "strong": "Cosmetic &amp; implant cases",
+            "body": "High-value inquiries deserve a real response the same day, not a callback slot two days out."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "Keep the practice software you already run",
+      "body": "No migration, and nothing for your front desk to relearn. The receptionist answers what patients ask, then sends them to your existing booking link and follows up with the ones who never finish — or books onto a calendar we run for you, if you'd rather. It writes nothing into your practice software and nothing into a patient chart.",
+      "pills": [
+        "Dentrix",
+        "Eaglesoft",
+        "Open Dental",
+        "…or ours, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Where the line is",
+      "h2": "It schedules. It never assesses.",
+      "body": "Everything a dental front desk does that isn't clinical — answering, scheduling, reminding, reactivating — is work this can take. Everything that touches a diagnosis, a treatment plan, a chart or someone's coverage stays with your team, because a confident wrong answer in any of those costs far more than a missed call.",
+      "points": [
+        {
+          "strong": "It never assesses a problem",
+          "body": "A patient describing pain gets your posted urgency instructions and the first available slot — never an opinion on what's wrong or how bad it is."
+        },
+        {
+          "strong": "No treatment prices",
+          "body": "It shares what you've published — new-patient exam, cleaning, whether you offer financing — and nothing else. Treatment estimates come from your team, after an exam."
+        },
+        {
+          "strong": "It never verifies benefits",
+          "body": "It can say which plans you're in-network with. What a specific patient's plan actually covers reaches a human, because a wrong answer there becomes a billing dispute."
+        },
+        {
+          "strong": "It never opens a chart",
+          "body": "Front-desk logistics only — a name, a number, a reason to follow up. No records, no history, which is why most practices need no compliance layer at all."
+        }
+      ]
+    },
+    "note": "No dental client live yet. Do NOT add a brand chip, testimonial, or live-call proof stats to this page until one is signed and confirmed on real calls — same rule as every other vertical page.",
+    "cta": {
+      "h2": "Try it like a patient with a broken tooth would",
+      "body": "Call or text the live demo and ask it what your patients ask. Then imagine it on your practice's line on a Saturday morning. Setup is done for you — your team doesn't touch a thing."
+    }
+  },
+  {
+    "slug": "gyms",
+    "title": "AI Receptionist for Gyms & Fitness Studios",
+    "description": "Answer every membership inquiry, book tours and intro sessions around the clock, and follow up with the people who almost joined — 406 Front Desk is a 24/7 AI receptionist built for gyms and fitness studios.",
+    "eyebrow": "For Gyms &amp; Fitness Studios",
+    "h1": "Coach your members.<br /><em>We'll work the front desk.</em>",
+    "intro": "An AI receptionist that answers your gym's calls, texts, and DMs, books tours and intro sessions straight onto your calendar, and follows up with the people who almost joined — while you stay on the floor.",
+    "cards": [
+      {
+        "icon": "phone",
+        "title": "The mid-class call",
+        "body": "You're spotting a set or running the floor. The phone rings out — and the person asking about memberships joins the gym that picked up. That's the call this exists to catch."
+      },
+      {
+        "icon": "clock",
+        "title": "The 9pm decision",
+        "body": "People decide to get in shape at night, on the couch. They want rates, hours, and whether there's a day pass — hours before anyone's at your desk to tell them."
+      },
+      {
+        "icon": "message",
+        "title": "The DM pile",
+        "body": "Instagram and Facebook are where a gym gets found now. Every message sitting on read is someone who was ready to walk in this week."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works in a gym",
+        "h2": "Every inquiry answered, every tour booked",
+        "lede": "One receptionist covers the phone, the texts, the website, and the socials — and its whole job is turning interest into someone standing in your gym.",
+        "items": [
+          {
+            "strong": "Missed-call text-back",
+            "body": "A call you can't take instantly becomes a text conversation: \"Sorry we missed you — want to come take a look?\""
+          },
+          {
+            "strong": "Answers the usuals",
+            "body": "Rates, hours, day passes, class times, childcare, what's included, how contracts work — answered instantly, any hour."
+          },
+          {
+            "strong": "Books tours &amp; intro sessions",
+            "body": "Prospects get put straight onto your real calendar for a walkthrough, a free week, or a first session."
+          },
+          {
+            "strong": "Instagram &amp; Facebook DMs",
+            "body": "Every DM answered in minutes with real info and a booking link — not left until someone gets to the office."
+          },
+          {
+            "strong": "Website chat",
+            "body": "A chat bubble on your site that answers questions and captures the prospect's name and number before they bounce."
+          },
+          {
+            "strong": "Human handoff",
+            "body": "Billing disputes, injuries, anything the AI shouldn't touch gets flagged to your phone with a summary — you step in when it matters."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "Keep the gym software you already run",
+      "body": "No migration, and nothing changes for your members. Your software keeps the classes, the schedules and the billing — the receptionist works the people who haven't joined yet, answering questions at any hour, booking tours and intro sessions onto a calendar you control, and following up with the ones who went quiet. It writes nothing into your member system.",
+      "pills": [
+        "Mindbody",
+        "Zen Planner",
+        "PushPress",
+        "Wodify",
+        "…or ours, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Why it matters more in fitness",
+      "h2": "A member isn't one sale — it's a year of them",
+      "body": "Most local businesses lose a single ticket to a missed call. A gym loses a recurring membership: every month that person would have paid, plus the friend they'd have brought. That's what makes an unanswered phone expensive here, and why the fix pays for itself faster than in almost any other trade.",
+      "points": [
+        {
+          "strong": "Recurring, not one-off",
+          "body": "One missed membership inquiry isn't one lost sale — it's every month that person would have stayed. Run your own numbers on the <a href=\"/roi/\">missed-call calculator</a>."
+        },
+        {
+          "strong": "Decisions happen after hours",
+          "body": "Evenings, Sundays, and January 1st are when people decide to join — exactly when a front desk is empty and voicemail loses them."
+        },
+        {
+          "strong": "The almost-joined get followed up",
+          "body": "Someone who toured but didn't sign, or booked a trial and didn't show, gets a real follow-up instead of quietly disappearing."
+        },
+        {
+          "strong": "You stay in control",
+          "body": "Anything that needs a human — billing, injuries, cancellations — lands on your phone with a summary of the conversation so far."
+        }
+      ]
+    },
+    "note": "No gym client live yet. Do NOT add a brand chip, testimonial, or live-call proof stats to this page until one is signed and the numbers are confirmed on real calls — same rule as /clinics/. When a gym goes live: add a .brandstrip block here (copy the markup + CSS from clinics) and, if there's a case study, point the chip at it like the homepage chips do.",
+    "cta": {
+      "h2": "Try it like a prospect would",
+      "body": "Call or text the live demo and ask it what people ask you before they join. Then imagine it on your gym's number. Setup is done for you — you don't touch a thing."
+    }
+  },
+  {
+    "slug": "pet-care",
+    "title": "AI Receptionist for Groomers, Boarding & Vet Clinics",
+    "description": "Answer the phone with both hands on a wet dog, take the holiday boarding rush before someone else does, and screen vaccination questions automatically — a 24/7 AI receptionist for pet grooming, boarding, daycare and veterinary practices.",
+    "eyebrow": "For Groomers, Boarding &amp; Vets",
+    "h1": "Both hands on the dog.<br /><em>We'll get the phone.</em>",
+    "intro": "An AI receptionist that answers while you're mid-groom or mid-appointment, takes the holiday boarding rush before someone else does, and screens the questions you answer forty times a week — without ever quoting a price it can't see or giving advice about an animal.",
+    "cards": [
+      {
+        "icon": "paw",
+        "title": "Both hands are busy",
+        "body": "You're holding a wet, wriggling dog or halfway through a nail trim. The phone rings out, and the caller books with whoever picks up first."
+      },
+      {
+        "icon": "calendar",
+        "title": "The holiday rush",
+        "body": "Everyone calls about Thanksgiving and Christmas boarding in the same two weeks. Whoever answers fills the kennel; everyone else takes the overflow."
+      },
+      {
+        "icon": "tag",
+        "title": "\"How much for a groom?\"",
+        "body": "Depends on breed, coat, size and how matted they are — none of which you know from a voicemail. Quote it blind and you've either lost money or lost the client."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works",
+        "h2": "Every call answered, every pet's details captured",
+        "lede": "One receptionist covers the phone, the texts, the website and the socials — capturing what you actually need to know about the animal before the conversation ever reaches you.",
+        "items": [
+          {
+            "strong": "Missed-call text-back",
+            "body": "A call you couldn't take mid-groom becomes a text conversation, instead of a voicemail you clear after closing."
+          },
+          {
+            "strong": "Gets the pet's details first",
+            "body": "Breed, size, coat condition, age, temperament, and what the owner is actually asking for — captured before you call back."
+          },
+          {
+            "strong": "Never quotes blind",
+            "body": "It explains how you price and what changes it — matting, size, coat type — then tells them you'll confirm. No number goes out that you didn't set."
+          },
+          {
+            "strong": "Screens vaccination requirements",
+            "body": "The single most repeated question in boarding and daycare, answered instantly from the policy you've published."
+          },
+          {
+            "strong": "Books and rebooks",
+            "body": "New appointments onto your calendar, and a nudge when a regular is due for their next groom, so the six-week cycle doesn't quietly become twelve."
+          },
+          {
+            "strong": "Human handoff",
+            "body": "Anything about an animal's health, an unusual request, or a distressed owner goes to you immediately with a summary."
+          }
+        ]
+      },
+      {
+        "eyebrow": "Who it's built for",
+        "h2": "Wherever the phone competes with the animal",
+        "lede": "Grooming, boarding and veterinary front desks look different, but they share one problem: the person who should answer is holding a pet.",
+        "items": [
+          {
+            "strong": "Grooming salons",
+            "body": "Every quote depends on the animal in front of you, and every call arrives while your hands are full of one."
+          },
+          {
+            "strong": "Mobile groomers",
+            "body": "You're driving between appointments or working in the van. There is no front desk, and there never will be."
+          },
+          {
+            "strong": "Boarding kennels",
+            "body": "Seasonal demand arrives in waves. The holiday enquiry that reaches voicemail is a two-week booking lost to the next kennel."
+          },
+          {
+            "strong": "Doggy daycare",
+            "body": "High volume, repetitive questions — hours, requirements, trial days, temperament testing — and a team that's outside with the dogs."
+          },
+          {
+            "strong": "Veterinary practices",
+            "body": "New-client calls, prescription and appointment requests, and after-hours callers who need routing to emergency care fast and correctly."
+          },
+          {
+            "strong": "Solo &amp; small teams",
+            "body": "One or two people doing the work and the admin. Every answered call is one that didn't interrupt a groom."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "Keep the booking system you already run",
+      "body": "No migration, and no new software for you or your clients. The receptionist answers what people ask, then sends them to your existing booking link and follows up with the ones who never finish — or books onto a calendar we run for you, if you'd rather. It writes nothing into your system itself.",
+      "pills": [
+        "Gingr",
+        "MoeGo",
+        "PetExec",
+        "…or ours, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Where the line is",
+      "h2": "It never gives advice about an animal",
+      "body": "A receptionist can take a booking, capture a breed and repeat your posted policy. It cannot tell someone whether a limp is serious, whether a lump needs looking at, or whether their dog is safe to board — and it doesn't try. Anything that sounds like an animal in trouble goes to a human immediately, with your emergency instructions and nothing else attached.",
+      "points": [
+        {
+          "strong": "No medical opinions, ever",
+          "body": "Symptoms, injuries, reactions and \"should I be worried\" go straight to you or to your posted emergency instructions. It never assesses an animal."
+        },
+        {
+          "strong": "No blind quotes",
+          "body": "It captures breed, size, coat and condition and explains what moves the price. The number is yours, given once you've seen the animal."
+        },
+        {
+          "strong": "Your policies, word for word",
+          "body": "Vaccination requirements, temperament rules, cancellation and late-pickup policy — repeated exactly as you've published them, never improvised."
+        },
+        {
+          "strong": "Holiday surge, same coverage",
+          "body": "It doesn't get overwhelmed when the whole town calls about Christmas boarding in the same week. The fortieth caller gets the same answer as the first."
+        }
+      ]
+    },
+    "note": "No pet-care client live yet. Do NOT add a brand chip, testimonial, or live-call proof stats to this page until one is signed and confirmed on real calls — same rule as every other vertical page.",
+    "cta": {
+      "h2": "Try it like an owner with a matted doodle would",
+      "body": "Call or text the live demo and ask it what your clients ask. Then picture it answering while you've got both hands on a dog. Setup is done for you — you don't touch a thing."
+    }
+  },
+  {
+    "slug": "physical-therapy",
+    "title": "AI Receptionist for Physical Therapy Clinics",
+    "description": "Get referrals booked before they go cold, keep patients on their plan of care, and answer the referral and authorisation questions around the clock — a 24/7 AI receptionist for physical therapy clinics that never gives clinical advice or opens a chart.",
+    "eyebrow": "For Physical Therapy",
+    "h1": "Treat the patient.<br /><em>We'll chase the schedule.</em>",
+    "intro": "An AI receptionist that gets new referrals booked before they go cold, keeps patients showing up for the whole plan of care, and answers the referral and scheduling questions at any hour — without ever giving clinical advice or opening a chart.",
+    "cards": [
+      {
+        "icon": "routing",
+        "title": "The referral that goes cold",
+        "body": "A physician sends someone your way and nobody reaches them for two days. They call the next clinic, and the referring office quietly notices where their patients end up."
+      },
+      {
+        "icon": "list-details",
+        "title": "Dropping off mid-plan",
+        "body": "A plan of care is two or three visits a week for weeks. Patients start strong and fade — and every visit they skip is worse outcomes for them and lost revenue for you."
+      },
+      {
+        "icon": "calendar",
+        "title": "Opening week, and every week",
+        "body": "A move or a second location brings a call surge exactly when your front desk is least able to absorb it — and first impressions get made on those calls."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works in a clinic",
+        "h2": "Every referral booked, every plan finished",
+        "lede": "One receptionist covers the phone, the texts and the website — getting new patients scheduled quickly and keeping existing ones on the calendar, while your therapists stay in treatment.",
+        "items": [
+          {
+            "strong": "Missed-call text-back",
+            "body": "A call your desk couldn't reach becomes a text conversation in seconds, instead of a voicemail cleared at the end of the day."
+          },
+          {
+            "strong": "Books new referrals fast",
+            "body": "New patients get scheduled the same day they call rather than waiting on a callback — the single biggest reason referrals leak to another clinic."
+          },
+          {
+            "strong": "Answers the referral question",
+            "body": "Whether a referral is needed, what to bring, what the first visit involves, how long sessions run — answered from what you've published, any hour."
+          },
+          {
+            "strong": "Keeps the plan on track",
+            "body": "Reminders and easy rescheduling by text, so a missed visit becomes a moved visit instead of the moment someone quietly stops coming."
+          },
+          {
+            "strong": "Fills cancellations",
+            "body": "When a slot opens, it offers it out and takes the first yes — so a late cancellation doesn't leave a therapist idle."
+          },
+          {
+            "strong": "Human handoff",
+            "body": "Anything clinical, anything about a specific plan of care or authorisation goes to your team with a summary of the conversation."
+          }
+        ]
+      },
+      {
+        "eyebrow": "Who it's built for",
+        "h2": "However the clinic is set up",
+        "lede": "Referral-driven and cash-based clinics have very different front desks, and the receptionist is configured to match rather than assuming one shape.",
+        "items": [
+          {
+            "strong": "Outpatient ortho &amp; sports",
+            "body": "Referral volume arrives in bursts and gets stale fast. Speed to first appointment is the whole competition."
+          },
+          {
+            "strong": "Cash-based &amp; direct access",
+            "body": "More pricing and \"do I need a referral\" questions up front, answered from what you've published rather than guessed at."
+          },
+          {
+            "strong": "Post-op rehab",
+            "body": "Surgeons want therapy started inside a window. A call that waits two days for a callback is a problem for everyone involved."
+          },
+          {
+            "strong": "Solo &amp; small practices",
+            "body": "The owner treats and runs the desk. Every call taken during a session is a session interrupted."
+          },
+          {
+            "strong": "Multi-location clinics",
+            "body": "Two front desks, or one covering both. Calls get captured with the location the patient actually wants."
+          },
+          {
+            "strong": "Clinics that are moving or expanding",
+            "body": "New address, new phones, a surge of calls, and a team already stretched by the move itself."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "Keep the practice software you already run",
+      "body": "No migration, and nothing for your front desk to relearn. The receptionist answers what patients ask, then sends them to your existing booking link and follows up with the ones who never finish — or books onto a calendar we run for you, if you'd rather. It writes nothing into your practice software and nothing into a patient chart.",
+      "pills": [
+        "WebPT",
+        "Jane",
+        "Prompt",
+        "…or ours, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Where the line is",
+      "h2": "It schedules. Your therapists treat.",
+      "body": "Everything a physical therapy front desk does that isn't clinical — answering, booking, reminding, rescheduling, chasing the people who drifted off their plan — is work this can take. Everything touching a diagnosis, an exercise, an authorisation or a chart stays with your team, because a confident wrong answer in any of those is worse than a missed call.",
+      "points": [
+        {
+          "strong": "No clinical advice, ever",
+          "body": "It never suggests an exercise, comments on an injury, or tells someone whether therapy will help. Those go to a therapist, every time."
+        },
+        {
+          "strong": "It never verifies benefits or visit limits",
+          "body": "It can share what you've published about plans and cash rates. What a specific policy authorises reaches a human, because a wrong answer there becomes a billing problem."
+        },
+        {
+          "strong": "It never opens a chart",
+          "body": "Front-desk logistics only — a name, a number, a reason to follow up. No records, no history, which is why most clinics need no compliance layer at all."
+        },
+        {
+          "strong": "Adherence, not pressure",
+          "body": "Reminders and easy rescheduling are how a plan gets finished. It nudges once and makes it simple to move a visit; it doesn't hound your patients."
+        }
+      ]
+    },
+    "note": "No physical-therapy client live yet. Do NOT add a brand chip, testimonial, or live-call proof stats to this page until one is signed and confirmed on real calls — same rule as every other vertical page. NOTE: a warm PT prospect exists in the pipeline; do NOT name them here.",
+    "cta": {
+      "h2": "Try it like a patient with a fresh referral would",
+      "body": "Call or text the live demo and ask it what your patients ask. Then imagine it catching a referral at 6 PM instead of losing it overnight. Setup is done for you — your team doesn't touch a thing."
+    }
+  },
+  {
+    "slug": "salons-spas",
+    "title": "AI Receptionist for Salons, Spas & Massage",
+    "description": "Answer while your hands are in someone's hair or you're mid-massage, take the gift-card and pricing questions without guessing, and keep clients rebooking — a 24/7 AI receptionist for hair salons, day spas and massage therapists.",
+    "eyebrow": "For Salons, Spas &amp; Massage",
+    "h1": "You're with a client.<br /><em>The phone shouldn't win.</em>",
+    "intro": "An AI receptionist that answers while your hands are busy and your next client is already in the chair — handling the pricing and gift-card questions, filling cancellations, and nudging people to rebook, without ever quoting a service it can't see.",
+    "cards": [
+      {
+        "icon": "scissors",
+        "title": "Hands in someone's hair",
+        "body": "A colour service runs two hours and a massage runs ninety minutes. You physically cannot take that call, and stepping out to answer it costs you the client in the chair."
+      },
+      {
+        "icon": "tag",
+        "title": "\"How much for balayage?\"",
+        "body": "It depends on length, thickness and what's already on their hair. Quote it blind over the phone and you've either undercharged yourself or scared off someone who'd have booked."
+      },
+      {
+        "icon": "gift",
+        "title": "The gift-card call",
+        "body": "Every December, and every birthday and anniversary in between. It's a simple question that still has to be answered by somebody, and it always arrives mid-service."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works on the floor",
+        "h2": "Every call answered, every chair rebooked",
+        "lede": "One receptionist covers the phone, the texts, the website and the socials — answering what's routine, capturing what needs your eyes, and keeping the calendar full without anyone stepping away from a client.",
+        "items": [
+          {
+            "strong": "Missed-call text-back",
+            "body": "A call you couldn't take mid-service becomes a text conversation in seconds, instead of a voicemail you clear at close."
+          },
+          {
+            "strong": "Answers the menu questions",
+            "body": "Services, rough timings, what's included, gift cards, parking, whether you take walk-ins — answered instantly and accurately, any hour."
+          },
+          {
+            "strong": "Never quotes a custom service",
+            "body": "Colour, extensions and corrections get captured — length, current colour, what they're after — then handed to you. It only quotes what you've published."
+          },
+          {
+            "strong": "Fills cancellations",
+            "body": "When a slot opens, it offers it out and takes the first yes, so a late cancellation doesn't become a dead two hours."
+          },
+          {
+            "strong": "Keeps people rebooking",
+            "body": "A nudge when a client is due, so the six-week colour cycle doesn't quietly stretch to ten and the monthly massage doesn't lapse."
+          },
+          {
+            "strong": "Human handoff",
+            "body": "Anything needing your judgment — a correction, a complaint, an unusual request — comes to you with a summary of the conversation."
+          }
+        ]
+      },
+      {
+        "eyebrow": "Who it's built for",
+        "h2": "Wherever the service outlasts the phone call",
+        "lede": "Booth renters, small teams and full spas all hit the same wall: the person best placed to answer is the person mid-service.",
+        "items": [
+          {
+            "strong": "Hair salons",
+            "body": "Long colour services and a phone that rings hardest exactly when the whole floor is booked solid."
+          },
+          {
+            "strong": "Booth renters &amp; solo stylists",
+            "body": "You are the stylist, the receptionist and the marketing department. The phone always loses to the client in your chair."
+          },
+          {
+            "strong": "Massage therapists",
+            "body": "Ninety minutes with a phone that has to be silent. Every enquiry lands in a queue you work between clients."
+          },
+          {
+            "strong": "Day spas",
+            "body": "Multi-service bookings, packages and gift cards mean more questions per enquiry than any other appointment business."
+          },
+          {
+            "strong": "Nail &amp; lash studios",
+            "body": "Short services, high volume, and constant questions about fills, timing and aftercare."
+          },
+          {
+            "strong": "Multi-chair teams",
+            "body": "Enquiries captured with the service and stylist preference, so the right person picks them up instead of everything landing in one pile."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "Keep the books you already run",
+      "body": "No migration, and no new system for you or your team to learn. The receptionist answers what people ask, then sends them straight to your booking link and follows up with the ones who never finish. It writes nothing into your books itself, so it can't double-book a chair.",
+      "pills": [
+        "Vagaro",
+        "Square",
+        "Boulevard",
+        "Schedulicity",
+        "…or ours, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Where the line is",
+      "h2": "It never prices what it can't see",
+      "body": "Anything on your published menu, it can answer all day. Anything that depends on the person in front of you — how much colour is already on their hair, whether that correction is a three-hour job or a three-visit one — gets captured and handed to you. Guessing there costs more than a missed call ever will.",
+      "points": [
+        {
+          "strong": "Published prices only",
+          "body": "Menu services get real answers. Custom work gets the variables captured and a straight \"your stylist will confirm\" — never a number you didn't set."
+        },
+        {
+          "strong": "No advice on the work",
+          "body": "Whether a colour will lift, whether extensions suit them, whether a massage will help a specific complaint — flagged for a human, never guessed at."
+        },
+        {
+          "strong": "Your policies, word for word",
+          "body": "Deposits, late arrivals, cancellation windows and no-show rules repeated exactly as you've written them, so nobody is quoted a policy you don't have."
+        },
+        {
+          "strong": "Saturday morning, same coverage",
+          "body": "It doesn't get flustered when every chair is full and the phone hasn't stopped. The twentieth caller gets the same answer as the first."
+        }
+      ]
+    },
+    "note": "No salon/spa/massage client live yet. Do NOT add a brand chip, testimonial, or live-call proof stats to this page until one is signed and confirmed on real calls — same rule as every other vertical page. NOTE: med spas belong on /clinics/, not here — this page is deliberately non-medical.",
+    "cta": {
+      "h2": "Try it like a client booking a colour would",
+      "body": "Call or text the live demo and ask it what your clients ask you. Then imagine it on your salon's line on a Saturday morning. Setup is done for you — you don't touch a thing."
+    }
+  },
+  {
+    "slug": "tattoo-studios",
+    "title": "AI Receptionist for Tattoo & Piercing Studios",
+    "description": "An AI receptionist that works your Instagram and Facebook DMs while you're in a session — capturing the consult brief instead of quoting a price, so you finish a four-hour piece and come back to qualified requests, not a hundred unread messages.",
+    "eyebrow": "For Tattoo &amp; Piercing Studios",
+    "h1": "You're in a session.<br /><em>The DMs aren't waiting.</em>",
+    "intro": "An AI receptionist that works your Instagram and Facebook messages, your texts and your calls — capturing what a consult actually needs so you come out of a four-hour piece to qualified requests instead of a hundred unread \"how much for a sleeve.\" It never quotes a price.",
+    "cards": [
+      {
+        "icon": "clock",
+        "title": "Four hours, hands busy",
+        "body": "You're gloved up and the phone is face down. Every inquiry that arrives mid-session waits until you're done, and the ones who wanted an answer today are already messaging the next artist."
+      },
+      {
+        "icon": "message-2",
+        "title": "The DM pile",
+        "body": "Instagram, Messenger, texts, and the odd phone call. Most arrive with no size, no placement and no reference — so answering them properly means asking the same four questions over and over."
+      },
+      {
+        "icon": "tag",
+        "title": "\"How much for a sleeve?\"",
+        "body": "Unanswerable without seeing it, and answering badly costs you the piece or the trust. It's the most common message you get and the worst one to guess at."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works between sessions",
+        "h2": "It captures the consult. You keep the art and the price.",
+        "lede": "Booking isn't the job here — every piece is custom, so the receptionist's whole purpose is turning a vague message into a brief you can actually act on, in the channels where the work really arrives.",
+        "items": [
+          {
+            "strong": "Works the DMs, not just the phone",
+            "body": "Instagram and Facebook messages answered in minutes — the channels most studios actually run on, and the ones that go unread longest."
+          },
+          {
+            "strong": "Captures the consult brief",
+            "body": "The idea, rough size, placement, colour or black-and-grey, references, budget range and timeline — gathered before it ever reaches you."
+          },
+          {
+            "strong": "Never quotes a price",
+            "body": "It explains how you price and what a consult involves, then tells them you'll confirm. No number goes out that you didn't set."
+          },
+          {
+            "strong": "Answers the studio questions",
+            "body": "Deposits, shop minimum policy, age and ID, hours, parking, walk-ins versus appointment, whether you're booking at all right now."
+          },
+          {
+            "strong": "Aftercare, from your posted policy",
+            "body": "It repeats the aftercare instructions you've published and nothing else. Anything that sounds like a complication goes to a human immediately."
+          },
+          {
+            "strong": "Books consults when you're ready",
+            "body": "Start with capture only. Once you trust it, let it put fixed-length consultations straight onto a calendar."
+          }
+        ]
+      },
+      {
+        "eyebrow": "Who it's built for",
+        "h2": "Studios that run on messages",
+        "lede": "If the inquiry arrives as a DM while your hands are busy, the fit is the same whatever you tattoo.",
+        "items": [
+          {
+            "strong": "Custom tattoo studios",
+            "body": "Every piece is quoted individually, so the value isn't booking — it's arriving at the consult already knowing what they want."
+          },
+          {
+            "strong": "Solo &amp; private studios",
+            "body": "No front desk at all. You are the artist, the scheduler and the inbox, and the inbox always loses."
+          },
+          {
+            "strong": "Multi-artist shops",
+            "body": "Inquiries get captured with style and artist preference, so the right person picks them up instead of everything landing in one pile."
+          },
+          {
+            "strong": "Body piercing",
+            "body": "Higher volume, shorter appointments, and constant repeat questions about jewellery, healing times and aftercare — answered from what you've posted."
+          },
+          {
+            "strong": "Cover-ups &amp; rework",
+            "body": "The ones that genuinely need your eyes get flagged as consults rather than being half-answered in a DM thread."
+          },
+          {
+            "strong": "Studios with no website",
+            "body": "Plenty of shops run entirely on Instagram and Facebook. The receptionist works those channels directly — a site is optional, not a prerequisite."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "It meets people where they message you",
+      "body": "No new app for you or your clients, and no website required. It answers in the channels you already use, and hands you a clean brief in one place — however the message arrived.",
+      "pills": [
+        "Instagram DMs",
+        "Facebook Messenger",
+        "Text",
+        "Website chat",
+        "…or a consult calendar, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Where the line is",
+      "h2": "It never speaks for your art",
+      "body": "A receptionist can gather what you need to know before a consult. It cannot judge whether a design will hold, whether a cover-up will work, or what a piece is worth — and it doesn't pretend to. Those are the reasons someone chose you, and they stay with you.",
+      "points": [
+        {
+          "strong": "No price, ever",
+          "body": "It captures size, placement and scope and explains how you price. The number is yours, given when you've seen what they're asking for."
+        },
+        {
+          "strong": "No opinion on the work",
+          "body": "Whether a design suits a spot, whether a cover-up is feasible, how many sessions it'll take — flagged for you, never guessed at."
+        },
+        {
+          "strong": "Aftercare stays to your policy",
+          "body": "It repeats what you've published, word for word. Anything suggesting infection or a reaction goes to a human right away, with no advice attached."
+        },
+        {
+          "strong": "Your voice, your rules",
+          "body": "Deposit terms, shop minimum, what you will and won't tattoo — it runs on your answers, so it sounds like your studio and not like a chatbot."
+        }
+      ]
+    },
+    "note": "No tattoo/piercing client live yet. Do NOT add a brand chip, testimonial, or live-call proof stats to this page until one is signed and confirmed on real conversations — same rule as /clinics/, /chiropractors/, /gyms/, /accounting/, /trades/ and /auto-shops/.",
+    "cta": {
+      "h2": "Try it like someone sliding into your DMs would",
+      "body": "Message or call the live demo and ask it what your clients ask you. Then picture it handling your inbox while you're three hours into a back piece. Setup is done for you — you don't touch a thing."
+    }
+  },
+  {
+    "slug": "trades",
+    "title": "AI Receptionist for Trades & Contractors",
+    "description": "Answer every call from the job site, screen real jobs from tire kickers, flag emergencies, and book estimates automatically — 406 Front Desk is a 24/7 AI receptionist built for HVAC, plumbing, electrical, roofing, and contractors.",
+    "eyebrow": "For Trades &amp; Contractors",
+    "h1": "Run the job.<br /><em>We'll run the phone.</em>",
+    "intro": "An AI receptionist that answers your calls, texts, and chats, screens jobs before they reach you, and books estimates onto your calendar — so the customer who calls while you're on a ladder doesn't end up hiring whoever picked up.",
+    "cards": [
+      {
+        "icon": "phone",
+        "title": "On the tools, not the phone",
+        "body": "You're in a crawlspace, on a roof, or elbow-deep in a panel. The phone rings, rolls to voicemail, and the caller dials the next name on the list."
+      },
+      {
+        "icon": "clock",
+        "title": "The after-hours emergency",
+        "body": "A furnace dies at midnight in January. A pipe lets go on a Sunday. Whoever answers first gets the job — and usually the bigger repair that follows it."
+      },
+      {
+        "icon": "file-text",
+        "title": "Quote shoppers",
+        "body": "Half your calls are people pricing a job they may never book. Sorting them out costs you the same interruption whether the job is real or not."
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "How it works on a job site",
+        "h2": "Every call answered, every real job booked",
+        "lede": "One receptionist covers the phone, the texts, and the website — answering what's routine, screening what's new, and leaving the actual work to you.",
+        "items": [
+          {
+            "strong": "Missed-call text-back",
+            "body": "A call you can't take on the job becomes a text conversation instead of a voicemail you hear at dinner."
+          },
+          {
+            "strong": "Answers the usuals",
+            "body": "Service area, licensed and insured, whether you do that kind of work, rough scheduling windows — answered instantly, any hour."
+          },
+          {
+            "strong": "Screens the job",
+            "body": "What's the problem, where's the property, how urgent, owner or renter — captured before it reaches you, so you know if it's worth a truck roll."
+          },
+          {
+            "strong": "Books estimates",
+            "body": "Real jobs go straight onto your calendar as estimate appointments — not into a voicemail queue you work through at 8 PM."
+          },
+          {
+            "strong": "Flags real emergencies",
+            "body": "A no-heat call in January isn't a Tuesday quote request. Urgent jobs get flagged and routed to you or your on-call right away."
+          },
+          {
+            "strong": "Human handoff",
+            "body": "Anything that needs a tradesman's answer — scope, price, code questions — goes to you with a summary of the conversation."
+          }
+        ]
+      },
+      {
+        "eyebrow": "Who it's built for",
+        "h2": "The trades that run on the phone",
+        "lede": "If your trade isn't listed — garage doors, tree service, concrete, painting, septic — the fit is the same: if the phone rings while you work, it belongs here.",
+        "items": [
+          {
+            "strong": "HVAC",
+            "body": "No-cool in July, no-heat in January. The calls that matter most come after hours — exactly when nobody's in the office to take them."
+          },
+          {
+            "strong": "Plumbing",
+            "body": "Burst pipes don't wait for business hours, and neither does the customer calling about one. First answer wins the job."
+          },
+          {
+            "strong": "Electrical",
+            "body": "Dead outlets, panel upgrades, remodel rough-ins — screened so you know what's a service call and what's a project before you call back."
+          },
+          {
+            "strong": "Roofing",
+            "body": "After a hailstorm the whole valley calls at once. Every caller gets answered while your crews stay on the roof."
+          },
+          {
+            "strong": "General contractors &amp; remodels",
+            "body": "Project inquiries qualified — scope, timeline, budget readiness — before they take an hour of your evening."
+          },
+          {
+            "strong": "Excavation &amp; landscaping",
+            "body": "The seasonal rush means the phone rings hardest exactly when you can least afford to stop and answer it."
+          }
+        ]
+      }
+    ],
+    "book": {
+      "h3": "Keep the calendar you already run",
+      "body": "No migration, no double-booking. Screened jobs land on the calendar you already keep — and it reads that calendar for conflicts before it books, so it never puts an estimate on top of a job you've already got.",
+      "pills": [
+        "Google Calendar",
+        "Outlook",
+        "Office 365",
+        "…or ours, included"
+      ]
+    },
+    "proof": {
+      "eyebrow": "Built for how the trades actually work",
+      "h2": "Answers the phone the way you would",
+      "body": "A front desk for a trade can't promise what you haven't seen. Yours answers the questions you've approved, books what you've said is bookable, and hands everything else to you — it never bids a job, quotes a price you didn't set, or promises an arrival time you can't keep.",
+      "points": [
+        {
+          "strong": "You set the rules",
+          "body": "Service area, the work you take, what books directly and what waits for your callback — the receptionist runs on your answers, not its own."
+        },
+        {
+          "strong": "No prices you didn't approve",
+          "body": "It shares the pricing you've published — a service-call fee, a free-estimate policy — and nothing else. Bids stay with you."
+        },
+        {
+          "strong": "Emergencies get through",
+          "body": "You decide what counts as urgent and who gets contacted. Routine work books itself; the real emergencies reach a human fast."
+        },
+        {
+          "strong": "Storm day, same coverage",
+          "body": "It doesn't get overwhelmed when everyone calls at once. The fiftieth caller of the morning gets the same answer as the first."
+        }
+      ]
+    },
+    "note": "No trades client live yet. Do NOT add a brand chip, testimonial, or live-call proof stats to this page until one is signed and confirmed on real calls — same rule as /clinics/, /gyms/ and /accounting/.",
+    "cta": {
+      "h2": "Try it like a customer with a dead furnace would",
+      "body": "Call or text the live demo and ask it what your customers ask. Then imagine it on your business line while you're on the job. Setup is done for you — you don't touch a thing."
+    }
+  }
+]

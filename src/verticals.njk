@@ -1,0 +1,100 @@
+---
+layout: layouts/base.njk
+pageCss: vertical
+pagination:
+  data: verticals
+  size: 1
+  alias: v
+  addAllPagesToCollections: true
+permalink: "/{{ v.slug }}/"
+eleventyComputed:
+  title: "{{ v.title | safe }}"
+  description: "{{ v.description | safe }}"
+---
+{#
+  ONE template renders every vertical landing page from src/_data/verticals.json.
+  Add a vertical = add a JSON entry (copy the closest one). Never copy this file.
+
+  ⚠️ Per-vertical guardrails live in each JSON entry's "note" field — READ IT
+  before touching that vertical's content. The standing rule: no brand chip,
+  testimonial, or live-call proof stats on any vertical page until a client in
+  that vertical is signed and the numbers are confirmed on real calls.
+  (barbershops + clinics are the only ones with real-client proof today.)
+
+  addAllPagesToCollections is LOAD-BEARING: sitemap.xml iterates collections.all,
+  so removing it silently drops every page but the first from the sitemap.
+#}
+{% from "partials/icons.njk" import icon %}
+<div class="header-band">
+  <span class="header-eyebrow">{{ v.eyebrow | safe }}</span>
+  <h1>{{ v.h1 | safe }}</h1>
+  <p>{{ v.intro | safe }}</p>
+</div>
+
+<div class="wrap">
+  <div class="grid-3">
+    {%- for card in v.cards %}
+    <div class="lcard">
+      <div class="lcard-icon">
+        {{ icon(card.icon) }}
+      </div>
+      <h2 class="lcard-title">{{ card.title | safe }}</h2>
+      <p>{{ card.body | safe }}</p>
+    </div>
+    {%- endfor %}
+  </div>
+</div>
+
+{% for sec in v.sections %}
+<section class="inner-sec"{% if not loop.first %} style="padding-top: 10px;"{% endif %}>
+  <div class="sec-eyebrow">{{ sec.eyebrow | safe }}</div>
+  <h2>{{ sec.h2 | safe }}</h2>
+  <p class="lede">{{ sec.lede | safe }}</p>
+  <div class="svc-grid">
+    {%- for item in sec.items %}
+    <div class="svc"><strong>{{ item.strong | safe }}</strong>{{ item.body | safe }}</div>
+    {%- endfor %}
+  </div>
+</section>
+{% endfor %}
+
+<section class="inner-sec" style="padding-top: 10px;">
+  <div class="book-band">
+    <div class="txt">
+      <h3>{{ v.book.h3 | safe }}</h3>
+      <p>{{ v.book.body | safe }}</p>
+    </div>
+    <div class="book-logos">
+      {%- for pill in v.book.pills %}
+      <span class="book-pill">{{ pill | safe }}</span>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="inner-sec" style="padding-top: 10px;">
+  <div class="proof-band">
+    <div class="sec-eyebrow">{{ v.proof.eyebrow | safe }}</div>
+    <h2>{{ v.proof.h2 | safe }}</h2>
+    <p>{{ v.proof.body | safe }}</p>
+    <div class="proof-points">
+      {%- for pt in v.proof.points %}
+      <div class="ppoint">
+        <strong>{{ pt.strong | safe }}</strong>
+        <span>{{ pt.body | safe }}</span>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{% if v.brandstrip %}
+{{ v.brandstrip | safe }}
+{% endif %}
+
+<div class="cta-band">
+  <h2>{{ v.cta.h2 | safe }}</h2>
+  <p>{{ v.cta.body | safe }}</p>
+  <a href="/demo/" class="btn-primary">Try the Live Demo</a>
+  <a href="/pricing/" class="btn-ghost">See Pricing</a>
+</div>
