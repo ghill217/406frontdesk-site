@@ -125,12 +125,16 @@
   }
   .form-sub { font-size: 14px; color: var(--ink-muted); margin-bottom: 24px; }
 
-  /* ── ON-PAGE CONSENT DISCLOSURE (readable by A2P scanner) ── */
+  /* ── ON-PAGE CONSENT DISCLOSURE (readable by A2P scanner) ──
+     Neutral on purpose. This is legal disclosure — the one block on the page
+     you cannot click — and it wore amber, the action colour, directly above
+     the call button. Amber now means one thing: this is the action.
+     ⚠️ Styling only. The COPY is A2P-load-bearing and must not change. */
   .consent-disclosure {
     margin-top: 22px;
     padding: 18px 20px;
-    background: var(--accent-light);
-    border: 1px solid var(--accent);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
     font-size: 12.5px;
     line-height: 1.6;
@@ -146,12 +150,13 @@
   .call-btn {
     display: flex; align-items: center; justify-content: center; gap: 10px;
     width: 100%; padding: 15px 18px;
-    background: var(--navy); color: #fff;
+    background: var(--accent); color: var(--navy);
     border-radius: 10px; text-decoration: none;
     font-weight: 600; font-size: 15px;
     transition: background 0.2s, transform 0.18s;
   }
-  .call-btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
+  .call-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+  .call-btn:active { background: var(--accent-press); }
   .call-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
   /* ── LIVE BOOKING ── */

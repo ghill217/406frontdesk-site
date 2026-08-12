@@ -144,7 +144,8 @@ body {
   border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
   padding: 13px 26px; border-radius: 10px; transition: background 0.2s;
 }
-.btn-primary:hover { background: var(--accent-dark); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:active { background: var(--accent-press); }
 .btn-outline {
   display: inline-block; color: var(--navy); border: 1px solid var(--border-strong);
   font-weight: var(--fw-bold); font-size: 15px; text-decoration: none;

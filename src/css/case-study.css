@@ -181,7 +181,7 @@
   }
   .cs-btn-primary { background: var(--accent); color: var(--navy); }
   .cs-btn-ghost { border: 1px solid rgba(255,255,255,0.3); color: #fff; }
-  .cs-btn-primary:hover, .cs-btn-ghost:hover { transform: translateY(-2px); }
+  .cs-btn-primary:hover, .cs-btn-ghost:hover { transform: translateY(-1px); }
   .cs-btn-ghost:hover { border-color: var(--accent); }
   .cs-btn-primary:focus-visible, .cs-btn-ghost:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 

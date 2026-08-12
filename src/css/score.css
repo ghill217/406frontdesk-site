@@ -131,7 +131,8 @@ body {
   text-decoration: none; border: none; cursor: pointer;
   padding: 14px 28px; border-radius: 10px; transition: background 0.2s;
 }
-.btn-primary:hover:not(:disabled) { background: var(--accent-dark); }
+.btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+.btn-primary:active:not(:disabled) { background: var(--accent-press); }
 .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
 .btn-back {
   background: none; border: 1px solid var(--border-strong); color: var(--ink-muted);

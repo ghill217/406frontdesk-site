@@ -191,7 +191,8 @@ input[type="range"] { width: 100%; accent-color: var(--accent); height: 28px; cu
   font-weight: 700; font-size: 15px; text-decoration: none;
   padding: 14px 28px; border-radius: 10px; transition: background 0.2s;
 }
-.btn-primary:hover { background: var(--accent-dark); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:active { background: var(--accent-press); }
 .btn-secondary {
   display: inline-block; color: #fff; border: 1px solid rgba(255,255,255,0.35);
   font-weight: 600; font-size: 15px; text-decoration: none;

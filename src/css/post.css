@@ -29,7 +29,8 @@ body {
   font-size: 15px; font-weight: 600; text-decoration: none; display: inline-block;
   transition: background 0.2s, transform 0.15s;
 }
-.btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.btn-primary:active { background: var(--accent-press); }
 .btn-secondary {
   color: var(--ink); padding: 14px 24px; border-radius: var(--radius);
   font-size: 15px; font-weight: 500; text-decoration: none; display: inline-block;

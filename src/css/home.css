@@ -58,7 +58,8 @@
     font-size: var(--fs-base); font-weight: 600; text-decoration: none; border: none; cursor: pointer;
     transition: background 0.2s, transform 0.15s; display: inline-block;
   }
-  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+  .btn-primary:active { background: var(--accent-press); }
   .btn-secondary {
     color: var(--ink); padding: var(--sp-4) var(--sp-5); border-radius: var(--radius);
     font-size: var(--fs-base); font-weight: 500; text-decoration: none;
@@ -363,12 +364,13 @@
   .call-btn {
     display: flex; align-items: center; justify-content: center; gap: var(--sp-2);
     width: 100%; padding: var(--sp-4) var(--sp-4);
-    background: var(--navy); color: #fff;
+    background: var(--accent); color: var(--navy);
     border-radius: var(--radius); text-decoration: none;
     font-weight: 600; font-size: var(--fs-base);
     transition: background 0.2s, transform 0.18s;
   }
-  .call-btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
+  .call-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+  .call-btn:active { background: var(--accent-press); }
   .call-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
   .industries { background: var(--surface); }

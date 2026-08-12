@@ -121,12 +121,20 @@ body.fd406-past-hero .fd406-actionbar{transform:translateY(0)}
 .fd406-actionbar__demo{
   flex:1;text-align:center;background:var(--accent,#E8A435);color:var(--navy,#0F2540);
   font-weight:600;font-size:15px;line-height:1;padding:13px 16px;border-radius:8px;text-decoration:none;
+  transition:background .2s ease;
 }
+/* Same amber ramp as every other filled button: lighter on hover, darker on
+   press (Brand Guide). These two shipped with no hover state at all. */
+.fd406-actionbar__demo:hover{background:var(--accent-hover,#EEB659)}
+.fd406-actionbar__demo:active{background:var(--accent-press,#D08F22)}
 .fd406-actionbar__call{
   flex:none;display:inline-flex;align-items:center;justify-content:center;
   width:46px;height:44px;border-radius:8px;text-decoration:none;
   border:1.5px solid rgba(255,255,255,.35);color:#fff;
+  transition:border-color .2s ease,color .2s ease;
 }
+/* Outline sibling follows the outline convention: border + label go amber. */
+.fd406-actionbar__call:hover{border-color:var(--accent,#E8A435);color:var(--accent,#E8A435)}
 @media (max-width:760px){
   .fd406-actionbar{display:flex}
   /* One floating call action, not two. */

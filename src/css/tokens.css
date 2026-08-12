@@ -16,7 +16,13 @@
   --white: #ffffff;
   --accent: #E8A435;
   --accent-light: #fdf3e0;
+  /* --accent-dark is TEXT amber: an amber link or label on a cream ground needs
+     to go darker to stay readable. It is NOT the button hover — buttons had been
+     using it that way, which inverts the Brand Guide's ramp (hover goes LIGHTER,
+     press goes darker). Filled buttons use --accent-hover / --accent-press. */
   --accent-dark: #c98a1a;
+  --accent-hover: #EEB659;  /* Brand Guide "amber hover" — filled buttons */
+  --accent-press: #D08F22;  /* Brand Guide "amber press" — filled buttons */
   --navy: #0F2540;
   --navy-soft: #1B2A4A;
   --border: #e2e3e6;
