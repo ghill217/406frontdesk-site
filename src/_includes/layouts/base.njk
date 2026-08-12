@@ -99,6 +99,73 @@
 .call-cta:hover,.call-cta:focus-visible{padding:.8rem 1.15rem;gap:.5rem}
 .call-cta:hover .call-cta__label,.call-cta:focus-visible .call-cta__label{max-width:22ch;opacity:1}
 @media (prefers-reduced-motion:reduce){.call-cta,.call-cta__label{transition:none}}
+
+/* ── Mobile action bar ──────────────────────────────────────────────────────
+   Below 760px the nav CTA is display:none, so on the longest version of the
+   page (the homepage is ~16 screens at 390px) there was NO persistent demo CTA
+   at all. This is that CTA. It carries the call action too, so it REPLACES the
+   floating .call-cta rather than becoming a third floating object on a 390px
+   screen. Desktop is unaffected — there the nav CTA does this job.
+   ⚠️ padding-right leaves room for the GHL chat bubble, which owns the
+   bottom-right corner and whose position we do not control. */
+.fd406-actionbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:9990;display:none;
+  align-items:center;gap:10px;
+  padding:10px 76px 10px 12px;
+  background:rgba(15,37,64,.97);
+  border-top:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transform:translateY(110%);transition:transform .28s ease;
+}
+body.fd406-past-hero .fd406-actionbar{transform:translateY(0)}
+.fd406-actionbar__demo{
+  flex:1;text-align:center;background:var(--accent,#E8A435);color:var(--navy,#0F2540);
+  font-weight:600;font-size:15px;line-height:1;padding:13px 16px;border-radius:8px;text-decoration:none;
+}
+.fd406-actionbar__call{
+  flex:none;display:inline-flex;align-items:center;justify-content:center;
+  width:46px;height:44px;border-radius:8px;text-decoration:none;
+  border:1.5px solid rgba(255,255,255,.35);color:#fff;
+}
+@media (max-width:760px){
+  .fd406-actionbar{display:flex}
+  /* One floating call action, not two. */
+  body.fd406-past-hero .call-cta{opacity:0;pointer-events:none;transition:opacity .2s ease}
+}
+@media (prefers-reduced-motion:reduce){.fd406-actionbar{transition:none}}
 </style>
+
+{# Mobile-only persistent CTA. Hidden until you scroll past the page's own
+   above-fold CTA — same trigger as the nav CTA, one observer for both. #}
+<div class="fd406-actionbar">
+  <a class="fd406-actionbar__demo" href="/demo/">Try the Live Demo</a>
+  <a class="fd406-actionbar__call" href="tel:{{ site.phone }}" aria-label="Call {{ site.phoneDisplay }}">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
+  </a>
+</div>
+
+<script>
+/* One observer drives BOTH the nav CTA (desktop) and the action bar (mobile),
+   via two body classes:
+     fd406-has-hero-cta — this page HAS an above-fold primary CTA, so the nav
+                          CTA is allowed to hide. Never set on pages without
+                          one, so those keep their nav CTA at all times.
+     fd406-past-hero    — that CTA has scrolled out of view.
+   Deliberately feature-detected: no IntersectionObserver means both classes
+   stay off, and everything renders in its always-visible state. */
+(function () {
+  var main = document.getElementById('main');
+  if (!main) return;
+  var hero = main.querySelector('a.btn-primary, a.btn-white, .cta-actions a, .hero-cta a');
+  // Only treat it as the hero CTA if it genuinely sits near the top; a CTA
+  // three screens down must not gate the nav.
+  if (!hero || hero.getBoundingClientRect().top > window.innerHeight * 1.5) return;
+  if (!('IntersectionObserver' in window)) return;
+  document.body.classList.add('fd406-has-hero-cta');
+  new IntersectionObserver(function (entries) {
+    document.body.classList.toggle('fd406-past-hero', !entries[0].isIntersecting);
+  }, { rootMargin: '-8px 0px 0px 0px' }).observe(hero);
+})();
+</script>
 </body>
 </html>
