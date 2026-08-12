@@ -100,7 +100,20 @@
   .tier-name { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--navy); margin-bottom: 4px; }
   .tier-sub { font-size: 13.5px; color: var(--ink-muted); margin-bottom: 22px; min-height: 20px; }
 
-  .price-block { margin-bottom: 6px; }
+  /* Both cards reserve the same price-block height so the feature lists below
+     start on the same line. Ground Floor carries two extra perk rows (first month
+     free, rate locked) the standard card has no honest equivalent for - padding it
+     with filler copy would flatten exactly the contrast the founding tier sells,
+     so the space is reserved instead.
+     Only applies in the 2-column range; below 760px the cards stack and alignment
+     is moot, so the floor is dropped there rather than forcing dead space on phones.
+     ⚠️ Subgrid was tried first and is NOT usable here: .ribbon is position:absolute,
+     so the two cards do not present the same number of grid items and the rows
+     mismatch by one. Measured 2026-08-12: Ground Floor 236px natural. */
+  .price-block { margin-bottom: 6px; min-height: 240px; }
+  /* Scope note sits under the setup line, where it answers the "from how much?"
+     question a floor price raises. */
+  .price-block .scope-note { margin: 14px 0 0; }
   .price-monthly { display: flex; align-items: baseline; gap: 4px; }
   .price-amt { font-family: 'DM Serif Display', serif; font-size: 44px; color: var(--ink); letter-spacing: -0.02em; white-space: nowrap; }
   .price-per { font-size: 15px; color: var(--ink-muted); font-weight: 500; }
@@ -262,6 +275,7 @@
 @media (max-width: 760px) {
 .header-band { padding: 110px 20px 90px; }
     .grid { grid-template-columns: 1fr; }
+    .price-block { min-height: 0; }
     .terms { grid-template-columns: 1fr; }
     .compare { grid-template-columns: 1fr; }
   }
