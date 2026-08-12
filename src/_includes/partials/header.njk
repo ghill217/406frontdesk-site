@@ -4,34 +4,46 @@
    ============================================================ #}
 <style>
   .fd406-nav, .fd406-nav *, .fd406-mobile-menu, .fd406-mobile-menu * { box-sizing: border-box; }
+  /* Navy masthead. SOLID #0F2540 on purpose, not the old translucent wash:
+     it must match the footer and the legal pages' .header-band exactly, and any
+     alpha would let the cream page bleed through and break that seam as you
+     scroll. The hairline is white-on-navy so it still reads over a cream page
+     without drawing a line across the merged masthead on /privacy-policy/,
+     /terms-conditions/ and /sms-consent/. */
   .fd406-nav {
     position: sticky; top: 0; z-index: 1000;
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 40px;
-    background: rgba(247,247,245,0.88);
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid #e2e3e6;
+    background: #0F2540;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
     font-family: 'DM Sans', system-ui, sans-serif;
   }
-  .fd406-nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0F2540; }
+  .fd406-nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
   .fd406-nav-logo-mark { height: 30px; width: auto; display: flex; align-items: center; }
   .fd406-nav-logo-mark img { height: 30px; width: auto; display: block; }
-  .fd406-nav-logo-text { font-size: 16px; font-weight: 600; color: #0F2540; letter-spacing: -0.3px; }
+  .fd406-nav-logo-text { font-size: 16px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.3px; }
   .fd406-nav-logo-sub {
-    font-size: 11px; font-weight: 400; color: #696D76; letter-spacing: 0.8px;
+    /* #B9C2D0 is the Brand Guide's muted-on-navy token. The old #696D76 was a
+       cream-ground value and lands at 2.98:1 here — it must not come back. */
+    font-size: 11px; font-weight: 400; color: #B9C2D0; letter-spacing: 0.8px;
     text-transform: uppercase; display: block; line-height: 1; margin-top: 1px;
   }
   .fd406-nav-right { display: flex; align-items: center; gap: 28px; }
   .fd406-nav-links { display: flex; align-items: center; gap: 26px; }
   .fd406-nav-links a {
-    text-decoration: none; color: #3A3D42; font-size: 14px; font-weight: 500; transition: color 0.2s;
+    text-decoration: none; color: #DCE3EC; font-size: 14px; font-weight: 500; transition: color 0.2s;
   }
-  .fd406-nav-links a:hover { color: #c98a1a; }
+  .fd406-nav-links a:hover { color: #E8A435; }
+  /* Amber is now the CTA's REST state. It used to be the hover, which left the
+     page's primary action styled as secondary until you touched it. Hover/press
+     come from the Brand Guide's amber ramp; the label stays navy per the
+     amber-ground convention used by .call-cta and .btn-primary. */
   .fd406-nav-cta {
-    background: #1B2A4A; color: #fff; padding: 10px 22px; border-radius: 8px;
-    text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s, color 0.2s;
+    background: #E8A435; color: #0F2540; padding: 10px 22px; border-radius: 8px;
+    text-decoration: none; font-size: 14px; font-weight: 600; transition: background 0.2s, color 0.2s;
   }
-  .fd406-nav-cta:hover { background: #E8A435; color: #1B2A4A; }
+  .fd406-nav-cta:hover { background: #EEB659; color: #0F2540; }
+  .fd406-nav-cta:active { background: #D08F22; color: #0F2540; }
 
   .fd406-nav-toggle {
     display: none; background: none; border: none; cursor: pointer;
@@ -39,8 +51,9 @@
     flex-direction: column; justify-content: center; gap: 5px;
   }
   .fd406-nav-toggle span {
+    /* Was #1B2A4A — invisible against the navy masthead. */
     display: block; height: 2px; width: 100%;
-    background: #1B2A4A; border-radius: 2px; transition: transform 0.3s, opacity 0.3s;
+    background: #DCE3EC; border-radius: 2px; transition: transform 0.3s, opacity 0.3s;
   }
   .fd406-nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .fd406-nav-toggle.open span:nth-child(2) { opacity: 0; }
@@ -87,7 +100,11 @@
 
 <nav class="fd406-nav">
   <a class="fd406-nav-logo" href="/">
-    <div class="fd406-nav-logo-mark"><img src="/assets/img/nav-logo.png" width="30" height="18" alt="406 Front Desk Montana logo"></div>
+    {# The Brand Guide's PRIMARY mark: amber Montana silhouette, cream "406".
+       The old nav-logo.png was a navy recolour of it, which the guide's
+       "don't recolor the state outline" rule forbids. Source of truth:
+       raw/assets/406-front-desk/branding/montana-406-mark.png (158x104). #}
+    <div class="fd406-nav-logo-mark"><img src="/assets/img/nav-logo-amber.png" width="46" height="30" alt="406 Front Desk Montana logo"></div>
     <div>
       <span class="fd406-nav-logo-text">Front Desk</span>
       <span class="fd406-nav-logo-sub">Always Answering</span>
