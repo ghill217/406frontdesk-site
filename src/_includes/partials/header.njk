@@ -44,24 +44,13 @@
   }
   .fd406-nav-cta:hover { background: #EEB659; color: #0F2540; }
   .fd406-nav-cta:active { background: #D08F22; color: #0F2540; }
-
-  /* Scroll-reveal. While a page's own above-fold CTA is on screen, the nav CTA
-     would be a second identical amber button saying the same thing, so it steps
-     aside and fades back in once that CTA scrolls away. `fd406-has-hero-cta` is
-     set by base.njk ONLY on pages that actually have such a CTA — without it
-     these rules never apply, so a page with no top CTA is never left with no
-     CTA at all. */
-  body.fd406-has-hero-cta .fd406-nav-cta {
-    opacity: 0; pointer-events: none;
-    transform: translateY(-4px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
-  }
-  body.fd406-has-hero-cta.fd406-past-hero .fd406-nav-cta {
-    opacity: 1; pointer-events: auto; transform: none;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    body.fd406-has-hero-cta .fd406-nav-cta { transition: none; transform: none; }
-  }
+  /* The nav CTA is ALWAYS visible on desktop. It was briefly scroll-revealed to
+     avoid twinning with a page's own hero CTA, but that was solving the wrong
+     problem: the real defect was that the two buttons shared a label and a
+     colour while going to DIFFERENT places (/demo/ vs the since-deleted #demo
+     section). Unifying the destination fixed it. Hiding the button only left a
+     233px hole in the bar, because opacity keeps the box in the layout.
+     base.njk still sets fd406-past-hero — the MOBILE action bar needs it. */
 
   .fd406-nav-toggle {
     display: none; background: none; border: none; cursor: pointer;

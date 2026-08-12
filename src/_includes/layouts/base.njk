@@ -145,23 +145,25 @@ body.fd406-past-hero .fd406-actionbar{transform:translateY(0)}
 </div>
 
 <script>
-/* One observer drives BOTH the nav CTA (desktop) and the action bar (mobile),
-   via two body classes:
-     fd406-has-hero-cta — this page HAS an above-fold primary CTA, so the nav
-                          CTA is allowed to hide. Never set on pages without
-                          one, so those keep their nav CTA at all times.
-     fd406-past-hero    — that CTA has scrolled out of view.
-   Deliberately feature-detected: no IntersectionObserver means both classes
-   stay off, and everything renders in its always-visible state. */
+/* Sets ONE body class, fd406-past-hero, when the top of the page has scrolled
+   away. Only the mobile action bar consumes it — the desktop nav CTA is always
+   visible (see header.njk).
+
+   The watched element is the page's own above-fold CTA where one exists, so the
+   bar arrives exactly as that CTA leaves. Pages WITHOUT such a CTA still need
+   the bar — below 760px they have no nav CTA either, so they would otherwise
+   have no persistent CTA at all — hence the fallback to the first section.
+   Feature-detected: with no IntersectionObserver the class is never set and the
+   bar simply stays offscreen, which is the safe state. */
 (function () {
   var main = document.getElementById('main');
-  if (!main) return;
+  if (!main || !('IntersectionObserver' in window)) return;
   var hero = main.querySelector('a.btn-primary, a.btn-white, .cta-actions a, .hero-cta a');
-  // Only treat it as the hero CTA if it genuinely sits near the top; a CTA
-  // three screens down must not gate the nav.
-  if (!hero || hero.getBoundingClientRect().top > window.innerHeight * 1.5) return;
-  if (!('IntersectionObserver' in window)) return;
-  document.body.classList.add('fd406-has-hero-cta');
+  // A CTA three screens down is not a hero CTA; fall back to the first section.
+  if (!hero || hero.getBoundingClientRect().top > window.innerHeight * 1.5) {
+    hero = main.querySelector('section, .header-band, .page-header');
+  }
+  if (!hero) return;
   new IntersectionObserver(function (entries) {
     document.body.classList.toggle('fd406-past-hero', !entries[0].isIntersecting);
   }, { rootMargin: '-8px 0px 0px 0px' }).observe(hero);
