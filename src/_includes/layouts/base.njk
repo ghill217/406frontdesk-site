@@ -111,7 +111,13 @@
 .fd406-actionbar{
   position:fixed;left:0;right:0;bottom:0;z-index:9990;display:none;
   align-items:center;gap:10px;
-  padding:10px 76px 10px 12px;
+  /* padding-right clears the GHL chat bubble, which owns the bottom-right
+     corner and whose position we do not control. Measured at 390px: the bubble
+     occupies x 312-370, so at the old 76px the call button ended at x=314 and
+     overlapped it by 2px. 90px puts the call button's right edge at 300 — a
+     12px gap. The demo button is flex:1, so it absorbs the change and gets
+     narrower on its own; no separate width rule needed. */
+  padding:10px 90px 10px 12px;
   background:rgba(15,37,64,.97);
   border-top:1px solid rgba(255,255,255,.12);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
@@ -120,7 +126,10 @@
 body.fd406-past-hero .fd406-actionbar{transform:translateY(0)}
 .fd406-actionbar__demo{
   flex:1;text-align:center;background:var(--accent,#E8A435);color:var(--navy,#0F2540);
-  font-weight:600;font-size:15px;line-height:1;padding:13px 16px;border-radius:8px;text-decoration:none;
+  /* Trimmed a touch (was 15px / 13px 16px) so the bar reads lighter now that
+     it is narrower. Height lands ~38px — well clear of WCAG 2.5.8's 24px
+     minimum target, and it stays the widest thing in the bar. */
+  font-weight:600;font-size:14.5px;line-height:1;padding:12px 14px;border-radius:8px;text-decoration:none;
   transition:background .2s ease;
 }
 /* Same amber ramp as every other filled button: lighter on hover, darker on
