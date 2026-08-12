@@ -1,3 +1,9 @@
+  /* SMS Consent Policy — shares the legal-page shell with privacy-policy.css
+     and terms-conditions.css (header band + floating card). Everything below
+     the "PAGE-SPECIFIC" rule is the extra vocabulary this page needs on top:
+     the trust strip, the message-type list, and the opt-out badges. Keep the
+     shell in sync with its two siblings — the three pages are one system. */
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -11,8 +17,6 @@
     --accent-dark: #c98a1a;
     --navy: #0F2540;
     --border: #e2e3e6;
-    --border-strong: #c8cad0;
-    --success: #0ea86b;
     --radius: 12px;
     --radius-lg: 20px;
   }
@@ -28,7 +32,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* NAV — identical to homepage */
+  /* ── NAV ── */
 .nav-back {
     text-decoration: none;
     color: var(--ink-soft);
@@ -41,133 +45,174 @@
   .nav-back:hover { border-color: var(--accent); color: var(--accent); }
 @media (max-width: 760px) {}
 
-  /* PAGE HEADER */
-  .page-header {
-    padding: 140px 40px 60px;
-    position: relative; overflow: hidden;
-    border-bottom: 1px solid var(--border);
+  /* ── HEADER BAND ── */
+  .header-band {
+    background: var(--navy);
+    padding: 130px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
   }
-  .page-header::before {
-    content: ''; position: absolute; top: -60px; right: -80px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle at center, rgba(232,164,53,0.10) 0%, transparent 70%);
-    pointer-events: none;
+  .header-band::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(232,164,53,0.12) 0%, transparent 55%);
   }
-  .page-header-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
-  .eyebrow {
-    display: inline-block; background: var(--accent-light);
-    color: var(--accent-dark); font-size: 12px; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
+  .header-eyebrow {
+    position: relative;
+    display: inline-block;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
   }
-  .page-header h1 {
+  .header-band h1 {
+    position: relative;
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    line-height: 1.12; color: var(--ink); margin-bottom: 16px;
+    font-size: clamp(36px, 5vw, 52px);
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
   }
-  .page-header h1 em { font-style: italic; color: var(--accent-dark); }
-  .page-header p {
-    font-size: 1.05rem; color: var(--ink-muted);
-    max-width: 560px; line-height: 1.7;
+  .header-band p {
+    position: relative;
+    color: rgba(255,255,255,0.6);
+    font-size: 15px;
   }
 
-  /* CONTENT */
-  main { max-width: 800px; margin: 0 auto; padding: 60px 40px 90px; }
+  /* ── CONTENT ── */
+  .wrap {
+    max-width: 760px;
+    margin: -28px auto 0;
+    padding: 0 24px 100px;
+    position: relative;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: clamp(32px, 5vw, 60px);
+    box-shadow: 0 20px 50px -28px rgba(27,42,74,0.25);
+  }
 
-  /* TRUST STRIP */
+  .card section { margin-bottom: 38px; }
+  .card section:last-child { margin-bottom: 0; }
+
+  .card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  .card h2 .num {
+    font-size: 14px;
+    color: var(--accent);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    border: 1px solid var(--accent-light);
+    background: var(--accent-light);
+    border-radius: 6px;
+    padding: 2px 9px;
+    flex-shrink: 0;
+  }
+
+  .card p { color: var(--ink-soft); font-size: 15.5px; margin-bottom: 12px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .card ul { list-style: none; margin: 6px 0 0; }
+  .card li {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    padding: 7px 0 7px 26px;
+    position: relative;
+  }
+  .card li::before {
+    content: "";
+    position: absolute; left: 4px; top: 15px;
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .card li strong { color: var(--ink); font-weight: 600; }
+
+  .card a { color: var(--accent-dark); font-weight: 500; }
+
+  .effective {
+    display: inline-block;
+    font-size: 13px; font-weight: 500;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 16px;
+    margin-bottom: 34px;
+  }
+
+  /* ── PAGE-SPECIFIC ────────────────────────────────────────────────────────
+     Three components the sibling legal pages don't have. They sit INSIDE the
+     white card, so each one grounds on --navy or --surface, never on white. */
+
+  /* Trust strip — occupies the slot the siblings give their .intro paragraph,
+     so it carries the same closing border. */
   .trust-strip {
-    background: var(--navy); border-radius: var(--radius-lg);
-    padding: 24px 32px; display: flex; flex-wrap: wrap;
-    gap: 14px 32px; align-items: center; margin-bottom: 48px;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 18px 24px;
+    display: flex; flex-wrap: wrap;
+    gap: 12px 28px; align-items: center;
+    margin-bottom: 38px;
   }
   .trust-item {
     display: flex; align-items: center; gap: 8px;
-    color: rgba(255,255,255,0.78); font-size: 14px;
+    color: rgba(255,255,255,0.82); font-size: 14px;
   }
   .trust-item .check { color: var(--accent); font-weight: 700; }
 
-  /* POLICY SECTIONS */
-  .policy-section { margin-bottom: 44px; }
-  .policy-section:last-child { margin-bottom: 0; }
-  .policy-section h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.5rem; color: var(--ink); margin-bottom: 14px;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .policy-section h2 .num {
-    width: 32px; height: 32px; flex-shrink: 0;
-    background: var(--accent-light); color: var(--accent-dark);
-    border-radius: 8px; display: flex; align-items: center; justify-content: center;
-    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
-  }
-  .policy-section p {
-    color: var(--ink-soft); font-size: 1rem; line-height: 1.8; margin-bottom: 12px;
-  }
-  .policy-section p:last-child { margin-bottom: 0; }
-  .policy-section strong { color: var(--ink); font-weight: 600; }
-  .policy-section a {
-    color: var(--accent-dark); font-weight: 500;
-    text-decoration: underline; text-underline-offset: 3px;
-  }
-
-  /* HIGHLIGHT CARD */
-  .highlight-card {
-    background: var(--white); border: 1px solid var(--border);
+  /* Message types — surface ground so it reads as inset against the white card. */
+  .msg-types {
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-left: 3px solid var(--accent);
-    border-radius: var(--radius); padding: 24px 28px; margin-top: 8px;
+    border-radius: var(--radius);
+    padding: 8px 22px;
+    margin-top: 14px;
   }
-  .highlight-card .msg-row {
+  .msg-types .msg-row {
     display: flex; align-items: flex-start; gap: 12px;
-    padding: 10px 0; border-bottom: 1px solid var(--border);
-    font-size: 0.97rem; color: var(--ink-soft);
+    padding: 12px 0; border-bottom: 1px solid var(--border);
+    font-size: 15px; color: var(--ink-soft);
   }
-  .highlight-card .msg-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .highlight-card .msg-row:first-child { padding-top: 0; }
-  .highlight-card .msg-icon { display: inline-flex; align-items: center; color: var(--accent-dark); flex-shrink: 0; }
-  .highlight-card .msg-icon svg { width: 19px; height: 19px; }
-  .highlight-card .msg-row strong { color: var(--ink); }
+  .msg-types .msg-row:last-child { border-bottom: none; }
+  .msg-types .msg-icon { display: inline-flex; align-items: center; color: var(--accent-dark); flex-shrink: 0; margin-top: 2px; }
+  .msg-types .msg-icon svg { width: 18px; height: 18px; }
+  .msg-types .msg-row strong { color: var(--ink); font-weight: 600; }
 
-  /* OPT-OUT LIST */
-  .opt-out-list { list-style: none; margin-top: 8px; display: flex; flex-direction: column; gap: 12px; }
-  .opt-out-list li {
+  /* Opt-out list — badges replace the card's amber dot bullet.
+     a11y.css holds the support address at white-space:nowrap, so the text
+     block can't shrink past it; flex-wrap lets the badge and the text drop to
+     separate lines at 390px instead of forcing a horizontal scrollbar. */
+  .card ul.opt-out-list { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+  .card ul.opt-out-list li {
     display: flex; align-items: flex-start; gap: 12px;
-    color: var(--ink-soft); font-size: 1rem; line-height: 1.65;
-    /* The support address is white-space:nowrap (a11y.css keeps addresses
-       unbroken), so the text block can't shrink past it and this row pushed
-       the page 75px wide at 390px. Wrapping lets the badge and the text sit
-       on separate lines instead of forcing a horizontal scrollbar. */
     flex-wrap: wrap;
+    padding: 0;
+    line-height: 1.65;
   }
+  .card ul.opt-out-list li::before { content: none; }
   .opt-out-list .badge {
     background: var(--navy); color: #fff; font-size: 11px; font-weight: 600;
     letter-spacing: 0.05em; padding: 3px 10px; border-radius: 100px;
     flex-shrink: 0; margin-top: 3px;
   }
+  .opt-out-list li > span:last-child { flex: 1 1 14rem; }
 
-  /* CTA */
-  .cta-band {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 44px 40px; text-align: center;
-    margin-top: 60px;
-  }
-  .cta-band h2 {
-    font-family: 'DM Serif Display', serif; font-size: 1.8rem;
-    color: var(--ink); margin-bottom: 10px;
-  }
-  .cta-band p { color: var(--ink-muted); font-size: 1rem; margin-bottom: 26px; }
-  .btn-primary {
-    display: inline-block; background: var(--accent); color: var(--navy);
-    font-weight: 600; font-size: 15px; padding: 13px 30px; border-radius: 8px;
-    text-decoration: none; transition: background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background: var(--accent-dark); color: #fff; transform: translateY(-1px); }
-
-  /* FOOTER — identical to homepage */
-@media (max-width: 900px) {
-.page-header { padding: 120px 24px 50px; }
-    main { padding: 50px 24px 70px; }
-    .trust-strip { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .cta-band { padding: 36px 24px; }
+  /* ── FOOTER ── */
+@media (max-width: 600px) {
+.header-band { padding: 110px 20px 56px; }
+    .card h2 { font-size: 20px; }
+    .trust-strip { flex-direction: column; align-items: flex-start; gap: 10px; }
   }
 
   /* ── HAMBURGER + MOBILE MENU ── */
