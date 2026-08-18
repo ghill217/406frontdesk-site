@@ -94,6 +94,16 @@ Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
   and `--accent-display` #c08016 carry amber *text* on light backgrounds (see the block in `a11y.css`).
   Re-run the audit before shipping palette changes.
 
+## Session log — 2026-08-18 (web-services search track)
+- Gus: be a top result for web-design / SEO searches WITHOUT diluting the receptionist. Additive only.
+- NEW `/websites/` (web-design hub) + `/seo/` (local SEO) on shared `css/web.css` (tokens-based, no local
+  `:root`). Proof band names consented clients only (KTRT, TL Slicks, MOB); prices are floors worded "from".
+- Nav: "Websites & SEO" (6 items). Footer: new "Web services" group. `/features/` + `/pricing/` link
+  through; retired GBP "Q&A" claim → "posts".
+- Schema (`base.njk`): `hasOfferCatalog` (4 services) + `knowsAbout`; description keeps the receptionist as
+  the lead clause. Both CTAs point at `/scorecard/` (Gus confirmed keep, 2026-08-18).
+- Commits `5e66921`→`b14107e`, deployed; GSC indexing requested for both URLs.
+
 ## Session log — 2026-07-31 / 08-01
 
 Shipped (PR #1, merged as `39e5d8d`):
