@@ -20,8 +20,9 @@
   "nav": [
     { "label": "How It Works", "url": "/#how" },
     { "label": "What We Do", "url": "/features/" },
-    { "label": "FAQ", "url": "/faq/" },
+    { "label": "Websites & SEO", "url": "/websites/" },
     { "label": "Pricing", "url": "/pricing/" },
+    { "label": "FAQ", "url": "/faq/" },
     { "label": "Contact", "url": "/contact/" }
   ],
   "footerGroups": [
@@ -42,6 +43,13 @@
       { "label": "Trades & Contractors", "url": "/trades/" },
       { "label": "Auto Shops", "url": "/auto-shops/" },
       { "label": "Accounting", "url": "/accounting/" }
+    ] },
+    { "heading": "Web services", "links": [
+      { "label": "Web Design", "url": "/websites/" },
+      { "label": "Local SEO", "url": "/seo/" },
+      { "label": "Free Website Scorecard", "url": "/scorecard/" },
+      { "label": "Our Work: Kalispell TRT", "url": "/work/kalispell-trt/" },
+      { "label": "Our Work: TL Slicks", "url": "/work/tl-slicks/" }
     ] },
     { "heading": "Areas served", "links": [
       { "label": "Kalispell", "url": "/kalispell/" }
