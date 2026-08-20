@@ -57,7 +57,7 @@ scorecardRoiFormId: "FFjmbww4O3Uf48asjxaf"
 
     <div class="result" role="status" aria-live="polite">
       <div class="result-label">Walking out the door</div>
-      <div class="result-big" id="rMonthly">$900<span>/month</span></div>
+      <div class="result-big"><span id="rMonthly">$900</span><span class="result-suffix">/month</span></div>
       <div class="result-year">That's <strong id="rYearly">$10,800</strong> a year — from customers who already tried to reach you.</div>
     </div>
   </div>
@@ -163,11 +163,7 @@ scorecardRoiFormId: "FFjmbww4O3Uf48asjxaf"
       document.getElementById("rLeadsV").textContent = l.value;
       document.getElementById("rCloseV").textContent = c.value + "%";
       var monthly = l.value * (c.value / 100) * t.value;
-      var big = document.getElementById("rMonthly");
-      big.innerHTML = "";
-      big.appendChild(document.createTextNode(fmt(monthly)));
-      var span = document.createElement("span"); span.textContent = "/month";
-      big.appendChild(span);
+      document.getElementById("rMonthly").textContent = fmt(monthly);
       document.getElementById("rYearly").textContent = fmt(monthly * 12);
     }
     [t, l, c].forEach(function (s) { s.addEventListener("input", render); });

@@ -87,7 +87,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); height: 28px; cu
   position: relative; font-family: 'DM Serif Display', serif;
   font-size: clamp(40px, 6vw, 56px); line-height: 1; color: #fff;
 }
-.result-big span { font-size: 18px; color: var(--accent); font-family: 'DM Sans', sans-serif; margin-left: 4px; }
+.result-big .result-suffix { font-size: 18px; color: var(--accent); font-family: 'DM Sans', sans-serif; margin-left: 4px; }
 .result-year { position: relative; margin-top: 14px; font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.55; }
 .result-year strong { color: #fff; }
 
