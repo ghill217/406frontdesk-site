@@ -94,6 +94,30 @@ Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
   and `--accent-display` #c08016 carry amber *text* on light backgrounds (see the block in `a11y.css`).
   Re-run the audit before shipping palette changes.
 
+## Session log — 2026-08-20 (GSC 404 validation)
+
+Google Search Console's *Not found (404)* fix-validation kept failing. Two URLs in the bucket;
+only one was real.
+
+- `/_preview/` — last crawled **Jul 17**, before the 8/9 redirect shipped. Already 301s. Stale flag.
+- `/month` — crawled **Aug 16**, genuinely 404, and **linked from nowhere**: all 45 internal links
+  and all 41 sitemap URLs returned 200.
+
+**Root cause: Googlebot extracts URL-like string literals out of inline JavaScript and crawls them.**
+`roi.njk`'s calculator built its result suffix with `span.textContent = "/month"` — a display string
+that was never a path. Google read the literal and crawled it.
+
+Fixed (`0ee0472`): the suffix moved into static markup with the JS writing only the number into its
+own `#rMonthly` span; `.result-big span` → `.result-big .result-suffix` so the number no longer
+inherits the 18px suffix styling; `/month → /roi/ 301` added to `src/_redirects` for the URL Google
+already holds. Verified live: `/month` 301s, `/roi/` renders and computes identically ($900/month at
+defaults), zero path-shaped literals left in the deployed page. Re-validation started 8/20
+(PENDING 2 / FAILED 0).
+
+Also confirmed **not** defects, so nobody re-chases them: *Page with redirect* (12) is slashless
+variants 301ing to canonicals, and *Excluded by 'noindex'* (3) is `/start/`, `/404`, `/404.html`,
+all deliberate. Both validations fail permanently because the flagged behavior is the correct one.
+
 ## Session log — 2026-08-18 (web-services search track)
 - Gus: be a top result for web-design / SEO searches WITHOUT diluting the receptionist. Additive only.
 - NEW `/websites/` (web-design hub) + `/seo/` (local SEO) on shared `css/web.css` (tokens-based, no local
@@ -139,3 +163,7 @@ Still open:
 - Preview-pane screenshots time out because the GHL chat widget + form iframe keep the network open;
   verify render via `javascript_tool` computed styles instead (proven this works).
 - Internal links converted to root-relative (`/features/`) so previews are self-contained pre-cutover.
+- 🔴 **Never put a path-shaped string literal in inline JS** (`"/month"`, `"/day"`, `"/mo"`). Googlebot
+  extracts URL-like strings from scripts and crawls them, producing 404s that no link-crawl or sitemap
+  check can find because nothing links them. Put display suffixes in static markup. Cost a failed GSC
+  validation 7/18–8/17/26.
