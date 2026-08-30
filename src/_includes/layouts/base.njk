@@ -22,9 +22,17 @@
   <meta name="twitter:description" content="{{ description }}" />
   <meta name="twitter:image" content="{{ site.url }}{{ ogImage or site.ogImage }}" />
 
-  {# ---- Icons ---- #}
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon.png?v=2" />
-  <link rel="apple-touch-icon" sizes="512x512" href="/assets/img/apple-touch-icon.png" />
+  {# ---- Icons — Identity v2 (Many Glacier contour), 2026-08-30 ----
+     NEW FILENAMES on purpose. netlify.toml serves /assets/* as
+     `immutable, max-age=31536000`, so overwriting an asset in place would leave
+     returning visitors on the OLD logo for up to a year.
+     Sizes follow the three-mark rule: <=48px uses the MICRO mark (no numerals —
+     three serif digits cannot survive a 16px badge); 192 and the touch icon use
+     SOLID. The contour mark is never used at icon sizes. #}
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32-v2.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/img/favicon-48-v2.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192-v2.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon-v2.png" />
 
   {# ---- Fonts: self-hosted, no third-party request. Preload the two latin files
        every page actually paints with; the latin-ext + italic cuts load on demand. #}

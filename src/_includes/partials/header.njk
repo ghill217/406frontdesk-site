@@ -19,8 +19,9 @@
     font-family: 'DM Sans', system-ui, sans-serif;
   }
   .fd406-nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
-  .fd406-nav-logo-mark { height: 30px; width: auto; display: flex; align-items: center; }
-  .fd406-nav-logo-mark img { height: 30px; width: auto; display: block; }
+  /* Identity v2 mark is a circular badge (1:1), not the old 1.52:1 state shape. */
+  .fd406-nav-logo-mark { height: 30px; width: 30px; display: flex; align-items: center; }
+  .fd406-nav-logo-mark img { height: 30px; width: 30px; display: block; }
   .fd406-nav-logo-text { font-size: 16px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.3px; }
   .fd406-nav-logo-sub {
     /* #B9C2D0 is the Brand Guide's muted-on-navy token. The old #696D76 was a
@@ -107,13 +108,15 @@
 
 <nav class="fd406-nav">
   <a class="fd406-nav-logo" href="/">
-    {# The Brand Guide's PRIMARY mark: amber Montana silhouette, cream "406".
-       The old nav-logo.png was a navy recolour of it, which the guide's
-       "don't recolor the state outline" rule forbids. Source of truth:
-       raw/assets/406-front-desk/branding/montana-406-mark.png (158x104). #}
-    <div class="fd406-nav-logo-mark"><img src="/assets/img/nav-logo-amber.png" width="46" height="30" alt="406 Front Desk Montana logo"></div>
+    {# Identity v2 (2026-08-30): the MICRO mark — the measured Many Glacier
+       ridgeline, no numerals. At a 30px render the badge cannot carry three
+       serif digits, so the "406" moves into the wordmark beside it instead.
+       That is why the text reads "406 Front Desk" here and not "Front Desk".
+       Source of truth: raw/assets/406-front-desk/branding-v2/ (rebuild with
+       assets.py — never hand-edit the PNG). #}
+    <div class="fd406-nav-logo-mark"><img src="/assets/img/nav-mark-v2.png" width="30" height="30" alt="406 Front Desk"></div>
     <div>
-      <span class="fd406-nav-logo-text">Front Desk</span>
+      <span class="fd406-nav-logo-text">406 Front Desk</span>
       <span class="fd406-nav-logo-sub">Always Answering</span>
     </div>
   </a>
