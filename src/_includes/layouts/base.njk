@@ -26,13 +26,15 @@
      NEW FILENAMES on purpose. netlify.toml serves /assets/* as
      `immutable, max-age=31536000`, so overwriting an asset in place would leave
      returning visitors on the OLD logo for up to a year.
-     Sizes follow the three-mark rule: <=48px uses the MICRO mark (no numerals —
-     three serif digits cannot survive a 16px badge); 192 and the touch icon use
-     SOLID. The contour mark is never used at icon sizes. #}
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32-v2.png" />
-  <link rel="icon" type="image/png" sizes="48x48" href="/assets/img/favicon-48-v2.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192-v2.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon-v2.png" />
+     v3, same day: the v2 icons used the ringed MICRO mark and looked bad in a
+     tab. A browser tab ALREADY frames the icon, so a ring inside it is a frame
+     inside a frame — at 16px that hairline aliased into a halo welded to the
+     mountain. v3 is `mark_icon()`: rounded navy tile, TRANSPARENT corners, the
+     ridge filling it, no ring. Verified at 16/24/32 on light and dark bars. #}
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32-v3.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/img/favicon-48-v3.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192-v3.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon-v3.png" />
 
   {# ---- Fonts: self-hosted, no third-party request. Preload the two latin files
        every page actually paints with; the latin-ext + italic cuts load on demand. #}
