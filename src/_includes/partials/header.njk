@@ -13,15 +13,17 @@
   .fd406-nav {
     position: sticky; top: 0; z-index: 1000;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 40px;
+    padding: 14px 40px;
     background: #0F2540;
     border-bottom: 1px solid rgba(255,255,255,0.10);
     font-family: 'DM Sans', system-ui, sans-serif;
   }
   .fd406-nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
-  /* Identity v2 mark is a circular badge (1:1), not the old 1.52:1 state shape. */
-  .fd406-nav-logo-mark { height: 30px; width: 30px; display: flex; align-items: center; }
-  .fd406-nav-logo-mark img { height: 30px; width: 30px; display: block; }
+  /* Identity v2 mark is a circular badge (1:1), not the old 1.52:1 state shape.
+     46px, not 30: at 30 the badge read as a speck beside a two-line wordmark.
+     Nav padding drops 18->14 so the header only grows ~8px overall. */
+  .fd406-nav-logo-mark { height: 46px; width: 46px; display: flex; align-items: center; }
+  .fd406-nav-logo-mark img { height: 46px; width: 46px; display: block; }
   .fd406-nav-logo-text { font-size: 16px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.3px; }
   .fd406-nav-logo-sub {
     /* #B9C2D0 is the Brand Guide's muted-on-navy token. The old #696D76 was a
@@ -98,7 +100,7 @@
   .fd406-mobile-menu .fd406-mm-cta:hover { background: #fff; color: #1B2A4A; }
   body.fd406-menu-open { overflow: hidden; }
 
-  @media (max-width: 900px) { .fd406-nav { padding: 14px 24px; } }
+  @media (max-width: 900px) { .fd406-nav { padding: 12px 24px; } }
   @media (max-width: 760px) {
     .fd406-nav-links { display: none; }
     .fd406-nav-toggle { display: flex; }
@@ -114,7 +116,7 @@
        That is why the text reads "406 Front Desk" here and not "Front Desk".
        Source of truth: raw/assets/406-front-desk/branding-v2/ (rebuild with
        assets.py — never hand-edit the PNG). #}
-    <div class="fd406-nav-logo-mark"><img src="/assets/img/nav-mark-v2.png" width="30" height="30" alt="406 Front Desk"></div>
+    <div class="fd406-nav-logo-mark"><img src="/assets/img/nav-mark-v3.png" width="46" height="46" alt="406 Front Desk"></div>
     <div>
       <span class="fd406-nav-logo-text">406 Front Desk</span>
       <span class="fd406-nav-logo-sub">Always Answering</span>
