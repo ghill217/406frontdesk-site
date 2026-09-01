@@ -179,6 +179,12 @@ function build(raw) {
       type: f.dataType,
       options: (f.picklistOptions || []).map((o) => (typeof o === "string" ? o : o.label ?? o.value)),
       required: REQUIRED.has(key),
+      // "Pick up to 4" is a real constraint, not decoration -- derived from the
+      // label/help so it cannot drift from the words the client actually reads.
+      maxSelections: (() => {
+        const m = /up to (\d+)/i.exec(`${f.name} ${f.placeholder || ""}`);
+        return m ? Number(m[1]) : null;
+      })(),
       section,
     };
   });

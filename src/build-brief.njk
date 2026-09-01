@@ -124,7 +124,7 @@ noindex: true   # client-only link, sent after the yes -- not a marketing page
               {% endfor %}
             </div>
           {% elif f.type == "CHECKBOX" or f.type == "MULTIPLE_OPTIONS" %}
-            <div class="bb-options bb-options--multi" data-multi="1">
+            <div class="bb-options bb-options--multi" data-multi="1"{% if f.maxSelections %} data-max="{{ f.maxSelections }}"{% endif %}>
               {% for o in f.options %}
               <label class="bb-option"><input type="checkbox" name="{{ f.key }}" value="{{ o }}" /><span>{{ o }}</span></label>
               {% endfor %}
@@ -139,6 +139,7 @@ noindex: true   # client-only link, sent after the yes -- not a marketing page
             <input class="bb-input" type="text" id="f_{{ f.key }}" name="{{ f.key }}" {% if f.required %}required{% endif %} />
           {% endif %}
         {% endif %}
+        {% if f.maxSelections %}<p class="bb-count" data-max="{{ f.maxSelections }}"></p>{% endif %}
         <p class="bb-error" hidden>This one's needed before the next step.</p>
       </div>
       {% endif %}{% endfor %}

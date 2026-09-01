@@ -82,6 +82,7 @@
         if (btn) btn.setAttribute("aria-pressed", "true");
       });
     }
+    capped.forEach(syncCap);   // a resumed session must come back with its caps applied
     if (data.step) go(Math.min(data.step, steps.length), true);
   }
 
@@ -151,6 +152,33 @@
 
   form.addEventListener("input", save);
   form.addEventListener("change", save);
+
+  /* ---------- capped checkbox groups ------------------------------------- */
+
+  // "Pick up to 4" is a real constraint the old GHL form never enforced either.
+  // The cap comes from the field data, so it cannot drift from the printed label.
+  function syncCap(group) {
+    var max = +group.dataset.max;
+    if (!max) return;
+    var boxes = Array.prototype.slice.call(group.querySelectorAll('input[type="checkbox"]'));
+    var n = boxes.filter(function (b) { return b.checked; }).length;
+    boxes.forEach(function (b) {
+      var lock = !b.checked && n >= max;
+      b.disabled = lock;
+      b.closest(".bb-option").classList.toggle("is-locked", lock);
+    });
+    var counter = group.parentNode.querySelector(".bb-count");
+    if (counter) {
+      counter.textContent = n + " of " + max + " picked" + (n >= max ? " — untick one to change your mind" : "");
+      counter.classList.toggle("is-full", n >= max);
+    }
+  }
+
+  var capped = Array.prototype.slice.call(form.querySelectorAll(".bb-options[data-max]"));
+  capped.forEach(function (group) {
+    group.addEventListener("change", function () { syncCap(group); });
+    syncCap(group);
+  });
 
   /* ---------- the direction picker --------------------------------------- */
 

@@ -98,6 +98,10 @@
 
 .bb-field.is-bad .bb-input,
 .bb-field.is-bad .bb-options { outline: 2px solid #c0392b; outline-offset: 3px; border-radius: 8px; }
+.bb-count { font-size: 13px; color: var(--ink-muted); margin: 8px 0 0; }
+.bb-count.is-full { color: var(--accent-dark); font-weight: 600; }
+.bb-option.is-locked { opacity: .45; }
+.bb-option.is-locked input { cursor: not-allowed; }
 .bb-error { color: #c0392b; font-size: 14px; font-weight: 600; margin: 7px 0 0; }
 
 /* --- the inline direction picker ----------------------------------------- */

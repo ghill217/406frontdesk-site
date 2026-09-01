@@ -75,6 +75,16 @@ export default async (req) => {
     const v = clean(a[key]);
     if (!v || (Array.isArray(v) && !v.length)) missing.push(BY_KEY.get(key).label);
   }
+  // Caps are enforced here too. The client's lock is an affordance; a crafted or
+  // resumed-then-edited payload must not be able to exceed a stated limit.
+  for (const f of FIELDS) {
+    if (!f.maxSelections) continue;
+    const v = clean(a[f.key]);
+    if (Array.isArray(v) && v.length > f.maxSelections) {
+      return json(400, { ok: false, error: `"${f.label}" allows at most ${f.maxSelections} choices; ${v.length} were sent.` });
+    }
+  }
+
   if (missing.length) {
     return json(400, { ok: false, error: `Still needed: ${missing.slice(0, 4).join(", ")}${missing.length > 4 ? `, and ${missing.length - 4} more` : ""}.` });
   }
