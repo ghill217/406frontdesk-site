@@ -1,0 +1,174 @@
+/* Website Build Brief — the 8-step custom form.
+   Page chrome (.header-band / .wrap) is defined per-page in this repo, so this file
+   carries its own copy, same as design-directions.css. */
+
+.header-band {
+  background: var(--navy); padding: 108px 40px 84px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.header-band::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(232,164,53,0.14) 0%, transparent 55%);
+}
+.header-eyebrow {
+  position: relative; display: inline-block;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+}
+.header-band h1 {
+  position: relative; font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(34px, 5vw, 50px); color: #fff;
+  letter-spacing: -0.02em; margin-bottom: 12px;
+}
+.wrap { max-width: 780px; margin: -64px auto 0; padding: 0 20px 70px; position: relative; }
+
+.bb-intro {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-md, 10px); padding: var(--sp-8) var(--sp-8) var(--sp-6);
+  box-shadow: 0 6px 22px rgba(15,37,64,.07);
+}
+.bb-intro p { color: var(--ink-soft); max-width: 62ch; }
+.bb-intro p:last-child { margin-bottom: 0; }
+
+/* --- progress rail ------------------------------------------------------- */
+.bb-rail {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  list-style: none; margin: var(--sp-8) 0 var(--sp-6); padding: 0;
+}
+.bb-rail__step {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12.5px; color: var(--ink-muted);
+  padding: 7px 11px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--white);
+}
+.bb-rail__n {
+  width: 19px; height: 19px; flex: none; border-radius: 50%;
+  display: grid; place-items: center; font-size: 11px; font-weight: 600;
+  background: var(--surface); color: var(--ink-muted); border: 1px solid var(--border);
+}
+.bb-rail__step.is-done { cursor: pointer; color: var(--ink-soft); border-color: var(--border-strong); }
+.bb-rail__step.is-done .bb-rail__n { background: var(--success); color: #fff; border-color: var(--success); }
+.bb-rail__step.is-current { color: var(--navy); border-color: var(--accent); background: var(--accent-light); }
+.bb-rail__step.is-current .bb-rail__n { background: var(--accent); color: var(--navy); border-color: var(--accent); }
+@media (max-width: 640px) { .bb-rail__t { display: none; } }
+
+/* --- steps --------------------------------------------------------------- */
+.bb-form { position: relative; }
+.bb-step {
+  border: 1px solid var(--border); border-radius: var(--radius-md, 10px);
+  background: var(--white); padding: var(--sp-8); margin: 0;
+}
+.bb-step[hidden] { display: none; }
+.bb-step__legend { padding: 0; margin-bottom: var(--sp-2); }
+.bb-step__count { display: block; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-dark); }
+.bb-step__title { display: block; font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; color: var(--navy); line-height: 1.15; }
+.bb-step__blurb { color: var(--ink-soft); margin: 0 0 var(--sp-8); max-width: 58ch; }
+
+.bb-field { margin-bottom: var(--sp-8); }
+.bb-label { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; font-size: 16px; }
+.bb-req {
+  font-size: 10.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--accent-dark); background: var(--accent-light);
+  padding: 2px 6px; border-radius: 4px; vertical-align: 2px; margin-left: 4px;
+}
+.bb-help { color: var(--ink-muted); font-size: 14px; margin: 0 0 8px; max-width: 62ch; line-height: 1.5; }
+.bb-help--sub { margin-top: 6px; }
+
+.bb-input {
+  width: 100%; font: inherit; font-size: 16px; /* 16px stops iOS zooming on focus */
+  color: var(--ink); background: var(--white);
+  border: 1px solid var(--border-strong); border-radius: 8px;
+  padding: 11px 13px;
+}
+.bb-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.bb-textarea { resize: vertical; min-height: 96px; line-height: 1.55; }
+.bb-file { padding: 9px; background: var(--surface); }
+
+.bb-options { display: grid; gap: 7px; }
+.bb-options--multi { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+.bb-option {
+  display: flex; align-items: flex-start; gap: 9px;
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 10px 12px; cursor: pointer; font-size: 15px; line-height: 1.4;
+  background: var(--white);
+}
+.bb-option:hover { border-color: var(--border-strong); background: var(--surface); }
+.bb-option input { margin-top: 3px; flex: none; accent-color: var(--accent); width: 16px; height: 16px; }
+.bb-option:has(input:checked) { border-color: var(--accent); background: var(--accent-light); }
+
+.bb-field.is-bad .bb-input,
+.bb-field.is-bad .bb-options { outline: 2px solid #c0392b; outline-offset: 3px; border-radius: 8px; }
+.bb-error { color: #c0392b; font-size: 14px; font-weight: 600; margin: 7px 0 0; }
+
+/* --- the inline direction picker ----------------------------------------- */
+.bb-picker {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px; margin-top: 4px;
+}
+.bb-swatch {
+  border: 1px solid var(--border); border-radius: 9px; overflow: hidden;
+  background: var(--white); padding: 0; cursor: pointer; text-align: left;
+  font: inherit; display: block;
+}
+.bb-swatch:hover { border-color: var(--border-strong); }
+.bb-swatch[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.bb-swatch__prev {
+  display: block; background: var(--d-page); color: var(--d-ink);
+  font-family: var(--d-fb); padding: 13px 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.bb-swatch__h {
+  display: block; font-family: var(--d-fh); font-weight: var(--d-fwh);
+  font-size: 15px; line-height: 1.15; margin-bottom: 7px;
+}
+.bb-swatch__p { display: block; font-size: 10.5px; color: var(--d-accent-ink); font-weight: 600; margin-bottom: 9px; }
+.bb-swatch__btn {
+  display: inline-block; font-size: 10.5px; font-weight: 600;
+  background: var(--d-accent); color: var(--d-btn); padding: 5px 10px; border-radius: 5px;
+}
+.bb-swatch__meta { display: block; padding: 8px 11px; font-size: 12.5px; color: var(--ink-soft); }
+.bb-swatch__meta b { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--ink-muted); }
+
+/* --- nav + states -------------------------------------------------------- */
+.bb-nav { display: flex; gap: 10px; align-items: center; margin-top: var(--sp-10); }
+.bb-btn {
+  font: inherit; font-weight: 600; font-size: 16px; cursor: pointer;
+  border: 1px solid var(--accent); background: var(--accent); color: var(--navy);
+  padding: 12px 22px; border-radius: 8px;
+}
+.bb-btn:hover { background: var(--accent-hover); }
+.bb-btn:disabled { opacity: .55; cursor: not-allowed; }
+.bb-btn--ghost { background: var(--white); border-color: var(--border-strong); color: var(--ink-soft); }
+.bb-btn--ghost:hover { background: var(--surface); border-color: var(--ink-muted); }
+.bb-btn--go { margin-left: auto; }
+
+.bb-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.bb-saved {
+  position: sticky; bottom: 12px; margin-top: 12px;
+  display: inline-block; font-size: 13px; color: var(--ink-muted);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 999px; padding: 5px 12px;
+}
+
+.bb-submit-error {
+  border: 1px solid #c0392b; border-left-width: 4px; border-radius: 8px;
+  background: #fdf4f3; padding: var(--sp-5); margin-top: var(--sp-8);
+}
+.bb-submit-error strong { color: #a5281c; display: block; margin-bottom: 5px; }
+.bb-submit-error p { margin: 0 0 8px; color: var(--ink-soft); font-size: 15px; }
+.bb-submit-error__keep { font-size: 14px !important; color: var(--ink-muted) !important; margin: 0 !important; }
+
+.bb-done {
+  background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--success);
+  border-radius: var(--radius-md, 10px); padding: var(--sp-12) var(--sp-8);
+  text-align: center; box-shadow: 0 6px 22px rgba(15,37,64,.07);
+}
+.bb-done h2 { font-family: 'DM Serif Display', Georgia, serif; color: var(--navy); font-size: 30px; margin-bottom: 10px; }
+.bb-done p { color: var(--ink-soft); max-width: 52ch; margin: 0 auto; }
+
+@media (max-width: 560px) {
+  .bb-step { padding: var(--sp-6) var(--sp-5); }
+  .bb-nav { flex-wrap: wrap; }
+  .bb-btn--go { margin-left: 0; width: 100%; }
+}

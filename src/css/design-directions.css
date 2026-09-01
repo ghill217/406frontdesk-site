@@ -38,6 +38,7 @@
 }
 .dd-intro p { color: var(--ink-soft); max-width: 68ch; }
 .dd-intro p:last-child { margin-bottom: 0; }
+.dd-note { font-size: 15px; color: var(--ink-muted) !important; border-top: 1px solid var(--border); padding-top: var(--sp-4); }
 
 /* --- pick bar ------------------------------------------------------------ */
 .dd-pickbar {
