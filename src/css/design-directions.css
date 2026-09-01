@@ -1,0 +1,152 @@
+/* Design Directions - the palette + type picker linked from the Website Build Brief.
+   Webfonts are NOT imported here: the family list is generated from
+   src/_data/directions.json and emitted by the template, so the request can never
+   drift from the data. Before this ships, self-host the faces to match the rest of
+   the site (/assets/fonts/*.woff2) - an external font host is a self-inflicted ding
+   on our own /site-audit external-host check. */
+
+/* Page chrome — .header-band / .wrap are defined per-page in this repo
+   (web.css, case-study.css, ...), so this page carries its own copy. */
+.header-band {
+  background: var(--navy); padding: 118px 40px 92px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.header-band::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(232,164,53,0.14) 0%, transparent 55%);
+}
+.header-eyebrow {
+  position: relative; display: inline-block;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+}
+.header-band h1 {
+  position: relative; font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(36px, 5vw, 54px); color: #fff;
+  letter-spacing: -0.02em; margin-bottom: 12px;
+}
+/* wider than the standard 1020px wrap: this page is a catalogue of 20 cards. */
+.wrap { max-width: 1240px; margin: -64px auto 0; padding: 0 24px 60px; position: relative; }
+
+/* The .wrap pulls up -64px to overlap the navy band; on other pages a card sits
+   there. Plain paragraphs would slide UNDER the band, so the intro is that card. */
+.dd-intro {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-md, 10px);
+  padding: var(--sp-8) var(--sp-8) var(--sp-6);
+  box-shadow: 0 6px 22px rgba(15, 37, 64, .07);
+}
+.dd-intro p { color: var(--ink-soft); max-width: 68ch; }
+.dd-intro p:last-child { margin-bottom: 0; }
+
+/* --- pick bar ------------------------------------------------------------ */
+.dd-pickbar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  margin: var(--sp-8) 0 var(--sp-6);
+  background: var(--navy); color: #fff;
+  border-radius: var(--radius-md, 10px);
+}
+.dd-pickbar__label { font-weight: 600; font-size: 15px; }
+.dd-pickbar__list { flex: 1 1 12rem; font-size: 15px; opacity: .85; }
+.dd-pickbar__list:empty::before { content: "nothing picked yet"; opacity: .6; }
+.dd-copy {
+  border: 0; cursor: pointer; font: inherit; font-weight: 600;
+  background: var(--accent); color: var(--navy);
+  padding: 10px 16px; border-radius: 8px;
+}
+.dd-copy[disabled] { opacity: .45; cursor: not-allowed; }
+
+/* --- grid ---------------------------------------------------------------- */
+.dd-grid {
+  display: grid; gap: var(--sp-8);
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+}
+.dd-card {
+  border: 1px solid var(--border); border-radius: var(--radius-md, 10px);
+  overflow: hidden; background: var(--white);
+  display: flex; flex-direction: column;
+}
+.dd-card.is-picked { border-color: var(--d-accent); box-shadow: 0 0 0 2px var(--d-accent); }
+
+.dd-card__head {
+  display: flex; align-items: baseline; gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5) var(--sp-2);
+}
+.dd-code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 13px; font-weight: 600; letter-spacing: .04em;
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 2px 7px; border-radius: 5px; color: var(--ink-soft);
+}
+.dd-card__name { font-size: 20px; margin: 0; }
+.dd-card__blurb { margin: 0; padding: 0 var(--sp-5) var(--sp-4); color: var(--ink-soft); font-size: 15px; }
+
+/* --- the preview: a miniature site rendered in the direction's own tokens -- */
+.dd-preview {
+  --pad: 18px;
+  background: var(--d-page); color: var(--d-ink);
+  font-family: var(--d-fb); border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: var(--pad); container-type: inline-size;
+}
+.dd-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 12px; border-bottom: 1px solid var(--d-hair); margin-bottom: 18px;
+}
+.dd-nav__mark { font-family: var(--d-fh); font-weight: var(--d-fwh); font-size: 15px; letter-spacing: .01em; }
+.dd-nav__links { display: flex; gap: 12px; font-size: 11px; color: var(--d-muted); }
+.dd-nav__cta {
+  font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 5px;
+  background: var(--d-accent); color: var(--d-btn);
+}
+.dd-hero__eyebrow {
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--d-accent-ink); font-weight: 600; margin-bottom: 8px;
+}
+.dd-hero__h {
+  font-family: var(--d-fh); font-weight: var(--d-fwh);
+  font-size: 27px; line-height: 1.12; margin: 0 0 10px; letter-spacing: -.01em;
+}
+.dd-hero__p { font-size: 12.5px; line-height: 1.55; color: var(--d-muted); margin: 0 0 14px; max-width: 34ch; }
+.dd-hero__row { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.dd-btn {
+  font-size: 12px; font-weight: 600; padding: 9px 15px; border-radius: 6px;
+  background: var(--d-accent); color: var(--d-btn);
+}
+.dd-link { font-size: 12px; font-weight: 600; color: var(--d-accent-ink); text-decoration: underline; text-underline-offset: 3px; }
+.dd-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dd-tile {
+  background: var(--d-surface); border: 1px solid var(--d-hair);
+  border-radius: 7px; padding: 11px;
+}
+.dd-tile__h { font-family: var(--d-fh); font-weight: var(--d-fwh); font-size: 12.5px; margin: 0 0 5px; }
+.dd-tile__p { font-size: 10.5px; line-height: 1.5; color: var(--d-muted); margin: 0; }
+
+/* --- spec strip ---------------------------------------------------------- */
+.dd-spec { padding: var(--sp-4) var(--sp-5); margin-top: auto; }
+.dd-swatches { display: flex; gap: 6px; margin-bottom: var(--sp-4); }
+.dd-swatch { flex: 1; }
+.dd-swatch__chip { height: 34px; border-radius: 5px; border: 1px solid var(--border); }
+.dd-swatch__role { display: block; font-size: 10px; color: var(--ink-muted); margin-top: 5px; letter-spacing: .02em; }
+.dd-swatch__hex {
+  display: block; font-family: ui-monospace, Menlo, monospace;
+  font-size: 9.5px; color: var(--ink-muted); text-transform: uppercase;
+}
+.dd-meta { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+.dd-meta strong { color: var(--ink); }
+.dd-moods { display: flex; flex-wrap: wrap; gap: 5px; margin-top: var(--sp-3); }
+.dd-mood {
+  font-size: 11px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 999px; padding: 3px 9px; color: var(--ink-soft);
+}
+.dd-pick {
+  width: 100%; margin-top: var(--sp-4); cursor: pointer; font: inherit; font-weight: 600;
+  font-size: 14px; padding: 10px; border-radius: 7px;
+  border: 1px solid var(--border-strong); background: var(--white); color: var(--ink);
+}
+.dd-pick:hover { border-color: var(--d-accent); }
+.dd-card.is-picked .dd-pick { background: var(--d-accent); border-color: var(--d-accent); color: var(--d-btn); }
+
+@media (max-width: 600px) { .dd-grid { grid-template-columns: 1fr; } }
