@@ -79,6 +79,13 @@ section.inner-sec { max-width: 1020px; margin: 0 auto; padding: 55px 24px; }
 .proof-band h2 { color: #fff; font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.2vw, 34px); letter-spacing: -0.02em; margin-bottom: 12px; }
 .proof-band > p { color: rgba(255,255,255,0.72); font-size: 15.5px; max-width: 720px; }
 .proof-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 26px; }
+/* Caveat line under a proof band — dimmer and smaller than the band's lede. Used on /seo/ to bound
+   the AI-search claim honestly (answers vary between people; we never show a rank or a score). */
+.proof-band > p.proof-caveat {
+  margin-top: 22px; padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.58); font-size: 13.5px; line-height: 1.55; max-width: 780px;
+}
 .ppoint { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 18px 20px; }
 .ppoint strong { display: block; color: #fff; font-size: 15px; margin-bottom: 4px; }
 .ppoint span { color: rgba(255,255,255,0.66); font-size: 13.5px; line-height: 1.5; display: block; }
