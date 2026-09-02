@@ -41,11 +41,13 @@ function clean(v) {
 export default async (req) => {
   if (req.method !== "POST") return json(405, { ok: false, error: "Method not allowed." });
 
-  const token = process.env.GHL_PIT;
+  // .trim(): a value pasted into a dashboard field can carry whitespace, and a
+  // malformed Authorization header fails as an auth error rather than a format one.
+  const token = (process.env.GHL_PIT || "").trim();
   if (!token) {
     // Fail loudly rather than pretending. A silent success here would lose a real brief.
     console.error("GHL_PIT is not set on this deploy.");
-    return json(500, { ok: false, error: "The form is not finished being set up on our end. Please email admin@406frontdesk.com — nothing you typed is lost." });
+    return json(500, { ok: false, error: "This form is not finished being set up (no credential configured). Please email admin@406frontdesk.com — nothing you typed is lost.", code: "no_token" });
   }
 
   let payload;
@@ -152,9 +154,18 @@ export default async (req) => {
 
   if (!res.ok) {
     // Log the status and GHL's message, never the token.
-    console.error(`GHL upsert ${res.status}: ${text.slice(0, 500)}`);
-    if (res.status === 401) {
-      return json(502, { ok: false, error: "The form is not finished being set up on our end. Please email admin@406frontdesk.com — nothing you typed is lost." });
+    console.error(`GHL upsert failed ${res.status} :: ${text.slice(0, 500)}`);
+    console.error(`token fingerprint: len=${token.length} head=${token.slice(0, 6)} tail=${token.slice(-4)}`);
+    if (res.status === 401 || res.status === 403) {
+      // Distinct from the no_token case above ON PURPOSE. Both used to return the
+      // same sentence, which made a misconfigured credential indistinguishable from
+      // a missing one -- the operator cannot tell which thing to go fix.
+      return json(502, {
+        ok: false,
+        error: "This form's credential was rejected by our CRM. Please email admin@406frontdesk.com — nothing you typed is lost.",
+        code: "auth_rejected",
+        upstream: res.status,
+      });
     }
     return json(502, { ok: false, error: "Your brief could not be saved. Nothing was lost — please try again, or email admin@406frontdesk.com." });
   }
