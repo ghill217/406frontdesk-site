@@ -17,6 +17,7 @@
  */
 import { getStore } from "@netlify/blobs";
 import briefData from "../../src/_data/buildBrief.json" with { type: "json" };
+import { scopeFlagsText } from "./scope-fence.mjs";
 
 const LOCATION_ID = briefData.locationId;
 const GHL = "https://services.leadconnectorhq.com";
@@ -111,6 +112,11 @@ export default async (req) => {
     }
   }
 
+  // Which answers fall outside the flat build rate. Mechanical, and written to the
+  // contact so the alert email can carry it -- reading 57 fields against a 13-row
+  // table by hand is exactly the check that gets skipped on a busy week.
+  const flags = scopeFlagsText(a);
+
   const customFields = [];
   for (const f of FIELDS) {
     // GHL's FILE_UPLOAD fields do not accept a plain string. /contacts/upsert takes the
@@ -121,6 +127,10 @@ export default async (req) => {
     if (f.type === "FILE_UPLOAD") continue;
     if (f.key === "logo_upload_reference") {
       if (logoNote) customFields.push({ id: f.id, field_value: logoNote });
+      continue;
+    }
+    if (f.key === "scope_flags") {
+      customFields.push({ id: f.id, field_value: flags });
       continue;
     }
     const v = clean(a[f.key]);
@@ -186,6 +196,26 @@ export default async (req) => {
 
   let contactId = null;
   try { contactId = (JSON.parse(text).contact || {}).id || null; } catch {}
+
+  // IMMUTABLE SUBMISSION RECORD.
+  // The GHL-hosted form had a Submissions tab; moving to custom HTML removed it and
+  // replaced it with nothing. The contact's field values are the only record, they are
+  // editable, and this endpoint UPSERTS -- so a client who resubmits silently
+  // overwrites their original answers with no trace of what they first said.
+  // Written after a confirmed GHL write, so the archive only ever holds real
+  // submissions. Best-effort: a failed archive must not fail a submission that GHL has
+  // already accepted, or the client would be told to send it again and end up with two.
+  try {
+    const archive = getStore("build-brief-submissions");
+    const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+    await archive.set(
+      `${stamp}-${email.replace(/[^a-z0-9]+/gi, "-")}.json`,
+      JSON.stringify({ receivedAt: new Date().toISOString(), contactId, name, email, phone, answers: a, logoKey: logoNote || null, scopeFlags: flags }, null, 2),
+      { metadata: { email, contactId: contactId || "" } }
+    );
+  } catch (e) {
+    console.error("submission archive failed (contact was still saved):", e && e.message);
+  }
   console.log(`build brief stored for ${email}${contactId ? ` (contact ${contactId})` : ""}, ${customFields.length} fields${logoNote ? ", logo attached" : ""}`);
 
   return json(200, { ok: true, fields: customFields.length, logo: !!logoNote });

@@ -52,6 +52,7 @@ const SECTION_OF = {
   logo_file: 2,
   design_directions_picked: 2,
   logo_upload_reference: 2,
+  scope_flags: 1,
   brand_colors: 2,
   fonts_you_own_or_have_to_use: 2,
   existing_brand_materials: 2,
@@ -133,6 +134,14 @@ const REQUIRED = new Set([
   "who_has_final_say_on_the_design",
 ]);
 
+/**
+ * Fields the SERVER writes, not the client. They exist so the value is queryable in
+ * GHL; rendering them on the form would ask a client to fill in a blob key or a list
+ * of scope flags. Marked in the data rather than skipped by name in the template, so
+ * adding another one does not mean remembering to edit the template too.
+ */
+const SERVER_SET = new Set(["logo_upload_reference", "scope_flags"]);
+
 const SECTIONS = [
   { n: 1, title: "The basics", blurb: "Who you are and what this site has to do." },
   { n: 2, title: "Design direction", blurb: "The most useful section on this form. Pick first, then tell us why." },
@@ -180,6 +189,7 @@ function build(raw) {
       type: f.dataType,
       options: (f.picklistOptions || []).map((o) => (typeof o === "string" ? o : o.label ?? o.value)),
       required: REQUIRED.has(key),
+      serverSet: SERVER_SET.has(key),
       // "Pick up to 4" is a real constraint, not decoration -- derived from the
       // label/help so it cannot drift from the words the client actually reads.
       maxSelections: (() => {

@@ -84,9 +84,10 @@ noindex: true   # client-only link, sent after the yes -- not a marketing page
       </div>
       {% endif %}
 
-      {# logo_upload_reference is set by the server from the uploaded file, not answered
-         by the client -- it exists so the blob key is queryable in GHL. Never render it. #}
-      {% for f in buildBrief.fields %}{% if f.section == s.n and f.key != "logo_upload_reference" %}
+      {# Server-set fields (the logo blob key, the computed scope flags) exist so the
+         value is queryable in GHL. A client should never be shown a box asking for one.
+         Flagged in the data, so a new one is hidden automatically. #}
+      {% for f in buildBrief.fields %}{% if f.section == s.n and not f.serverSet %}
       <div class="bb-field" data-key="{{ f.key }}">
         {% if f.key == "design_directions_picked" %}
           {# The picker, inline. This is the whole reason the form moved off GHL: a client
