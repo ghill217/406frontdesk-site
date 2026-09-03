@@ -259,6 +259,18 @@
       "section": 2
     },
     {
+      "key": "logo_upload_reference",
+      "fieldKey": "contact.logo_upload_reference",
+      "id": "N56oxxf0TXXuJm5GbhyA",
+      "label": "Logo upload reference",
+      "help": "Blob key for a logo uploaded via the web build brief. Retrieve with: node scripts/get-brief-logo.mjs --get <key>",
+      "type": "TEXT",
+      "options": [],
+      "required": false,
+      "maxSelections": null,
+      "section": 2
+    },
+    {
       "key": "three_websites_you_dont_like",
       "fieldKey": "contact.three_websites_you_dont_like",
       "id": "JDnqvWiT3g0Q7KAJ1Eeu",

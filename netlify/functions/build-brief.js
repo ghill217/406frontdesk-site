@@ -113,8 +113,14 @@ export default async (req) => {
 
   const customFields = [];
   for (const f of FIELDS) {
-    if (f.type === "FILE_UPLOAD") {
-      if (logoNote) customFields.push({ id: f.id, field_value: `uploaded: ${logoNote}` });
+    // GHL's FILE_UPLOAD fields do not accept a plain string. /contacts/upsert takes the
+    // request, returns 200, and DROPS the value -- a direct PUT of the same thing
+    // returns 400, so the endpoint validates and the upsert does not. Verified 2026-09-03.
+    // The logo reference therefore goes in a TEXT field (logo_upload_reference); the
+    // FILE_UPLOAD field is left for the GHL-hosted form that can actually populate it.
+    if (f.type === "FILE_UPLOAD") continue;
+    if (f.key === "logo_upload_reference") {
+      if (logoNote) customFields.push({ id: f.id, field_value: logoNote });
       continue;
     }
     const v = clean(a[f.key]);
@@ -153,6 +159,14 @@ export default async (req) => {
   }
 
   if (!res.ok) {
+    // The blob was written before GHL was touched (so a storage failure can never
+    // produce a contact claiming a logo nobody can find). If GHL then rejects the
+    // write, that blob is an orphan -- nothing references it and nobody will ever
+    // look for it. Drop it rather than accumulate junk in the store.
+    if (logoNote) {
+      try { await getStore("build-brief-logos").delete(logoNote); }
+      catch (e) { console.error("orphan blob cleanup failed:", e && e.message); }
+    }
     // Log the status and GHL's message, never the token.
     console.error(`GHL upsert failed ${res.status} :: ${text.slice(0, 500)}`);
     console.error(`token fingerprint: len=${token.length} head=${token.slice(0, 6)} tail=${token.slice(-4)}`);

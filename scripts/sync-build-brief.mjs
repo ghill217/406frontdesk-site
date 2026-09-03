@@ -51,6 +51,7 @@ const SECTION_OF = {
   do_you_have_a_logo: 2,
   logo_file: 2,
   design_directions_picked: 2,
+  logo_upload_reference: 2,
   brand_colors: 2,
   fonts_you_own_or_have_to_use: 2,
   existing_brand_materials: 2,
