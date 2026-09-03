@@ -5,3 +5,6 @@ dist/
 *.log
 .env
 .netlify/
+
+# local-only test harnesses (create + purge real records; never ship)
+scripts/*.local.mjs
