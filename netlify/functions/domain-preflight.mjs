@@ -278,13 +278,17 @@ export async function probeDomain(input) {
 /* ------------------------------------------------------------- selftest -- */
 const isMain = process.argv[1] && /domain-preflight\.mjs$/.test(process.argv[1]);
 
+// No top-level await anywhere in this file: Netlify bundles the function to CommonJS,
+// and a top-level await here failed the WHOLE deploy (2026-09-03) even though this
+// block only runs from the command line.
 if (isMain && process.argv.includes("--probe")) {
   const d = process.argv[process.argv.indexOf("--probe") + 1];
-  const r = await probeDomain(d);
-  console.log(preflightText(r));
-  const f = measuredFlags(r, {});
-  console.log(f.length ? "\nmeasured flags:\n" + f.map((x) => `  - ${x.flag}\n    ${x.why}`).join("\n") : "\nmeasured flags: none");
-  console.log(`\n${r.elapsedMs} ms` + (r.errors.length ? "; errors: " + r.errors.join("; ") : ""));
+  probeDomain(d).then((r) => {
+    console.log(preflightText(r));
+    const f = measuredFlags(r, {});
+    console.log(f.length ? "\nmeasured flags:\n" + f.map((x) => `  - ${x.flag}\n    ${x.why}`).join("\n") : "\nmeasured flags: none");
+    console.log(`\n${r.elapsedMs} ms` + (r.errors.length ? "; errors: " + r.errors.join("; ") : ""));
+  });
 }
 
 if (isMain && process.argv.includes("--selftest")) {
