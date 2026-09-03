@@ -17,11 +17,17 @@
  */
 import { getStore } from "@netlify/blobs";
 import briefData from "../../src/_data/buildBrief.json" with { type: "json" };
-import { scopeFlagsText } from "./scope-fence.mjs";
+import { scopeFlags, scopeFlagsText } from "./scope-fence.mjs";
+import { probeDomain, measuredFlags, preflightText } from "./domain-preflight.mjs";
+import { planTasks } from "./brief-tasks.mjs";
 
 const LOCATION_ID = briefData.locationId;
 const GHL = "https://services.leadconnectorhq.com";
 const MAX_LOGO = 4 * 1024 * 1024;
+// Gus's GHL user id, for task assignment. The PIT has no users scope, so this was
+// read off `assignedTo` on 90 of 100 existing contacts (2026-09-03). Not a secret.
+const ASSIGNEE_USER_ID = "0qYqX1PQslaWmsCvbJnY";
+const HEALTH_CACHE_MS = 10 * 60 * 1000;
 
 const FIELDS = briefData.fields;
 const BY_KEY = new Map(FIELDS.map((f) => [f.key, f]));
@@ -39,12 +45,65 @@ function clean(v) {
   return typeof v === "string" ? v.trim() : v == null ? "" : String(v);
 }
 
-export default async (req) => {
-  if (req.method !== "POST") return json(405, { ok: false, error: "Method not allowed." });
+const ghlHeaders = (token) => ({
+  Authorization: `Bearer ${token}`,
+  Version: "2021-07-28",
+  "Content-Type": "application/json",
+});
 
+/**
+ * GET = health. Exists because this endpoint has already been silently dead twice
+ * (no credential, then a rejected one) with nothing watching it. The nightly Health
+ * Monitor reads this; `?deep=1` also proves the credential against GHL and that
+ * every field id in the generated map still exists. The deep result is cached in
+ * Blobs for 10 minutes so a hammered URL cannot burn the GHL rate limit that real
+ * submissions need. Nothing here reveals a value -- only whether one is configured.
+ */
+async function health(req, token) {
+  const out = {
+    ok: !!token,
+    service: "build-brief",
+    credential: token ? "configured" : "missing",
+    fieldsLocal: FIELDS.length,
+    checkedAt: new Date().toISOString(),
+  };
+  const deep = new URL(req.url).searchParams.get("deep") === "1";
+  if (deep && token) {
+    let store = null, cached = null;
+    try { store = getStore("build-brief-health"); cached = await store.get("deep", { type: "json" }); } catch {}
+    if (cached && Date.now() - Date.parse(cached.checkedAt) < HEALTH_CACHE_MS) {
+      out.deep = { ...cached, cached: true };
+    } else {
+      const d = { checkedAt: new Date().toISOString(), ghlAuth: "unknown", fieldsLive: null, missingIds: [] };
+      try {
+        const res = await fetch(`${GHL}/locations/${LOCATION_ID}/customFields`, { headers: ghlHeaders(token) });
+        if (res.ok) {
+          const live = new Set(((await res.json()).customFields || []).map((f) => f.id));
+          d.ghlAuth = "ok";
+          d.fieldsLive = live.size;
+          d.missingIds = FIELDS.filter((f) => !live.has(f.id)).map((f) => f.key);
+        } else {
+          d.ghlAuth = res.status === 401 || res.status === 403 ? "rejected" : `http_${res.status}`;
+        }
+      } catch (e) {
+        d.ghlAuth = "unreachable";
+      }
+      if (store) { try { await store.setJSON("deep", d); } catch {} }
+      out.deep = d;
+    }
+    if (out.deep.ghlAuth !== "ok" || out.deep.missingIds.length) out.ok = false;
+  }
+  return json(out.ok ? 200 : 503, out);
+}
+
+export default async (req) => {
   // .trim(): a value pasted into a dashboard field can carry whitespace, and a
   // malformed Authorization header fails as an auth error rather than a format one.
   const token = (process.env.GHL_PIT || "").trim();
+
+  if (req.method === "GET") return health(req, token);
+  if (req.method !== "POST") return json(405, { ok: false, error: "Method not allowed." });
+
   if (!token) {
     // Fail loudly rather than pretending. A silent success here would lose a real brief.
     console.error("GHL_PIT is not set on this deploy.");
@@ -92,6 +151,10 @@ export default async (req) => {
     return json(400, { ok: false, error: `Still needed: ${missing.slice(0, 4).join(", ")}${missing.length > 4 ? `, and ${missing.length - 4} more` : ""}.` });
   }
 
+  // Start measuring the domain now so it overlaps the logo write. Read-only public
+  // DNS + RDAP, capped, never throws; a failed lookup degrades to "unavailable".
+  const preflightP = probeDomain(clean(a.what_web_address_do_you_want) || clean(a.current_website_url));
+
   // Stash the logo before touching GHL, so a storage failure never produces a contact
   // that claims to have a logo nobody can find.
   let logoNote = "";
@@ -114,8 +177,13 @@ export default async (req) => {
 
   // Which answers fall outside the flat build rate. Mechanical, and written to the
   // contact so the alert email can carry it -- reading 57 fields against a 13-row
-  // table by hand is exactly the check that gets skipped on a busy week.
-  const flags = scopeFlagsText(a);
+  // table by hand is exactly the check that gets skipped on a busy week. The
+  // MEASURED flags (MX present, domain unregistered, expiring) sit beside the
+  // answer-derived ones, and the raw measurement trails the text as evidence.
+  const preflight = await preflightP;
+  const measured = measuredFlags(preflight, a);
+  const hits = scopeFlags(a, measured);
+  const flags = scopeFlagsText(a, { measured, preflight: preflightText(preflight) });
 
   const customFields = [];
   for (const f of FIELDS) {
@@ -155,11 +223,7 @@ export default async (req) => {
   try {
     res = await fetch(`${GHL}/contacts/upsert`, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Version: "2021-07-28",
-        "Content-Type": "application/json",
-      },
+      headers: ghlHeaders(token),
       body: JSON.stringify(body),
     });
     text = await res.text();
@@ -197,6 +261,26 @@ export default async (req) => {
   let contactId = null;
   try { contactId = (JSON.parse(text).contact || {}).id || null; } catch {}
 
+  // TASKS FROM THE BRIEF. Content due (dated from their own answer), the baseline
+  // audit when a site already exists, domain access, MX mapping, deadline check.
+  // Best-effort after the confirmed write; parallel so five tasks cost one round
+  // trip against the function's 10 s budget. Never client-facing.
+  const planned = contactId ? planTasks(a, hits) : [];
+  let tasksMade = 0;
+  if (planned.length) {
+    const results = await Promise.allSettled(planned.map((t) =>
+      fetch(`${GHL}/contacts/${contactId}/tasks`, {
+        method: "POST",
+        headers: ghlHeaders(token),
+        body: JSON.stringify({ ...t, completed: false, assignedTo: ASSIGNEE_USER_ID }),
+      }).then(async (r) => { if (!r.ok) throw new Error(`${r.status} ${(await r.text()).slice(0, 200)}`); })
+    ));
+    for (const [i, r] of results.entries()) {
+      if (r.status === "fulfilled") tasksMade++;
+      else console.error(`task "${planned[i].title}" failed:`, r.reason && r.reason.message);
+    }
+  }
+
   // IMMUTABLE SUBMISSION RECORD.
   // The GHL-hosted form had a Submissions tab; moving to custom HTML removed it and
   // replaced it with nothing. The contact's field values are the only record, they are
@@ -210,13 +294,17 @@ export default async (req) => {
     const stamp = new Date().toISOString().replace(/[:.]/g, "-");
     await archive.set(
       `${stamp}-${email.replace(/[^a-z0-9]+/gi, "-")}.json`,
-      JSON.stringify({ receivedAt: new Date().toISOString(), contactId, name, email, phone, answers: a, logoKey: logoNote || null, scopeFlags: flags }, null, 2),
+      JSON.stringify({
+        receivedAt: new Date().toISOString(), contactId, name, email, phone, answers: a,
+        logoKey: logoNote || null, scopeFlags: flags, preflight,
+        tasks: planned.map((t) => t.title), tasksCreated: tasksMade,
+      }, null, 2),
       { metadata: { email, contactId: contactId || "" } }
     );
   } catch (e) {
     console.error("submission archive failed (contact was still saved):", e && e.message);
   }
-  console.log(`build brief stored for ${email}${contactId ? ` (contact ${contactId})` : ""}, ${customFields.length} fields${logoNote ? ", logo attached" : ""}`);
+  console.log(`build brief stored for ${email}${contactId ? ` (contact ${contactId})` : ""}, ${customFields.length} fields${logoNote ? ", logo attached" : ""}, ${tasksMade}/${planned.length} tasks, preflight ${preflight.domain || "n/a"} in ${preflight.elapsedMs} ms`);
 
-  return json(200, { ok: true, fields: customFields.length, logo: !!logoNote });
+  return json(200, { ok: true, fields: customFields.length, logo: !!logoNote, tasks: tasksMade });
 };

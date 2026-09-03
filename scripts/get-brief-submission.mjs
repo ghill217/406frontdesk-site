@@ -60,6 +60,7 @@ if (showKey) {
     console.log(`${d.name}  <${d.email}>  ${d.phone || ""}`);
     console.log(`received ${d.receivedAt}   contact ${d.contactId || "(unknown)"}`);
     if (d.logoKey) console.log(`logo: ${d.logoKey}\n  node scripts/get-brief-logo.mjs --get "${d.logoKey}"`);
+    if (Array.isArray(d.tasks)) console.log(`tasks created: ${d.tasksCreated}/${d.tasks.length}` + (d.tasks.length ? "\n  - " + d.tasks.join("\n  - ") : ""));
     console.log("\n" + "-".repeat(70) + "\n" + (d.scopeFlags || "") + "\n" + "-".repeat(70) + "\n");
     for (const [k, v] of Object.entries(d.answers)) {
       if (v == null || v === "" || (Array.isArray(v) && !v.length)) continue;

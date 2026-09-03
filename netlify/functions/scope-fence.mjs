@@ -105,8 +105,11 @@ const val = (answers, key) => {
   return typeof v === "string" ? v.trim() : v == null ? "" : String(v);
 };
 
-/** Returns the tripped rules, in the order declared. */
-export function scopeFlags(answers) {
+/**
+ * Returns the tripped rules, in the order declared, followed by any MEASURED
+ * flags (from domain-preflight.mjs) -- same shape, different provenance.
+ */
+export function scopeFlags(answers, measured = []) {
   const hits = [];
   for (const r of RULES) {
     const v = val(answers, r.key);
@@ -117,29 +120,32 @@ export function scopeFlags(answers) {
     else if (r.nonEmpty) tripped = Array.isArray(v) ? v.length > 0 : String(v).length > 0;
     if (tripped) hits.push(r);
   }
-  return hits;
+  return hits.concat(measured || []);
 }
 
 /**
  * Human-readable summary for the contact record and the alert email.
  * Deliberately plain text: it is read in a GHL field and an email body, neither of
- * which renders markdown.
+ * which renders markdown. `extra.measured` are preflight flags; `extra.preflight`
+ * is the measurement block itself, appended after the flags so the alert carries
+ * the evidence next to the conclusion.
  */
-export function scopeFlagsText(answers) {
-  const hits = scopeFlags(answers);
+export function scopeFlagsText(answers, extra = {}) {
+  const { measured = [], preflight = "" } = extra;
+  const hits = scopeFlags(answers, measured);
+  const lines = [];
   if (!hits.length) {
-    return "No scope flags. Every answer on this brief fits inside the flat build rate.";
+    lines.push("No scope flags. Every answer on this brief fits inside the flat build rate.");
+  } else {
+    lines.push(`${hits.length} SCOPE FLAG${hits.length === 1 ? "" : "S"} — talk about these BEFORE building, not in week three:`, "");
+    hits.forEach((h, i) => {
+      lines.push(`${i + 1}. ${h.flag}`);
+      lines.push(`   ${h.why}`);
+    });
+    lines.push("");
+    lines.push("Flags only. Nothing here has been priced — that is yours.");
   }
-  const lines = [
-    `${hits.length} SCOPE FLAG${hits.length === 1 ? "" : "S"} — talk about these BEFORE building, not in week three:`,
-    "",
-  ];
-  hits.forEach((h, i) => {
-    lines.push(`${i + 1}. ${h.flag}`);
-    lines.push(`   ${h.why}`);
-  });
-  lines.push("");
-  lines.push("Flags only. Nothing here has been priced — that is yours.");
+  if (preflight) lines.push("", preflight);
   return lines.join("\n");
 }
 
@@ -205,6 +211,17 @@ if (process.argv[1] && process.argv[1].endsWith("scope-fence.mjs") && process.ar
   console.log(`  ${multiOk ? "PASS" : "FAIL"}  counts multiple flags`);
   if (!multiOk) bad++;
 
-  console.log(bad === 0 ? `\nselftest: ${CASES.length + 3}/${CASES.length + 3} controls behave (positive + negative).` : `\nselftest: ${bad} CONTROL(S) BROKEN`);
+  const measured = [{ flag: "Live email MEASURED on example.com: Google Workspace", why: "mx present" }];
+  const withM = scopeFlagsText(CLEAN, { measured, preflight: "DOMAIN PRE-FLIGHT for example.com" });
+  const mOk = withM.startsWith("1 SCOPE FLAG ") && withM.includes("Live email MEASURED") && withM.endsWith("DOMAIN PRE-FLIGHT for example.com");
+  console.log(`  ${mOk ? "PASS" : "FAIL"}  measured flags count and the preflight block trails the text`);
+  if (!mOk) bad++;
+
+  const cleanPre = scopeFlagsText(CLEAN, { preflight: "DOMAIN PRE-FLIGHT for example.com" });
+  const cpOk = cleanPre.startsWith("No scope flags") && cleanPre.endsWith("DOMAIN PRE-FLIGHT for example.com");
+  console.log(`  ${cpOk ? "PASS" : "FAIL"}  clean brief still carries the preflight block`);
+  if (!cpOk) bad++;
+
+  console.log(bad === 0 ? `\nselftest: ${CASES.length + 5}/${CASES.length + 5} controls behave (positive + negative).` : `\nselftest: ${bad} CONTROL(S) BROKEN`);
   process.exitCode = bad === 0 ? 0 : 1;
 }
