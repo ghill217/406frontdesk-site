@@ -222,7 +222,12 @@ const text = JSON.stringify(data, null, 2) + "\n";
 
 if (process.argv.includes("--check")) {
   const current = (() => { try { return readFileSync(OUT, "utf8"); } catch { return ""; } })();
-  if (current !== text) {
+  // Compare line-ending-agnostically. This repo runs core.autocrlf=true, so git hands
+  // back CRLF on checkout while the generator writes LF -- comparing raw text made the
+  // check fail on every fresh clone regardless of the data, and a gate that always
+  // fails is as useless as one that never does.
+  const norm = (t) => t.split(String.fromCharCode(13)).join("");
+  if (norm(current) !== norm(text)) {
     console.error("src/_data/buildBrief.json is STALE vs GHL. Run: node scripts/sync-build-brief.mjs");
     process.exitCode = 1;
   } else {
