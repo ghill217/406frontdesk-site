@@ -1,0 +1,750 @@
+{
+  "note": "Design directions offered to website clients as a starting point. Each is a COMPLETE direction (palette + type pairing), not a parts bin — see wiki/synthesis/Website Build Brief — Intake Spec. Contrast is enforced by scripts/check-directions.mjs; do not hand-edit a hex without re-running it.",
+  "googleFonts": "https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&family=Barlow:wght@400;600&family=Bebas+Neue&family=Bitter:wght@700&family=Chivo:wght@700&family=Cormorant+Garamond:wght@700&family=DM+Sans:wght@400;600&family=Figtree:wght@400;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@400;600&family=Jost:wght@400;600&family=Karla:wght@400;600&family=Lora:wght@600&family=Manrope:wght@700&family=Marcellus&family=Mulish:wght@400;600&family=Nunito:wght@800&family=Nunito+Sans:wght@400;600&family=Oswald:wght@600&family=Outfit:wght@600&family=Playfair+Display:wght@800&family=Public+Sans:wght@700&family=Roboto:wght@400;600&family=Roboto+Condensed:wght@700&family=Rubik:wght@400;600&family=Saira+Condensed:wght@700&family=Sora:wght@700&family=Source+Sans+3:wght@400;600&family=Space+Grotesk:wght@700&family=Vollkorn:wght@700&family=Work+Sans:wght@400;600&family=Zilla+Slab:wght@600&text=%20%2C.ABCDEFGHILMNOPRSTVWabcdefghiklmnoprstuvwyz&display=swap",
+  "items": [
+    {
+      "code": "D-01",
+      "name": "Ledger",
+      "blurb": "Warm, printed, established. Reads like a business that has been here a while.",
+      "suits": "Law, accounting, insurance, heritage trades, anyone selling trust.",
+      "ground": "light",
+      "temp": "warm",
+      "typeClass": "serif",
+      "mood": [
+        "Established",
+        "Editorial",
+        "Premium"
+      ],
+      "palette": {
+        "page": "#FBF7F0",
+        "surface": "#FFFFFF",
+        "ink": "#1C1A17",
+        "muted": "#6B6259",
+        "accent": "#9E2B25",
+        "accentInk": "#7E1F1A",
+        "btnLabel": "#FFFFFF",
+        "hair": "#E3DACD"
+      },
+      "type": {
+        "heading": {
+          "name": "Fraunces",
+          "stack": "'Fraunces', Georgia, 'Times New Roman', serif",
+          "weight": 700
+        },
+        "body": {
+          "name": "Inter",
+          "stack": "'Inter', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-02",
+      "name": "Signal",
+      "blurb": "Dark, precise, engineered. Equipment and systems people trust this one.",
+      "suits": "HVAC, electrical, IT, equipment rental, anything technical.",
+      "ground": "dark",
+      "temp": "cool",
+      "typeClass": "geometric sans",
+      "mood": [
+        "Modern",
+        "Technical",
+        "Confident"
+      ],
+      "palette": {
+        "page": "#0B0F14",
+        "surface": "#141C25",
+        "ink": "#E8EDF2",
+        "muted": "#94A3B3",
+        "accent": "#3AD6BE",
+        "accentInk": "#3AD6BE",
+        "btnLabel": "#0B0F14",
+        "hair": "#22303D"
+      },
+      "type": {
+        "heading": {
+          "name": "Space Grotesk",
+          "stack": "'Space Grotesk', 'Helvetica Neue', Arial, sans-serif",
+          "weight": 700
+        },
+        "body": {
+          "name": "Inter",
+          "stack": "'Inter', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-03",
+      "name": "Counter",
+      "blurb": "Loud, hungry, immediate. Built to make somebody walk in the door now.",
+      "suits": "Restaurants, bars, food trucks, barbershops, gyms.",
+      "ground": "light",
+      "temp": "warm",
+      "typeClass": "display",
+      "mood": [
+        "Bold",
+        "Appetising",
+        "Energetic"
+      ],
+      "palette": {
+        "page": "#FFFDF8",
+        "surface": "#FFFFFF",
+        "ink": "#14100C",
+        "muted": "#6A5F52",
+        "accent": "#D93A0F",
+        "accentInk": "#A82B07",
+        "btnLabel": "#FFFFFF",
+        "hair": "#EDE3D6"
+      },
+      "type": {
+        "heading": {
+          "name": "Archivo Black",
+          "stack": "'Archivo Black', 'Arial Black', sans-serif",
+          "weight": 400
+        },
+        "body": {
+          "name": "Archivo",
+          "stack": "'Archivo', system-ui, Arial, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-04",
+      "name": "Timber",
+      "blurb": "Earthy, calm, made by hand. Montana without the clip-art mountain.",
+      "suits": "Outfitters, landscaping, woodwork, wellness, farm and ranch.",
+      "ground": "light",
+      "temp": "earthy",
+      "typeClass": "slab + humanist",
+      "mood": [
+        "Craft",
+        "Grounded",
+        "Calm"
+      ],
+      "palette": {
+        "page": "#F5F2EC",
+        "surface": "#FFFFFF",
+        "ink": "#1F211C",
+        "muted": "#5C6155",
+        "accent": "#4A6B3D",
+        "accentInk": "#3A5530",
+        "btnLabel": "#FFFFFF",
+        "hair": "#DFDACE"
+      },
+      "type": {
+        "heading": {
+          "name": "Bitter",
+          "stack": "'Bitter', Georgia, serif",
+          "weight": 700
+        },
+        "body": {
+          "name": "Karla",
+          "stack": "'Karla', system-ui, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-05",
+      "name": "Clinic",
+      "blurb": "Clean, calm and unhurried. Reads as careful without reading as cold.",
+      "suits": "Dental, clinics, chiropractic, physical therapy, anything medical.",
+      "ground": "light",
+      "temp": "cool",
+      "typeClass": "humanist sans",
+      "mood": [
+        "Calm",
+        "Clinical",
+        "Reassuring"
+      ],
+      "palette": {
+        "page": "#F7FAFC",
+        "surface": "#FFFFFF",
+        "ink": "#14202B",
+        "muted": "#556777",
+        "accent": "#15618F",
+        "accentInk": "#12536F",
+        "btnLabel": "#FFFFFF",
+        "hair": "#DCE6ED"
+      },
+      "type": {
+        "heading": {
+          "name": "Manrope",
+          "stack": "'Manrope', system-ui, -apple-system, sans-serif",
+          "weight": 700
+        },
+        "body": {
+          "name": "Source Sans 3",
+          "stack": "'Source Sans 3', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-06",
+      "name": "Atelier",
+      "blurb": "Quiet, expensive, almost no colour. Lets the photography do the talking.",
+      "suits": "Salons, spas, boutiques, photographers, anyone selling taste.",
+      "ground": "light",
+      "temp": "neutral",
+      "typeClass": "display serif",
+      "mood": [
+        "Elegant",
+        "Minimal",
+        "Refined"
+      ],
+      "palette": {
+        "page": "#FAFAF8",
+        "surface": "#FFFFFF",
+        "ink": "#16161A",
+        "muted": "#6A6A72",
+        "accent": "#7A6448",
+        "accentInk": "#5E4E38",
+        "btnLabel": "#FFFFFF",
+        "hair": "#E6E4DF"
+      },
+      "type": {
+        "heading": {
+          "name": "Cormorant Garamond",
+          "stack": "'Cormorant Garamond', Georgia, 'Times New Roman', serif",
+          "weight": 700
+        },
+        "body": {
+          "name": "Jost",
+          "stack": "'Jost', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-07",
+      "name": "Ironworks",
+      "blurb": "Heavy, industrial, built for a dirty screen in a bright bay.",
+      "suits": "Auto shops, welding, machine shops, heavy equipment.",
+      "ground": "dark",
+      "temp": "neutral",
+      "typeClass": "condensed sans",
+      "mood": [
+        "Industrial",
+        "Tough",
+        "Direct"
+      ],
+      "palette": {
+        "page": "#16181A",
+        "surface": "#202427",
+        "ink": "#E9ECEE",
+        "muted": "#98A2A9",
+        "accent": "#FF7A1A",
+        "accentInk": "#FF7A1A",
+        "btnLabel": "#16181A",
+        "hair": "#2E3438"
+      },
+      "type": {
+        "heading": {
+          "name": "Oswald",
+          "stack": "'Oswald', system-ui, -apple-system, sans-serif",
+          "weight": 600
+        },
+        "body": {
+          "name": "Roboto",
+          "stack": "'Roboto', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-08",
+      "name": "Meadow",
+      "blurb": "Soft, friendly, unthreatening. The one that makes people feel looked after.",
+      "suits": "Pet care, childcare, family practices, community services.",
+      "ground": "light",
+      "temp": "warm",
+      "typeClass": "rounded sans",
+      "mood": [
+        "Friendly",
+        "Warm",
+        "Approachable"
+      ],
+      "palette": {
+        "page": "#FFFBF5",
+        "surface": "#FFFFFF",
+        "ink": "#2A241E",
+        "muted": "#6B6055",
+        "accent": "#B85217",
+        "accentInk": "#9C4515",
+        "btnLabel": "#FFFFFF",
+        "hair": "#F0E6D8"
+      },
+      "type": {
+        "heading": {
+          "name": "Nunito",
+          "stack": "'Nunito', system-ui, -apple-system, sans-serif",
+          "weight": 800
+        },
+        "body": {
+          "name": "Nunito Sans",
+          "stack": "'Nunito Sans', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-09",
+      "name": "Slate",
+      "blurb": "Modern corporate without the stock photos. Straight, confident, unfussy.",
+      "suits": "Consulting, insurance, property management, professional services.",
+      "ground": "light",
+      "temp": "cool",
+      "typeClass": "grotesk",
+      "mood": [
+        "Professional",
+        "Modern",
+        "Assured"
+      ],
+      "palette": {
+        "page": "#F6F7F9",
+        "surface": "#FFFFFF",
+        "ink": "#1B1F26",
+        "muted": "#5B636E",
+        "accent": "#2450B8",
+        "accentInk": "#1D42A0",
+        "btnLabel": "#FFFFFF",
+        "hair": "#E1E5EA"
+      },
+      "type": {
+        "heading": {
+          "name": "Public Sans",
+          "stack": "'Public Sans', system-ui, -apple-system, sans-serif",
+          "weight": 700
+        },
+        "body": {
+          "name": "IBM Plex Sans",
+          "stack": "'IBM Plex Sans', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-10",
+      "name": "Ember",
+      "blurb": "Dark, warm and a bit loud. Feels like the room it belongs to.",
+      "suits": "Tattoo studios, bars, live music, late-night everything.",
+      "ground": "dark",
+      "temp": "warm",
+      "typeClass": "condensed display",
+      "mood": [
+        "Moody",
+        "Bold",
+        "Nocturnal"
+      ],
+      "palette": {
+        "page": "#17110F",
+        "surface": "#221917",
+        "ink": "#F0E6E1",
+        "muted": "#A89189",
+        "accent": "#E8663F",
+        "accentInk": "#E8663F",
+        "btnLabel": "#17110F",
+        "hair": "#33241F"
+      },
+      "type": {
+        "heading": {
+          "name": "Bebas Neue",
+          "stack": "'Bebas Neue', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        },
+        "body": {
+          "name": "Barlow",
+          "stack": "'Barlow', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-11",
+      "name": "Harbor",
+      "blurb": "Sober, coastal, institutional in a good way. Older money than Ledger.",
+      "suits": "Law, wealth management, surveying, established family firms.",
+      "ground": "light",
+      "temp": "cool",
+      "typeClass": "transitional serif",
+      "mood": [
+        "Sober",
+        "Established",
+        "Trustworthy"
+      ],
+      "palette": {
+        "page": "#F8F9FA",
+        "surface": "#FFFFFF",
+        "ink": "#10202F",
+        "muted": "#54626D",
+        "accent": "#0F5C6B",
+        "accentInk": "#0B4854",
+        "btnLabel": "#FFFFFF",
+        "hair": "#DFE5E9"
+      },
+      "type": {
+        "heading": {
+          "name": "Lora",
+          "stack": "'Lora', Georgia, 'Times New Roman', serif",
+          "weight": 600
+        },
+        "body": {
+          "name": "Work Sans",
+          "stack": "'Work Sans', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-12",
+      "name": "Ridge",
+      "blurb": "Dark, outdoors, premium. Not a clip-art mountain in sight.",
+      "suits": "Outfitters, guides, lodges, land and ranch real estate.",
+      "ground": "dark",
+      "temp": "earthy",
+      "typeClass": "slab",
+      "mood": [
+        "Rugged",
+        "Premium",
+        "Outdoor"
+      ],
+      "palette": {
+        "page": "#1D2420",
+        "surface": "#27302B",
+        "ink": "#E7EDE8",
+        "muted": "#9BAAA0",
+        "accent": "#C9A227",
+        "accentInk": "#C9A227",
+        "btnLabel": "#1D2420",
+        "hair": "#35403A"
+      },
+      "type": {
+        "heading": {
+          "name": "Zilla Slab",
+          "stack": "'Zilla Slab', Georgia, 'Times New Roman', serif",
+          "weight": 600
+        },
+        "body": {
+          "name": "Rubik",
+          "stack": "'Rubik', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-13",
+      "name": "Pulse",
+      "blurb": "Fast, athletic, high contrast. Built to push somebody to sign up today.",
+      "suits": "Gyms, CrossFit, sports medicine, performance training.",
+      "ground": "light",
+      "temp": "cool",
+      "typeClass": "condensed sans",
+      "mood": [
+        "Energetic",
+        "Athletic",
+        "Urgent"
+      ],
+      "palette": {
+        "page": "#FFFFFF",
+        "surface": "#F5F7FA",
+        "ink": "#0E1116",
+        "muted": "#5A626D",
+        "accent": "#C0143F",
+        "accentInk": "#A81038",
+        "btnLabel": "#FFFFFF",
+        "hair": "#E4E8EE"
+      },
+      "type": {
+        "heading": {
+          "name": "Saira Condensed",
+          "stack": "'Saira Condensed', system-ui, -apple-system, sans-serif",
+          "weight": 700
+        },
+        "body": {
+          "name": "Inter",
+          "stack": "'Inter', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-14",
+      "name": "Linen",
+      "blurb": "Soft, unhurried, low contrast on purpose. The opposite of a hard sell.",
+      "suits": "Massage, yoga, wellness, counselling, birth and postpartum care.",
+      "ground": "light",
+      "temp": "warm",
+      "typeClass": "classical serif",
+      "mood": [
+        "Soft",
+        "Restful",
+        "Considered"
+      ],
+      "palette": {
+        "page": "#FBF8F4",
+        "surface": "#FFFFFF",
+        "ink": "#33302B",
+        "muted": "#6D6760",
+        "accent": "#5E6B53",
+        "accentInk": "#4A5442",
+        "btnLabel": "#FFFFFF",
+        "hair": "#EBE4DA"
+      },
+      "type": {
+        "heading": {
+          "name": "Marcellus",
+          "stack": "'Marcellus', Georgia, 'Times New Roman', serif",
+          "weight": 400
+        },
+        "body": {
+          "name": "Mulish",
+          "stack": "'Mulish', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-15",
+      "name": "Grid",
+      "blurb": "Swiss and technical. Everything on a line, nothing decorative.",
+      "suits": "Architects, engineers, surveyors, design and fabrication.",
+      "ground": "light",
+      "temp": "neutral",
+      "typeClass": "neo-grotesk",
+      "mood": [
+        "Technical",
+        "Precise",
+        "Rational"
+      ],
+      "palette": {
+        "page": "#FFFFFF",
+        "surface": "#F7F7F7",
+        "ink": "#111111",
+        "muted": "#5C5C5C",
+        "accent": "#0038CC",
+        "accentInk": "#0030B0",
+        "btnLabel": "#FFFFFF",
+        "hair": "#E5E5E5"
+      },
+      "type": {
+        "heading": {
+          "name": "Chivo",
+          "stack": "'Chivo', system-ui, -apple-system, sans-serif",
+          "weight": 700
+        },
+        "body": {
+          "name": "Inter",
+          "stack": "'Inter', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-16",
+      "name": "Orchard",
+      "blurb": "Fresh and green without going twee. Good with real photographs of real food.",
+      "suits": "Farms, markets, nurseries, garden centres, food producers.",
+      "ground": "light",
+      "temp": "earthy",
+      "typeClass": "old-style serif",
+      "mood": [
+        "Fresh",
+        "Honest",
+        "Seasonal"
+      ],
+      "palette": {
+        "page": "#FCFBF3",
+        "surface": "#FFFFFF",
+        "ink": "#23281C",
+        "muted": "#5F6753",
+        "accent": "#47701F",
+        "accentInk": "#3A5C18",
+        "btnLabel": "#FFFFFF",
+        "hair": "#E7E7D5"
+      },
+      "type": {
+        "heading": {
+          "name": "Vollkorn",
+          "stack": "'Vollkorn', Georgia, 'Times New Roman', serif",
+          "weight": 700
+        },
+        "body": {
+          "name": "Source Sans 3",
+          "stack": "'Source Sans 3', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-17",
+      "name": "Nocturne",
+      "blurb": "Dark and synthetic. The most contemporary thing on this page.",
+      "suits": "Creative studios, events, nightlife, anything selling to under-35s.",
+      "ground": "dark",
+      "temp": "cool",
+      "typeClass": "geometric sans",
+      "mood": [
+        "Contemporary",
+        "Sleek",
+        "Night"
+      ],
+      "palette": {
+        "page": "#121018",
+        "surface": "#1C1926",
+        "ink": "#EDEAF5",
+        "muted": "#9C95B0",
+        "accent": "#9B6BFF",
+        "accentInk": "#9B6BFF",
+        "btnLabel": "#121018",
+        "hair": "#2C2738"
+      },
+      "type": {
+        "heading": {
+          "name": "Sora",
+          "stack": "'Sora', system-ui, -apple-system, sans-serif",
+          "weight": 700
+        },
+        "body": {
+          "name": "DM Sans",
+          "stack": "'DM Sans', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-18",
+      "name": "Depot",
+      "blurb": "Workmanlike and legible. A light-room alternative to Ironworks.",
+      "suits": "Trades, contractors, plumbing, roofing, supply and rental.",
+      "ground": "light",
+      "temp": "warm",
+      "typeClass": "condensed sans",
+      "mood": [
+        "Utilitarian",
+        "Sturdy",
+        "Plain-spoken"
+      ],
+      "palette": {
+        "page": "#F5F4F1",
+        "surface": "#FFFFFF",
+        "ink": "#1E1E1C",
+        "muted": "#5C5A54",
+        "accent": "#B03A0A",
+        "accentInk": "#8E2E07",
+        "btnLabel": "#FFFFFF",
+        "hair": "#E3E1DB"
+      },
+      "type": {
+        "heading": {
+          "name": "Roboto Condensed",
+          "stack": "'Roboto Condensed', system-ui, -apple-system, sans-serif",
+          "weight": 700
+        },
+        "body": {
+          "name": "Roboto",
+          "stack": "'Roboto', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-19",
+      "name": "Cove",
+      "blurb": "Cool, clean and modern. Clinic without the clipboard.",
+      "suits": "Chiropractic, physio, dental, optometry, veterinary.",
+      "ground": "light",
+      "temp": "cool",
+      "typeClass": "geometric sans",
+      "mood": [
+        "Clean",
+        "Modern",
+        "Calm"
+      ],
+      "palette": {
+        "page": "#F6FAFA",
+        "surface": "#FFFFFF",
+        "ink": "#12242A",
+        "muted": "#53666C",
+        "accent": "#0B6B74",
+        "accentInk": "#08545C",
+        "btnLabel": "#FFFFFF",
+        "hair": "#DCE9EA"
+      },
+      "type": {
+        "heading": {
+          "name": "Outfit",
+          "stack": "'Outfit', system-ui, -apple-system, sans-serif",
+          "weight": 600
+        },
+        "body": {
+          "name": "Figtree",
+          "stack": "'Figtree', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    },
+    {
+      "code": "D-20",
+      "name": "Press",
+      "blurb": "Newsprint confidence. Big headline, strong rule, nothing hiding.",
+      "suits": "Agencies, media, events, bold local brands with something to say.",
+      "ground": "light",
+      "temp": "neutral",
+      "typeClass": "display serif",
+      "mood": [
+        "Editorial",
+        "Confident",
+        "Loud"
+      ],
+      "palette": {
+        "page": "#FFFFFF",
+        "surface": "#F4F4F2",
+        "ink": "#0A0A0A",
+        "muted": "#565654",
+        "accent": "#B01A20",
+        "accentInk": "#96151B",
+        "btnLabel": "#FFFFFF",
+        "hair": "#E4E4E1"
+      },
+      "type": {
+        "heading": {
+          "name": "Playfair Display",
+          "stack": "'Playfair Display', Georgia, 'Times New Roman', serif",
+          "weight": 800
+        },
+        "body": {
+          "name": "Source Sans 3",
+          "stack": "'Source Sans 3', system-ui, -apple-system, sans-serif",
+          "weight": 400
+        }
+      }
+    }
+  ],
+  "sample": {
+    "nav": [
+      "Services",
+      "About",
+      "Contact"
+    ],
+    "navCta": "Call",
+    "eyebrow": "Serving the Flathead Valley",
+    "headline": "The work speaks for itself.",
+    "body": "A line of the copy that sits under a headline, long enough to show how the body typeface behaves at reading size.",
+    "ctaPrimary": "Book a visit",
+    "ctaSecondary": "See our work",
+    "tiles": [
+      {
+        "h": "What we do",
+        "p": "A short supporting paragraph in the smaller size."
+      },
+      {
+        "h": "Get in touch",
+        "p": "Open Monday to Friday, and most Saturdays."
+      }
+    ]
+  },
+  "fontSubsetNote": "googleFonts carries a `text=` subset generated from `sample` + the direction names. If you change sample copy or add a direction, RE-RUN the generator -- a glyph outside the subset silently falls back to the system face."
+}

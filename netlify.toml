@@ -10,6 +10,15 @@
 # rules never fire from netlify.toml (verified 2026-08-09), only from _redirects.
 
 # Security + caching headers (helps Performance + best-practices audits)
+# Functions. Declared explicitly rather than relying on the default path: this site
+# had no functions until /build-brief/, and `functions_dir` is unset on the Netlify
+# side, so leaving it implicit means the submit endpoint's existence depends on a
+# convention nothing here states. esbuild is named for the same reason -- the function
+# uses ESM and a JSON import attribute.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 [[headers]]
   for = "/*"
   [headers.values]

@@ -1,0 +1,11 @@
+Webfonts used by /design-directions/.
+
+Retrieved from Google Fonts and subset to the glyphs the page renders.
+Every family here is licensed under either the SIL Open Font License 1.1
+or the Apache License 2.0. Both permit self-hosting and redistribution.
+
+Full licence text for each family: https://fonts.google.com/
+
+Files are GENERATED. Regenerate with scripts/selfhost-fonts rather than
+editing or adding files by hand; scripts/check-directions.mjs verifies that
+every face the data needs is present here.

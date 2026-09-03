@@ -1,0 +1,169 @@
+---
+layout: layouts/base.njk
+title: Website Build Brief
+description: The intake for a 406 Front Desk website build. Eight short steps, saved as you go, so we can build something close on the first draft instead of guessing.
+pageCss: build-brief
+permalink: /build-brief/
+eleventyExcludeFromCollections: true
+noindex: true   # client-only link, sent after the yes -- not a marketing page
+---
+{#
+  Website Build Brief — the custom-HTML replacement for GHL form XxclnFTTfAcAmdLNPC1I.
+
+  WHY THIS EXISTS AS CUSTOM HTML:
+  The spec's headline requirement is 8 steps. A GHL Form is single-page — multi-step is
+  a Survey feature — and the Survey rebuild was blocked behind two unknowns (file
+  upload support, and whether the 55 custom fields could be reused). Custom HTML gets
+  the 8 steps, the file upload, save-and-resume on a 56-field form, and the design
+  picker as a step, with no Survey rebuild and neither unknown.
+  See wiki/synthesis/Website Build Brief — Form vs Survey Decision.
+
+  FIELDS ARE GENERATED, NOT TYPED. src/_data/buildBrief.json comes from the live GHL
+  API via scripts/sync-build-brief.mjs. A wrong fieldKey is accepted silently by GHL
+  and the answer is dropped, so the keys must never be hand-written.
+
+  NO A2P CONSENT BLOCK. This is a client form, not lead capture — the phone is a
+  contact field only, and the opt-in lives on the public opt-in page. Both default GHL
+  consent checkboxes were deliberately deleted when the original was built.
+#}
+<link rel="stylesheet" href="/css/directions-fonts.css?v={{ buildStamp }}" />
+
+<div class="header-band">
+  <span class="header-eyebrow">Website build</span>
+  <h1>Your build brief</h1>
+</div>
+
+<div class="wrap">
+  <div class="bb-intro">
+    <p>
+      This is everything I need to build you something that is close on the first draft instead of a
+      guess. Eight short steps, about ten to fifteen minutes.
+    </p>
+    <p>
+      <strong>It saves as you go</strong> — on this device, in this browser. Close the tab and come back
+      to the same link and you will pick up where you left off. Nothing is sent until you hit submit on
+      the last step.
+    </p>
+  </div>
+
+  <ol class="bb-rail" id="bbRail" aria-label="Progress">
+    {% for s in buildBrief.sections %}
+    <li class="bb-rail__step" data-step="{{ s.n }}"><span class="bb-rail__n">{{ s.n }}</span><span class="bb-rail__t">{{ s.title }}</span></li>
+    {% endfor %}
+  </ol>
+
+  <form id="bbForm" class="bb-form" novalidate autocomplete="on">
+    {# Honeypot. A real person never fills this; bots fill everything. #}
+    <div class="bb-hp" aria-hidden="true">
+      <label>Company website<input type="text" name="website_hp" tabindex="-1" autocomplete="off" /></label>
+    </div>
+
+    {% for s in buildBrief.sections %}
+    <fieldset class="bb-step" data-step="{{ s.n }}" {% if s.n != 1 %}hidden{% endif %}>
+      <legend class="bb-step__legend">
+        <span class="bb-step__count">Step {{ s.n }} of {{ buildBrief.sections | length }}</span>
+        <span class="bb-step__title">{{ s.title }}</span>
+      </legend>
+      <p class="bb-step__blurb">{{ s.blurb }}</p>
+
+      {% if s.n == 1 %}
+      {# Standard contact fields — these are the contact record itself, not custom fields. #}
+      <div class="bb-field">
+        <label class="bb-label" for="full_name">Your name <span class="bb-req">required</span></label>
+        <input class="bb-input" type="text" id="full_name" name="full_name" required autocomplete="name" />
+      </div>
+      <div class="bb-field">
+        <label class="bb-label" for="email">Best email <span class="bb-req">required</span></label>
+        <p class="bb-help">Where drafts and links get sent.</p>
+        <input class="bb-input" type="email" id="email" name="email" required autocomplete="email" />
+      </div>
+      <div class="bb-field">
+        <label class="bb-label" for="phone">Best cell <span class="bb-req">required</span></label>
+        <p class="bb-help">Where I'll text you during the build. No marketing, ever.</p>
+        <input class="bb-input" type="tel" id="phone" name="phone" required autocomplete="tel" />
+      </div>
+      {% endif %}
+
+      {# logo_upload_reference is set by the server from the uploaded file, not answered
+         by the client -- it exists so the blob key is queryable in GHL. Never render it. #}
+      {% for f in buildBrief.fields %}{% if f.section == s.n and f.key != "logo_upload_reference" %}
+      <div class="bb-field" data-key="{{ f.key }}">
+        {% if f.key == "design_directions_picked" %}
+          {# The picker, inline. This is the whole reason the form moved off GHL: a client
+             points at a look instead of being told to go find three websites they like. #}
+          <span class="bb-label">{{ f.label }}</span>
+          <p class="bb-help">
+            Pick one or two that feel right. Not a commitment — it tells me which direction to run at.
+            <a href="/design-directions/" target="_blank" rel="noopener">See them full size</a>.
+          </p>
+          <input type="hidden" name="{{ f.key }}" id="ddPicked" />
+          <div class="bb-picker">
+            {% for d in directions.items %}
+            <button type="button" class="bb-swatch" data-code="{{ d.code }}" data-name="{{ d.name }}"
+              aria-pressed="false"
+              style="--d-page:{{ d.palette.page }};--d-surface:{{ d.palette.surface }};--d-ink:{{ d.palette.ink }};--d-muted:{{ d.palette.muted }};--d-accent:{{ d.palette.accent }};--d-accent-ink:{{ d.palette.accentInk }};--d-hair:{{ d.palette.hair }};--d-btn:{{ d.palette.btnLabel }};--d-fh:{{ d.type.heading.stack | safe }};--d-fb:{{ d.type.body.stack | safe }};--d-fwh:{{ d.type.heading.weight }}">
+              <span class="bb-swatch__prev">
+                <span class="bb-swatch__h">{{ directions.sample.headline }}</span>
+                <span class="bb-swatch__p">{{ directions.sample.ctaSecondary }}</span>
+                <span class="bb-swatch__btn">{{ directions.sample.ctaPrimary }}</span>
+              </span>
+              <span class="bb-swatch__meta"><b>{{ d.code }}</b> {{ d.name }}</span>
+            </button>
+            {% endfor %}
+          </div>
+        {% else %}
+          <label class="bb-label" for="f_{{ f.key }}">
+            {{ f.label }}{% if f.required %} <span class="bb-req">required</span>{% endif %}
+          </label>
+          {% if f.help %}<p class="bb-help">{{ f.help }}</p>{% endif %}
+
+          {% if f.type == "LARGE_TEXT" %}
+            <textarea class="bb-input bb-textarea" id="f_{{ f.key }}" name="{{ f.key }}" rows="4" {% if f.required %}required{% endif %}></textarea>
+          {% elif f.type == "RADIO" or f.type == "SINGLE_OPTIONS" %}
+            <div class="bb-options" role="radiogroup" aria-labelledby="f_{{ f.key }}">
+              {% for o in f.options %}
+              <label class="bb-option"><input type="radio" name="{{ f.key }}" value="{{ o }}" {% if f.required %}required{% endif %} /><span>{{ o }}</span></label>
+              {% endfor %}
+            </div>
+          {% elif f.type == "CHECKBOX" or f.type == "MULTIPLE_OPTIONS" %}
+            <div class="bb-options bb-options--multi" data-multi="1"{% if f.maxSelections %} data-max="{{ f.maxSelections }}"{% endif %}>
+              {% for o in f.options %}
+              <label class="bb-option"><input type="checkbox" name="{{ f.key }}" value="{{ o }}" /><span>{{ o }}</span></label>
+              {% endfor %}
+            </div>
+          {% elif f.type == "FILE_UPLOAD" %}
+            <input class="bb-input bb-file" type="file" id="f_{{ f.key }}" name="{{ f.key }}"
+                   accept=".png,.jpg,.jpeg,.svg,.pdf,.ai,.eps,.webp" />
+            <p class="bb-help bb-help--sub">Up to 4 MB. If your logo is bigger, or you have a folder of them, just email it over instead.</p>
+          {% elif f.type == "DATE" %}
+            <input class="bb-input" type="date" id="f_{{ f.key }}" name="{{ f.key }}" />
+          {% else %}
+            <input class="bb-input" type="text" id="f_{{ f.key }}" name="{{ f.key }}" {% if f.required %}required{% endif %} />
+          {% endif %}
+        {% endif %}
+        {% if f.maxSelections %}<p class="bb-count" data-max="{{ f.maxSelections }}"></p>{% endif %}
+        <p class="bb-error" hidden>This one's needed before the next step.</p>
+      </div>
+      {% endif %}{% endfor %}
+
+      <div class="bb-nav">
+        <button type="button" class="bb-btn bb-btn--ghost" data-back {% if s.n == 1 %}hidden{% endif %}>Back</button>
+        {% if s.n < 8 %}
+        <button type="button" class="bb-btn" data-next>Next step</button>
+        {% else %}
+        <button type="submit" class="bb-btn bb-btn--go">Send my brief</button>
+        {% endif %}
+      </div>
+    </fieldset>
+    {% endfor %}
+
+    <div class="bb-saved" id="bbSaved" hidden>Saved on this device</div>
+  </form>
+
+  <div class="bb-done" id="bbDone" hidden>
+    <h2>That's it — thank you.</h2>
+    <p id="bbDoneMsg">Your brief is in. I'll read it properly and come back to you with anything that needs a conversation before I start building.</p>
+  </div>
+</div>
+
+<script src="/js/build-brief.js?v={{ buildStamp }}" defer></script>

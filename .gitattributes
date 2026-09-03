@@ -1,0 +1,28 @@
+# Binary assets — declared explicitly rather than left to Git's content heuristic.
+#
+# This repo has core.autocrlf=true. Git normally detects binaries by looking for NUL
+# bytes in the first 8KB and skips line-ending conversion for them. That heuristic is
+# reliable in practice but it is a heuristic, and a webfont silently rewritten by CRLF
+# conversion is corrupt in a way nothing in the build will notice — the page just
+# renders in a fallback face on someone else's clone.
+#
+# Declaring the types removes the guess. Deliberately NOT using `* text=auto`, which
+# would renormalise every tracked text file and churn the working tree.
+
+*.woff2 binary
+*.woff  binary
+*.ttf   binary
+*.otf   binary
+*.eot   binary
+
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.gif   binary
+*.ico   binary
+*.avif  binary
+
+*.mp4   binary
+*.webm  binary
+*.pdf   binary
