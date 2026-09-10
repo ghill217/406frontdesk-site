@@ -176,8 +176,13 @@ export default async (req) => {
     email,
     companyName: business,
     source: "Website build request (406frontdesk.com)",
-    tags: ["website build request", WANTS[want]],
   };
+  // ⛔ TAGS ARE DELIBERATELY NOT SENT HERE. Measured 2026-09-10: `/contacts/upsert` treats the
+  // `tags` array as AUTHORITATIVE and REPLACES the contact's whole tag set. Proven with a throwaway
+  // tag: a contact carrying `zz-tag-merge-probe` plus two others came back with only the two this
+  // endpoint sends. On a returning prospect that would silently strip `scorecard-request` /
+  // `scorecard-delivered` and drop them out of the Scorecard Nurture drip, plus any client-status
+  // tags. They go through POST /contacts/<id>/tags below instead, which ADDS.
   // Only send the optional keys when they hold something. An empty string on `phone` is
   // accepted and blanks a value an existing contact already had -- this endpoint
   // upserts, so a returning prospect must not lose the number they gave last time.
@@ -219,6 +224,28 @@ export default async (req) => {
 
   let contactId = null;
   try { contactId = (JSON.parse(text).contact || {}).id || null; } catch {}
+
+  // TAGS, ADDED not replaced -- see the note on the upsert body above.
+  // 🔴 This one is load-bearing beyond bookkeeping: the workflow that emails the requester
+  // triggers on *Tag added -> website build request*. If this call fails, the contact and the task
+  // still exist so the lead is not lost, but NO confirmation email goes out and the page's
+  // "within one business day" promise is carried by Gus alone. Hence the loud log.
+  let tagsOk = false;
+  if (contactId) {
+    try {
+      const tagRes = await fetch(`${GHL}/contacts/${contactId}/tags`, {
+        method: "POST",
+        headers: ghlHeaders(token),
+        body: JSON.stringify({ tags: ["website build request", WANTS[want]] }),
+      });
+      tagsOk = tagRes.ok;
+      if (!tagRes.ok) {
+        console.error(`TAG WRITE FAILED ${tagRes.status} for ${contactId} :: ${(await tagRes.text()).slice(0, 300)} -- the confirmation email will NOT have been sent`);
+      }
+    } catch (e) {
+      console.error("TAG WRITE FAILED (unreachable):", e && e.message, "-- the confirmation email will NOT have been sent");
+    }
+  }
 
   // THE ANSWERS AS A NOTE. The upsert above carries name/email/phone/company/website;
   // the two answers that make this a build request -- what they want, and what they
@@ -285,6 +312,6 @@ export default async (req) => {
     console.error("submission archive failed (contact was still saved):", e && e.message);
   }
 
-  console.log(`build request stored for ${email}${contactId ? ` (contact ${contactId})` : ""} — ${want}, note ${noteOk}, task ${taskOk}`);
+  console.log(`build request stored for ${email}${contactId ? ` (contact ${contactId})` : ""} — ${want}, tags ${tagsOk}, note ${noteOk}, task ${taskOk}`);
   return json(200, { ok: true });
 };
