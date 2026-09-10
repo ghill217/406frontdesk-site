@@ -79,6 +79,8 @@ section.inner-sec { max-width: 1020px; margin: 0 auto; padding: 55px 24px; }
 .proof-band h2 { color: #fff; font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.2vw, 34px); letter-spacing: -0.02em; margin-bottom: 12px; }
 .proof-band > p { color: rgba(255,255,255,0.72); font-size: 15.5px; max-width: 720px; }
 .proof-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 26px; }
+/* Two-up variant: used while a third proof card is between clients (see websites.njk). */
+.proof-points--two { grid-template-columns: repeat(2, 1fr); }
 /* Caveat line under a proof band — dimmer and smaller than the band's lede. Used on /seo/ to bound
    the AI-search claim honestly (answers vary between people; we never show a rank or a score). */
 .proof-band > p.proof-caveat {
