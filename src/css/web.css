@@ -62,6 +62,26 @@ body {
 .lcard p { font-size: 14.5px; color: var(--ink-soft); }
 .lcard .price { display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 600; color: var(--accent-text); letter-spacing: 0.02em; }
 
+/* Card footer: price + the card's own action. The three cards carry wildly different
+   copy lengths, so the card is a column and the footer is pushed to the bottom —
+   without that the buttons sit at three different heights and read as an accident. */
+.lcard { display: flex; flex-direction: column; }
+.lcard-foot { margin-top: auto; padding-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.lcard-foot .price { margin-top: 0; }
+.lcard-cta {
+  display: inline-block; text-decoration: none;
+  color: var(--navy); background: var(--white);
+  border: 1.5px solid var(--border-strong); border-radius: var(--radius-pill, 999px);
+  padding: 9px 18px; font-size: 14px; font-weight: 600;
+  transition: border-color 0.2s, background 0.2s;
+}
+.lcard-cta:hover { border-color: var(--accent); background: var(--accent-light); }
+.lcard-cta:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* The card whose action is the point of the page gets the filled treatment. Amber is a
+   fill here, with navy text on it — never amber text on the cream card. */
+.lcard-cta--go { background: var(--accent); border-color: var(--accent); }
+.lcard-cta--go:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+
 /* ── SECTIONS ── */
 section.inner-sec { max-width: 1020px; margin: 0 auto; padding: 55px 24px; }
 .sec-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px; }

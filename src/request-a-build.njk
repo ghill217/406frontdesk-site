@@ -1,0 +1,177 @@
+---
+layout: layouts/base.njk
+title: Request a Website Build
+description: Ask 406 Front Desk to build or rebuild your website. Six questions, a free 12-point scorecard on the site you have, and an honest answer about whether you need a rebuild at all. Kalispell, Montana.
+pageCss: request-build
+permalink: /request-a-build/
+---
+{% from "partials/icons.njk" import icon %}
+{#
+  Request a Website Build — the public build/tune-up enquiry form.
+
+  WHY THIS PAGE EXISTS. /scorecard/ captures people who want a grade; /build-brief/ is
+  the 56-field client form sent AFTER the yes. Between them there was nothing for the
+  person who has already decided they want a site built, so that intent had to be
+  funnelled through the scorecard or /contact/. This page is that missing door.
+
+  WHY CUSTOM HTML, NOT A GHL EMBED. Six fields, on-brand, posting to
+  netlify/functions/build-request.js which upserts the contact and opens a task. It
+  carries none of the GHL builder's seeded defaults (the example.com privacy links, the
+  split First/Last name, the two [BUSINESS NAME] consent checkboxes) because there is
+  no builder in the path at all. Same reasoning as /build-brief/.
+
+  NO A2P CONSENT BLOCK, AND NONE MAY BE ADDED. The phone is an optional callback field.
+  406's A2P campaigns name the opt-in pages as the only opt-in method, so a submission
+  here is NOT permission to text — the label says so, and the function's note repeats
+  it on the contact record. Adding consent wording here needs /a2p-check and Gus.
+
+  Claims must stay literally true against DECISIONS.md:
+    - build from $1,500 one-time, 3 edit rounds included, extra rounds $150 flat
+    - tune-up from $400 one-time · Google Business Profile from $250 one-time
+    - Site Care $97/mo · Site Care+ $197/mo (one number, no founding split)
+    - rebuilds ship at A− minimum on every column of the 12-point scorecard
+    - AI search is scope inside the SEO work, never a priced line item
+  Prices are floors worded "from" — never a range with a "+". No proof, testimonial or
+  statistic goes on this page until it is real and confirmed.
+#}
+<div class="header-band">
+  <span class="header-eyebrow">Website builds · Kalispell &amp; the Flathead Valley</span>
+  <h1>Tell me about the site<br /><em>you want built.</em></h1>
+  <p>Six questions, about a minute. You get a free 12-point scorecard on the site you have now, then a straight answer about what it would take — including whether you need a rebuild at all.</p>
+</div>
+
+<div class="wrap">
+  <div class="rb-grid">
+    <div class="rb-side">
+      <h2 class="rb-side__h">What happens after you send this</h2>
+      <ol class="rb-steps">
+        <li>
+          <span class="rb-steps__n">1</span>
+          <div>
+            <strong>The free scorecard, first</strong>
+            <p>I grade the site you have now against twelve checks — design, mobile, speed, search on Google and in AI assistants, trust, security, conversion — by hand, with the receipts behind every mark. No site yet? We skip straight to step two.</p>
+          </div>
+        </li>
+        <li>
+          <span class="rb-steps__n">2</span>
+          <div>
+            <strong>An honest read on the work</strong>
+            <p>What actually needs doing, what it would cost, and what I would leave alone. If a tune-up gets you there, I will say so rather than sell you a rebuild.</p>
+          </div>
+        </li>
+        <li>
+          <span class="rb-steps__n">3</span>
+          <div>
+            <strong>Only then, a build</strong>
+            <p>If you want to go ahead, a short brief pins down the design and the pages, then it is built, three edit rounds included. It goes live on your own domain when every column of that same scorecard grades A− or better.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="rb-prices">
+        <h3>Roughly what things cost</h3>
+        <dl>
+          <div><dt>Website scorecard</dt><dd>Free</dd></div>
+          <div><dt>Website build or rebuild</dt><dd>From $1,500 one-time</dd></div>
+          <div><dt>Website &amp; SEO tune-up</dt><dd>From $400 one-time</dd></div>
+          <div><dt>Google Business Profile</dt><dd>From $250 one-time</dd></div>
+          <div><dt>Site Care after launch</dt><dd>$97/mo · Site Care+ $197/mo</dd></div>
+        </dl>
+        <p class="rb-prices__note">Starting prices, quoted up by scope. You get a real number before anything starts, and nothing on this page bills you for asking.</p>
+      </div>
+
+      <div class="rb-call">
+        <strong>Would rather just talk?</strong>
+        <span>Call and a real person — or the front desk, at 2 AM — will take your details.</span>
+        <a href="tel:+14068400404" class="rb-call__btn">{{ icon("phone") }} Call (406) 840-0404</a>
+      </div>
+    </div>
+
+    <div class="rb-formwrap">
+      <div class="rb-formhead">
+        <h2>Request a build</h2>
+        <p>I read every one of these myself. You will hear back within one business day.</p>
+      </div>
+
+      <form id="rbForm" class="rb-form" novalidate>
+        {# Honeypot. A real person never fills a field they cannot see. #}
+        <div class="rb-hp" aria-hidden="true">
+          <label>Company<input type="text" name="company_hp" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <div class="rb-field">
+          <label class="rb-label" for="rb_name">Your name <span class="rb-req">required</span></label>
+          <input class="rb-input" type="text" id="rb_name" name="name" required autocomplete="name" />
+          <p class="rb-error" hidden>Please add your name.</p>
+        </div>
+
+        <div class="rb-field">
+          <label class="rb-label" for="rb_business">Business name <span class="rb-req">required</span></label>
+          <input class="rb-input" type="text" id="rb_business" name="business" required autocomplete="organization" />
+          <p class="rb-error" hidden>Please add your business name.</p>
+        </div>
+
+        <div class="rb-field">
+          <label class="rb-label" for="rb_email">Email <span class="rb-req">required</span></label>
+          <p class="rb-help">Where your scorecard gets sent.</p>
+          <input class="rb-input" type="email" id="rb_email" name="email" required autocomplete="email" />
+          <p class="rb-error" hidden>Please add an email I can reply to.</p>
+        </div>
+
+        <div class="rb-field">
+          <label class="rb-label" for="rb_phone">Phone <span class="rb-opt">optional</span></label>
+          {# Wording is load-bearing: this is a callback field, not an SMS opt-in. #}
+          <p class="rb-help">Only so I can call you back. You will not be added to any texting list.</p>
+          <input class="rb-input" type="tel" id="rb_phone" name="phone" autocomplete="tel" />
+        </div>
+
+        <div class="rb-field">
+          <label class="rb-label" for="rb_website">Your current website <span class="rb-req">required</span></label>
+          <p class="rb-help">Paste the address, or a Facebook page. If you do not have one, just say so — that is a perfectly good answer.</p>
+          <input class="rb-input" type="text" id="rb_website" name="website" required autocomplete="url"
+                 placeholder="yourbusiness.com — or “I don’t have one”" />
+          <p class="rb-error" hidden>Tell me your site address, or that you do not have one.</p>
+        </div>
+
+        <div class="rb-field">
+          <span class="rb-label" id="rb_want_label">What are you after? <span class="rb-req">required</span></span>
+          <div class="rb-options" role="radiogroup" aria-labelledby="rb_want_label">
+            <label class="rb-option"><input type="radio" name="want" value="New site" required /><span><strong>A new site</strong>I do not have one yet, or I am starting over.</span></label>
+            <label class="rb-option"><input type="radio" name="want" value="Rebuild of what I have" /><span><strong>A rebuild of what I have</strong>The site exists but it is not doing its job.</span></label>
+            <label class="rb-option"><input type="radio" name="want" value="Tune-up, keep the site" /><span><strong>A tune-up, keep the site</strong>The bones are fine. Fix speed, mobile and search.</span></label>
+            <label class="rb-option"><input type="radio" name="want" value="Not sure yet" /><span><strong>Not sure yet</strong>Grade it and tell me what you would do.</span></label>
+          </div>
+          <p class="rb-error" hidden>Pick the one that is closest.</p>
+        </div>
+
+        <div class="rb-field">
+          <label class="rb-label" for="rb_notes">Anything you want me to know <span class="rb-opt">optional</span></label>
+          <p class="rb-help">What your customers need to do on the site, a deadline, a site you like the look of — whatever is on your mind.</p>
+          <textarea class="rb-input rb-textarea" id="rb_notes" name="notes" rows="4" maxlength="2000"></textarea>
+        </div>
+
+        <button type="submit" class="rb-submit">Send my request</button>
+        <p class="rb-fineprint">No obligation, no automated upsell, and I will not add you to a text list. Read the <a href="/privacy-policy/">privacy policy</a>.</p>
+      </form>
+
+      <div class="rb-done" id="rbDone" hidden>
+        <div class="rb-done__mark" aria-hidden="true">{{ icon("check") }}</div>
+        <h2>Got it — thank you.</h2>
+        <p>Your request is in. I will grade the site and come back to you within one business day. If it is urgent, call <a href="tel:+14068400404">(406) 840-0404</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="inner-sec">
+  <div class="sec-eyebrow">Before you ask</div>
+  <h2>Three things worth knowing</h2>
+  <div class="rb-notes">
+    <div class="rb-note"><strong>The scorecard is genuinely free</strong>You are not buying an audit and there is no report fee waiting at the end. If your site is fine, I will tell you it is fine.</div>
+    <div class="rb-note"><strong>Nothing is locked into me</strong>The site goes live on your own domain and stays yours. If you already have a domain, I migrate it.</div>
+    <div class="rb-note"><strong>The grade is the exit gate</strong>A build does not go live until every column of the same twelve-point scorecard reads A− or better. You see the grade on the old site and on the new one.</div>
+  </div>
+  <p class="rb-elsewhere">Not what you are after? <a href="/scorecard/">Just the free scorecard</a> · <a href="/seo/">Local SEO and Google Business Profile</a> · <a href="/features/">The front desk that answers your calls</a></p>
+</section>
+
+<script src="/js/request-build.js?v={{ buildStamp }}" defer></script>

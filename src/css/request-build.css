@@ -1,0 +1,235 @@
+/* Request a Website Build — the public build/tune-up enquiry form.
+   Page chrome (.header-band / .wrap / .inner-sec) is defined per-page in this repo,
+   so this file carries its own copy, the same as build-brief.css and web.css.
+   NO local :root — tokens.css covers the palette. Amber is a fill colour here, never
+   text on a light ground: --accent-text is the only amber allowed on cream/white. */
+
+/* --- page chrome --------------------------------------------------------- */
+.header-band {
+  background: var(--navy); padding: 108px 40px 96px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.header-band::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(232, 164, 53, 0.14) 0%, transparent 55%);
+}
+.header-eyebrow {
+  position: relative; display: inline-block;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+}
+.header-band h1 {
+  position: relative; font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(34px, 5vw, 50px); color: #fff;
+  letter-spacing: -0.02em; margin-bottom: 14px; line-height: 1.12;
+}
+.header-band h1 em { color: var(--accent); font-style: italic; }
+.header-band > p {
+  position: relative; color: rgba(255, 255, 255, 0.86);
+  max-width: 60ch; margin: 0 auto; font-size: 17px; line-height: 1.6;
+}
+
+.wrap { max-width: 1120px; margin: -56px auto 0; padding: 0 20px 64px; position: relative; }
+
+.inner-sec { max-width: 1120px; margin: 0 auto; padding: 0 20px 72px; }
+.sec-eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent-text); margin-bottom: 10px;
+}
+.inner-sec h2 {
+  font-family: 'DM Serif Display', Georgia, serif; font-size: 30px;
+  color: var(--navy); letter-spacing: -0.01em; margin-bottom: 20px;
+}
+
+/* --- two-column layout ---------------------------------------------------- */
+.rb-grid {
+  display: grid; grid-template-columns: 1fr 1.05fr; gap: 28px; align-items: start;
+}
+@media (max-width: 900px) {
+  /* Form first on a phone: the person who tapped "Request a build" came to type,
+     not to read the explainer again. */
+  .rb-grid { grid-template-columns: 1fr; gap: 22px; }
+  .rb-side { order: 2; }
+  .rb-formwrap { order: 1; }
+}
+
+/* --- left column: what happens, prices, call ------------------------------ */
+.rb-side {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-md, 10px); padding: 28px;
+  box-shadow: 0 6px 22px rgba(15, 37, 64, 0.07);
+}
+.rb-side__h {
+  font-family: 'DM Serif Display', Georgia, serif; font-size: 22px;
+  color: var(--navy); margin-bottom: 18px; letter-spacing: -0.01em;
+}
+.rb-steps { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 18px; }
+.rb-steps li { display: flex; gap: 13px; align-items: flex-start; }
+.rb-steps__n {
+  flex: none; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent); color: var(--navy);
+  display: grid; place-items: center; font-size: 13px; font-weight: 700;
+}
+.rb-steps strong { display: block; color: var(--navy); font-size: 15.5px; margin-bottom: 3px; }
+.rb-steps p { margin: 0; color: var(--ink-soft); font-size: 14.5px; line-height: 1.55; }
+
+.rb-prices {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-md, 10px); padding: 20px; margin-bottom: 20px;
+}
+.rb-prices h3 {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-text); margin: 0 0 12px;
+}
+.rb-prices dl { margin: 0; display: grid; gap: 9px; }
+.rb-prices dl > div {
+  display: flex; justify-content: space-between; gap: 14px; align-items: baseline;
+  padding-bottom: 9px; border-bottom: 1px solid var(--border);
+}
+.rb-prices dl > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.rb-prices dt { color: var(--ink-soft); font-size: 14.5px; }
+.rb-prices dd {
+  margin: 0; color: var(--navy); font-size: 14px; font-weight: 600;
+  text-align: right; white-space: nowrap;
+}
+.rb-prices__note {
+  margin: 13px 0 0; color: var(--ink-muted); font-size: 13.5px; line-height: 1.5;
+}
+
+.rb-call {
+  border-top: 1px solid var(--border); padding-top: 20px;
+  display: grid; gap: 4px; justify-items: start;
+}
+.rb-call strong { color: var(--navy); font-size: 15.5px; }
+.rb-call span { color: var(--ink-soft); font-size: 14.5px; line-height: 1.5; margin-bottom: 10px; }
+.rb-call__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--navy); color: #fff; text-decoration: none;
+  padding: 11px 18px; border-radius: var(--radius-pill, 999px);
+  font-weight: 600; font-size: 15px;
+  transition: background .15s ease, transform .15s ease;
+}
+.rb-call__btn:hover { background: var(--navy-soft); transform: translateY(-1px); }
+.rb-call__btn svg { width: 18px; height: 18px; flex: none; }
+
+/* --- right column: the form ---------------------------------------------- */
+.rb-formwrap {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-md, 10px); padding: 28px;
+  box-shadow: 0 10px 30px rgba(15, 37, 64, 0.10);
+}
+.rb-formhead { margin-bottom: 22px; }
+.rb-formhead h2 {
+  font-family: 'DM Serif Display', Georgia, serif; font-size: 25px;
+  color: var(--navy); margin-bottom: 6px; letter-spacing: -0.01em;
+}
+.rb-formhead p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+
+.rb-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.rb-field { margin-bottom: 20px; }
+.rb-label {
+  display: block; font-weight: 600; color: var(--ink);
+  margin-bottom: 4px; font-size: 15.5px;
+}
+.rb-req, .rb-opt {
+  display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; vertical-align: 1px;
+}
+.rb-req { color: var(--accent-text); }
+.rb-opt { color: var(--ink-muted); }
+.rb-help {
+  color: var(--ink-muted); font-size: 13.5px; margin: 0 0 8px;
+  max-width: 62ch; line-height: 1.5;
+}
+.rb-input {
+  width: 100%; padding: 11px 13px; font: inherit; font-size: 16px;
+  color: var(--ink); background: var(--white);
+  border: 1px solid var(--border-strong); border-radius: 8px;
+}
+.rb-input::placeholder { color: var(--ink-muted); }
+.rb-input:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent);
+}
+.rb-textarea { resize: vertical; min-height: 96px; line-height: 1.55; }
+
+.rb-options { display: grid; gap: 7px; }
+.rb-option {
+  display: flex; gap: 10px; align-items: flex-start; cursor: pointer;
+  border: 1px solid var(--border); border-radius: 8px; padding: 11px 13px;
+  transition: border-color .12s ease, background .12s ease;
+}
+.rb-option:hover { border-color: var(--border-strong); background: var(--surface); }
+.rb-option input { margin-top: 3px; flex: none; accent-color: var(--accent); width: 16px; height: 16px; }
+.rb-option span { font-size: 14.5px; color: var(--ink-soft); line-height: 1.45; }
+.rb-option strong { display: block; color: var(--navy); font-size: 15px; margin-bottom: 1px; }
+.rb-option:has(input:checked) { border-color: var(--accent); background: var(--accent-light); }
+
+.rb-error { margin: 6px 0 0; color: #a5281c; font-size: 13.5px; }
+.rb-field.is-bad .rb-input,
+.rb-field.is-bad .rb-options {
+  outline: 2px solid #c0392b; outline-offset: 3px; border-radius: 8px;
+}
+
+.rb-submit {
+  width: 100%; border: 0; cursor: pointer;
+  background: var(--accent); color: var(--navy);
+  padding: 14px 20px; border-radius: var(--radius-pill, 999px);
+  font: inherit; font-size: 16px; font-weight: 700;
+  transition: background .15s ease, transform .15s ease;
+}
+.rb-submit:hover:not(:disabled) { background: var(--accent-hover); transform: translateY(-1px); }
+.rb-submit:active:not(:disabled) { background: var(--accent-press); transform: none; }
+.rb-submit:disabled { opacity: .6; cursor: progress; }
+.rb-submit:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+
+.rb-fineprint {
+  margin: 12px 0 0; text-align: center;
+  color: var(--ink-muted); font-size: 13px; line-height: 1.5;
+}
+/* Nothing in the cascade colours a bare <a>, so an unstyled link renders browser-blue
+   on a page that has no blue in it. Every inline link on this page names its colour. */
+.rb-fineprint a,
+.rb-done p a { color: var(--accent-text); font-weight: 600; }
+
+.rb-submit-error {
+  margin-top: 14px; padding: 14px 16px;
+  background: #fdf0ee; border: 1px solid #f0c7c0; border-radius: 8px;
+}
+.rb-submit-error strong { color: #a5281c; display: block; margin-bottom: 5px; }
+.rb-submit-error p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+
+.rb-done { text-align: center; padding: 26px 6px; }
+.rb-done__mark {
+  width: 46px; height: 46px; margin: 0 auto 14px; border-radius: 50%;
+  background: var(--accent); color: var(--navy); display: grid; place-items: center;
+}
+.rb-done__mark svg { width: 24px; height: 24px; }
+.rb-done h2 {
+  font-family: 'DM Serif Display', Georgia, serif; color: var(--navy);
+  font-size: 28px; margin-bottom: 10px;
+}
+.rb-done p { color: var(--ink-soft); max-width: 46ch; margin: 0 auto; line-height: 1.6; }
+
+/* --- closing notes -------------------------------------------------------- */
+.rb-notes {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;
+}
+.rb-note {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-md, 10px); padding: 20px;
+  color: var(--ink-soft); font-size: 14.5px; line-height: 1.55;
+}
+.rb-note strong {
+  display: block; color: var(--navy); font-size: 16px; margin-bottom: 6px;
+  font-family: 'DM Serif Display', Georgia, serif; letter-spacing: -0.01em;
+}
+.rb-elsewhere { margin: 20px 0 0; color: var(--ink-muted); font-size: 14.5px; }
+.rb-elsewhere a { color: var(--accent-text); }
+
+@media (max-width: 560px) {
+  .header-band { padding: 84px 22px 82px; }
+  .rb-side, .rb-formwrap { padding: 22px 18px; }
+  .rb-prices dl > div { flex-direction: column; gap: 2px; }
+  .rb-prices dd { text-align: left; }
+}

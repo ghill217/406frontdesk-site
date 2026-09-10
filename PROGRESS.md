@@ -94,6 +94,34 @@ Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
   and `--accent-display` #c08016 carry amber *text* on light backgrounds (see the block in `a11y.css`).
   Re-run the audit before shipping palette changes.
 
+## Session log — 2026-09-10 (request-a-build intake)
+
+New page `/request-a-build/`, the public build/tune-up enquiry that sat missing between
+`/scorecard/` (people who want a grade) and `/build-brief/` (the 56-field client form sent
+after the yes). Six fields, custom HTML, posting to `netlify/functions/build-request.js`.
+
+- **No GHL builder in the path**, on purpose — same reasoning as the build brief. The
+  builder seeds every new form with example.com policy links, split First/Last name fields
+  and two `[BUSINESS NAME]` consent checkboxes, and duplicating a form copies all of it
+  forward. A hand-built form cannot inherit any of that.
+- **Almost no custom fields.** The contact carries name/email/phone/company/website; the
+  two answers that make it a build request go into a **note**, plus a task due in 24 hours.
+  The one exception is `current_website_url` — the same fact the brief asks for, written to
+  the brief's own field so it does not end up with two homes that can disagree. It is looked
+  up from the generated map, never typed, and a missing id degrades to nothing rather than
+  failing a submission.
+- **No A2P consent block, and none may be added.** The phone is an optional callback field —
+  the label says so and the note repeats it on the contact record. 406's campaigns name the
+  opt-in pages as the only opt-in method. Adding consent wording here needs `/a2p-check`.
+- Reuses the brief's `GHL_PIT` env var, so there is nothing new to configure — and nothing
+  new to rotate. Health Monitor rows 25–26 watch the page and the endpoint.
+- The three service cards on `/websites/` and `/seo/` each grew their own action
+  (`.lcard-foot` + `.lcard-cta`); the card is now a flex column so the buttons line up across
+  three cards of very different copy length.
+- Verified: `npm run audit` clean on the new page (0 contrast, 0 overflow at 390px, 0 dangling
+  links); the endpoint exercised against a stubbed fetch — 19 checks covering validation, the
+  closed answer set, the honeypot, the missing-credential path and the GHL payload.
+
 ## Session log — 2026-08-20 (GSC 404 validation)
 
 Google Search Console's *Not found (404)* fix-validation kept failing. Two URLs in the bucket;
