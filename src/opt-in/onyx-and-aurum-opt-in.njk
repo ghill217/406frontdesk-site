@@ -1,0 +1,32 @@
+---
+layout: layouts/optin.njk
+permalink: /onyx-and-aurum-opt-in/
+clientName: "Onyx & Aurum Barbershop"
+senderName: "Onyx & Aurum Barbershop"
+formId: "YK4AOa23HvHovkOvY9Fp"
+eleventyExcludeFromCollections: true
+---
+{#
+  The consent surface the NEW Onyx & Aurum A2P campaign registers (2026-09-12).
+
+  Same GHL form as /mob-opt-in/ on purpose. The form is the thing carriers and
+  the in-wizard scanner actually grade, and this one has a clean history: both
+  consent checkboxes optional and unchecked, SSR footer disclosure de-bundled,
+  and a prior 8/8 on the compliance scanner. A brand-new form would throw that
+  away for nothing.
+
+  Why a second page rather than renaming the first: /mob-opt-in/ is the URL
+  inside the LIVE MOB 10DLC registration. Changing or removing it would break a
+  registration that is still sending. Both pages therefore stand until the old
+  campaign is retired at cutover, at which point /mob-opt-in/ can be deleted or
+  redirected here.
+
+  ⚠️ NO disclosureLine, deliberately. Every other client page carries one naming
+  the legal entity behind the trade name ("Kalispell TRT is a DBA of Montana
+  Laser and Medical Center, PLLC"), and the honest line here would name MOB LLC.
+  Gus asked for no MOB anywhere on this surface (2026-09-12), so it is omitted —
+  Mikey's page has no disclosure line either, so this is within the house
+  pattern rather than an exception to it. If a vetter ever asks who operates the
+  shop, add it back as: "Onyx & Aurum Barbershop is a registered assumed
+  business name of MOB LLC."
+#}
