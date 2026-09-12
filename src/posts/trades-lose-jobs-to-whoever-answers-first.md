@@ -42,7 +42,7 @@ You can't dispatch a truck without knowing what's wrong, where it is and how bad
 - **What's the problem, in their words.**
 - **Where's the property** — is it even in your service area.
 - **How urgent** — this decides everything downstream.
-- **Own or rent** — because a renter often can't authorise the work, and finding that out on site is an expensive way to learn it.
+- **Own or rent** — because a renter often can't authorize the work, and finding that out on site is an expensive way to learn it.
 
 Now you're looking at a list of qualified jobs with enough detail to decide what's worth a truck roll tonight and what waits until Thursday. That's a different thing from a calendar full of appointments somebody's software booked on your behalf.
 

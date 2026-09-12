@@ -80,7 +80,7 @@ lines = [
     " * Source request (for reproducibility):",
     " *   " + src_url[:150] + ("..." if len(src_url) > 150 else ""),
     " *",
-    " * Licences: SIL Open Font License 1.1 / Apache 2.0 - both permit self-hosting.",
+    " * Licenses: SIL Open Font License 1.1 / Apache 2.0 - both permit self-hosting.",
     " *           See assets/fonts/directions/NOTICE.txt",
     " */",
     "",
@@ -141,7 +141,7 @@ io.open(notice + ".tmp", "w", encoding="utf-8", newline="\n").write(
     "Retrieved from Google Fonts and subset to the glyphs the page renders.\n"
     "Every family here is licensed under either the SIL Open Font License 1.1\n"
     "or the Apache License 2.0. Both permit self-hosting and redistribution.\n\n"
-    "Full licence text for each family: https://fonts.google.com/\n\n"
+    "Full license text for each family: https://fonts.google.com/\n\n"
     "Files are GENERATED. Regenerate with scripts/selfhost-fonts rather than\n"
     "editing or adding files by hand; scripts/check-directions.mjs verifies that\n"
     "every face the data needs is present here.\n")

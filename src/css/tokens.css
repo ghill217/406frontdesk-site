@@ -2,13 +2,13 @@
    406 Front Desk — design tokens (single source of truth)
    Loaded site-wide in base.njk BEFORE the per-page stylesheet.
 
-   Page CSS files still carry their own :root colour block for now;
+   Page CSS files still carry their own :root color block for now;
    those values are identical to the ones below and can be deleted
    per page as each is migrated onto these tokens.
    ============================================================ */
 
 :root {
-  /* ---- Colour (roles, not names) ---- */
+  /* ---- Color (roles, not names) ---- */
   --ink: #1A1A1A;
   --ink-soft: #3a3d42;
   --ink-muted: #7a7e87;

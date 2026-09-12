@@ -32,16 +32,16 @@
       "page": "/salons-spas/",
       "aliases": ["salon", "hair salon", "hair stylist", "stylist", "spa", "day spa", "massage", "massage therapist", "nails", "nail salon", "nail tech", "lashes", "lash tech", "esthetician", "waxing", "booth renter", "cosmetologist"],
       "pains": [
-        "A colour service runs two hours — you physically cannot take that call.",
+        "A color service runs two hours — you physically cannot take that call.",
         "\"How much for balayage?\" can't be quoted blind without undercharging or scaring off a booking.",
         "The gift-card call always arrives mid-service, and somebody still has to answer it."
       ],
       "features": [
         { "strong": "Missed-call text-back", "body": "A call you couldn't take mid-service becomes a text conversation in seconds, instead of a voicemail you clear at close." },
         { "strong": "Answers the menu questions", "body": "Services, rough timings, what's included, gift cards, parking, whether you take walk-ins — answered instantly and accurately, any hour." },
-        { "strong": "Never quotes a custom service", "body": "Colour, extensions and corrections get captured — length, current colour, what they're after — then handed to you. It only quotes what you've published." },
+        { "strong": "Never quotes a custom service", "body": "Color, extensions and corrections get captured — length, current color, what they're after — then handed to you. It only quotes what you've published." },
         { "strong": "Fills cancellations", "body": "When a slot opens, it offers it out and takes the first yes, so a late cancellation doesn't become a dead two hours." },
-        { "strong": "Keeps people rebooking", "body": "A nudge when a client is due, so the six-week colour cycle doesn't quietly stretch to ten and the monthly massage doesn't lapse." }
+        { "strong": "Keeps people rebooking", "body": "A nudge when a client is due, so the six-week color cycle doesn't quietly stretch to ten and the monthly massage doesn't lapse." }
       ],
       "proof": null
     },
@@ -58,7 +58,7 @@
       ],
       "features": [
         { "strong": "Works the DMs, not just the phone", "body": "Instagram and Facebook messages answered in minutes — the channels most studios actually run on, and the ones that go unread longest." },
-        { "strong": "Captures the consult brief", "body": "The idea, rough size, placement, colour or black-and-grey, references, budget range and timeline — gathered before it ever reaches you." },
+        { "strong": "Captures the consult brief", "body": "The idea, rough size, placement, color or black-and-gray, references, budget range and timeline — gathered before it ever reaches you." },
         { "strong": "Never quotes a price", "body": "It explains how you price and what a consult involves, then tells them you'll confirm. No number goes out that you didn't set." },
         { "strong": "Answers the studio questions", "body": "Deposits, shop minimum policy, age and ID, hours, parking, walk-ins versus appointment, whether you're booking at all right now." },
         { "strong": "Books consults when you're ready", "body": "Start with capture only. Once you trust it, let it put fixed-length consultations straight onto a calendar." }
@@ -142,7 +142,7 @@
       ],
       "features": [
         { "strong": "Missed-call text-back", "body": "A call nobody could reach becomes a text conversation in seconds, including on the days and hours the office is closed." },
-        { "strong": "The emergency call, handled correctly", "body": "It recognises urgency, gives your posted after-hours instructions, and gets the patient onto the first available slot. It never assesses the problem." },
+        { "strong": "The emergency call, handled correctly", "body": "It recognizes urgency, gives your posted after-hours instructions, and gets the patient onto the first available slot. It never assesses the problem." },
         { "strong": "Works the hygiene recall", "body": "Overdue patients get a friendly text that books them, instead of a call your desk never gets to. The list finally gets worked." },
         { "strong": "Fills short-notice openings", "body": "When a slot opens, it offers it out and takes the first yes — so the chair gets filled without anyone dialling down a list." },
         { "strong": "Human handoff", "body": "Anything clinical, anything about a specific treatment plan, anything sensitive goes to your team with a summary of the conversation." }

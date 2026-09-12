@@ -16,7 +16,7 @@
  *
  * Exits non-zero if anything fails, so it can gate a release.
  *
- * WHY THIS EXISTS: brand amber is a *fill* colour. #E8A435 is 2.0:1 on cream
+ * WHY THIS EXISTS: brand amber is a *fill* color. #E8A435 is 2.0:1 on cream
  * and #c98a1a is 2.8:1 — both fail as body text. src/css/a11y.css defines
  * --accent-text (#976411) and --accent-display (#c08016) for amber text on
  * light backgrounds. Re-run this before shipping any palette change; the

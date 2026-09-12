@@ -185,7 +185,7 @@
     {
       "code": "D-06",
       "name": "Atelier",
-      "blurb": "Quiet, expensive, almost no colour. Lets the photography do the talking.",
+      "blurb": "Quiet, expensive, almost no color. Lets the photography do the talking.",
       "suits": "Salons, spas, boutiques, photographers, anyone selling taste.",
       "ground": "light",
       "temp": "neutral",
@@ -546,7 +546,7 @@
       "code": "D-16",
       "name": "Orchard",
       "blurb": "Fresh and green without going twee. Good with real photographs of real food.",
-      "suits": "Farms, markets, nurseries, garden centres, food producers.",
+      "suits": "Farms, markets, nurseries, garden centers, food producers.",
       "ground": "light",
       "temp": "earthy",
       "typeClass": "old-style serif",

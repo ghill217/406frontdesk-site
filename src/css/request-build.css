@@ -1,7 +1,7 @@
 /* Request a Website Build — the public build/tune-up enquiry form.
    Page chrome (.header-band / .wrap / .inner-sec) is defined per-page in this repo,
    so this file carries its own copy, the same as build-brief.css and web.css.
-   NO local :root — tokens.css covers the palette. Amber is a fill colour here, never
+   NO local :root — tokens.css covers the palette. Amber is a fill color here, never
    text on a light ground: --accent-text is the only amber allowed on cream/white. */
 
 /* --- page chrome --------------------------------------------------------- */
@@ -187,8 +187,8 @@
   margin: 12px 0 0; text-align: center;
   color: var(--ink-muted); font-size: 13px; line-height: 1.5;
 }
-/* Nothing in the cascade colours a bare <a>, so an unstyled link renders browser-blue
-   on a page that has no blue in it. Every inline link on this page names its colour. */
+/* Nothing in the cascade colors a bare <a>, so an unstyled link renders browser-blue
+   on a page that has no blue in it. Every inline link on this page names its color. */
 .rb-fineprint a,
 .rb-done p a { color: var(--accent-text); font-weight: 600; }
 

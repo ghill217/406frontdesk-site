@@ -34,7 +34,7 @@ byte-for-byte GHL port. That means a change to `tokens.css` is overridden on tho
 that's why `--ink-muted`, `--accent-dark` and friends are set there rather than in `tokens.css`.
 When you migrate a page onto tokens, delete its local `:root` block.
 
-**Amber is a fill colour, not a text colour.** `--accent` (#E8A435) is 2.0:1 on cream and
+**Amber is a fill color, not a text color.** `--accent` (#E8A435) is 2.0:1 on cream and
 `--accent-dark` was 2.8:1 — both fail WCAG AA as body text. For amber *text on light
 backgrounds* use `--accent-text` (#976411, AA at any size) or `--accent-display` (#c08016,
 AA at ≥24px only). Amber on the navy bands passes and is deliberately left alone.

@@ -30,7 +30,7 @@ A missed call, you can recover with a text an hour later. A bad number you can't
 
 Capturing well is a real skill, and it's most of the value. The receptionist's job is to arrive at your callback already knowing what you'd have to ask anyway.
 
-For a **tattoo**, that's the idea, rough size, placement, colour or black-and-grey, references, and roughly when they want it. An artist coming out of a four-hour session to *"upper arm, about palm-sized, black-and-grey, here's a reference, flexible on timing"* is in a completely different position than one facing *"how much for a tattoo?"*
+For a **tattoo**, that's the idea, rough size, placement, color or black-and-gray, references, and roughly when they want it. An artist coming out of a four-hour session to *"upper arm, about palm-sized, black-and-grey, here's a reference, flexible on timing"* is in a completely different position than one facing *"how much for a tattoo?"*
 
 For a **groom**, it's breed, size, coat condition and how matted they are — the four things that decide both the price and how long the table is occupied.
 
@@ -56,7 +56,7 @@ It isn't just custom trades. The same discipline covers:
 
 - **Insurance questions.** A practice can say which plans it's in-network with. What a specific person's plan actually covers is a question for a human, because a wrong answer there becomes a billing dispute rather than a lost lead.
 - **Timelines.** "How long will it take?" is a quote in disguise. Published service durations, fine. A promised completion date on work nobody has looked at yet, no.
-- **Feasibility.** Whether a cover-up will work, whether a colour will lift, whether a repair is worth doing on a 200,000-mile car. Those are professional judgments, and a front desk that offers one is speaking for you without your permission.
+- **Feasibility.** Whether a cover-up will work, whether a color will lift, whether a repair is worth doing on a 200,000-mile car. Those are professional judgments, and a front desk that offers one is speaking for you without your permission.
 
 ## The test
 

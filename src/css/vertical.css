@@ -4,7 +4,7 @@
      Rendered by src/verticals.njk from src/_data/verticals.json — add a vertical
      by adding a JSON entry, never by copying this file.
      No local :root block: tokens.css loads site-wide before this file and
-     already defines every colour and radius used here. */
+     already defines every color and radius used here. */
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -86,7 +86,7 @@
   .ppoint { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 18px 20px; }
   .ppoint strong { display: block; color: #fff; font-size: 15px; margin-bottom: 4px; }
   .ppoint span { color: rgba(255,255,255,0.6); font-size: 13.5px; line-height: 1.5; display: block; }
-  /* Amber on the navy band — a default link colour is unreadable here. */
+  /* Amber on the navy band — a default link color is unreadable here. */
   .ppoint a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
   .ppoint a:hover { color: #fff; }
 

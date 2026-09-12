@@ -38,7 +38,7 @@ const contrast = (a, b) => {
 };
 const r2 = (n) => Math.round(n * 100) / 100;
 
-/** The label colour a filled accent button uses. Declared in the JSON, not inferred,
+/** The label color a filled accent button uses. Declared in the JSON, not inferred,
  *  so the template needs no contrast math -- and checked here so a declared value that
  *  cannot carry words is a build failure rather than a rendering surprise. */
 export function buttonLabel(d) {

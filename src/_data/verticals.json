@@ -580,7 +580,7 @@
           },
           {
             "strong": "The emergency call, handled correctly",
-            "body": "It recognises urgency, gives your posted after-hours instructions, and gets the patient onto the first available slot. It never assesses the problem."
+            "body": "It recognizes urgency, gives your posted after-hours instructions, and gets the patient onto the first available slot. It never assesses the problem."
           },
           {
             "strong": "Works the hygiene recall",
@@ -1004,7 +1004,7 @@
         },
         {
           "strong": "It never verifies benefits or visit limits",
-          "body": "It can share what you've published about plans and cash rates. What a specific policy authorises reaches a human, because a wrong answer there becomes a billing problem."
+          "body": "It can share what you've published about plans and cash rates. What a specific policy authorizes reaches a human, because a wrong answer there becomes a billing problem."
         },
         {
           "strong": "It never opens a chart",
@@ -1033,7 +1033,7 @@
       {
         "icon": "scissors",
         "title": "Hands in someone's hair",
-        "body": "A colour service runs two hours and a massage runs ninety minutes. You physically cannot take that call, and stepping out to answer it costs you the client in the chair."
+        "body": "A color service runs two hours and a massage runs ninety minutes. You physically cannot take that call, and stepping out to answer it costs you the client in the chair."
       },
       {
         "icon": "tag",
@@ -1062,7 +1062,7 @@
           },
           {
             "strong": "Never quotes a custom service",
-            "body": "Colour, extensions and corrections get captured — length, current colour, what they're after — then handed to you. It only quotes what you've published."
+            "body": "Color, extensions and corrections get captured — length, current color, what they're after — then handed to you. It only quotes what you've published."
           },
           {
             "strong": "Fills cancellations",
@@ -1070,7 +1070,7 @@
           },
           {
             "strong": "Keeps people rebooking",
-            "body": "A nudge when a client is due, so the six-week colour cycle doesn't quietly stretch to ten and the monthly massage doesn't lapse."
+            "body": "A nudge when a client is due, so the six-week color cycle doesn't quietly stretch to ten and the monthly massage doesn't lapse."
           },
           {
             "strong": "Human handoff",
@@ -1085,7 +1085,7 @@
         "items": [
           {
             "strong": "Hair salons",
-            "body": "Long colour services and a phone that rings hardest exactly when the whole floor is booked solid."
+            "body": "Long color services and a phone that rings hardest exactly when the whole floor is booked solid."
           },
           {
             "strong": "Booth renters &amp; solo stylists",
@@ -1124,7 +1124,7 @@
     "proof": {
       "eyebrow": "Where the line is",
       "h2": "It never prices what it can't see",
-      "body": "Anything on your published menu, it can answer all day. Anything that depends on the person in front of you — how much colour is already on their hair, whether that correction is a three-hour job or a three-visit one — gets captured and handed to you. Guessing there costs more than a missed call ever will.",
+      "body": "Anything on your published menu, it can answer all day. Anything that depends on the person in front of you — how much color is already on their hair, whether that correction is a three-hour job or a three-visit one — gets captured and handed to you. Guessing there costs more than a missed call ever will.",
       "points": [
         {
           "strong": "Published prices only",
@@ -1132,7 +1132,7 @@
         },
         {
           "strong": "No advice on the work",
-          "body": "Whether a colour will lift, whether extensions suit them, whether a massage will help a specific complaint — flagged for a human, never guessed at."
+          "body": "Whether a color will lift, whether extensions suit them, whether a massage will help a specific complaint — flagged for a human, never guessed at."
         },
         {
           "strong": "Your policies, word for word",
@@ -1146,7 +1146,7 @@
     },
     "note": "No salon/spa/massage client live yet. Do NOT add a brand chip, testimonial, or live-call proof stats to this page until one is signed and confirmed on real calls — same rule as every other vertical page. NOTE: med spas belong on /clinics/, not here — this page is deliberately non-medical.",
     "cta": {
-      "h2": "Try it like a client booking a colour would",
+      "h2": "Try it like a client booking a color would",
       "body": "Call or text our own line at (406) 840-0404 and ask it what your clients ask you. Then imagine it on your salon's line on a Saturday morning. Setup is done for you — you don't touch a thing."
     }
   },
@@ -1186,7 +1186,7 @@
           },
           {
             "strong": "Captures the consult brief",
-            "body": "The idea, rough size, placement, colour or black-and-grey, references, budget range and timeline — gathered before it ever reaches you."
+            "body": "The idea, rough size, placement, color or black-and-gray, references, budget range and timeline — gathered before it ever reaches you."
           },
           {
             "strong": "Never quotes a price",

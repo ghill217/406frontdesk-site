@@ -4,7 +4,7 @@
    as duplicates on 2026-08-04, so do not reintroduce page-level chrome here. ── */
 
 /* No local :root block — tokens.css loads site-wide before this file and already
-   defines every colour and radius used here, and a11y.css loads after it to set
+   defines every color and radius used here, and a11y.css loads after it to set
    the AA-safe amber. Per CLAUDE.md, new pages must not re-declare the palette. */
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

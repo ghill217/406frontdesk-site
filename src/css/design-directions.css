@@ -25,7 +25,7 @@
   font-size: clamp(36px, 5vw, 54px); color: #fff;
   letter-spacing: -0.02em; margin-bottom: 12px;
 }
-/* wider than the standard 1020px wrap: this page is a catalogue of 20 cards. */
+/* wider than the standard 1020px wrap: this page is a catalog of 20 cards. */
 .wrap { max-width: 1240px; margin: -64px auto 0; padding: 0 24px 60px; position: relative; }
 
 /* The .wrap pulls up -64px to overlap the navy band; on other pages a card sits

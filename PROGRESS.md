@@ -90,7 +90,7 @@ Repo: https://github.com/ghill217/406frontdesk-site · connected 2026-07-15.
 - Local: add street address to LocalBusiness schema (base.njk) + contact page. (Hours already present;
   `areaServed` widened to Flathead Valley / Montana / US on 2026-07-31.)
 - ✅ A11y: full contrast + keyboard pass done 2026-07-31. All 17 pages audited — 0 contrast failures,
-  0 heading-order breaks, 0 mobile overflow. Amber is now a fill-only colour: `--accent-text` #976411
+  0 heading-order breaks, 0 mobile overflow. Amber is now a fill-only color: `--accent-text` #976411
   and `--accent-display` #c08016 carry amber *text* on light backgrounds (see the block in `a11y.css`).
   Re-run the audit before shipping palette changes.
 
@@ -165,14 +165,14 @@ Shipped (PR #1, merged as `39e5d8d`):
   Postal address stays Kalispell so the local-pack signal is untouched.
 - Fonts self-hosted; no fonts.googleapis.com / gstatic requests remain anywhere.
 - WebP for the two images where it was actually smaller (see phase 2 above).
-- WCAG AA pass: amber retired as a text colour on light backgrounds.
+- WCAG AA pass: amber retired as a text color on light backgrounds.
 
 Follow-up (same branch, after the merge): committed `scripts/a11y-audit.mjs` + `CLAUDE.md`.
 Running the committed audit over **all 31 pages** — rather than the 17 checked by hand during
 the PR — turned up two things the manual pass missed:
 - **The four A2P opt-in pages had 20 contrast failures.** `optin.njk` is a standalone layout
   that loads neither `tokens.css` nor `a11y.css`, so every site-wide contrast fix skipped it.
-  Fixed in its own inline palette. Colour only — rendered consent text verified byte-identical.
+  Fixed in its own inline palette. Color only — rendered consent text verified byte-identical.
 - **`/sms-consent/` scrolled 75px sideways at 390px.** The support address is `nowrap`
   (a11y.css keeps addresses unbroken), which stopped a flex row from shrinking. `flex-wrap`
   on the row fixes it without breaking the address.

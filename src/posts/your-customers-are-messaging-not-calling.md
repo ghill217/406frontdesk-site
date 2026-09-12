@@ -28,7 +28,7 @@ Messages are quieter and, in a few specific ways, harder:
 
 The reason none of this gets handled isn't laziness. It's that the people who could answer are physically unable to.
 
-A tattoo artist is gloved up for four hours. A groomer has both hands on a wet dog. A stylist is mid-colour. A massage therapist is ninety minutes into a session with the phone deliberately silent.
+A tattoo artist is gloved up for four hours. A groomer has both hands on a wet dog. A stylist is mid-color. A massage therapist is ninety minutes into a session with the phone deliberately silent.
 
 These aren't jobs where you glance at your phone between tasks. The work *is* the block. And the busier you are — which is to say, the better things are going — the deeper the pile gets.
 
@@ -53,7 +53,7 @@ If the enquiries arrive as messages, then the front desk has to live where the m
 The same limits apply here as anywhere, and they matter more in a DM because the conversation feels casual:
 
 - **It doesn't quote custom work.** It captures the variables and tells them you'll confirm.
-- **It doesn't give an opinion on the work.** Whether a design suits a spot, whether a colour will lift, whether a dog's skin condition is a problem — that's you.
+- **It doesn't give an opinion on the work.** Whether a design suits a spot, whether a color will lift, whether a dog's skin condition is a problem — that's you.
 - **It sounds like your business.** Deposit terms, what you will and won't take on, your policies in your words. A generic chatbot voice in a DM is instantly obvious and worse than a slow reply.
 
 ## Where the website fits

@@ -127,7 +127,7 @@
 
   /* ── ON-PAGE CONSENT DISCLOSURE (readable by A2P scanner) ──
      Neutral on purpose. This is legal disclosure — the one block on the page
-     you cannot click — and it wore amber, the action colour, directly above
+     you cannot click — and it wore amber, the action color, directly above
      the call button. Amber now means one thing: this is the action.
      ⚠️ Styling only. The COPY is A2P-load-bearing and must not change. */
   .consent-disclosure {

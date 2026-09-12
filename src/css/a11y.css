@@ -10,7 +10,7 @@
 /* ============================================================
    Contrast pass — amber as TEXT on light backgrounds.
 
-   Brand amber is a fill colour, not a text colour: #E8A435 lands at
+   Brand amber is a fill color, not a text color: #E8A435 lands at
    2.0:1 on cream and #c98a1a at 2.8:1, both well under the 4.5:1 AA
    floor for body-size text. Amber on the navy bands already passes and
    is deliberately left alone — only light-background text is retargeted.
@@ -35,7 +35,7 @@
 /* Small amber text on light: labels, tags, stars.
    .section-label is listed unqualified on purpose — the two navy-section
    variants (.worth .section-label, .cta-section .section-label) are more
-   specific and keep their own colours. */
+   specific and keep their own colors. */
 .section-label,
 .proof-stars,
 .cs-stars,
@@ -51,11 +51,11 @@
 
 /* Amber-filled button: navy on amber is 7.2:1. It was already meant to be navy,
    but essentials.css's `.ess-page a { color: inherit }` outranks `.ess-btn-amber`
-   on specificity and forced the cream hero colour through at 2:1. Matching that
+   on specificity and forced the cream hero color through at 2:1. Matching that
    specificity fixes it. */
 .ess-page a.ess-btn-amber { color: var(--navy, #0F2540); }
 
-/* Status pills: the success green is a fill colour too (3.1:1 as 10px text). */
+/* Status pills: the success green is a fill color too (3.1:1 as 10px text). */
 .tag-live,
 .tag-free { color: var(--success-text); }
 

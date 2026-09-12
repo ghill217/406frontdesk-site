@@ -82,10 +82,10 @@ const ghlHeaders = (token) => ({
 
 /**
  * A website answer is free text on purpose -- "I do not have one" is a valid answer and
- * so is "facebook.com/myshop". Normalise anything that looks like a host into a URL so
+ * so is "facebook.com/myshop". Normalize anything that looks like a host into a URL so
  * the contact's website field is clickable, and leave prose alone.
  */
-function normaliseSite(raw) {
+function normalizeSite(raw) {
   const v = clean(raw);
   if (!v) return "";
   if (/^https?:\/\//i.test(v)) return v;
@@ -152,7 +152,7 @@ export default async (req) => {
   const business = clean(payload.business).slice(0, MAX.business);
   const email = clean(payload.email).slice(0, MAX.email);
   const phone = clean(payload.phone).slice(0, MAX.phone);
-  const website = normaliseSite(payload.website).slice(0, MAX.website);
+  const website = normalizeSite(payload.website).slice(0, MAX.website);
   const want = clean(payload.want);
   const notes = clean(payload.notes).slice(0, MAX.notes);
 

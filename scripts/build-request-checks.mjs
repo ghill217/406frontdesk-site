@@ -84,7 +84,7 @@ const note = find("/notes");
 restore();
 
 check("valid submission returns 200 ok", res.status === 200 && body.ok === true, JSON.stringify(body));
-check("website normalised to https", upsert.body.website === "https://reyesplumbing.com", upsert.body.website);
+check("website normalized to https", upsert.body.website === "https://reyesplumbing.com", upsert.body.website);
 check("company name sent", upsert.body.companyName === "Reyes Plumbing", upsert.body.companyName);
 check("name split into first + last", upsert.body.firstName === "Dana" && upsert.body.lastName === "Reyes", upsert.body.lastName);
 check("current_website_url written to the brief's own field id",
