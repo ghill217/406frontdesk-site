@@ -13,6 +13,9 @@
  *   node netlify/functions/brief-tasks.mjs --selftest
  */
 
+import { isNegativeAnswer } from "./scope-fence.mjs";
+import { pickDomain } from "./domain-preflight.mjs";
+
 const DAY = 86400000;
 
 /** Days until content is "due", from the client's own timing answer. */
@@ -38,6 +41,8 @@ export function planTasks(answers, flags = [], now = new Date()) {
   const tasks = [];
   const name = str(a.business_name_for_the_website) || "this client";
   const flagText = (needle) => flags.filter((f) => f.flag.includes(needle));
+  // The address box is free text ("got it"); name the task after a real domain.
+  const domain = pickDomain(str(a.what_web_address_do_you_want), str(a.current_website_url)) || str(a.what_web_address_do_you_want) || "domain";
 
   // 1. Content due -- always. The chaser workflow fires at day 7 for the two "due by
   //    now" answers; this task is the build-side mirror with the real date.
@@ -67,7 +72,7 @@ export function planTasks(answers, flags = [], now = new Date()) {
   const dom = flagText("Domain access is unknown").concat(flagText("UNREGISTERED"), flagText("available to register"));
   if (dom.length) {
     tasks.push({
-      title: `Resolve domain access: ${str(a.what_web_address_do_you_want) || "domain"}`,
+      title: `Resolve domain access: ${domain}`,
       body: dom.map((f) => `${f.flag}: ${f.why}`).join("\n") + `\nRegistered at (their answer): ${str(a.where_is_it_registered) || "unknown"}. Do this BEFORE promising a go-live date.`,
       dueDate: at(now, 3),
     });
@@ -75,10 +80,10 @@ export function planTasks(answers, flags = [], now = new Date()) {
 
   // 4. Email on the domain -- measured OR claimed. Repointing DNS on a guess takes
   //    their business email down.
-  const mail = flagText("Live email");
+  const mail = flagText("Live email").concat(flagText("site builder being replaced"));
   if (mail.length) {
     tasks.push({
-      title: `Map MX/SPF/DKIM before any DNS change: ${str(a.what_web_address_do_you_want) || "domain"}`,
+      title: `Map MX/SPF/DKIM before any DNS change: ${domain}`,
       body: mail.map((f) => `${f.flag}: ${f.why}`).join("\n"),
       dueDate: at(now, 3),
     });
@@ -87,7 +92,7 @@ export function planTasks(answers, flags = [], now = new Date()) {
   // 5. Hard deadline -- when they gave one. The date is free text, so the task is a
   //    prompt to put a real date against the content answer, not a parsed deadline.
   const deadline = str(a.does_this_need_to_be_live_by_a_certain_date);
-  if (deadline) {
+  if (!isNegativeAnswer(deadline)) {
     tasks.push({
       title: `Deadline check for ${name}: "${deadline.slice(0, 60)}"`,
       body: `They need it live by: ${deadline}. Set that against the content answer ("${timing || "none"}") and one edit round, then tell them whether it is real.`,
@@ -128,12 +133,14 @@ if (process.argv[1] && /brief-tasks\.mjs$/.test(process.argv[1]) && process.argv
 
   T("deadline -> check task at 2d", one({ ...clean, does_this_need_to_be_live_by_a_certain_date: "Before hunting season" }, [], "Deadline check").dueDate === "2026-09-05T12:00:00.000Z");
   T("no deadline -> no task", !titles(clean).some((t) => t.startsWith("Deadline")));
+  T("typed 'no' deadline -> no task", !titles({ ...clean, does_this_need_to_be_live_by_a_certain_date: "no" }).some((t) => t.startsWith("Deadline")));
+  T("MX task named after the current site when the address box is 'got it'", titles({ ...clean, what_web_address_do_you_want: "got it", current_website_url: "www.laughinggrizzly.com" }, mailFlag).includes("Map MX/SPF/DKIM before any DNS change: laughinggrizzly.com"));
 
   const loaded = planTasks({ ...clean, current_website_url: "https://a.example", does_this_need_to_be_live_by_a_certain_date: "Oct 1" }, domFlag.concat(mailFlag), now);
   T("fully loaded brief -> 5 tasks, no more", loaded.length === 5);
   T("every task has title/body/dueDate", loaded.every((t) => t.title && t.body && /^\d{4}-\d{2}-\d{2}T/.test(t.dueDate)));
   T("empty answers -> zero tasks, no throw", planTasks({}, [], now).length === 0);
 
-  console.log(bad === 0 ? "\nselftest: 18/18 controls behave (positive + negative)." : `\nselftest: ${bad} CONTROL(S) BROKEN`);
+  console.log(bad === 0 ? "\nselftest: 20/20 controls behave (positive + negative)." : `\nselftest: ${bad} CONTROL(S) BROKEN`);
   process.exitCode = bad === 0 ? 0 : 1;
 }

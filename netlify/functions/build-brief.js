@@ -18,7 +18,7 @@
 import { getStore } from "@netlify/blobs";
 import briefData from "../../src/_data/buildBrief.json" with { type: "json" };
 import { scopeFlags, scopeFlagsText } from "./scope-fence.mjs";
-import { probeDomain, measuredFlags, preflightText } from "./domain-preflight.mjs";
+import { probeDomain, measuredFlags, preflightText, pickDomain } from "./domain-preflight.mjs";
 import { planTasks } from "./brief-tasks.mjs";
 
 const LOCATION_ID = briefData.locationId;
@@ -153,7 +153,8 @@ export default async (req) => {
 
   // Start measuring the domain now so it overlaps the logo write. Read-only public
   // DNS + RDAP, capped, never throws; a failed lookup degrades to "unavailable".
-  const preflightP = probeDomain(clean(a.what_web_address_do_you_want) || clean(a.current_website_url));
+  // pickDomain, not `||`: the address box is free text, and "got it" is truthy.
+  const preflightP = probeDomain(pickDomain(clean(a.what_web_address_do_you_want), clean(a.current_website_url)));
 
   // Stash the logo before touching GHL, so a storage failure never produces a contact
   // that claims to have a logo nobody can find.

@@ -99,6 +99,22 @@ const RULES = [
   },
 ];
 
+/**
+ * A free-text answer that says "nothing here" in words. The first real brief with
+ * free text in these fields (Laughing Grizzly, 2026-09-15) typed "no" into both the
+ * integration and the deadline boxes, and `nonEmpty` read each as a yes -- two false
+ * flags and a "Deadline check: \"no\"" task on a client with no deadline.
+ *
+ * WHOLE-ANSWER match only, on purpose: "No, but we use Square" is a real integration
+ * and must still trip. Anything with content beyond the negative stays a yes.
+ */
+const NEGATIVE = /^(no+|nope|nah|none|nothing|not really|not that i know of|n\/?a|not applicable|no deadline|no rush|no date|no thanks|not needed|nothing yet|-+|\u2014)[.!]*$/i;
+export function isNegativeAnswer(v) {
+  if (Array.isArray(v)) return v.length === 0;
+  const s = typeof v === "string" ? v.trim() : v == null ? "" : String(v).trim();
+  return !s || NEGATIVE.test(s);
+}
+
 const val = (answers, key) => {
   const v = answers[key];
   if (Array.isArray(v)) return v;
@@ -117,7 +133,7 @@ export function scopeFlags(answers, measured = []) {
     if (r.includes) tripped = Array.isArray(v) ? v.includes(r.includes) : v === r.includes;
     else if (r.equals) tripped = v === r.equals;
     else if (r.equalsAny) tripped = r.equalsAny.includes(v);
-    else if (r.nonEmpty) tripped = Array.isArray(v) ? v.length > 0 : String(v).length > 0;
+    else if (r.nonEmpty) tripped = !isNegativeAnswer(v);
     if (tripped) hits.push(r);
   }
   return hits.concat(measured || []);
@@ -201,6 +217,23 @@ if (process.argv[1] && process.argv[1].endsWith("scope-fence.mjs") && process.ar
   console.log(`  ${cleanOk ? "PASS" : "FAIL"}  ordinary brief trips NOTHING${cleanOk ? "" : ` (got: ${clean.map((h) => h.flag).join(", ")})`}`);
   if (!cleanOk) bad++;
 
+  // A typed "no" is not a yes. Regression: Laughing Grizzly, 2026-09-15, answered
+  // "no" to both and got two false flags.
+  for (const neg of ["no", "No.", "none", "N/A", "nope", "Not that I know of", "no deadline"]) {
+    const got = scopeFlags({ ...CLEAN, does_it_need_to_connect_to_software_you_already_use: neg, does_this_need_to_be_live_by_a_certain_date: neg });
+    const ok = got.length === 0;
+    console.log(`  ${ok ? "PASS" : "FAIL"}  typed "${neg}" trips NOTHING${ok ? "" : ` (got: ${got.map((h) => h.flag).join(", ")})`}`);
+    if (!ok) bad++;
+  }
+  // ...but a negative with content after it is still a real answer.
+  const qualified = scopeFlags({ ...CLEAN, does_it_need_to_connect_to_software_you_already_use: "No, but we use Square for the register" }).map((h) => h.flag);
+  const qOk = qualified.includes("Wants an integration with existing software");
+  console.log(`  ${qOk ? "PASS" : "FAIL"}  "No, but we use Square..." still trips integration`);
+  if (!qOk) bad++;
+  const nowOk = scopeFlags({ ...CLEAN, does_this_need_to_be_live_by_a_certain_date: "Not before October, but by Nov 1" }).length === 1;
+  console.log(`  ${nowOk ? "PASS" : "FAIL"}  a real date that starts with "Not" still trips the deadline`);
+  if (!nowOk) bad++;
+
   const text = scopeFlagsText(CLEAN);
   const textOk = text.startsWith("No scope flags");
   console.log(`  ${textOk ? "PASS" : "FAIL"}  clean brief reads as clean`);
@@ -222,6 +255,7 @@ if (process.argv[1] && process.argv[1].endsWith("scope-fence.mjs") && process.ar
   console.log(`  ${cpOk ? "PASS" : "FAIL"}  clean brief still carries the preflight block`);
   if (!cpOk) bad++;
 
-  console.log(bad === 0 ? `\nselftest: ${CASES.length + 5}/${CASES.length + 5} controls behave (positive + negative).` : `\nselftest: ${bad} CONTROL(S) BROKEN`);
+  const total = CASES.length + 5 + 7 + 2;
+  console.log(bad === 0 ? `\nselftest: ${total}/${total} controls behave (positive + negative).` : `\nselftest: ${bad} CONTROL(S) BROKEN`);
   process.exitCode = bad === 0 ? 0 : 1;
 }

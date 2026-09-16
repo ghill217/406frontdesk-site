@@ -42,6 +42,42 @@ export function normalizeDomain(input) {
   return s;
 }
 
+/**
+ * The first of several brief answers that is actually a domain. The web-address
+ * box is free text: Laughing Grizzly (2026-09-15) typed "got it" there, which is
+ * truthy, so `a || b` never fell through to their perfectly good current site URL
+ * and the pre-flight measured nothing on a domain with Microsoft 365 behind it.
+ */
+export function pickDomain(...inputs) {
+  for (const i of inputs) {
+    const d = normalizeDomain(i);
+    if (d) return d;
+  }
+  return null;
+}
+
+/**
+ * Name servers that belong to a website BUILDER, not a registrar or a DNS host.
+ * When a client leaves the builder, cancelling it deletes the DNS zone -- MX
+ * records included -- so their email dies on the day they cancel, not the day we
+ * repoint. Laughing Grizzly: GoDaddy registrar, ns4/ns5.wixdns.net, Microsoft 365.
+ */
+const BUILDER_NS = [
+  [/(^|\.)wixdns\.net$/, "Wix"],
+  [/(^|\.)squarespacedns\.com$/, "Squarespace"],
+  [/(^|\.)weebly(dns)?\.com$/, "Weebly"],
+  [/(^|\.)squareup\.com$|(^|\.)square\.site$/, "Square Online"],
+  [/(^|\.)shopify\.com$/, "Shopify"],
+  [/(^|\.)webflow\.com$/, "Webflow"],
+];
+export function builderDns(ns) {
+  for (const h of ns || []) {
+    const host = String(h).toLowerCase().replace(/\.$/, "");
+    for (const [re, name] of BUILDER_NS) if (re.test(host)) return name;
+  }
+  return null;
+}
+
 const MX_PROVIDERS = [
   // smtp.google.com is Google's CURRENT MX host; aspmx.l.google.com the legacy one.
   // The first version matched only the legacy host and called 406's own domain
@@ -158,6 +194,14 @@ export function measuredFlags(r, answers = {}, now = new Date()) {
 
   if (r.rdap && (r.rdap.status || []).some((s) => /hold|pendingdelete|redemption/i.test(s))) {
     out.push({ flag: `${r.domain} carries a hold/redemption status`, why: `RDAP status: ${r.rdap.status.join(", ")}. Resolve with the registrar first.` });
+  }
+
+  const builder = builderDns(r.ns);
+  if (builder) {
+    out.push({
+      flag: `DNS for ${r.domain} is hosted by ${builder}, the site builder being replaced`,
+      why: `Name servers: ${(r.ns || []).slice(0, 2).join(", ")}. Cancelling ${builder} deletes the whole DNS zone${mx.provider ? `, including the ${mx.provider} mail records` : ""}. Recreate every record at the new DNS host and move the name servers BEFORE the client cancels anything.`,
+    });
   }
 
   if (r.registered && r.aChecked && !r.hasA) {
@@ -351,7 +395,15 @@ if (isMain && process.argv.includes("--selftest")) {
   T("text names registrar", txt.includes("registrar    : R"));
   T("text handles no-domain", preflightText({ domain: null }).includes("no usable domain"));
 
-  const total = 39;
+  // pickDomain -- regression: "got it" in the address box hid a real current site.
+  T("pickDomain skips non-domain text", pickDomain("got it", "www.laughinggrizzly.com") === "laughinggrizzly.com");
+  T("pickDomain prefers the first real domain", pickDomain("new.example", "old.example") === "new.example");
+  T("pickDomain all junk -> null", pickDomain("got it", "", "none") === null);
+  // builder DNS
+  T("wixdns NS -> builder flag naming the mail", measuredFlags({ ...base, ns: ["ns4.wixdns.net", "ns5.wixdns.net"], mx: ["x.mail.protection.outlook.com"] }, {}, now).some((f) => f.flag.includes("hosted by Wix") && f.why.includes("Microsoft 365")));
+  T("registrar NS -> no builder flag", !flagsOf({ ns: ["ns01.domaincontrol.com"] }).some((f) => f.includes("hosted by")));
+
+  const total = 44;
   console.log(bad === 0 ? `\nselftest: ${total}/${total} controls behave (positive + negative).` : `\nselftest: ${bad} CONTROL(S) BROKEN`);
   process.exitCode = bad === 0 ? 0 : 1;
 }
