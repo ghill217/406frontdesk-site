@@ -69,7 +69,17 @@ the page `h1` is a heading-order break (the template already does this right).
 npm run build     # required first — audit reads dist/
 npm i --no-save playwright   # not a dependency; see below
 npm run audit     # contrast, heading order, alt text, labels, overflow, dead links
+npm run check:nav # NAV-OCCLUDED: the open mobile menu, at 390x844 and 844x390
 ```
+
+`npm run check:nav` is **NAV-OCCLUDED**, required on every 406-built site (the kit sites run it
+inside `npm run audit` from `406-site-kit` v0.8.2; this site does not use the kit, so it runs the
+standalone port in the vault, `The Hive Mind/.claude/scripts/check-nav-occlusion.mjs`). It clicks
+the menu toggle, focuses every item in the open panel, and fails any item that is off screen or
+covered by a fixed or sticky element. `a11y-audit.mjs` never opens the menu, so it cannot see
+this. It needs the same ad hoc `npm i --no-save playwright` (or `PLAYWRIGHT_DIR` pointing at a
+folder where that was run). First run 2026-09-16: 0 failures, 50 menus opened across 55 pages; the
+844x390 views are skipped because the desktop nav shows above 760px.
 
 `npm run audit` covers **all** pages in `dist/`, exits non-zero on any failure, and is the
 check to re-run before shipping a palette change. It found 43 real contrast failures on its

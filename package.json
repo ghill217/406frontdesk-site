@@ -8,7 +8,8 @@
     "start": "eleventy --serve --quiet",
     "dev": "eleventy --serve",
     "audit": "node scripts/a11y-audit.mjs",
-    "check:build-request": "node scripts/build-request-checks.mjs"
+    "check:build-request": "node scripts/build-request-checks.mjs",
+    "check:nav": "node \"C:/Users/ghill/Documents/Obsidian/The Hive Mind/.claude/scripts/check-nav-occlusion.mjs\" dist"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"
