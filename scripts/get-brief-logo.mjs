@@ -11,7 +11,7 @@
  * Usage:
  *   node scripts/get-brief-logo.mjs                       # list everything, newest first
  *   node scripts/get-brief-logo.mjs --match smith         # filter by key/email substring
- *   node scripts/get-brief-logo.mjs --get <key>           # download one
+ *   node scripts/get-brief-logo.mjs --get <key>           # download one into ./brief-logos/ (git-ignored)
  *   node scripts/get-brief-logo.mjs --get <key> --out D:/somewhere
  *
  * Auth: reads the Netlify PAT from ~/.hivemind/netlify-token.txt (outside the vault,
@@ -21,7 +21,8 @@
 import { getStore } from "@netlify/blobs";
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { homedir } from "node:os";
-import { join, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const SITE_ID = "6099da85-5729-4d4b-b40a-beacd07e5499"; // 406frontdesk (not secret)
 const STORE = "build-brief-logos";
@@ -52,7 +53,10 @@ if (getKey) {
     console.error(`No blob with key: ${getKey}\nRun without --get to list what is there.`);
     process.exit(1);
   }
-  const outDir = resolve(flag("--out") || process.cwd());
+  // Default is <repo>/brief-logos/, which .gitignore excludes. It used to be the current directory, which is how
+  // a client's 1.3 MB logo sat untracked in this repo's root for four days (AM Strength, 2026-09-12 -> 09-16)
+  // one `git add -A` away from 406's permanent history. Client files belong in the vault, not the site repo.
+  const outDir = resolve(flag("--out") || join(dirname(fileURLToPath(import.meta.url)), "..", "brief-logos"));
   if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
   const name = (res.metadata?.originalName || getKey).replace(/[^A-Za-z0-9._-]+/g, "-");
   const dest = join(outDir, name);

@@ -8,3 +8,6 @@ dist/
 
 # local-only test harnesses (create + purge real records; never ship)
 scripts/*.local.mjs
+
+# client logos downloaded by scripts/get-brief-logo.mjs (copy of record lives in the vault)
+brief-logos/
