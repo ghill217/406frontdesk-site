@@ -1,0 +1,115 @@
+/* Front Desk Discovery — only what build-brief.css does not already carry.
+   The page loads build-brief.css as its pageCss for the chrome, the rail, the step
+   fieldsets and every form control, so the two forms cannot drift apart visually. */
+
+/* Chips: single-choice answers lay out like the multi-choice ones, as tappable cards
+   rather than a column of radio rows. On a phone a tap target is the whole card. */
+.dv-chips { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+.bb-option { min-height: 44px; align-items: center; }
+
+/* "In your own words" is folded away so a tap-only pass stays a tap-only pass. */
+.dv-own { margin-top: 10px; }
+.dv-own summary {
+  cursor: pointer; font-size: 14px; color: var(--ink-muted); width: fit-content;
+  padding: 6px 0; list-style-position: inside;
+}
+.dv-own summary:hover { color: var(--ink-soft); }
+.dv-own summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.dv-own[open] summary { margin-bottom: 6px; }
+.dv-own .bb-textarea { min-height: 72px; }
+
+.dv-number { max-width: 220px; }
+
+/* A note is a statement, not a question (the no-patient-information line). */
+.dv-note {
+  border-left: 3px solid var(--accent); background: var(--accent-light);
+  padding: 12px 16px; border-radius: 0 8px 8px 0;
+}
+.dv-note p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+
+/* Permission to stop. Quiet on purpose: it must be findable, never the loudest thing. */
+.dv-early { margin: var(--sp-5) 0 0; font-size: 14.5px; color: var(--ink-muted); }
+.dv-linkbtn {
+  background: none; border: 0; padding: 0; font: inherit; cursor: pointer;
+  color: var(--accent-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px;
+}
+.dv-linkbtn:hover { color: var(--navy); }
+.dv-linkbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+.dv-linkbtn:disabled { opacity: .6; cursor: progress; }
+
+.dv-carry { margin-top: var(--sp-6); font-size: 14.5px; text-align: center; }
+.dv-carry__out {
+  margin-top: 12px; text-align: left; background: var(--white);
+  border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;
+}
+.dv-carry__out p { margin: 0 0 10px; color: var(--ink-soft); font-size: 14.5px; line-height: 1.55; }
+.dv-carry__row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+
+.dv-resume {
+  margin: var(--sp-5) 0 0; padding: 12px 16px; border-radius: 8px;
+  background: var(--accent-light); border: 1px solid var(--accent);
+  color: var(--ink-soft); font-size: 15px;
+}
+
+/* ---- the verdict --------------------------------------------------------- */
+.dv-verdict {
+  background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+  padding: var(--sp-10) var(--sp-8); box-shadow: 0 6px 22px rgba(15,37,64,.07);
+}
+.dv-verdict:focus { outline: none; }
+.dv-v__eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent-dark); margin: 0 0 8px;
+}
+.dv-verdict h2 {
+  font-family: 'DM Serif Display', Georgia, serif; color: var(--navy);
+  font-size: clamp(28px, 4.4vw, 36px); line-height: 1.15; margin: 0 0 12px;
+}
+.dv-v__body { color: var(--ink-soft); max-width: 62ch; margin: 0 0 var(--sp-8); }
+
+.dv-v__sec { border-top: 1px solid var(--border); padding-top: var(--sp-6); margin-top: var(--sp-6); }
+.dv-v__sec h3 {
+  font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  margin: 0 0 var(--sp-4); color: var(--navy);
+}
+.dv-v__sec.is-ours h3::before,
+.dv-v__sec.is-talk h3::before,
+.dv-v__sec.is-not h3::before {
+  content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  margin-right: 9px; vertical-align: 0;
+}
+.dv-v__sec.is-ours h3::before { background: var(--success); }
+.dv-v__sec.is-talk h3::before { background: var(--accent); }
+.dv-v__sec.is-not h3::before { background: var(--ink-muted); }
+.dv-v__item { margin-bottom: var(--sp-5); }
+.dv-v__item:last-child { margin-bottom: 0; }
+.dv-v__item strong { display: block; color: var(--ink); margin-bottom: 3px; }
+.dv-v__item p, .dv-v__sec > p { margin: 0; color: var(--ink-soft); max-width: 64ch; line-height: 1.6; }
+.dv-v__figure {
+  font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(26px, 4vw, 34px);
+  color: var(--navy) !important; margin-bottom: 6px !important;
+}
+.dv-v__gap {
+  margin: var(--sp-6) 0 0; padding: 12px 16px; background: var(--surface);
+  border-radius: 8px; color: var(--ink-muted); font-size: 14.5px;
+}
+.dv-v__next { border-top: 1px solid var(--border); margin-top: var(--sp-8); padding-top: var(--sp-6); }
+.dv-v__next p { color: var(--ink-soft); max-width: 62ch; margin: 0 0 var(--sp-5); }
+.dv-v__next a.bb-btn { display: inline-block; text-decoration: none; }
+.dv-v__tools { display: flex; gap: 8px; flex-wrap: wrap; margin-top: var(--sp-5); }
+
+@media (max-width: 560px) {
+  .dv-verdict { padding: var(--sp-8) var(--sp-5); }
+  .dv-chips { grid-template-columns: 1fr 1fr; }
+  /* Twelve options in one column is a long thumb-scroll for the exact person this form
+     is for. Two columns halves it; the labels wrap cleanly at this width. */
+  .bb-options--multi { grid-template-columns: 1fr 1fr; }
+  .bb-option { padding-left: 10px; padding-right: 8px; font-size: 14.5px; }
+}
+
+/* Someone printing their verdict wants the verdict, not the site around it. */
+@media print {
+  header, footer, nav, .header-band, .bb-rail, .dv-v__tools, .dv-v__next a.bb-btn { display: none !important; }
+  .wrap { margin: 0; max-width: none; padding: 0; }
+  .dv-verdict { border: 0; box-shadow: none; padding: 0; }
+}

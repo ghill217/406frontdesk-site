@@ -1,0 +1,146 @@
+---
+layout: layouts/base.njk
+title: Front Desk Discovery
+description: A short, honest checkup on where your calls, messages and hours are going. Tap through it in pieces, it saves as you go, and you get a straight answer on whether 406 Front Desk can help or not.
+pageCss: build-brief
+permalink: /discovery/
+eleventyExcludeFromCollections: true
+noindex: true   # sent by hand to a warm lead; not a marketing page until Gus says so
+---
+{#
+  Front Desk Discovery: the self-serve deployment of the Problem-Discovery Questionnaire
+  (vault: wiki/synthesis/406 Front Desk — Problem-Discovery Questionnaire).
+
+  WHO THIS IS FOR: an owner who is underwater. The emailed open-question version of this
+  went unanswered for nine weeks (2026-07-12), so the design rules are:
+    - only step 1 is required; every later step can be skipped, and "send what you have"
+      is on every step. Permission to stop matters more than save-and-resume.
+    - mostly taps; every "in your own words" box is optional.
+    - it saves on this device as they go, and can hand them a private link to carry on
+      from another device. Nothing is sent, to anyone, until they hit send.
+    - on send they get an honest fit verdict, including "this isn't me" when it isn't.
+
+  QUESTIONS live in src/_data/discovery.json. FIELD IDS are generated
+  (scripts/sync-discovery.mjs). THE VERDICT RULES live in
+  netlify/functions/discovery-verdict.mjs and are selftested; this page only renders
+  what the server sends back, so there is exactly one copy of the rules.
+
+  NO PHONE FIELD, NO A2P CONSENT BLOCK: same call as /start/ (2026-08-03).
+  The page chrome and form controls reuse build-brief.css on purpose.
+#}
+<link rel="stylesheet" href="/css/discovery.css?v={{ buildStamp }}" />
+
+<div class="header-band">
+  <span class="header-eyebrow">Front desk discovery</span>
+  <h1>Can I actually help you?</h1>
+</div>
+
+<div class="wrap">
+  <div class="bb-intro" id="dvIntro">
+    <p>
+      This is how I find out where your time and your customers are getting away from you, and whether
+      any of it is something I can fix. About {{ discovery.minutes }} minutes of mostly tapping, and you get a straight
+      answer at the end, including <strong>"this isn't me"</strong> if it isn't.
+    </p>
+    <p>
+      <strong>Do it in pieces.</strong> It saves on this device as you go, so close the tab mid-thought and
+      come back to the same link later. Only the first step is required. After that, skip anything, and
+      send what you have whenever you run out of time. Nothing goes anywhere until you hit send.
+    </p>
+  </div>
+
+  <div class="dv-resume" id="dvResume" hidden role="status"></div>
+
+  <ol class="bb-rail" id="bbRail" aria-label="Progress">
+    {% for s in discovery.steps %}
+    <li class="bb-rail__step" data-step="{{ s.n }}"><span class="bb-rail__n">{{ s.n }}</span><span class="bb-rail__t">{{ s.title }}</span></li>
+    {% endfor %}
+  </ol>
+
+  <form id="dvForm" class="bb-form" novalidate autocomplete="on">
+    {# Honeypot. A real person never fills this; bots fill everything. #}
+    <div class="bb-hp" aria-hidden="true">
+      <label>Company website<input type="text" name="website_hp" tabindex="-1" autocomplete="off" /></label>
+    </div>
+
+    {% set total = discovery.steps | length %}
+    {% for s in discovery.steps %}
+    <fieldset class="bb-step" data-step="{{ s.n }}" {% if s.n != 1 %}hidden{% endif %}>
+      <legend class="bb-step__legend">
+        <span class="bb-step__count">Step {{ s.n }} of {{ total }}{% if s.n > 1 %} · optional{% endif %}</span>
+        <span class="bb-step__title">{{ s.title }}</span>
+      </legend>
+      <p class="bb-step__blurb">{{ s.blurb }}</p>
+
+      {% for q in s.questions %}
+      <div class="bb-field{% if q.kind == 'note' %} dv-note{% endif %}" data-q="{{ q.id }}"
+           {% if q.showIf %}data-show-q="{{ q.showIf.q }}" data-show-has="{{ q.showIf.has }}" hidden{% endif %}>
+        {% if q.kind == "note" %}
+          <p>{{ q.text }}</p>
+        {% else %}
+          {% if q.kind == "chips" or q.kind == "multi" %}
+            <span class="bb-label" id="l_{{ q.id }}">{{ q.label }}{% if q.required %} <span class="bb-req">required</span>{% endif %}</span>
+          {% else %}
+            <label class="bb-label" for="f_{{ q.id }}">{{ q.label }}{% if q.required %} <span class="bb-req">required</span>{% endif %}</label>
+          {% endif %}
+          {% if q.help %}<p class="bb-help">{{ q.help }}</p>{% endif %}
+
+          {% if q.kind == "chips" %}
+            <div class="bb-options dv-chips" role="radiogroup" aria-labelledby="l_{{ q.id }}">
+              {% for o in q.options %}
+              <label class="bb-option"><input type="radio" name="{{ q.id }}" value="{{ o }}" {% if q.required %}required{% endif %} /><span>{{ o }}</span></label>
+              {% endfor %}
+            </div>
+          {% elif q.kind == "multi" %}
+            <div class="bb-options bb-options--multi" role="group" aria-labelledby="l_{{ q.id }}" data-multi="1"{% if q.max %} data-max="{{ q.max }}"{% endif %}>
+              {% for o in q.options %}
+              <label class="bb-option"><input type="checkbox" name="{{ q.id }}" value="{{ o }}" /><span>{{ o }}</span></label>
+              {% endfor %}
+            </div>
+            {% if q.max %}<p class="bb-count" data-max="{{ q.max }}"></p>{% endif %}
+          {% elif q.kind == "longtext" %}
+            <textarea class="bb-input bb-textarea" id="f_{{ q.id }}" name="{{ q.id }}" rows="3" maxlength="3000" {% if q.required %}required{% endif %}></textarea>
+          {% elif q.kind == "number" %}
+            <input class="bb-input dv-number" type="text" inputmode="decimal" id="f_{{ q.id }}" name="{{ q.id }}" maxlength="20" />
+          {% else %}
+            <input class="bb-input" type="{% if q.kind == 'email' %}email{% else %}text{% endif %}" id="f_{{ q.id }}" name="{{ q.id }}" maxlength="300"
+                   {% if q.autocomplete %}autocomplete="{{ q.autocomplete }}"{% endif %} {% if q.required %}required{% endif %} />
+          {% endif %}
+
+          {% if q.own %}
+          <details class="dv-own">
+            <summary>{{ q.ownLabel or "In your own words (optional)" }}</summary>
+            <textarea class="bb-input bb-textarea" name="{{ q.id }}__own" rows="2" maxlength="1500" aria-label="{{ q.label }}, in your own words"></textarea>
+          </details>
+          {% endif %}
+          <p class="bb-error" hidden>This one's needed before the next step.</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+
+      <div class="bb-nav">
+        <button type="button" class="bb-btn bb-btn--ghost" data-back {% if s.n == 1 %}hidden{% endif %}>Back</button>
+        {% if s.n < total %}
+        <button type="button" class="bb-btn" data-next>{% if s.n == 1 %}Next step{% else %}Next (or skip){% endif %}</button>
+        {% else %}
+        <button type="submit" class="bb-btn bb-btn--go" data-send>Send it and show me the verdict</button>
+        {% endif %}
+      </div>
+      {% if s.n > 1 and s.n < total %}
+      <p class="dv-early">Out of time? <button type="submit" class="dv-linkbtn" data-send>Send what you have</button> and I'll work with that.</p>
+      {% endif %}
+    </fieldset>
+    {% endfor %}
+
+    <div class="dv-carry" id="dvCarry">
+      <button type="button" class="dv-linkbtn" id="dvCarryBtn">Finish on another device?</button>
+      <div class="dv-carry__out" id="dvCarryOut" hidden></div>
+    </div>
+
+    <div class="bb-saved" id="bbSaved" hidden>Saved on this device</div>
+  </form>
+
+  <section class="dv-verdict" id="dvVerdict" hidden aria-live="polite" tabindex="-1"></section>
+</div>
+
+<script src="/js/discovery.js?v={{ buildStamp }}" defer></script>

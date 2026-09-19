@@ -35,6 +35,9 @@
   display: flex; flex-wrap: wrap; gap: 4px;
   list-style: none; margin: var(--sp-8) 0 var(--sp-6); padding: 0;
 }
+/* display:flex beats the hidden ATTRIBUTE, so rail.hidden = true did nothing and the
+   rail sat above the thank-you state. Found building /discovery/, 2026-09-19. */
+.bb-rail[hidden] { display: none; }
 .bb-rail__step {
   display: flex; align-items: center; gap: 7px;
   font-size: 12.5px; color: var(--ink-muted);

@@ -1,0 +1,90 @@
+{
+  "note": "The question bank for /discovery/. The MASTER of record is the vault page '406 Front Desk — Problem-Discovery Questionnaire'; this file is its self-serve deployment, never a fork. `ghl` names a shared custom-field KEY (never an id: ids come from src/_data/discoveryFields.json, which scripts/sync-discovery.mjs generates from the live API). `exact: true` means the GHL field is a picklist and the option strings here must match it character for character, which the sync script asserts.",
+  "minutes": "five to ten",
+  "steps": [
+    {
+      "n": 1,
+      "title": "You and the one thing",
+      "blurb": "The only step that is required. Everything after this is optional, and you can send what you have at any point.",
+      "questions": [
+        { "id": "full_name", "kind": "text", "label": "Your name", "required": true, "autocomplete": "name" },
+        { "id": "business", "kind": "text", "label": "Business name", "required": true, "autocomplete": "organization", "ghl": "business_name_publicfacing" },
+        { "id": "email", "kind": "email", "label": "Best email", "required": true, "autocomplete": "email", "help": "Where your answers and my read on them get sent. No phone number needed." },
+        { "id": "role", "kind": "chips", "label": "Your role", "required": true, "options": ["Owner", "Manager", "Other"], "ghl": "your_role", "exact": true },
+        { "id": "deciders", "kind": "chips", "label": "Who else weighs in on a decision like this?", "options": ["Just me", "Me and a partner or spouse", "Someone above me", "Not sure yet"] },
+        { "id": "applies", "kind": "multi", "label": "Which of these sound like your business?", "help": "Tap all that fit. It decides which questions you see later.", "options": ["We book appointments", "We quote custom jobs", "We sell products online", "We have a storefront or shop floor", "We go out to the customer", "We're a clinic or handle health information"] },
+        { "id": "headline", "kind": "longtext", "label": "If one thing came off your plate tomorrow, what would it be?", "required": true, "help": "One line is plenty. Everything else on this form hangs off this answer.", "ghl": ["one_thing_off_your_plate_tomorrow__what_is_it", "what_are_you_hoping_to_fix"] }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Where your week goes",
+      "blurb": "Not the work you do for customers. The work around it.",
+      "questions": [
+        { "id": "time_sucks", "kind": "multi", "max": 3, "label": "Outside the actual work, what eats the most of your week? Pick up to 3", "options": ["Answering the phone", "Returning calls and voicemails", "Texts, DMs and emails", "Quotes and estimates", "Scheduling and rescheduling", "Chasing past customers", "Social media and marketing", "Asking for reviews", "Ordering, inventory and shipping", "Payroll, books and taxes", "Hiring and managing staff", "Something else"], "own": true, "ownLabel": "Anything to add, in your own words? (optional)", "ghl": "biggest_admin_timesuck_outside_the_actual_work" },
+        { "id": "admin_hours", "kind": "chips", "label": "Roughly how many hours a week go to those, all together?", "options": ["Under 5", "5 to 10", "10 to 20", "More than 20", "No idea"] },
+        { "id": "interrupts", "kind": "chips", "label": "What interrupts you most while you're doing real work?", "options": ["The phone", "Texts and DMs", "Email", "Walk-ins", "My own team", "It's the volume, not the interruptions"] }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Calls and messages",
+      "blurb": "What actually happens today, not what's supposed to happen.",
+      "questions": [
+        { "id": "who_answers", "kind": "chips", "label": "Who answers the phone now?", "options": ["Me", "Staff", "Voicemail", "Answering service", "Nobody"], "ghl": "who_answers_the_phone_now", "exact": true },
+        { "id": "busy_calls", "kind": "multi", "label": "When nobody can pick up, what happens to that call?", "options": ["It goes to voicemail", "I call back when I can", "They usually don't leave a message", "They call someone else", "Honestly not sure"], "own": true, "ghl": "what_happens_to_calls_when_your_hands_are_busy" },
+        { "id": "unanswered", "kind": "chips", "label": "Roughly how many calls a week go unanswered?", "help": "Your best guess. 'Not sure' is a real answer.", "options": ["Not sure", "1–5", "6–15", "15+"], "ghl": "roughly_how_many_calls_a_week_go_unanswered", "exact": true },
+        { "id": "after_hours", "kind": "multi", "label": "What happens after hours and on weekends?", "options": ["Voicemail", "It rings my cell", "Nothing until we reopen", "An answering service picks up", "We're open then"], "own": true, "ghl": ["what_happens_after_hours__on_weekends", "what_happens_after_hours"] },
+        { "id": "first_contact", "kind": "multi", "label": "How do new customers usually reach out first?", "options": ["Phone call", "Text", "Facebook or Instagram message", "Website form or chat", "Email", "Walk-in", "Google listing", "A marketplace or booking app"] },
+        { "id": "slips", "kind": "longtext", "label": "Where do leads slip through the cracks the most?", "help": "Optional. Your words are more useful to me than any checkbox.", "ghl": "where_do_leads_slip_through_the_cracks_most" }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Quotes, booking and no-shows",
+      "blurb": "How the money side of a new customer actually works.",
+      "questions": [
+        { "id": "pricing", "kind": "chips", "label": "How do you price a job or a sale?", "options": ["Set price list", "\"Starting at\" prices", "Every job is custom", "A mix"], "own": true, "ghl": "how_do_you_price__quote_a_job" },
+        { "id": "booking", "kind": "chips", "label": "How does a booking actually land on your schedule?", "options": ["I book it myself", "Back-and-forth texting or calls", "An online booking app", "Staff handles it", "We don't book appointments"] },
+        { "id": "noshows", "kind": "chips", "label": "No-shows and last-minute cancellations?", "options": ["Rare", "A few a month", "Every week", "It's a real problem", "Doesn't apply"], "own": true, "ghl": "noshows__lastminute_cancellations" }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Past customers and reviews",
+      "blurb": "The business you already earned and aren't collecting on.",
+      "questions": [
+        { "id": "dormant", "kind": "chips", "label": "Are there past customers you know you should follow up with, but never get time to?", "options": ["Yes, a lot", "Some", "Not really"], "ghl": "past_customers_you_never_get_time_to_follow_up_with" },
+        { "id": "list_size", "kind": "chips", "label": "About how many past customers do you have contact info for?", "options": ["Under 100", "100 to 500", "500 to 2,000", "More than 2,000", "No idea"] },
+        { "id": "list_has", "kind": "multi", "label": "What do you have for them?", "options": ["Phone numbers", "Emails", "Mailing addresses", "It's in my head or on paper"] },
+        { "id": "list_lives", "kind": "multi", "label": "Where does that list live?", "options": ["Booking or point-of-sale system", "Online store", "A spreadsheet", "An email tool", "My phone's contacts", "Paper", "Nowhere, really"] },
+        { "id": "opted_in", "kind": "chips", "label": "Did they ever agree to get texts or emails from you?", "help": "It matters: what I'm allowed to send on your behalf depends on it, and I'd rather know now.", "options": ["Yes, they opted in", "Some did", "No", "Not sure"] },
+        { "id": "reviews", "kind": "chips", "label": "How do you ask for reviews today?", "options": ["We don't", "When I remember", "We ask in person", "It's already automated"], "own": true, "ghl": "how_do_you_ask_for_reviews_today" }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "What you use and what you've tried",
+      "blurb": "So I can tell you honestly what plugs in and what doesn't.",
+      "questions": [
+        { "id": "clinic_note", "kind": "note", "showIf": { "q": "applies", "has": "We're a clinic or handle health information" }, "text": "Please don't put any patient information on this form. Names of systems are fine; anything about a person is not." },
+        { "id": "tools", "kind": "multi", "label": "What do you already use to run things?", "options": ["Online booking", "Point of sale or payments", "An online store", "An email marketing tool", "A CRM", "Accounting software", "Spreadsheets", "Pen and paper"], "own": true, "ownLabel": "Name them if you like (optional)" },
+        { "id": "tried", "kind": "multi", "label": "Have you tried fixing any of this before?", "options": ["Hired help", "An answering service", "Software that didn't stick", "No, this is the first look"], "own": true, "ownLabel": "What happened? (optional)" },
+        { "id": "ecom_volume", "kind": "chips", "showIf": { "q": "applies", "has": "We sell products online" }, "label": "In a typical week, how many \"where's my order\", \"will this fit\" or \"what's your return policy\" messages come in?", "options": ["A handful", "10 to 25", "More than 25", "Not sure"] },
+        { "id": "clinic_system", "kind": "text", "showIf": { "q": "applies", "has": "We're a clinic or handle health information" }, "label": "Which system holds your schedule and charts?", "help": "The name is enough." }
+      ]
+    },
+    {
+      "n": 7,
+      "title": "Guardrails, your numbers and the yes",
+      "blurb": "Last step. All optional, and the numbers are only useful if they're yours.",
+      "questions": [
+        { "id": "vips", "kind": "text", "label": "Any customers or jobs that always jump the line?", "help": "Anything automated should get out of their way.", "ghl": "customers_or_jobs_that_always_jump_the_line" },
+        { "id": "never", "kind": "longtext", "label": "What should an assistant never say or do on your behalf?" },
+        { "id": "worth", "kind": "number", "label": "What's a new customer worth to you, ballpark? (dollars)", "help": "Think beyond the first sale. Skip it if you'd be guessing: I'd rather have no number than a made-up one." },
+        { "id": "close_rate", "kind": "chips", "label": "Of the people you do get to talk to, about how many become customers?", "options": ["About 1 in 10", "About 1 in 4", "About half", "Most of them", "Not sure"] },
+        { "id": "say_yes", "kind": "longtext", "label": "What would have to be true for you to say yes to something like this?", "ghl": "what_would_have_to_be_true_for_you_to_say_yes" }
+      ]
+    }
+  ]
+}
