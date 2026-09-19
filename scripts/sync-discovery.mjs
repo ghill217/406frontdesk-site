@@ -68,11 +68,15 @@ for (const step of bank.steps) {
       const f = take(key, `question "${q.id}"`);
       if (!f) continue;
       const picklist = (f.picklistOptions || []).map((o) => (typeof o === "string" ? o : o.label ?? o.value));
+      // The rule is per FIELD, not per question: one answer can feed a picklist and its
+      // free-text twin on another form. A picklist demands exact options; a text field
+      // takes whatever the question sends.
+      if (!picklist.length) continue;
       if (q.exact) {
         if (JSON.stringify(picklist) !== JSON.stringify(q.options)) {
           problems.push(`question "${q.id}" is exact but its options differ from the live picklist on "${key}":\n      form: ${JSON.stringify(q.options)}\n      GHL:  ${JSON.stringify(picklist)}`);
         }
-      } else if (picklist.length) {
+      } else {
         problems.push(`question "${q.id}" writes free text into "${key}", which is a picklist in GHL. Mark it exact or pick a text field.`);
       }
     }
